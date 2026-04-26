@@ -1,33 +1,618 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<title>Helpful Links & Educational Resources – Curated by Tuan Tran</title>
-<meta name="description" content="Explore curated links and useful educational resources related to learning from kindergarten through grade 12.">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ═══════════════════════════════════════════════
+CHANGE THESE 6 LINES FOR EACH PAGE
+═══════════════════════════════════════════════ -->
+<meta name="description" content="A curated collection of links on Vietnamese history, the Vietnam War, Buddhist meditation, civil rights, and Vietnamese-American community resources recommended by Tuan Tran." />
+<meta name="keywords" content="Vietnam War resources, Buddhist meditation links, Vietnamese-American community, civil rights resources, Vietnam history, Tuan Tran recommended links" />
+<meta property="og:title" content="Links — Tuan Tran's Journal" />
+<meta property="og:description" content="Curated resources on Vietnamese history, Buddhist meditation, civil rights, and Vietnamese-American community." />
+<meta property="og:url" content="https://www.tuantran.org/links.html" />
+<title>Links — Tuan Tran's Journal</title>
+<!-- ═══════════════════════════════════════════════
+END OF PER-PAGE CHANGES IN HEAD
+═══════════════════════════════════════════════ -->
+
+<meta name="author" content="Tuan Tran" />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
+
+<style>
+/* ── RESET & BASE ─────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+--ink: #1a1610;
+--ink-soft: #4a3f30;
+--ink-faint: #8a7a68;
+--paper: #f5f0e8;
+--paper-warm: #ede5d4;
+--paper-deep: #ddd2bc;
+--red: #8b2020;
+--red-soft: #a83030;
+--gold: #9a7a3a;
+--gold-light: #c4a265;
+
+--font-display: 'Cinzel', serif;
+--font-body: 'Crimson Pro', serif;
+--font-quote: 'Cormorant Garamond', serif;
+
+--max-w: 860px;
+--side: clamp(1.25rem, 5vw, 3rem);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+background-color: var(--paper);
+color: var(--ink);
+font-family: var(--font-body);
+font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+line-height: 1.75;
+min-height: 100vh;
+}
+
+/* ── TEXTURE OVERLAY ──────────────────────────── */
+body::before {
+content: '';
+position: fixed;
+inset: 0;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+pointer-events: none;
+z-index: 0;
+}
+
+/* ── SKIP LINK ────────────────────────────────── */
+.skip-link {
+position: absolute;
+top: -100%;
+left: 1rem;
+background: var(--red);
+color: #fff;
+padding: 0.5rem 1rem;
+border-radius: 0 0 4px 4px;
+font-family: var(--font-body);
+transition: top 0.2s;
+z-index: 999;
+}
+.skip-link:focus { top: 0; }
+
+/* ── HEADER ───────────────────────────────────── */
+header {
+position: relative;
+z-index: 10;
+background: var(--ink);
+color: var(--paper);
+padding: 2.5rem var(--side) 2rem;
+text-align: center;
+border-bottom: 3px solid var(--gold);
+}
+
+.site-eyebrow {
+font-family: var(--font-display);
+font-size: clamp(0.6rem, 1.2vw, 0.75rem);
+letter-spacing: 0.25em;
+color: var(--gold-light);
+text-transform: uppercase;
+margin-bottom: 0.75rem;
+}
+
+.site-title {
+font-family: var(--font-display);
+font-size: clamp(1.6rem, 4.5vw, 3rem);
+font-weight: 600;
+letter-spacing: 0.06em;
+line-height: 1.2;
+color: var(--paper);
+}
+
+.site-title a {
+color: inherit;
+text-decoration: none;
+}
+
+.site-subtitle {
+font-family: var(--font-quote);
+font-style: italic;
+font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+color: var(--gold-light);
+margin-top: 0.5rem;
+font-weight: 300;
+}
+
+/* ── NAV ──────────────────────────────────────── */
+nav.main-nav {
+position: sticky;
+top: 0;
+z-index: 100;
+background: var(--ink);
+border-bottom: 1px solid var(--gold);
+}
+
+.nav-inner {
+max-width: var(--max-w);
+margin: 0 auto;
+padding: 0 var(--side);
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.nav-toggle {
+display: none;
+flex-direction: column;
+gap: 5px;
+cursor: pointer;
+padding: 1rem 0;
+background: none;
+border: none;
+}
+.nav-toggle span {
+display: block;
+width: 24px;
+height: 2px;
+background: var(--gold-light);
+transition: all 0.3s;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+.nav-links {
+list-style: none;
+display: flex;
+flex-wrap: wrap;
+}
+
+.nav-links a {
+display: block;
+padding: 0.85rem 0.9rem;
+font-family: var(--font-display);
+font-size: clamp(0.55rem, 1vw, 0.7rem);
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: var(--paper-warm);
+text-decoration: none;
+transition: color 0.2s, background 0.2s;
+white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+color: var(--gold-light);
+background: rgba(255,255,255,0.05);
+}
+
+/* ── BANNER ───────────────────────────────────── */
+.banner {
+width: 100%;
+max-height: 280px;
+object-fit: cover;
+object-position: center top;
+display: block;
+filter: sepia(20%) contrast(0.9);
+}
+
+/* ── PAGE TITLE BLOCK ─────────────────────────── */
+.page-title-block {
+background: var(--paper-warm);
+border-bottom: 1px solid var(--paper-deep);
+padding: 2rem var(--side);
+text-align: center;
+}
+
+.page-label {
+font-family: var(--font-display);
+font-size: 0.65rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(--red);
+display: block;
+margin-bottom: 0.5rem;
+}
+
+.page-title {
+font-family: var(--font-display);
+font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+font-weight: 600;
+letter-spacing: 0.06em;
+color: var(--ink);
+line-height: 1.2;
+}
+
+.page-desc {
+font-family: var(--font-quote);
+font-style: italic;
+font-weight: 300;
+font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+color: var(--ink-faint);
+margin-top: 0.5rem;
+}
+
+/* ── MAIN ─────────────────────────────────────── */
+main {
+position: relative;
+z-index: 1;
+max-width: var(--max-w);
+margin: 0 auto;
+padding: 3rem var(--side) 4rem;
+}
+
+/* ── PROSE ────────────────────────────────────── */
+.prose p {
+margin-bottom: 1.4em;
+color: var(--ink-soft);
+}
+
+.prose p:last-child { margin-bottom: 0; }
+
+.prose h2 {
+font-family: var(--font-display);
+font-size: clamp(0.8rem, 1.4vw, 0.95rem);
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(--red);
+margin: 2.5rem 0 1rem;
+}
+
+/* ── PULL QUOTE ───────────────────────────────── */
+.pull-quote {
+margin: 2.5rem 0;
+padding: 1.75rem 2rem;
+background: var(--paper-warm);
+border-left: 4px solid var(--red);
+border-radius: 0 4px 4px 0;
+position: relative;
+}
+
+.pull-quote::before {
+content: '\201C';
+position: absolute;
+top: -0.5rem;
+left: 1.5rem;
+font-family: var(--font-quote);
+font-size: 5rem;
+color: var(--red);
+opacity: 0.2;
+line-height: 1;
+}
+
+.pull-quote p {
+font-family: var(--font-quote);
+font-style: italic;
+font-size: clamp(1.05rem, 2vw, 1.25rem);
+font-weight: 300;
+line-height: 1.7;
+color: var(--ink);
+margin: 0 !important;
+}
+
+.pull-quote cite {
+display: block;
+margin-top: 0.75rem;
+font-family: var(--font-display);
+font-style: normal;
+font-size: 0.65rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(--red);
+}
+
+/* ── POEM BLOCK ───────────────────────────────── */
+.poem-block {
+background: var(--ink);
+color: var(--paper);
+padding: 2.5rem 2rem;
+border-radius: 4px;
+margin: 2.5rem 0;
+position: relative;
+overflow: hidden;
+}
+
+.poem-block::before {
+content: '';
+position: absolute;
+inset: 0;
+background: linear-gradient(135deg, rgba(139,32,32,0.15) 0%, transparent 60%);
+pointer-events: none;
+}
+
+.poem-label {
+font-family: var(--font-display);
+font-size: 0.6rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--gold-light);
+margin-bottom: 1rem;
+display: block;
+}
+
+.poem-title {
+font-family: var(--font-display);
+font-size: clamp(0.9rem, 1.5vw, 1rem);
+letter-spacing: 0.1em;
+color: var(--gold-light);
+margin-bottom: 1.25rem;
+}
+
+.poem-text {
+font-family: var(--font-quote);
+font-style: italic;
+font-size: clamp(1rem, 2vw, 1.2rem);
+font-weight: 300;
+line-height: 2;
+color: var(--paper-warm);
+white-space: pre-line;
+}
+
+/* ── TOPICS GRID (homepage only) ──────────────── */
+.topics-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+gap: 1px;
+background: var(--paper-deep);
+border: 1px solid var(--paper-deep);
+border-radius: 4px;
+overflow: hidden;
+margin-bottom: 3.5rem;
+}
+
+.topic-card {
+background: var(--paper);
+padding: 1.5rem;
+text-decoration: none;
+display: block;
+transition: background 0.2s;
+position: relative;
+}
+
+.topic-card:hover { background: var(--paper-warm); }
+
+.topic-card::after {
+content: '→';
+position: absolute;
+right: 1.25rem;
+top: 50%;
+transform: translateY(-50%);
+color: var(--red);
+opacity: 0;
+transition: opacity 0.2s, right 0.2s;
+}
+
+.topic-card:hover::after { opacity: 1; right: 1rem; }
+
+.topic-tag {
+font-family: var(--font-display);
+font-size: 0.6rem;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(--red);
+display: block;
+margin-bottom: 0.4rem;
+}
+
+.topic-title {
+font-family: var(--font-quote);
+font-size: clamp(1rem, 1.8vw, 1.15rem);
+font-weight: 400;
+color: var(--ink);
+line-height: 1.3;
+}
+
+.topic-desc {
+margin-top: 0.4rem;
+font-size: 0.9rem;
+color: var(--ink-faint);
+line-height: 1.5;
+}
+
+/* ── DIVIDER ──────────────────────────────────── */
+.divider {
+display: flex;
+align-items: center;
+gap: 1rem;
+margin: 3rem 0 2rem;
+}
+
+.divider::before,
+.divider::after {
+content: '';
+flex: 1;
+height: 1px;
+background: linear-gradient(to right, transparent, var(--paper-deep));
+}
+.divider::after {
+background: linear-gradient(to left, transparent, var(--paper-deep));
+}
+
+.divider-text {
+font-family: var(--font-display);
+font-size: 0.65rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--ink-faint);
+white-space: nowrap;
+}
+
+/* ── PAGE NAV (prev / next) ───────────────────── */
+.page-nav {
+display: flex;
+justify-content: space-between;
+gap: 1rem;
+margin-top: 3rem;
+padding-top: 2rem;
+border-top: 1px solid var(--paper-deep);
+}
+
+.page-nav a {
+font-family: var(--font-display);
+font-size: 0.65rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(--red);
+text-decoration: none;
+transition: color 0.2s;
+}
+
+.page-nav a:hover { color: var(--red-soft); }
+.page-nav .next { margin-left: auto; }
+
+/* ── FOOTER ───────────────────────────────────── */
+footer {
+position: relative;
+z-index: 1;
+background: var(--ink);
+color: var(--ink-faint);
+text-align: center;
+padding: 2rem var(--side);
+border-top: 1px solid rgba(154,122,58,0.3);
+}
+
+footer p {
+font-family: var(--font-body);
+font-size: 0.85rem;
+line-height: 1.8;
+}
+
+footer a { color: var(--gold-light); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+.footer-nav {
+list-style: none;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 0.25rem 1.5rem;
+margin-bottom: 1.25rem;
+}
+
+.footer-nav a {
+font-family: var(--font-display);
+font-size: 0.6rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(--ink-faint);
+}
+
+.footer-nav a:hover { color: var(--gold-light); }
+
+/* ── RESPONSIVE ───────────────────────────────── */
+@media (max-width: 680px) {
+.nav-toggle { display: flex; }
+
+.nav-links {
+display: none;
+flex-direction: column;
+width: 100%;
+border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav-links.open { display: flex; }
+
+.nav-links a {
+padding: 0.9rem var(--side);
+border-bottom: 1px solid rgba(255,255,255,0.05);
+font-size: 0.75rem;
+}
+
+.nav-inner { flex-wrap: wrap; }
+.pull-quote { padding: 1.5rem 1.5rem 1.5rem 1.75rem; }
+.poem-block { padding: 2rem 1.5rem; }
+}
+
+/* ── ANIMATIONS ───────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+main { animation: fadeUp 0.6s ease both; }
+}
+
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(16px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── PRINT ────────────────────────────────────── */
+@media print {
+nav.main-nav, footer, .page-nav { display: none; }
+body { background: white; color: black; }
+main { max-width: 100%; padding: 0; }
+}
+</style>
 </head>
 
 <body>
-<center><h1>Tuan Tran's Journal<br>
-A Vietnamese-American Experience</h1></center>
-<center><img src="banner.jpg" width="1000" height="150"></center><br>
-<blockquote>  
-<nav>
-        <a href="childhood.html">Childhood</a> |
-        <a href="usa.html">Life in the USA</a> | 
-        <a href="cominghome.html">Coming Home</a> | 
-        <a href="writings.html">My Other Writings</a> | 
-        <a href="taichi.html">Tai Chi</a> | 
-        <a href="meditation.html">On Meditation</a> | 
-        <a href="diabetes.html">Safe Diabetes</a> | 
-        <a href="worksheet.html">Literature Worksheet</a> | 
-        <a href="links.html">Educational Links</a> | 
-        <a href="marthahess.html">Then the Americans Came</a> | 
-        <a href="russelltribunal.html">Bertrand Russell Tribunal</a> |
-        <a href="comments.html">Comments</a>   
-    </nav>
-</blockquote>
-<blockquote>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- ─────────────────────────────────────────────
+SITE HEADER — same on every page
+───────────────────────────────────────────── -->
+<header>
+<p class="site-eyebrow">A personal journal</p>
+<h1 class="site-title"><a href="index.html">Tuan Tran's Journal</a></h1>
+<p class="site-subtitle">A Vietnamese-American Experience</p>
+</header>
+
+<!-- ─────────────────────────────────────────────
+MAIN NAV — same on every page
+★ Change aria-current="page" to the current page's <li>
+───────────────────────────────────────────── -->
+<nav class="main-nav" aria-label="Main navigation">
+<div class="nav-inner">
+<button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+<span></span><span></span><span></span>
+</button>
+<ul class="nav-links" id="nav-links" role="list">
+<li><a href="index.html" aria-current="page">Home</a></li>
+<li><a href="childhood.html" aria-current="page">Childhood</a></li>
+<li><a href="usa.html" aria-current="page">Life in the USA</a></li>
+<li><a href="cominghome.html" aria-current="page">Coming Home</a></li>
+<li><a href="writings.html" aria-current="page">My Writings</a></li>
+<li><a href="meditation.html" aria-current="page">Meditation</a></li>
+<li><a href="taichi.html" aria-current="page">Tai Chi</a></li>
+<li><a href="diabetes.html" aria-current="page">Diabetes</a></li>
+<li><a href="marthahess.html" aria-current="page">Then the Americans Came</a></li>
+<li><a href="russelltribunal.html" aria-current="page">Russell Tribunal</a></li>
+<li><a href="links.html" aria-current="page">Links</a></li>
+<li><a href="comments.html" aria-current="page">Comments</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- ─────────────────────────────────────────────
+BANNER — same image on every page
+───────────────────────────────────────────── -->
+<img
+src="banner.jpg"
+alt="Vietnamese terraced rice fields"
+class="banner"
+width="1200"
+height="280"
+loading="lazy"
+/>
+
+<!-- ═══════════════════════════════════════════════
+★★★ REPLACE EVERYTHING BELOW THIS LINE ★★★
+with the page-specific content block.
+Keep the <main id="main"> wrapper.
+═══════════════════════════════════════════════ -->
+
+<!-- PAGE TITLE BLOCK — change label, title, desc -->
+<div class="page-title-block">
+<span class="page-label">Resources</span>
+<h2 class="page-title">Links</h2>
+<p class="page-desc">Recommended reading and resources</p>
+</div>
+
+<main id="main">
+
+<!-- YOUR PAGE CONTENT GOES HERE -->
+<article class="prose">
 <h2>Educational Links</h2>
 
 <strong>Kindergarten</strong><p>
@@ -341,29 +926,62 @@ Popular Children Stories<p>
 <a href="http://illuminations.nctm.org/LessonDetail.aspx?ID=L570">Building a Box</a><br>
 <a href="http://www.bbc.co.uk/education/mathsfile/shockwave/games/animal.html">Animal Weigh In</a><p>    
 
-</blockquote>
-<hr>
+</article>
 
+<!-- PREV / NEXT — update links per page -->
+<nav class="page-nav" aria-label="Page navigation">
+<a href="russelltribunal.html">← Previous Page</a>
+<a href="comments.html" class="next">Next Page →</a>
+</nav>
+
+</main>
+<!-- ═══════════════════════════════════════════════
+★★★ END OF PAGE-SPECIFIC CONTENT ★★★
+═══════════════════════════════════════════════ -->
+
+<!-- ─────────────────────────────────────────────
+FOOTER — same on every page
+───────────────────────────────────────────── -->
 <footer>
-
-<p><strong>Explore this site</strong></p>
-
+<ul class="footer-nav" role="list" aria-label="Footer navigation">
+<li><a href="index.html">Home</a></li>
+<li><a href="childhood.html">Childhood</a></li>
+<li><a href="usa.html">Life in the USA</a></li>
+<li><a href="cominghome.html">Coming Home</a></li>
+<li><a href="meditation.html">Meditation</a></li>
+<li><a href="comments.html">Comments</a></li>
+<li><a href="sitemap.html">Site Map</a></li>
+</ul>
 <p>
-<a href="index.html">Homepage</a> |
-<a href="childhood.html">Childhood</a> |
-<a href="usa.html">Life in the USA</a> |
-<a href="cominghome.html">Coming Home</a> |
-<a href="meditation.html">Meditation</a> |
-<a href="sitemap.html">Site Map</a>
+This website shares personal reflections on war, migration, meditation, and health.<br>
+&copy; <span id="yr"></span> Tuan Tran &mdash; <a href="sitemap.html">Site Map</a>
 </p>
-
-<p style="font-size: 0.9em;">
-This website shares personal reflections on war, migration, meditation, and health.
-</p>
-
 </footer>
-<center><p>&copy; 2001 Tuan Tran</p></center>
+
+<!-- ─────────────────────────────────────────────
+SCRIPTS — same on every page
+───────────────────────────────────────────── -->
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+const toggle = document.querySelector('.nav-toggle');
+const navLinks = document.getElementById('nav-links');
+
+toggle.addEventListener('click', () => {
+const open = toggle.getAttribute('aria-expanded') === 'true';
+toggle.setAttribute('aria-expanded', String(!open));
+navLinks.classList.toggle('open', !open);
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+link.addEventListener('click', () => {
+if (window.innerWidth <= 680) {
+toggle.setAttribute('aria-expanded', 'false');
+navLinks.classList.remove('open');
+}
+});
+});
+</script>
 
 </body>
-
 </html>
