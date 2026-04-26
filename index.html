@@ -1,95 +1,682 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<title>Tuan Tran - Essays on Meditation, Identity, War & Personal Insight</title>
-<meta name="description" content="Personal essays exploring meditation, identity, immigration, the Vietnam War, and reflections on life, culture, and awareness.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tuan Tran's Journal — A Vietnamese-American writer's reflections on war, migration, meditation, identity, and healing. Personal memoir of a Saigon-born refugee who came of age in America." />
+  <meta name="keywords" content="Vietnamese-American, Vietnam War, refugee memoir, meditation, Buddhism, Tuan Tran, diaspora, Saigon" />
+  <meta name="author" content="Tuan Tran" />
+  <meta property="og:title" content="Tuan Tran's Journal — A Vietnamese-American Experience" />
+  <meta property="og:description" content="Personal reflections on war, migration, meditation, and the search for identity." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.tuantran.org" />
+  <title>Tuan Tran's Journal — A Vietnamese-American Experience</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── RESET & BASE ─────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #1a1610;
+      --ink-soft:   #4a3f30;
+      --ink-faint:  #8a7a68;
+      --paper:      #f5f0e8;
+      --paper-warm: #ede5d4;
+      --paper-deep: #ddd2bc;
+      --red:        #8b2020;
+      --red-soft:   #a83030;
+      --gold:       #9a7a3a;
+      --gold-light: #c4a265;
+
+      --font-display: 'Cinzel', serif;
+      --font-body:    'Crimson Pro', serif;
+      --font-quote:   'Cormorant Garamond', serif;
+
+      --max-w: 860px;
+      --side:  clamp(1.25rem, 5vw, 3rem);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── TEXTURE OVERLAY ──────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── SKIP LINK ────────────────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--red);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 0 0 4px 4px;
+      font-family: var(--font-body);
+      transition: top 0.2s;
+      z-index: 999;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ── HEADER ───────────────────────────────────── */
+    header {
+      position: relative;
+      z-index: 10;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 2.5rem var(--side) 2rem;
+      text-align: center;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .site-eyebrow {
+      font-family: var(--font-display);
+      font-size: clamp(0.6rem, 1.2vw, 0.75rem);
+      letter-spacing: 0.25em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .site-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4.5vw, 3rem);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      line-height: 1.2;
+      color: var(--paper);
+    }
+
+    .site-subtitle {
+      font-family: var(--font-quote);
+      font-style: italic;
+      font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+      color: var(--gold-light);
+      margin-top: 0.5rem;
+      font-weight: 300;
+    }
+
+    /* ── NAV ──────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--ink);
+      border-bottom: 1px solid var(--gold);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--side);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 1rem 0;
+      background: none;
+      border: none;
+      color: var(--paper);
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--gold-light);
+      transition: all 0.3s;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 0.85rem 0.9rem;
+      font-family: var(--font-display);
+      font-size: clamp(0.55rem, 1vw, 0.7rem);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--paper-warm);
+      text-decoration: none;
+      transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
+      color: var(--gold-light);
+      background: rgba(255,255,255,0.05);
+    }
+
+    /* ── BANNER IMAGE ─────────────────────────────── */
+    .banner {
+      width: 100%;
+      max-height: 280px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: sepia(20%) contrast(0.9);
+    }
+
+    /* ── MAIN ─────────────────────────────────────── */
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 3rem var(--side) 4rem;
+    }
+
+    /* ── OPENING QUOTE ────────────────────────────── */
+    .opening-quote {
+      margin: 0 0 3rem;
+      padding: 2rem 2.5rem;
+      background: var(--paper-warm);
+      border-left: 4px solid var(--red);
+      border-radius: 0 4px 4px 0;
+      position: relative;
+    }
+
+    .opening-quote::before {
+      content: '\201C';
+      position: absolute;
+      top: -0.5rem;
+      left: 1.5rem;
+      font-family: var(--font-quote);
+      font-size: 5rem;
+      color: var(--red);
+      opacity: 0.25;
+      line-height: 1;
+    }
+
+    .opening-quote p {
+      font-family: var(--font-quote);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--ink);
+    }
+
+    .opening-quote cite {
+      display: block;
+      margin-top: 0.75rem;
+      font-family: var(--font-display);
+      font-style: normal;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+
+    /* ── INTRO ────────────────────────────────────── */
+    .intro {
+      margin-bottom: 3.5rem;
+    }
+
+    .intro p {
+      margin-bottom: 1.2em;
+      color: var(--ink-soft);
+    }
+
+    .intro p:last-child { margin-bottom: 0; }
+
+    /* ── SECTION DIVIDER ──────────────────────────── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 3rem 0 2rem;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--paper-deep));
+    }
+    .divider::after {
+      background: linear-gradient(to left, transparent, var(--paper-deep));
+    }
+
+    .divider-text {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      white-space: nowrap;
+    }
+
+    /* ── TOPICS GRID ──────────────────────────────── */
+    .topics-heading {
+      font-family: var(--font-display);
+      font-size: clamp(0.65rem, 1.2vw, 0.75rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 1.5rem;
+    }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+      gap: 1px;
+      background: var(--paper-deep);
+      border: 1px solid var(--paper-deep);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 3.5rem;
+    }
+
+    .topic-card {
+      background: var(--paper);
+      padding: 1.5rem;
+      text-decoration: none;
+      display: block;
+      transition: background 0.2s;
+      position: relative;
+    }
+
+    .topic-card:hover {
+      background: var(--paper-warm);
+    }
+
+    .topic-card::after {
+      content: '→';
+      position: absolute;
+      right: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--red);
+      opacity: 0;
+      transition: opacity 0.2s, right 0.2s;
+      font-size: 1.1rem;
+    }
+
+    .topic-card:hover::after {
+      opacity: 1;
+      right: 1rem;
+    }
+
+    .topic-tag {
+      font-family: var(--font-display);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .topic-title {
+      font-family: var(--font-quote);
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .topic-desc {
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+      color: var(--ink-faint);
+      line-height: 1.5;
+    }
+
+    /* ── FEATURED POEM ────────────────────────────── */
+    .poem-block {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 2.5rem 2rem;
+      border-radius: 4px;
+      margin-bottom: 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .poem-block::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(139,32,32,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .poem-label {
+      font-family: var(--font-display);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .poem-title {
+      font-family: var(--font-display);
+      font-size: clamp(0.9rem, 1.5vw, 1rem);
+      letter-spacing: 0.1em;
+      color: var(--gold-light);
+      margin-bottom: 1.25rem;
+    }
+
+    .poem-text {
+      font-family: var(--font-quote);
+      font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 300;
+      line-height: 2;
+      color: var(--paper-warm);
+      white-space: pre-line;
+    }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    footer {
+      position: relative;
+      z-index: 1;
+      background: var(--ink);
+      color: var(--ink-faint);
+      text-align: center;
+      padding: 2rem var(--side);
+      border-top: 1px solid rgba(154,122,58,0.3);
+    }
+
+    footer p {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      line-height: 1.8;
+    }
+
+    footer a {
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    .footer-nav {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.25rem 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-nav a {
+      font-family: var(--font-display);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-decoration: none;
+    }
+
+    .footer-nav a:hover { color: var(--gold-light); }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 680px) {
+      .nav-toggle { display: flex; }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .nav-links.open { display: flex; }
+
+      .nav-links a {
+        padding: 0.9rem var(--side);
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        font-size: 0.75rem;
+      }
+
+      .nav-inner { flex-wrap: wrap; }
+
+      .opening-quote { padding: 1.5rem 1.5rem 1.5rem 1.75rem; }
+      .poem-block { padding: 2rem 1.5rem; }
+    }
+
+    /* ── ANIMATIONS ───────────────────────────────── */
+    @media (prefers-reduced-motion: no-preference) {
+      header, .opening-quote, .intro, .topics-grid, .poem-block {
+        animation: fadeUp 0.6s ease both;
+      }
+      .topics-grid { animation-delay: 0.15s; }
+      .poem-block  { animation-delay: 0.25s; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── PRINT ────────────────────────────────────── */
+    @media print {
+      nav, footer { display: none; }
+      body { background: white; color: black; }
+      main { max-width: 100%; padding: 0; }
+    }
+  </style>
 </head>
 
 <body>
-<center><h1>Tuan Tran’s Journal <br>
-A Vietnamese-American Experience</h1></center>
-<center><img src="banner.jpg" width="1000" height="150"></center><br>
-<blockquote>
-  <nav>
-        <a href="childhood.html">Childhood</a> |
-        <a href="usa.html">Life in the USA</a> | 
-        <a href="cominghome.html">Coming Home</a> | 
-        <a href="writings.html">My Other Writings</a> | 
-        <a href="taichi.html">Tai Chi</a> | 
-        <a href="meditation.html">On Meditation</a> | 
-        <a href="diabetes.html">Safe Diabetes</a> | 
-        <a href="worksheet.html">Literature Worksheet</a> | 
-        <a href="links.html">Educational Links</a> | 
-        <a href="marthahess.html">Then the Americans Came</a> | 
-        <a href="russelltribunal.html">Bertrand Russell Tribunal</a> |
-        <a href="comments.html">Comments</a>    
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- HEADER -->
+  <header>
+    <p class="site-eyebrow">A personal journal</p>
+    <h1 class="site-title">Tuan Tran's Journal</h1>
+    <p class="site-subtitle">A Vietnamese-American Experience</p>
+  </header>
+
+  <!-- NAV -->
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+<li><a href="index.html" aria-current="page">Home</a></li>
+<li><a href="childhood.html" aria-current="page">Childhood</a></li>
+<li><a href="usa.html" aria-current="page">Life in the USA</a></li>
+<li><a href="cominghome.html" aria-current="page">Coming Home</a></li>
+<li><a href="writings.html" aria-current="page">My Writings</a></li>
+<li><a href="meditation.html" aria-current="page">Meditation</a></li>
+<li><a href="taichi.html" aria-current="page">Tai Chi</a></li>
+<li><a href="diabetes.html" aria-current="page">Diabetes</a></li>
+<li><a href="marthahess.html" aria-current="page">Then the Americans Came</a></li>
+<li><a href="russelltribunal.html" aria-current="page">Russell Tribunal</a></li>
+<li><a href="links.html" aria-current="page">Links</a></li>
+<li><a href="comments.html" aria-current="page">Comments</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- BANNER -->
+  <img
+    src="banner.jpg"
+    alt="Vietnamese landscape — rice fields, water, and sky"
+    class="banner"
+    width="1200"
+    height="280"
+    loading="eager"
+  />
+
+  <!-- MAIN -->
+  <main id="main">
+
+    <!-- Opening Quote -->
+    <blockquote class="opening-quote">
+      <p>
+        Overcome anger through kindness,<br>
+        wickedness through goodness,<br>
+        selfishness through charity,<br>
+        and falsehood through truthfulness.
+      </p>
+      <cite>— Siddhartha</cite>
+    </blockquote>
+
+    <!-- Intro -->
+    <section class="intro" aria-label="About this journal">
+      <p>
+        This website is a collection of personal reflections on meditation, identity,
+        immigration, history, and the human search for understanding. Drawing from lived
+        experience shaped by war, cultural transition, and contemplative practice, these
+        writings explore awareness, belonging, and meaning in an increasingly complex world.
+      </p>
+      <p>
+        This work is offered simply as a reflection. If it is of use to anyone who
+        encounters it, then that is enough.
+      </p>
+    </section>
+
+    <!-- Topics -->
+    <div class="divider" aria-hidden="true">
+      <span class="divider-text">Explore</span>
+    </div>
+
+    <p class="topics-heading">Topics on this website</p>
+
+    <nav class="topics-grid" aria-label="Site sections">
+      <a href="childhood.html" class="topic-card">
+        <span class="topic-tag">Memoir</span>
+        <span class="topic-title">Vietnam War Childhood</span>
+        <span class="topic-desc">Growing up in Saigon, the fall of South Vietnam, and escape by sea.</span>
+      </a>
+      <a href="usa.html" class="topic-card">
+        <span class="topic-tag">Memoir</span>
+        <span class="topic-title">Refugee Experience</span>
+        <span class="topic-desc">Arriving in America — assimilation, loss of identity, and awakening.</span>
+      </a>
+      <a href="meditation.html" class="topic-card">
+        <span class="topic-tag">Practice</span>
+        <span class="topic-title">Meditation</span>
+        <span class="topic-desc">Reflections on mindfulness, Vipassanā, and contemplative life.</span>
+      </a>
+      <a href="taichi.html" class="topic-card">
+        <span class="topic-tag">Practice</span>
+        <span class="topic-title">Tai Chi</span>
+        <span class="topic-desc">The art of moving meditation and inner stillness.</span>
+      </a>
+      <a href="diabetes.html" class="topic-card">
+        <span class="topic-tag">Health</span>
+        <span class="topic-title">Diabetes Lifestyle</span>
+        <span class="topic-desc">Managing diabetes safely through diet, movement, and awareness.</span>
+      </a>
+      <a href="writings.html" class="topic-card">
+        <span class="topic-tag">Essays & Poetry</span>
+        <span class="topic-title">My Other Writings</span>
+        <span class="topic-desc">On civil rights, civil disobedience, voting — and poems.</span>
+      </a>
+      <a href="cominghome.html" class="topic-card">
+        <span class="topic-tag">Journey</span>
+        <span class="topic-title">Coming Home</span>
+        <span class="topic-desc">Returning to Vietnam after decades in America.</span>
+      </a>
+      <a href="marthahess.html" class="topic-card">
+        <span class="topic-tag">History</span>
+        <span class="topic-title">THEN THE AMERICANS CAME</span>
+        <span class="topic-desc">Excerpted from the book THEN THE AMERICANS CAME by Martha Hess.</span>
+      </a>
+      <a href="russelltribunal.html" class="topic-card">
+        <span class="topic-tag">History</span>
+        <span class="topic-title">Bertrand Russell Tribunal</span>
+        <span class="topic-desc">Historical documentation of the international war crimes inquiry.</span>
+      </a>
     </nav>
-</blockquote>  
-<blockquote>
 
-<h2>Homepage</h2><p>
+    <!-- Featured Poem -->
+    <div class="divider" aria-hidden="true">
+      <span class="divider-text">Featured Poem</span>
+    </div>
 
-“Overcome anger through kindness,<br>
-wickedness through goodness,<br>
-selfishness through charity,<br>
-and falsehood through truthfulness.”<br>
--Siddhartha<p>
+    <div class="poem-block" role="complementary" aria-label="Featured poem">
+      <span class="poem-label">From My Poetry</span>
+      <p class="poem-title">B-52</p>
+      <p class="poem-text">Bamboo branches swaying in the gentle breeze
+water buffaloes reflecting in the moon light
+bombs falling like raindrops</p>
+    </div>
 
-This website is a collection of personal reflections on meditation, identity, immigration, history, and the human search for understanding.<br>
-Drawing from lived experience shaped by war, cultural transition, and contemplative practice, these writings explore awareness, belonging, and meaning in an increasingly complex world.<br>
-This work is offered simply as a reflection. If it is of use to anyone who encounters it, then that is enough.<p>
+  </main>
 
-<h3>Topics on this website</h3>
-<ul>
-<li>Vietnam War Childhood</li>
-<li>Refugee Experience</li>
-<li>Meditation</li>
-<li>Diabetes Lifestyle</li>
-<li>Life in America</li>
-</ul>
+  <!-- FOOTER -->
+  <footer>
+    <ul class="footer-nav" role="list" aria-label="Footer navigation">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="childhood.html">Childhood</a></li>
+      <li><a href="usa.html">Life in the USA</a></li>
+      <li><a href="cominghome.html">Coming Home</a></li>
+      <li><a href="meditation.html">Meditation</a></li>
+      <li><a href="comments.html">Comments</a></li>
+      <li><a href="sitemap.html">Site Map</a></li>
+    </ul>
+    <p>
+      This website shares personal reflections on war, migration, meditation, and health.<br>
+      &copy; <span id="yr"></span> Tuan Tran &mdash; <a href="sitemap.html">Site Map</a>
+    </p>
+  </footer>
 
-<center>---0---</center><p>
+  <script>
+    // Auto-update copyright year
+    document.getElementById('yr').textContent = new Date().getFullYear();
 
-Here is a scholarly review of <strong><a href="http://www.tuantran.org" target="_blank" rel="noreferrer noopener">www.tuantran.org</a></strong>, analyzing its content, structure, purpose, and significance within cultural, historical, and pedagogical contexts:<br><strong>Title:</strong> <em>Remembering, Reflecting, and Reclaiming: A Scholarly Review of <a href="http://www.tuantran.org" target="_blank" rel="noreferrer noopener">www.tuantran.org</a></em><br><strong>Author:</strong> [ChatGPT AI, 2025]<br><strong>Abstract</strong><br>This review explores <em><a href="http://www.tuantran.org" target="_blank" rel="noreferrer noopener">www.tuantran.org</a></em>, a digital journal and archive curated by Tuan Tran, a Vietnamese-American writer and educator. The site functions as both a personal memoir and an educational resource, engaging themes such as displacement, war memory, racial identity, and spiritual practice. Through literary narrative, historical documentation, and contemplative essays, the site offers a rich, intersectional space for examining trauma, diaspora, and healing.<p>
+    // Mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.getElementById('nav-links');
 
-<strong>1. Introduction</strong><br>
-Tuan Tran’s website serves as a digital memoir and pedagogical repository, reflecting on his experience as a Vietnamese refugee and American immigrant. Created with a minimalist interface, the site’s content is deeply personal yet socially and historically engaged, making it a unique hybrid of autobiography, political testimony, and educational material.<p>
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      navLinks.classList.toggle('open', !open);
+    });
 
-<strong>2. Content Analysis</strong><br><strong>2.1. Autobiographical Narratives</strong><br>Tran’s childhood reflections and early memories of Saigon under the Vietnam War era form the foundation of his storytelling. In sections like <em>"Childhood,"</em> and <em>"Then the Americans Came,"</em> Tran recalls with clarity and emotional resonance the violence and rupture that war inflicted on ordinary lives. His post-war immigration experience, name change, and attempts to assimilate in the United States are thematized in posts under <em>"Life in the USA"</em>, underscoring internalized racial identity and the cost of cultural erasure.<br><strong>2.2. Historical Documentation</strong><br>The inclusion of the full text of the <em>Bertrand Russell Tribunal</em> positions the site not only as a memoir but as an archive. This long-form document, which investigated U.S. war crimes in Southeast Asia, anchors Tran’s narrative within broader anti-colonial and anti-imperialist discourses. Its presence invites visitors to consider the geopolitical dimensions of personal trauma.<br><strong>2.3. Spiritual and Philosophical Reflection</strong><br>The sections on <em>Meditation</em> and <em>Tai Chi</em> reflect a turn inward—toward healing and self-inquiry. These writings illustrate Tran’s evolution from a trauma survivor to a spiritual seeker, blending Buddhist philosophy with lived experience. His reflections are grounded in practice and often accompanied by philosophical insights from Chinese traditions.<br><strong>2.4. Educational Resources</strong><br>Tran also offers literature worksheets and reading reflections, indicating a role as an educator. These tools are pedagogically sound and encourage critical thinking, particularly on themes of identity, justice, and human suffering.<p>
-
-<strong>3. Thematic Intersections</strong><br>Tran’s website is exemplary in exploring the intersections of:<br><strong>• Refugee trauma and memory</strong><br><strong>• Racial and cultural assimilation</strong><br><strong>• War and historical accountability</strong><br><strong>• Spiritual practice and healing</strong><br>His work resists simple categorization—transcending memoir to become testimony, meditation, and pedagogy.<p>
-
-<strong>4. Critical Evaluation</strong><br><strong>4.1. Strengths</strong><br><strong>• Authenticity and emotional depth</strong>: Tran’s voice is sincere and emotionally evocative.<br><strong>• Interdisciplinary value</strong>: The site bridges history, philosophy, literature, and politics.<br><strong>• Archival contribution</strong>: Hosting rare or marginalized historical documents like the Russell Tribunal broadens public access to antiwar materials.<br><strong>4.2. Limitations</strong><br><strong>• Design constraints</strong>: The minimalist, static design lacks modern navigation tools, making the site difficult to explore at scale.<br><strong>• Formatting inconsistencies</strong>: Some entries, particularly the Tribunal text, are overly lengthy and would benefit from editorial summaries or annotations.<br><strong>• Lack of scholarly citations</strong>: Though rich in reflection, the site would be strengthened by references to academic or theoretical frameworks.<p>
-
-<strong>5. Conclusion</strong><br><em><a href="http://www.tuantran.org" target="_blank" rel="noreferrer noopener">www.tuantran.org</a></em> is a compelling and under-recognized contribution to digital literature and memory studies. It offers both a personal narrative of postwar Vietnamese diaspora and a broader pedagogical framework for understanding trauma, identity, and historical injustice. As such, it deserves scholarly attention from disciplines such as postcolonial studies, Asian American studies, trauma studies, and digital humanities.<br>Future updates could consider enhancing its accessibility, adding search functions, and encouraging user engagement. Nonetheless, it stands as a powerful testimony to one individual's journey through war, exile, and spiritual return.<p>
-
-<strong>Keywords:</strong> Vietnamese diaspora, digital memoir, refugee trauma, Vietnam War, spiritual healing, Russell Tribunal, racial identity, digital humanities<p>
-    
-</blockquote>
-<hr>
-
-<footer>
-
-<p><strong>Explore this site</strong></p>
-
-<p>
-<a href="index.html">Homepage</a> |
-<a href="childhood.html">Childhood</a> |
-<a href="usa.html">Life in the USA</a> |
-<a href="cominghome.html">Coming Home</a> |
-<a href="meditation.html">Meditation</a> |
-<a href="sitemap.html">Site Map</a>
-</p>
-
-<p style="font-size: 0.9em;">
-This website shares personal reflections on war, migration, meditation, and health.
-</p>
-
-</footer>
-<center><p>&copy; 2001 Tuan Tran</p></center>
+    // Close nav when a link is clicked on mobile
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 680) {
+          toggle.setAttribute('aria-expanded', 'false');
+          navLinks.classList.remove('open');
+        }
+      });
+    });
+  </script>
 </body>
-
 </html>
-
