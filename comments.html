@@ -472,6 +472,78 @@ transition: color 0.2s;
 .page-nav a:hover { color: var(--red-soft); }
 .page-nav .next { margin-left: auto; }
 
+
+/* ── CONTACT FORM ─────────────────────────────── */.form-container {
+max-width: 600px;
+margin: 2rem auto;
+}
+
+.form-container h2 {
+font-family: var(--font-display);
+font-size: clamp(0.65rem, 1.2vw, 0.75rem);
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--ink-faint);
+margin-bottom: 1.5rem;
+}
+
+.form-container label {
+display: block;
+font-family: var(--font-display);
+font-size: 0.65rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(--ink-faint);
+margin-bottom: 0.4rem;
+margin-top: 1.25rem;
+}
+
+.form-container input,
+.form-container textarea {
+width: 100%;
+background: var(--paper-warm);
+border: 1px solid var(--paper-deep);
+border-radius: 4px;
+padding: 0.75rem 1rem;
+font-family: var(--font-body);
+font-size: 1rem;
+color: var(--ink);
+outline: none;
+transition: border-color 0.2s;
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+border-color: var(--gold);
+}
+
+.form-container textarea {
+resize: vertical;
+min-height: 150px;
+}
+
+.form-container button {
+margin-top: 1.5rem;
+background: var(--ink);
+color: var(--gold-light);
+border: 1px solid var(--gold);
+padding: 0.75rem 2rem;
+font-family: var(--font-display);
+font-size: 0.65rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+border-radius: 4px;
+cursor: pointer;
+transition: background 0.2s, color 0.2s;
+}
+
+.form-container button:hover {
+background: var(--gold);
+color: var(--ink);
+}
+
+
+
 /* ── FOOTER ───────────────────────────────────── */
 footer {
 position: relative;
@@ -620,10 +692,31 @@ Keep the <main id="main"> wrapper.
 <main id="main">
 
 <!-- YOUR PAGE CONTENT GOES HERE -->
+
 <article class="prose">
+
+<div class="form-container">
+<h2>For Requesting Permission to Use My Writing</h2>
+<form action="https://formspree.io/f/xykvypwv" method="POST">
+<label for="name">Name</label>
+<input type="text" id="name" name="name" required>
+
+<label for="email">Your Email</label>
+<input type="email" id="email" name="email" required>
+
+<label for="message">Message</label>
+<textarea id="message" name="message" rows="6" required></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+</div>
+
+
 <h2>Comments</h2>
 
-1. "I am a counselor and I am moved by your own depth of self. Not all who have experience such traumata in their life are able to reflect on it and use that energy in such a positive fashion. Your reflections reveal a deep gift of positive interiorization and I can see how you would have been drawn to a life in inner consciousness."<p>
+1. "I am a counselor and I am moved by your own depth of self. Not all who have experience such traumata in their life are able to reflect on it and use that energy in such a positive fashion. Your reflections reveal a deep gift of positive interiorization and I can see how you would have been drawn to a life in inner consciousness."<p><p>
 
 2. "It was a pleasure for me today to discover and read your moving journal. I do understand your feelings and the cultural issues you raise as I was a French student in Minneapolis St Paul in 1975. Congratulations for your courageous decision to write your own great moving story."<p>
 
@@ -726,7 +819,7 @@ Vietnam is poisoned by western image and ideology, but as you've mentioned in yo
 26. "Great to read your life story Tuan on your web site. I think you are a very good and humble man and you are a perfect example of how a man can be, very healthy and strong and muscular and good looking with perfect skin and teeth. I hope you have many children."<p>
 
 <hr>
-
+<p><p>
 Thank you for the compliment. Although I do have a six-pack or washboard stomach - just kidding, I am not Tuan Tran the bodybuilder.<p>
 
 Also, thank you for all other emails. I have been persecuted in many ways such as losing teaching jobs both in the USA and in Vietnam because of my website. I have even been physically confronted for exercising my freedom of speech. There was even an attempt to assassinate me and made to look like a traffic accident for my belief and my writing on my website.<p>
