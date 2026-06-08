@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +8,7 @@
   <meta name="keywords" content="Vietnamese-American, Vietnam War, refugee memoir, meditation, Buddhism, Tuan Tran, diaspora, Saigon" />
   <meta name="author" content="Tuan Tran" />
   <link rel="canonical" href="https://tuantran.org/" />
+  
   <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FGVXMPRSCQ"></script>
 <script>
@@ -15,6 +17,7 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-FGVXMPRSCQ');
 </script>
+
   <meta property="og:title" content="Tuan Tran's Journal — A Vietnamese-American Experience" />
   <meta property="og:description" content="Personal reflections on war, migration, meditation, and the search for identity." />
   <meta property="og:type" content="website" />
@@ -364,6 +367,52 @@ gtag('config', 'G-FGVXMPRSCQ');
       line-height: 1.5;
     }
 
+/* ── FEATURED POEM ────────────────────────────── */
+    .poem-block {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 2.5rem 2rem;
+      border-radius: 4px;
+      margin-bottom: 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .poem-block::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(139,32,32,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .poem-label {
+      font-family: var(--font-display);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+.poem-title {
+font-family: var(--font-display);
+font-size: clamp(0.9rem, 1.5vw, 1rem);
+letter-spacing: 0.1em;
+color: var(--gold-light);
+margin-bottom: 1.25rem;
+}
+      .poem-text {
+      font-family: var(--font-quote);
+      font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 300;
+      line-height: 2;
+      color: var(--paper-warm);
+      white-space: pre-line;
+    }
+
     /* ── FOOTER ───────────────────────────────────── */
     footer {
       position: relative;
@@ -585,9 +634,39 @@ gtag('config', 'G-FGVXMPRSCQ');
         <span class="topic-title">Bertrand Russell Tribunal</span>
         <span class="topic-desc">Historical documentation of the international war crimes inquiry.</span>
       </a>
+      <a href="songbirds.html" class="topic-card">
+        <span class="topic-tag">Poetry</span>
+        <span class="topic-title">Songbirds Still Sing</span>
+        <span class="topic-desc">Haiku by Tuan Tran.</span>
+      </a>
+      <a href="poetry.html" class="topic-card">
+        <span class="topic-tag">Poetry Archive</span>
+        <span class="topic-title">The Collected Haiku</span>
+        <span class="topic-desc">by Tuan Tran.</span>
+      </a>
+      <a href="road-home.html" class="topic-card">
+        <span class="topic-tag">Memoir</span>
+        <span class="topic-title">The Road Home</span>
+        <span class="topic-desc">A Memoir in Haibun by Tuan Tran.</span>
+      </a>
+      
+      
     </div>
+    
+<!-- Featured Poem -->
+<div class="divider" aria-hidden="true">
+  <span class="divider-text">Featured Poem</span>
+</div>
 
-         
+<div class="poem-block" role="complementary" aria-label="Featured poem">
+  <span class="poem-label">The Collected Haiku by Tuan Tran Poem 27</span>
+  <div class="poem-text">
+    Temple bell<br>
+    fading<br>
+    silence remains
+  </div>
+</div>    
+       
   </main>
 
   <!-- FOOTER -->
