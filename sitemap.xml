@@ -1,106 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-   <!-- Homepage -->
-   <url>
-      <loc>https://tuantran.org/</loc>
-      <lastmod>2026-06-08</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>1.0</priority>
-   </url>
-   
-   <!-- Memoir & History Pages -->
-   <url>
-      <loc>https://tuantran.org/childhood.html</loc>
-      <lastmod>2026-06-07</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.9</priority>
-   </url>
-   <url>
-      <loc>https://tuantran.org/usa.html</loc>
-      <lastmod>2026-06-07</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.9</priority>
-   </url>
-   <url>
-      <loc>https://tuantran.org/cominghome.html</loc>
-      <lastmod>2026-06-07</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.9</priority>
-   </url>
-   <url>
-      <loc>https://tuantran.org/teaching.html</loc>
-      <lastmod>2026-06-07</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://tuantran.org/marthahess.html</loc>
-      <lastmod>2025-01-01</lastmod>
-      <changefreq>yearly</changefreq>
-      <priority>0.7</priority>
-   </url>
-   <url>
-      <loc>https://tuantran.org/russelltribunal.html</loc>
-      <lastmod>2025-01-01</lastmod>
-      <changefreq>yearly</changefreq>
-      <priority>0.7</priority>
-   </url>
-   <url>
-      <loc>https://tuantran.org/writings.html</loc>
-      <lastmod>2026-06-07</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-
-   <!-- Poetry Pages (Updated frequently) -->
-   <url>
-      <loc>https://tuantran.org/road-home.html</loc>
-      <lastmod>2026-06-08</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.9</priority>
-   </url>
-   <url>
-      <loc>https://tuantran.org/poetry.html</loc>
-      <lastmod>2026-06-08</lastmod>
-      <changefreq>daily</changefreq>
-      <priority>1.0</priority>
-   </url>
-   <url>
-      <loc>https://tuantran.org/songbirds.html</loc>
-      <lastmod>2026-06-08</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.9</priority>
-   </url>
-
-   <!-- Practice & Other Pages -->
-   <url>
-      <loc>https://tuantran.org/meditation.html</loc>
-      <lastmod>2026-06-08</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.9</priority>
-   </url>
-   <url>
-      <loc>https://tuantran.org/taichi.html</loc>
-      <lastmod>2025-01-01</lastmod>
-      <changefreq>yearly</changefreq>
-      <priority>0.7</priority>
-   </url>
-   <url>
-      <loc>https://tuantran.org/diabetes.html</loc>
-      <lastmod>2025-01-01</lastmod>
-      <changefreq>yearly</changefreq>
-      <priority>0.6</priority>
-   </url>
-   <url>
-      <loc>https://tuantran.org/comments.html</loc>
-      <lastmod>2025-01-01</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.5</priority>
-   </url>
-   <url>
-      <loc>https://tuantran.org/sitemap.html</loc>
-      <lastmod>2026-06-08</lastmod>
-      <changefreq>yearly</changefreq>
-      <priority>0.3</priority>
-   </url>
+<!-- Homepage -->
+<url>
+<loc>https://tuantran.org/</loc>
+<lastmod>2026-06-08</lastmod>
+<changefreq>weekly</changefreq>
+<priority>1.0</priority>
+</url>
+<!-- Memoir & History Pages -->
+<url>
+<loc>https://tuantran.org/childhood.html</loc>
+<lastmod>2026-06-07</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://tuantran.org/usa.html</loc>
+<lastmod>2026-06-07</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://tuantran.org/cominghome.html</loc>
+<lastmod>2026-06-07</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://tuantran.org/teaching.html</loc>
+<lastmod>2026-06-07</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://tuantran.org/marthahess.html</loc>
+<lastmod>2025-01-01</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://tuantran.org/russelltribunal.html</loc>
+<lastmod>2025-01-01</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://tuantran.org/writings.html</loc>
+<lastmod>2026-06-07</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<!-- Poetry Pages (Updated frequently) -->
+<url>
+<loc>https://tuantran.org/road-home.html</loc>
+<lastmod>2026-06-08</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://tuantran.org/poetry.html</loc>
+<lastmod>2026-06-08</lastmod>
+<changefreq>daily</changefreq>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://tuantran.org/songbirds.html</loc>
+<lastmod>2026-06-08</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<!-- Practice & Other Pages -->
+<url>
+<loc>https://tuantran.org/meditation.html</loc>
+<lastmod>2026-06-08</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://tuantran.org/taichi.html</loc>
+<lastmod>2025-01-01</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://tuantran.org/diabetes.html</loc>
+<lastmod>2025-01-01</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://tuantran.org/comments.html</loc>
+<lastmod>2025-01-01</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://tuantran.org/sitemap.html</loc>
+<lastmod>2026-06-08</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.3</priority>
+</url>
 </urlset>
