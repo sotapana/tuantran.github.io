@@ -312,7 +312,51 @@ letter-spacing: 0.15em;
 text-transform: uppercase;
 color: var(--red);
 }
+/* ── POEM BLOCK ───────────────────────────────── */
+.poem-block {
+background: var(--ink);
+color: var(--paper);
+padding: 2.5rem 2rem;
+border-radius: 4px;
+margin: 2.5rem 0;
+position: relative;
+overflow: hidden;
+}
 
+.poem-block::before {
+content: '';
+position: absolute;
+inset: 0;
+background: linear-gradient(135deg, rgba(139,32,32,0.15) 0%, transparent 60%);
+pointer-events: none;
+}
+
+.poem-label {
+font-family: var(--font-display);
+font-size: 0.6rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--gold-light);
+margin-bottom: 1rem;
+display: block;
+}
+
+.poem-title {
+font-family: var(--font-display);
+font-size: clamp(0.9rem, 1.5vw, 1rem);
+letter-spacing: 0.1em;
+color: var(--gold-light);
+margin-bottom: 1.25rem;
+}
+.poem-text {
+font-family: var(--font-quote);
+font-style: italic;
+font-size: clamp(1rem, 2vw, 1.2rem);
+font-weight: 300;
+line-height: 2;
+color: var(--paper-warm);
+white-space: pre-line;
+}
 
 /* ── TOPICS GRID (homepage only) ──────────────── */
 .topics-grid {
@@ -578,7 +622,7 @@ Keep the <main id="main"> wrapper.
 <h2>Life in the USA</h2>
 <b>"Thầy có bao giờ buồn không?"</b><p>
 
-The snow was falling, light and flaky. It must be winter time, but I didn't know what month it was. Pennsylvania was flat and desolate. I was walking along a main street of the camp, looking at the falling snow flakes, and watching my breath. I didn't know how long I've been walking. With no particular place to go, it seemed time was not relevant.<p>
+The snow was falling, light and flaky. It must be winter time, but I didn't know what month it was. Pennsylvania was flat and desolate. I was walking along a main street of the camp, looking at the falling snowflakes, and watching my breath. I didn't know how long I've been walking. With no particular place to go, it seemed time was not relevant.<p>
 
 There was a Buddhist temple by the side of the road. There was no one inside. As I stood there gazing at Buddha, a monk came out to greet me. "Thầy có bao giờ buồn không?" I asked. He looked at me and then smiled.<p>
 
