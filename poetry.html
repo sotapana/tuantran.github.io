@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Collected Haiku by Tuan Tran</title>
+    <meta name="description" content="The Collected Haiku by Tuan Tran. Poems born from forty years of Buddhist practice, a life as a boat refugee, and the silence of the forest monastery.">
+    <meta name="keywords" content="Tuan Tran, haiku collection, Vietnamese poet, Buddhist poetry, nature haiku, refugee poetry, modern haiku, The Heron's Nest, Modern Haiku">
+    <meta name="author" content="Tuan Tran">
+    <meta property="og:title" content="The Collected Haiku by Tuan Tran">
+    <meta property="og:description" content="The Collected Haiku by Tuan Tran. Poems of war, meditation, and the road home.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tuantran.org/poetry.html">
+    <meta property="og:image" content="https://tuantran.org/poetry.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Collected Haiku by Tuan Tran">
+    <meta name="twitter:description" content="The Collected Haiku by Tuan Tran. Poems of war, meditation, and the road home.">
+    <meta name="twitter:image" content="https://tuantran.org/poetry.jpg">
+    <meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://tuantran.org/poetry.html" />
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FGVXMPRSCQ"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FGVXMPRSCQ');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
+
+<style>
+/* ── RESET & BASE ─────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+--ink: #1a1610;
+--ink-soft: #4a3f30;
+--ink-faint: #8a7a68;
+--paper: #f5f0e8;
+--paper-warm: #ede5d4;
+--paper-deep: #ddd2bc;
+--red: #8b2020;
+--red-soft: #a83030;
+--gold: #9a7a3a;
+--gold-light: #c4a265;
+
+--font-display: 'Cinzel', serif;
+--font-body: 'Crimson Pro', serif;
+--font-quote: 'Cormorant Garamond', serif;
+
+--max-w: 860px;
+--side: clamp(1.25rem, 5vw, 3rem);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+background-color: var(--paper);
+color: var(--ink);
+font-family: var(--font-body);
+font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+line-height: 1.75;
+min-height: 100vh;
+}
+
+/* ── TEXTURE OVERLAY ──────────────────────────── */
+body::before {
+content: '';
+position: fixed;
+inset: 0;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+pointer-events: none;
+z-index: 0;
+}
+
+/* ── SKIP LINK ────────────────────────────────── */
+.skip-link {
+position: absolute;
+top: -100%;
+left: 1rem;
+background: var(--red);
+color: #fff;
+padding: 0.5rem 1rem;
+border-radius: 0 0 4px 4px;
+font-family: var(--font-body);
+transition: top 0.2s;
+z-index: 999;
+}
+.skip-link:focus { top: 0; }
+
+/* ── HEADER ───────────────────────────────────── */
+header {
+position: relative;
+z-index: 10;
+background: var(--ink);
+color: var(--paper);
+padding: 2.5rem var(--side) 2rem;
+text-align: center;
+border-bottom: 3px solid var(--gold);
+}
+
+.site-eyebrow {
+font-family: var(--font-display);
+font-size: clamp(0.6rem, 1.2vw, 0.75rem);
+letter-spacing: 0.25em;
+color: var(--gold-light);
+text-transform: uppercase;
+margin-bottom: 0.75rem;
+}
+
+.site-title {
+font-family: var(--font-display);
+font-size: clamp(1.6rem, 4.5vw, 3rem);
+font-weight: 600;
+letter-spacing: 0.06em;
+line-height: 1.2;
+color: var(--paper);
+}
+
+.site-title a {
+color: inherit;
+text-decoration: none;
+}
+
+.site-subtitle {
+font-family: var(--font-quote);
+font-style: italic;
+font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+color: var(--gold-light);
+margin-top: 0.5rem;
+font-weight: 300;
+}
+
+/* ── NAV ──────────────────────────────────────── */
+nav.main-nav {
+position: sticky;
+top: 0;
+z-index: 100;
+background: var(--ink);
+border-bottom: 1px solid var(--gold);
+}
+
+.nav-inner {
+max-width: var(--max-w);
+margin: 0 auto;
+padding: 0 var(--side);
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.nav-toggle {
+display: none;
+flex-direction: column;
+gap: 5px;
+cursor: pointer;
+padding: 1rem 0;
+background: none;
+border: none;
+}
+.nav-toggle span {
+display: block;
+width: 24px;
+height: 2px;
+background: var(--gold-light);
+transition: all 0.3s;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+.nav-links {
+list-style: none;
+display: flex;
+flex-wrap: wrap;
+}
+
+.nav-links a {
+display: block;
+padding: 0.85rem 0.9rem;
+font-family: var(--font-display);
+font-size: clamp(0.55rem, 1vw, 0.7rem);
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: var(--paper-warm);
+text-decoration: none;
+transition: color 0.2s, background 0.2s;
+white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+color: var(--gold-light);
+background: rgba(255,255,255,0.05);
+}
+
+/* ── BANNER ───────────────────────────────────── */
+.banner {
+width: 100%;
+max-height: 280px;
+object-fit: cover;
+object-position: center top;
+display: block;
+filter: sepia(20%) contrast(0.9);
+}
+
+/* ── PAGE TITLE BLOCK ─────────────────────────── */
+.page-title-block {
+background: var(--paper-warm);
+border-bottom: 1px solid var(--paper-deep);
+padding: 2rem var(--side);
+text-align: center;
+}
+
+.page-label {
+font-family: var(--font-display);
+font-size: 0.65rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(--red);
+display: block;
+margin-bottom: 0.5rem;
+}
+
+.page-title {
+font-family: var(--font-display);
+font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+font-weight: 600;
+letter-spacing: 0.06em;
+color: var(--ink);
+line-height: 1.2;
+}
+
+.page-desc {
+font-family: var(--font-quote);
+font-style: italic;
+font-weight: 300;
+font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+color: var(--ink-faint);
+margin-top: 0.5rem;
+}
+
+/* ── MAIN ─────────────────────────────────────── */
+main {
+position: relative;
+z-index: 1;
+max-width: var(--max-w);
+margin: 0 auto;
+padding: 3rem var(--side) 4rem;
+}
+
+/* ── PROSE ────────────────────────────────────── */
+.prose p {
+margin-bottom: 1.4em;
+color: var(--ink-soft);
+}
+
+.prose p:last-child { margin-bottom: 0; }
+
+.prose h2, .prose h3 {
+font-family: var(--font-display);
+font-size: clamp(0.8rem, 1.4vw, 0.95rem);
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(--red);
+margin: 2.5rem 0 1rem;
+}
+
+/* ── POEM ARCHIVE STYLE (Minimal & Clean) ─────── */
+.archive-poem-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.poem-entry {
+  background: rgba(237, 229, 212, 0.4); /* Very subtle warm tint */
+  padding: 1.5rem;
+  border-radius: 4px;
+  page-break-inside: avoid;
+}
+
+.poem-number {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 1rem;
+  display: block;
+  font-weight: 600;
+}
+
+.poem-text {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 2;
+  color: var(--ink);
+  white-space: pre-line; /* Preserves your manual breaks */
+}
+
+/* ── FOOTER ───────────────────────────────────── */
+footer {
+position: relative;
+z-index: 1;
+background: var(--ink);
+color: var(--ink-faint);
+text-align: center;
+padding: 2rem var(--side);
+border-top: 1px solid rgba(154,122,58,0.3);
+}
+
+footer p {
+font-family: var(--font-body);
+font-size: 0.85rem;
+line-height: 1.8;
+}
+
+footer a { color: var(--gold-light); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+.footer-nav {
+list-style: none;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 0.25rem 1.5rem;
+margin-bottom: 1.25rem;
+}
+
+.footer-nav a {
+font-family: var(--font-display);
+font-size: 0.6rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(--ink-faint);
+}
+
+.footer-nav a:hover { color: var(--gold-light); }
+
+/* ── PAGE NAV (prev / next) ───────────────────── */
+.page-nav {
+display: flex;
+justify-content: space-between;
+gap: 1rem;
+margin-top: 3rem;
+padding-top: 2rem;
+border-top: 1px solid var(--paper-deep);
+}
+
+.page-nav a {
+font-family: var(--font-display);
+font-size: 0.65rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(--red);
+text-decoration: none;
+transition: color 0.2s;
+}
+
+.page-nav a:hover { color: var(--red-soft); }
+.page-nav .next { margin-left: auto; }
+
+/* ── RESPONSIVE ───────────────────────────────── */
+@media (max-width: 680px) {
+.nav-toggle { display: flex; }
+
+.nav-links {
+display: none;
+flex-direction: column;
+width: 100%;
+border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav-links.open { display: flex; }
+
+.nav-links a {
+padding: 0.9rem var(--side);
+border-bottom: 1px solid rgba(255,255,255,0.05);
+font-size: 0.75rem;
+}
+
+.nav-inner { flex-wrap: wrap; }
+}
+
+/* ── ANIMATIONS ───────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+main { animation: fadeUp 0.6s ease both; }
+}
+
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(16px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── PRINT ────────────────────────────────────── */
+@media print {
+nav.main-nav, footer, .page-nav { display: none; }
+body { background: white; color: black; }
+main { max-width: 100%; padding: 0; }
+.poem-entry { background: none; border: 1px solid #eee; }
+}
+</style>
+</head>
+
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- ─────────────────────────────────────────────
+SITE HEADER — same on every page
+───────────────────────────────────────────── -->
+<header>
+<p class="site-eyebrow">A personal journal</p>
+<h1 class="site-title"><a href="index.html">Tuan Tran's Journal</a></h1>
+<p class="site-subtitle">A Vietnamese-American Experience</p>
+</header>
+
+<!-- ─────────────────────────────────────────────
+MAIN NAV — same on every page
+───────────────────────────────────────────── -->
+<nav class="main-nav" aria-label="Main navigation">
+<div class="nav-inner">
+<button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+<span></span><span></span><span></span>
+</button>
+<ul class="nav-links" id="nav-links" role="list">
+<li><a href="index.html">Home</a></li>
+<li><a href="childhood.html">Childhood</a></li>
+<li><a href="usa.html">Life in the USA</a></li>
+<li><a href="cominghome.html">Coming Home</a></li>
+<li><a href="writings.html">My Writings</a></li>
+<li><a href="meditation.html">Meditation</a></li>
+<li><a href="taichi.html">Tai Chi</a></li>
+<li><a href="diabetes.html">Diabetes</a></li>
+<li><a href="marthahess.html">Then the Americans Came</a></li>
+<li><a href="russelltribunal.html">Russell Tribunal</a></li>
+<li><a href="teaching.html">Teaching in Vietnam</a></li>
+<li><a href="comments.html">Comments</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- ─────────────────────────────────────────────
+BANNER — same image on every page
+───────────────────────────────────────────── -->
+<img
+src="poetry.jpg"
+alt="Pebles"
+class="banner"
+width="1200"
+height="280"
+loading="lazy"
+/>
+
+<!-- ═══════════════════════════════════════════════
+PAGE-SPECIFIC CONTENT BEGINS
+═══════════════════════════════════════════════ -->
+
+<!-- Page Title Block -->
+<div class="page-title-block">
+<span class="page-label">Poetry Archive</span>
+<h2 class="page-title">The Collected Haiku</h2>
+<p class="page-desc">by Tuan Tran</p>
+</div>
+
+<main id="main">
+
+<article class="prose">
+
+<h3>This archive contains all haiku written by Tuan Tran to date...</h3>
+
+<p>The first fifteen of these poems first appeared on the author's website, tuantran.org, in June 2001. The rest were written since May 2026, in chronological order.</p>
+
+<!-- ARCHIVE LIST STARTS HERE -->
+<div class="archive-poem-list">
+
+<!-- Poem 1 -->
+<div class="poem-entry">
+  <span class="poem-number">1</span>
+  <div class="poem-text">I saw<br>an earthworm<br>crawling<br>next to my feet<br>carefully<br>I picked it up<br>and placed it<br>in a flowerpot<br>so I wouldn't step on it<br>then I saw<br>another<br>I placed it<br>in the same flowerpot<br>so the other<br>won't be lonely</div>
+</div>
+
+<!-- Poem 2 -->
+<div class="poem-entry">
+  <span class="poem-number">2</span>
+  <div class="poem-text">Like a sailboat<br>in a vast blue sea<br>without a compass<br>or a star<br>to point the way<br>then you appear<br>bright as the northern star<br>radiant and lovely<br>with that far-away look<br>in your eyes<br>and lips so moist<br>as the morning dew<br>and suddenly<br>I am no longer lost<br>as I steer<br>by the light<br>of the northern star</div>
+</div>
+
+<!-- Poem 3 -->
+<div class="poem-entry">
+  <span class="poem-number">3</span>
+  <div class="poem-text">Spiderweb<br>collecting morning dew<br>a graveyard of mosquitoes</div>
+</div>
+
+<!-- Poem 4 -->
+<div class="poem-entry">
+  <span class="poem-number">4</span>
+  <div class="poem-text">Dark clouds<br>approaching<br>songbirds still sing</div>
+</div>
+
+<!-- Poem 5 -->
+<div class="poem-entry">
+  <span class="poem-number">5</span>
+  <div class="poem-text">Desert moon<br>shone brightly<br>a lone wanderer</div>
+</div>
+
+<!-- Poem 6 -->
+<div class="poem-entry">
+  <span class="poem-number">6</span>
+  <div class="poem-text">Dragonfly<br>in a pond of lotus flowers<br>be still</div>
+</div>
+
+<!-- Poem 7 -->
+<div class="poem-entry">
+  <span class="poem-number">7</span>
+  <div class="poem-text">Bamboo branches swaying in the gentle breeze<br>water buffaloes reflecting in the moonlight<br>bombs falling like raindrops</div>
+</div>
+
+<!-- Poem 8 -->
+<div class="poem-entry">
+  <span class="poem-number">8</span>
+  <div class="poem-text">Ego<br>my own ego<br>big as a mountain<br>chip at it<br>a little<br>each day</div>
+</div>
+
+<!-- Poem 9 -->
+<div class="poem-entry">
+  <span class="poem-number">9</span>
+  <div class="poem-text">Master<br>seeking for you<br>halfway around the world<br>Guru<br>where are you<br>but in my heart</div>
+</div>
+
+<!-- Poem 10 -->
+<div class="poem-entry">
+  <span class="poem-number">10</span>
+  <div class="poem-text">Ten years<br>seems as yesterday<br>I have not let go</div>
+</div>
+
+<!-- Poem 11 -->
+<div class="poem-entry">
+  <span class="poem-number">11</span>
+  <div class="poem-text">Autumn breeze<br>falling leaves<br>why think of summer</div>
+</div>
+
+<!-- Poem 12 -->
+<div class="poem-entry">
+  <span class="poem-number">12</span>
+  <div class="poem-text">Every caterpillar<br>metamorphoses<br>in its own time</div>
+</div>
+
+<!-- Poem 13 -->
+<div class="poem-entry">
+  <span class="poem-number">13</span>
+  <div class="poem-text">How strange<br>dragonflies<br>spitting fire</div>
+</div>
+
+<!-- Poem 14 -->
+<div class="poem-entry">
+  <span class="poem-number">14</span>
+  <div class="poem-text">One boat<br>alone<br>this vast ocean</div>
+</div>
+
+<!-- Poem 15 -->
+<div class="poem-entry">
+  <span class="poem-number">15</span>
+  <div class="poem-text">In my darkest hour<br>I cried out for you<br>I love you, mom</div>
+</div>
+
+<!-- Poem 16 -->
+<div class="poem-entry">
+  <span class="poem-number">16</span>
+  <div class="poem-text">Temple bell ringing<br>I think<br>of my friend</div>
+</div>
+
+<!-- Poem 17 -->
+<div class="poem-entry">
+  <span class="poem-number">17</span>
+  <div class="poem-text">Peony flower<br>in spring<br>winter is over</div>
+</div>
+
+<!-- Poem 18 -->
+<div class="poem-entry">
+  <span class="poem-number">18</span>
+  <div class="poem-text">Autumn<br>leaves<br>falling</div>
+</div>
+
+<!-- Poem 19 -->
+<div class="poem-entry">
+  <span class="poem-number">19</span>
+  <div class="poem-text">Hummingbird<br>darting<br>a field of honeysuckles</div>
+</div>
+
+<!-- Poem 20 -->
+<div class="poem-entry">
+  <span class="poem-number">20</span>
+  <div class="poem-text">The bird feeder<br>black sunflower seeds<br>chirping red-headed finches</div>
+</div>
+
+<!-- Poem 21 -->
+<div class="poem-entry">
+  <span class="poem-number">21</span>
+  <div class="poem-text">Yellow butterfly<br>floating above<br>purple lavender</div>
+</div>
+
+<!-- Poem 22 -->
+<div class="poem-entry">
+  <span class="poem-number">22</span>
+  <div class="poem-text">A bee<br>buzzing<br>the peony flower</div>
+</div>
+
+<!-- Poem 23 -->
+<div class="poem-entry">
+  <span class="poem-number">23</span>
+  <div class="poem-text">Cherry blossom<br>petal<br>falling</div>
+</div>
+
+<!-- Poem 24 -->
+<div class="poem-entry">
+  <span class="poem-number">24</span>
+  <div class="poem-text">The koi<br>moving<br>in silent pond</div>
+</div>
+
+<!-- Poem 25 -->
+<div class="poem-entry">
+  <span class="poem-number">25</span>
+  <div class="poem-text">Cricket<br>chirping<br>in moonlit night</div>
+</div>
+
+<!-- Poem 26 -->
+<div class="poem-entry">
+  <span class="poem-number">26</span>
+  <div class="poem-text">Pink lotus<br>in full bloom<br>this muddy pond</div>
+</div>
+
+<!-- Poem 27 -->
+<div class="poem-entry">
+  <span class="poem-number">27</span>
+  <div class="poem-text">Temple bell<br>fading<br>silence remains</div>
+</div>
+
+<!-- Poem 28 -->
+<div class="poem-entry">
+  <span class="poem-number">28</span>
+  <div class="poem-text">Footsteps<br>in<br>falling snow</div>
+</div>
+
+<!-- Poem 29 -->
+<div class="poem-entry">
+  <span class="poem-number">29</span>
+  <div class="poem-text">White butterfly<br>alights<br>upon pink orchid</div>
+</div>
+
+<!-- Poem 30 -->
+<div class="poem-entry">
+  <span class="poem-number">30</span>
+  <div class="poem-text">White orchid<br>on the altar<br>the Buddha smiles</div>
+</div>
+
+<!-- Poem 31 -->
+<div class="poem-entry">
+  <span class="poem-number">31</span>
+  <div class="poem-text">Autumn leaves<br>on<br>a winding path</div>
+</div>
+
+<!-- Poem 32 -->
+<div class="poem-entry">
+  <span class="poem-number">32</span>
+  <div class="poem-text">A grassy field<br>this wet spring evening<br>the sound of a frog</div>
+</div>
+
+<!-- Poem 33 -->
+<div class="poem-entry">
+  <span class="poem-number">33</span>
+  <div class="poem-text">A salmon<br>returning<br>the stream awaits</div>
+</div>
+
+<!-- Poem 34 -->
+<div class="poem-entry">
+  <span class="poem-number">34</span>
+  <div class="poem-text">A brook<br>trickling down<br>a silent pond</div>
+</div>
+
+<!-- Poem 35 -->
+<div class="poem-entry">
+  <span class="poem-number">35</span>
+  <div class="poem-text">White peony<br>from the garden<br>on the kitchen table</div>
+</div>
+
+<!-- Poem 36 -->
+<div class="poem-entry">
+  <span class="poem-number">36</span>
+  <div class="poem-text">White peony<br>bending<br>at the stem</div>
+</div>
+
+<!-- Poem 37 -->
+<div class="poem-entry">
+  <span class="poem-number">37</span>
+  <div class="poem-text">Cooper's hawk<br>waiting<br>at the bird feeder</div>
+</div>
+
+<!-- Poem 38 -->
+<div class="poem-entry">
+  <span class="poem-number">38</span>
+  <div class="poem-text">Forget-me-not<br>on<br>an empty park bench</div>
+</div>
+
+<!-- Poem 39 -->
+<div class="poem-entry">
+  <span class="poem-number">39</span>
+  <div class="poem-text">Temple bell<br>the forest<br>listens</div>
+</div>
+
+<!-- Poem 40 -->
+<div class="poem-entry">
+  <span class="poem-number">40</span>
+  <div class="poem-text">Autumn fog<br>covering<br>the road home</div>
+</div>
+
+<!-- Poem 41 -->
+<div class="poem-entry">
+  <span class="poem-number">41</span>
+  <div class="poem-text">Moonlit night<br>water buffaloes<br>listen to falling bombs</div>
+</div>
+
+<!-- Poem 42 -->
+<div class="poem-entry">
+  <span class="poem-number">42</span>
+  <div class="poem-text">Spring rain<br>Spanish lavender<br>scent in the air</div>
+</div>
+
+<!-- Poem 43 -->
+<div class="poem-entry">
+  <span class="poem-number">43</span>
+  <div class="poem-text">Pink orchid<br>the shape<br>of a butterfly</div>
+</div>
+
+<!-- Poem 44 -->
+<div class="poem-entry">
+  <span class="poem-number">44</span>
+  <div class="poem-text">Pouring rain<br>the frogs<br>listen</div>
+</div>
+
+<!-- Poem 45 -->
+<div class="poem-entry">
+  <span class="poem-number">45</span>
+  <div class="poem-text">Woodpecker<br>the sound<br>echo</div>
+</div>
+
+<!-- Poem 46 -->
+<div class="poem-entry">
+  <span class="poem-number">46</span>
+  <div class="poem-text">A finch released<br>chirping<br>on the fence</div>
+</div>
+
+<!-- Poem 47 -->
+<div class="poem-entry">
+  <span class="poem-number">47</span>
+  <div class="poem-text">Still pond<br>full moon<br>no reflection</div>
+</div>
+
+<!-- Poem 48 -->
+<div class="poem-entry">
+  <span class="poem-number">48</span>
+  <div class="poem-text">Each breath<br>a death<br>renewal</div>
+</div>
+
+<!-- Poem 49 -->
+<div class="poem-entry">
+  <span class="poem-number">49</span>
+  <div class="poem-text">A rose<br>fragrance<br>this moment</div>
+</div>
+
+<!-- Poem 50 -->
+<div class="poem-entry">
+  <span class="poem-number">50</span>
+  <div class="poem-text">Spring rain<br>cherry blossom<br>without flowers</div>
+</div>
+
+<!-- Poem 51 -->
+<div class="poem-entry">
+  <span class="poem-number">51</span>
+  <div class="poem-text">A mouse<br>trapped<br>set free</div>
+</div>
+
+<!-- Poem 52 -->
+<div class="poem-entry">
+  <span class="poem-number">52</span>
+  <div class="poem-text">Sorry spider<br>have<br>a better next life</div>
+</div>
+
+<!-- Poem 53 -->
+<div class="poem-entry">
+  <span class="poem-number">53</span>
+  <div class="poem-text">A fawn<br>the freeway<br>a truck swerves</div>
+</div>
+
+<!-- Poem 54 -->
+<div class="poem-entry">
+  <span class="poem-number">54</span>
+  <div class="poem-text">Bees<br>enjoy the lavender<br>I'm just watering</div>
+</div>
+
+<!-- Poem 55 -->
+<div class="poem-entry">
+  <span class="poem-number">55</span>
+  <div class="poem-text">A teddy bear<br>my daughter's gift<br>on my birthday</div>
+</div>
+
+<!-- Poem 56 -->
+<div class="poem-entry">
+  <span class="poem-number">56</span>
+  <div class="poem-text">Summertime<br>cricket chirping<br>by Costco parking lot</div>
+</div>
+
+<!-- Poem 57 -->
+<div class="poem-entry">
+  <span class="poem-number">57</span>
+  <div class="poem-text">Summer evening<br>the cicadas<br>become quiet</div>
+</div>
+
+<!-- Poem 58 -->
+<div class="poem-entry">
+  <span class="poem-number">58</span>
+  <div class="poem-text">Three birds<br>on<br>a power line</div>
+</div>
+
+<!-- Poem 59 -->
+<div class="poem-entry">
+  <span class="poem-number">59</span>
+  <div class="poem-text">Sunset<br>a bird<br>on a bare branch</div>
+</div>
+
+<!-- Poem 60 -->
+<div class="poem-entry">
+  <span class="poem-number">60</span>
+  <div class="poem-text">Petunia basket<br>hummingbird<br>feeder</div>
+</div>
+
+<!-- Poem 61 -->
+<div class="poem-entry">
+  <span class="poem-number">61</span>
+  <div class="poem-text">Petunia<br>in springtime<br>intoxicated bees</div>
+</div>
+
+<!-- Poem 62 -->
+<div class="poem-entry">
+  <span class="poem-number">62</span>
+  <div class="poem-text">Autumn leaves<br>falling<br>in a gentle breeze</div>
+</div>
+
+<!-- Poem 63 -->
+<div class="poem-entry">
+  <span class="poem-number">63</span>
+  <div class="poem-text">A cat<br>for a companion<br>after the separation</div>
+</div>
+
+<!-- Poem 64 -->
+<div class="poem-entry">
+  <span class="poem-number">64</span>
+  <div class="poem-text">Kitty cat<br>would you like<br>a glass of wine</div>
+</div>
+
+<!-- Poem 65 -->
+<div class="poem-entry">
+  <span class="poem-number">65</span>
+  <div class="poem-text">White peony petals<br>on the ground<br>the color of passing</div>
+</div>
+
+<!-- Poem 66 -->
+<div class="poem-entry">
+  <span class="poem-number">66</span>
+  <div class="poem-text">I took the one less traveled by<br>in a yellow wood<br>but needed a cane</div>
+</div>
+
+<!-- Poem 67 -->
+<div class="poem-entry">
+  <span class="poem-number">67</span>
+  <div class="poem-text">The fireplace<br>a log glowing<br>like fireflies</div>
+</div>
+
+<!-- Poem 68 -->
+<div class="poem-entry">
+  <span class="poem-number">68</span>
+  <div class="poem-text">Walking<br>in falling snow<br>with no destination</div>
+</div>
+
+<!-- Poem 69 -->
+<div class="poem-entry">
+  <span class="poem-number">69</span>
+  <div class="poem-text">Mid-Autumn Festival<br>wishing for<br>a lantern and mooncake</div>
+</div>
+
+<!-- Poem 70 -->
+<div class="poem-entry">
+  <span class="poem-number">70</span>
+  <div class="poem-text">It's a school day<br>I get<br>a loaf of French bread</div>
+</div>
+
+<!-- Poem 71 -->
+<div class="poem-entry">
+  <span class="poem-number">71</span>
+  <div class="poem-text">Every<br>breath<br>aware</div>
+</div>
+
+
+<!-- Poem 72 -->
+<div class="poem-entry">
+  <span class="poem-number">72</span>
+  <div class="poem-text">A bicycle ride home<br>from school<br>ao dai flutters like butterfly</div>
+</div>
+
+
+<!-- Poem 73 -->
+<div class="poem-block" id="poem-73">
+<div class="poem-entry">
+  <span class="poem-number">73</span>
+  <div class="poem-text">A willow<br>yields<br>to the wind</div>
+</div>
+
+
+
+</div>
+<!-- END ARCHIVE LIST -->
+
+<center> <small>© Tuan Tran. All rights reserved.</small></center>
+
+<nav class="page-nav" aria-label="Page navigation">
+  <a href="index.html">← Back to Home</a>
+ </nav>
+
+</article>
+</main>
+
+<!-- ═══════════════════════════════════════════════
+END OF PAGE-SPECIFIC CONTENT
+═══════════════════════════════════════════════ -->
+
+<!-- ─────────────────────────────────────────────
+FOOTER — same on every page
+───────────────────────────────────────────── -->
+<footer>
+<p>
+This website shares personal reflections on war, migration, meditation, and health.<br>
+&copy; <span id="yr"></span> Tuan Tran &mdash; <a href="sitemap.html">Site Map</a>
+</p>
+</footer>
+
+<!-- ─────────────────────────────────────────────
+SCRIPTS — same on every page
+───────────────────────────────────────────── -->
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+const toggle = document.querySelector('.nav-toggle');
+const navLinks = document.getElementById('nav-links');
+
+toggle.addEventListener('click', () => {
+const open = toggle.getAttribute('aria-expanded') === 'true';
+toggle.setAttribute('aria-expanded', String(!open));
+navLinks.classList.toggle('open', !open);
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+link.addEventListener('click', () => {
+if (window.innerWidth <= 680) {
+toggle.setAttribute('aria-expanded', 'false');
+navLinks.classList.remove('open');
+}
+});
+});
+</script>
+
+</body>
+</html>
