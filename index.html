@@ -466,99 +466,6 @@ margin: 1.5rem 0 2rem;
 }
     
  
- /* ── CONTACT FORM STYLES (Global) ───────────────── */
-.contact-section {
-  max-width: var(--max-w);
-  margin: 3rem auto;
-  padding: 0 var(--side);
-}
-
-.form-container {
-  max-width: 600px;
-  margin: 0 auto; /* Center the form */
-}
-
-.form-container h2 {
-  font-family: var(--font-display);
-  font-size: clamp(0.8rem, 1.4vw, 1rem);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: 1rem;
-  margin-top: 0;
-}
-
-.form-container label {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-  margin-bottom: 0.4rem;
-  margin-top: 1.25rem;
-}
-
-.form-container input,
-.form-container textarea {
-  width: 100%;
-  background: var(--paper-warm);
-  border: 1px solid var(--paper-deep);
-  border-radius: 4px;
-  padding: 0.75rem 1rem;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--ink);
-  outline: none;
-  transition: border-color 0.2s;
-  box-sizing: border-box; /* Ensures padding doesn't break layout */
-}
-
-.form-container input:focus,
-.form-container textarea:focus {
-  border-color: var(--gold);
-  background: #fff;
-}
-
-.form-container textarea {
-  resize: vertical;
-  min-height: 150px;
-}
-
-.form-container button {
-  margin-top: 1.5rem;
-  background: var(--ink);
-  color: var(--gold-light);
-  border: 1px solid var(--gold);
-  padding: 0.75rem 2.5rem;
-  font-family: var(--font-display);
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  width: 100%; /* Makes button full width on mobile */
-}
-
-.form-container button:hover {
-  background: var(--gold);
-  color: var(--ink);
-  transform: translateY(-2px);
-}
-
-/* Mobile adjustment */
-@media (max-width: 680px) {
-  .contact-section {
-    padding: 1rem var(--side);
-  }
-  .form-container button {
-    width: 100%;
-  }
-}
- 
- 
-
     /* ── FOOTER ───────────────────────────────────── */
     footer {
       position: relative;
@@ -802,13 +709,7 @@ margin: 1.5rem 0 2rem;
   <!-- ── CLARIFICATION BOX ─────────────────────────────── -->
 <div class="clarification-wrapper">
 <div class="clarification-box">
-<p>There is another person named Tuan Tran online.</p>
-
-<p>This site, <b>tuantran.org</b>, documents my life.</p>
-
-<p>If you find similar titles elsewhere, please verify the URL.</p>
-
-<p class="clarification-contact">For questions about my work, please contact me directly using the form on the comments page.</p>
+<p>There is another person named Tuan Tran online. This site, <b>tuantran.org</b>, documents my life. If you find similar titles elsewhere, please verify the URL.</p>
 
 </div>
 </div>
