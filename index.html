@@ -412,6 +412,152 @@ margin-bottom: 1.25rem;
       color: var(--paper-warm);
       white-space: pre-line;
     }
+    
+    /* ── CLARIFICATION BOX STYLING ───────────────────────── */
+.clarification-wrapper {
+max-width: var(--max-w);
+margin: 0 auto;
+padding: 0 var(--side);
+position: relative;
+z-index: 20;
+}
+
+.clarification-box {
+background: var(--paper-warm);
+border-left: 4px solid var(--gold);
+padding: 2rem 2.5rem;
+margin: 2rem 0 3rem;
+border-radius: 0 4px 4px 0;
+box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.clarification-box p {
+font-family: var(--font-body);
+font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+line-height: 1.8;
+color: var(--ink-soft);
+margin-bottom: 1.25em;
+}
+
+.clarification-box p:last-child {
+margin-bottom: 0;
+}
+
+.clarification-contact {
+font-size: 0.85em !important;
+margin-top: 1.5rem !important;
+}
+
+.clarification-contact a {
+color: var(--red);
+text-decoration: underline;
+}
+
+.clarification-contact a:hover {
+text-decoration: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 680px) {
+.clarification-box {
+padding: 1.5rem 1.5rem;
+margin: 1.5rem 0 2rem;
+}
+}
+    
+ 
+ /* ── CONTACT FORM STYLES (Global) ───────────────── */
+.contact-section {
+  max-width: var(--max-w);
+  margin: 3rem auto;
+  padding: 0 var(--side);
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 0 auto; /* Center the form */
+}
+
+.form-container h2 {
+  font-family: var(--font-display);
+  font-size: clamp(0.8rem, 1.4vw, 1rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+.form-container label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.4rem;
+  margin-top: 1.25rem;
+}
+
+.form-container input,
+.form-container textarea {
+  width: 100%;
+  background: var(--paper-warm);
+  border: 1px solid var(--paper-deep);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box; /* Ensures padding doesn't break layout */
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+  border-color: var(--gold);
+  background: #fff;
+}
+
+.form-container textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.form-container button {
+  margin-top: 1.5rem;
+  background: var(--ink);
+  color: var(--gold-light);
+  border: 1px solid var(--gold);
+  padding: 0.75rem 2.5rem;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%; /* Makes button full width on mobile */
+}
+
+.form-container button:hover {
+  background: var(--gold);
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+
+/* Mobile adjustment */
+@media (max-width: 680px) {
+  .contact-section {
+    padding: 1rem var(--side);
+  }
+  .form-container button {
+    width: 100%;
+  }
+}
+ 
+ 
 
     /* ── FOOTER ───────────────────────────────────── */
     footer {
@@ -652,7 +798,55 @@ margin-bottom: 1.25rem;
       
       
     </div>
-    
+  
+  <!-- ── CLARIFICATION BOX ─────────────────────────────── -->
+<div class="clarification-wrapper">
+<div class="clarification-box">
+<p>There is another person named Tuan Tran online.</p>
+
+<p>This site (tuantran.org) documents my life: born in Saigon in 1960, left Vietnam on a boat in 1975, spent time in a refugee camp in Hong Kong, meditated as a monk in Myanmar, taught school in Washington State, and wrote forty haiku after twenty years of silence.</p>
+
+<p>I am not affiliated with any other website using my name. My story contains details that cannot be mistaken: the boat crossing, the Goenka retreat, the monastery in the forest, the Volkswagen Bug.</p>
+
+<p>If you find similar titles elsewhere, please verify the URL.</p>
+
+<p class="clarification-contact">For questions about my work, please contact me directly using the form below.</p>
+
+<!-- ── CONTACT FORM SECTION ─────────────────────── -->
+<section class="contact-section">
+  <div class="page-title-block" style="text-align: left; background: transparent; border: none; padding-top: 0;">
+    <h2 class="page-title" style="font-size: 1.5rem; margin-bottom: 0.5rem;">Contact</h2>
+    <p class="page-desc" style="color: var(--ink-faint);">For permission requests, reflections, or questions.</p>
+  </div>
+
+  <div class="form-container">
+    <form action="https://formspree.io/f/xykvypwv" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required placeholder="Your full name">
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required placeholder="your@email.com">
+
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" required placeholder="e.g., Permission Request, Comment">
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="6" required placeholder="Your message here..."></textarea>
+
+         
+      <!-- Hidden field to set the subject of the email automatically -->
+      <input type="hidden" name="_subject" value="New message from Tuan Tran's Journal">
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+
+</div>
+</div>
+  
+  
 <!-- Featured Poem -->
 <div class="divider" aria-hidden="true">
   <span class="divider-text">Featured Poem</span>
