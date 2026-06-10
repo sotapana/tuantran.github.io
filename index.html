@@ -4,10 +4,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Personal journal of a Vietnamese refugee who escaped Saigon in 1975 — covering childhood in wartime Vietnam, life in America, returning to Ho Chi Minh City, Vipassanā meditation, Tai Chi, and reflections on identity and belonging." />
-  <meta name="keywords" content="Vietnamese-American, Vietnam War, refugee memoir, meditation, Buddhism, Tuan Tran, diaspora, Saigon" />
+  <meta name="description" content="First-person memoir by Tuan Tran, who escaped Vietnam by boat at age 15 in 1975. A rare teenage refugee's account of wartime Saigon, the boat journey, refugee camps, resettlement in America, and returning to Vietnam as a Viet Kieu." />
+  <meta name="keywords" content="Vietnamese boat people, refugee memoir, 15 year old refugee, escape from Saigon 1975, Vietnamese refugee experience, Viet Kieu return, boat people first person account, teenage refugee, Tuan Tran, Vietnamese American memoir, refugee camp, escaping Vietnam by boat" />
   <meta name="author" content="Tuan Tran" />
   <link rel="canonical" href="https://tuantran.org/" />
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Tuan Tran's Journal",
+  "url": "https://tuantran.org",
+  "description": "First-person memoir by a Vietnamese refugee who escaped by boat at age 15 in 1975.",
+  "author": {
+    "@type": "Person",
+    "name": "Tuan Tran"
+  },
+  "genre": "Memoir",
+  "about": [
+    {"@type": "Thing", "name": "Vietnamese Boat People"},
+    {"@type": "Thing", "name": "Vietnam War Refugee Experience"},
+    {"@type": "Thing", "name": "Viet Kieu"}
+  ]
+}
+</script>
   
   <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FGVXMPRSCQ"></script>
@@ -22,7 +42,7 @@ gtag('config', 'G-FGVXMPRSCQ');
   <meta property="og:description" content="Personal reflections on war, migration, meditation, and the search for identity." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tuantran.org" />
-  <title>Tuan Tran: Vietnamese-American Memoir of War, Refugee Life & Meditation</title>
+  <title>Vietnamese Boat People Memoir — A 15-Year-Old Refugee's Escape from Saigon | Tuan Tran</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
@@ -569,28 +589,31 @@ margin: 1.5rem 0 2rem;
   </header>
 
   <!-- NAV -->
-  <nav aria-label="Main navigation">
-    <div class="nav-inner">
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="nav-links" role="list">
-<li><a href="index.html" aria-current="page">Home</a></li>
-<li><a href="childhood.html">Childhood</a></li>
-<li><a href="usa.html">Life in the USA</a></li>
-<li><a href="cominghome.html">Coming Home</a></li>
-<li><a href="writings.html">My Writings</a></li>
-<li><a href="meditation.html">Meditation</a></li>
-<li><a href="taichi.html">Tai Chi</a></li>
-<li><a href="diabetes.html">Diabetes</a></li>
-<li><a href="marthahess.html">Then the Americans Came</a></li>
-<li><a href="russelltribunal.html">Russell Tribunal</a></li>
-<li><a href="teaching.html">Teaching in Vietnam</a></li>
-<li><a href="comments.html">Comments</a></li>
-      </ul>
-    </div>
-  </nav>
-
+<nav class="main-nav" aria-label="Main navigation">
+<div class="nav-inner">
+<button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+<span></span><span></span><span></span>
+</button>
+<ul class="nav-links" id="nav-links" role="list">
+  <li><a href="index.html" aria-current="page">Home</a></li>
+  <li><a href="childhood.html">Childhood</a></li>
+  <li><a href="usa.html">Life in the USA</a></li>
+  <li><a href="cominghome.html">Coming Home</a></li>
+  <li><a href="writings.html">My Writings</a></li>
+  <li><a href="meditation.html">Meditation</a></li>
+  <li><a href="taichi.html">Tai Chi</a></li>
+  <li><a href="diabetes.html">Diabetes</a></li>
+  <li><a href="marthahess.html">Then the Americans Came</a></li>
+  <li><a href="russelltribunal.html">Russell Tribunal</a></li>
+  <li><a href="teaching.html">Teaching in Vietnam</a></li>  
+  <li><a href="road-home.html">The Road Home</a></li>
+  <li><a href="songbirds.html">Songbirds</a></li>
+  <li><a href="poetry.html">Collected Poems</a></li>
+  <li><a href="comments.html">Comments</a></li>
+</ul>
+</div>
+</nav>
+ 
   <!-- BANNER -->
   <img
     src="banner.jpg"
@@ -617,6 +640,8 @@ margin: 1.5rem 0 2rem;
 
     <!-- Intro -->
     <section class="intro" aria-label="About this journal">
+    
+    <h2 class="sr-only">A Vietnamese Refugee's Story</h2>
       <p>
         This website is a collection of personal reflections on meditation, identity,
         immigration, history, and the human search for understanding. Drawing from lived
@@ -640,17 +665,17 @@ margin: 1.5rem 0 2rem;
       <a href="childhood.html" class="topic-card">
         <span class="topic-tag">Memoir</span>
         <span class="topic-title">Vietnam War Childhood</span>
-        <span class="topic-desc">Growing up in Saigon, the fall of South Vietnam, and escape by sea.</span>
+        <span class="topic-desc">Growing up in Saigon, the fall of South Vietnam, and fleeing as a boat refugee at age 15.</span>
       </a>
       <a href="usa.html" class="topic-card">
         <span class="topic-tag">Memoir</span>
         <span class="topic-title">Refugee Experience</span>
-        <span class="topic-desc">Arriving in America — assimilation, loss of identity, and awakening.</span>
+        <span class="topic-desc">A teenage refugee's arrival in America — assimilation, racism, loss of identity, and awakening.</span>
       </a>
        <a href="cominghome.html" class="topic-card">
         <span class="topic-tag">Journey</span>
         <span class="topic-title">Coming Home</span>
-        <span class="topic-desc">Returning to Vietnam after decades in America.</span>
+        <span class="topic-desc">Returning to Ho Chi Minh City in 2001 — a Viet Kieu's confrontation with the homeland.</span>
       </a>
        <a href="teaching.html" class="topic-card">
         <span class="topic-tag">Education</span>
