@@ -1,104 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archive: The International War Crimes Tribunal on Vietnam</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Archive of the Bertrand Russell International War Crimes Tribunal on Vietnam (1966–1967). Full proceedings including testimonies from Vietnamese civilians, American veterans, and legal experts." />
+    <meta name="keywords" content="Russell Tribunal, Vietnam War crimes, Bertrand Russell, Jean-Paul Sartre, Donald Duncan testimony, war crimes documentation, Vietnam War history" />
+    <meta name="author" content="Tuan Tran" />
+    <link rel="canonical" href="https://tuantran.org/russelltribunal.html" />
+    <title>Bertrand Russell Tribunal — Tuan Tran's Journal</title>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FGVXMPRSCQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FGVXMPRSCQ');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
+
     <style>
+        /* ── RESET & BASE ─────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
         :root {
-            --bg-color: #f4f1ea;
-            --text-color: #2c2a25;
-            --accent-red: #8b2020;
-            --accent-gold: #9a7a3a;
-            --sidebar-bg: #e8e4d9;
-            --border-color: #dcd6c8;
+            --ink: #1a1610;
+            --ink-soft: #4a3f30;
+            --ink-faint: #8a7a68;
+            --paper: #f5f0e8;
+            --paper-warm: #ede5d4;
+            --paper-deep: #ddd2bc;
+            --red: #8b2020;
+            --red-soft: #a83030;
+            --gold: #9a7a3a;
+            --gold-light: #c4a265;
+
+            --font-display: 'Cinzel', serif;
+            --font-body: 'Crimson Pro', serif;
+            --font-quote: 'Cormorant Garamond', serif;
+
+            --max-w: 860px;
+            --side: clamp(1.25rem, 5vw, 3rem);
         }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
+            background-color: var(--paper);
+            color: var(--ink);
+            font-family: var(--font-body);
+            font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+            line-height: 1.75;
+            min-height: 100vh;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #fff;
-            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        /* ── TEXTURE OVERLAY ──────────────────────────── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
         }
 
+        /* ── SKIP LINK ────────────────────────────────── */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 1rem;
+            background: var(--red);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 0 0 4px 4px;
+            font-family: var(--font-body);
+            transition: top 0.2s;
+            z-index: 999;
+        }
+        .skip-link:focus { top: 0; }
+
+        /* ── HEADER ───────────────────────────────────── */
         header {
-            border-bottom: 2px solid var(--accent-red);
-            padding-bottom: 20px;
-            margin-bottom: 40px;
+            position: relative;
+            z-index: 10;
+            background: var(--ink);
+            color: var(--paper);
+            padding: 2.5rem var(--side) 2rem;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .site-eyebrow {
+            font-family: var(--font-display);
+            font-size: clamp(0.6rem, 1.2vw, 0.75rem);
+            letter-spacing: 0.25em;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .site-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 4.5vw, 3rem);
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            line-height: 1.2;
+            color: var(--paper);
+        }
+
+        .site-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .site-subtitle {
+            font-family: var(--font-quote);
+            font-style: italic;
+            font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+            color: var(--gold-light);
+            margin-top: 0.5rem;
+            font-weight: 300;
+        }
+
+        /* ── NAV ──────────────────────────────────────── */
+        nav.main-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--ink);
+            border-bottom: 1px solid var(--gold);
+        }
+
+        .nav-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 var(--side);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 1rem 0;
+            background: none;
+            border: none;
+            color: var(--paper);
+        }
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--gold-light);
+            transition: all 0.3s;
+        }
+        .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 0.85rem 0.9rem;
+            font-family: var(--font-display);
+            font-size: clamp(0.55rem, 1vw, 0.7rem);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--paper-warm);
+            text-decoration: none;
+            transition: color 0.2s, background 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .nav-links a[aria-current="page"] {
+            color: var(--gold-light);
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* ── BANNER IMAGE ─────────────────────────────── */
+        .banner {
+            width: 100%;
+            max-height: 280px;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            filter: sepia(20%) contrast(0.9);
+        }
+
+        /* ── PAGE TITLE BLOCK ─────────────────────────── */
+        .page-title-block {
+            background: var(--paper-warm);
+            border-bottom: 1px solid var(--paper-deep);
+            padding: 2rem var(--side);
             text-align: center;
         }
 
-        h1 {
-            font-size: 2.2rem;
-            font-weight: normal;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            color: var(--text-color);
+        .page-label {
+            font-family: var(--font-display);
+            font-size: 0.65rem;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
+            color: var(--red);
+            display: block;
+            margin-bottom: 0.5rem;
         }
 
-        h2 {
-            font-size: 1.5rem;
-            color: var(--accent-red);
-            border-bottom: 1px solid var(--accent-gold);
-            padding-bottom: 10px;
-            margin-top: 50px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .page-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            color: var(--ink);
+            line-height: 1.2;
         }
 
-        h3 {
-            font-size: 1.2rem;
-            color: var(--text-color);
-            margin-top: 30px;
-            font-weight: bold;
-        }
-
-        p {
-            margin-bottom: 1.5em;
-            font-size: 1.05rem;
-        }
-
-        blockquote {
-            background: var(--sidebar-bg);
-            border-left: 4px solid var(--accent-red);
-            margin: 20px 0;
-            padding: 20px;
+        .page-desc {
+            font-family: var(--font-quote);
             font-style: italic;
+            font-weight: 300;
+            font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+            color: var(--ink-faint);
+            margin-top: 0.5rem;
+        }
+
+        /* ── MAIN ─────────────────────────────────────── */
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 3rem var(--side) 4rem;
+        }
+
+        /* ── PROSE ────────────────────────────────────── */
+        .prose p {
+            margin-bottom: 1.4em;
+            color: var(--ink-soft);
+        }
+
+        .prose h2 {
+            font-family: var(--font-display);
+            font-size: clamp(0.8rem, 1.4vw, 0.95rem);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--red);
+            margin: 2.5rem 0 1rem;
+        }
+
+        .prose h3 {
+            font-family: var(--font-display);
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--ink);
+            margin: 2rem 0 0.75rem;
+        }
+
+        /* ── PULL QUOTE ───────────────────────────────── */
+        .pull-quote {
+            margin: 2.5rem 0;
+            padding: 1.75rem 2rem;
+            background: var(--paper-warm);
+            border-left: 4px solid var(--red);
+            border-radius: 0 4px 4px 0;
             position: relative;
         }
 
-        blockquote::before {
-            content: "“";
+        .pull-quote::before {
+            content: '\201C';
             position: absolute;
-            top: -10px;
-            left: 10px;
-            font-size: 3rem;
-            color: var(--accent-red);
+            top: -0.5rem;
+            left: 1.5rem;
+            font-family: var(--font-quote);
+            font-size: 5rem;
+            color: var(--red);
             opacity: 0.2;
-            font-family: serif;
+            line-height: 1;
         }
 
-        blockquote cite {
+        .pull-quote p {
+            font-family: var(--font-quote);
+            font-style: italic;
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--ink);
+            margin: 0 !important;
+        }
+
+        .pull-quote cite {
             display: block;
-            margin-top: 10px;
-            font-weight: bold;
+            margin-top: 0.75rem;
+            font-family: var(--font-display);
             font-style: normal;
-            font-size: 0.9rem;
-            color: var(--accent-gold);
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
+            color: var(--red);
         }
 
+        /* ── TABLES ───────────────────────────────────── */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -107,14 +320,14 @@
         }
 
         th, td {
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--paper-deep);
             padding: 12px;
             text-align: left;
         }
 
         th {
-            background-color: var(--sidebar-bg);
-            color: var(--text-color);
+            background-color: var(--paper-warm);
+            color: var(--ink);
             font-weight: bold;
             text-transform: uppercase;
             font-size: 0.9rem;
@@ -125,237 +338,399 @@
             background-color: #fafafa;
         }
 
-        .section-intro {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 20px;
-            border-left: 3px solid var(--accent-gold);
-            padding-left: 15px;
+        /* ── PERMANENT RECORD BOX ─────────────────────── */
+        .permanent-record {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 25px;
+            margin-top: 50px;
+            border-radius: 5px;
+            font-family: var(--font-body);
         }
 
-        ul {
-            list-style-type: square;
-            margin-left: 20px;
+        .permanent-record h3 {
+            color: var(--red);
+            font-size: 1.3rem;
+            margin-top: 0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
         }
 
-        li {
-            margin-bottom: 10px;
+        .archive-button {
+            display: inline-block;
+            background-color: var(--red);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+            margin-top: 10px;
         }
 
+        .archive-button:hover {
+            background-color: var(--red-soft);
+        }
+
+        /* ── FOOTER ───────────────────────────────────── */
         footer {
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
+            position: relative;
+            z-index: 1;
+            background: var(--ink);
+            color: var(--ink-faint);
             text-align: center;
-            font-size: 0.9rem;
-            color: #777;
+            padding: 2rem var(--side);
+            border-top: 1px solid rgba(154,122,58,0.3);
         }
 
-        @media (max-width: 600px) {
-            h1 { font-size: 1.6rem; }
-            h2 { font-size: 1.3rem; }
-            .container { padding: 20px; }
+        footer p {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            line-height: 1.8;
+        }
+
+        footer a {
+            color: var(--gold-light);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── RESPONSIVE ───────────────────────────────── */
+        @media (max-width: 680px) {
+            .nav-toggle { display: flex; }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .nav-links.open { display: flex; }
+
+            .nav-links a {
+                padding: 0.9rem var(--side);
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+                font-size: 0.75rem;
+            }
+
+            .nav-inner { flex-wrap: wrap; }
+
             table { display: block; overflow-x: auto; }
+        }
+
+        /* ── ANIMATIONS ───────────────────────────────── */
+        @media (prefers-reduced-motion: no-preference) {
+            main { animation: fadeUp 0.6s ease both; }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── PRINT ────────────────────────────────────── */
+        @media print {
+            nav.main-nav, footer, .page-nav { display: none; }
+            body { background: white; color: black; }
+            main { max-width: 100%; padding: 0; }
         }
     </style>
 </head>
-<body>
 
-<div class="container">
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- ─────────────────────────────────────────────
+    SITE HEADER — same on every page
+    ───────────────────────────────────────────── -->
     <header>
-        <h1>The International War Crimes Tribunal on Vietnam</h1>
-        <p><strong>A Structured Archive of Proceedings (1966–1967)</strong><br>
-        Based on the testimonies, findings, and verifications compiled by the Bertrand Russell Peace Foundation.</p>
+        <p class="site-eyebrow">A personal journal</p>
+        <h1 class="site-title"><a href="index.html">Tuan Tran's Journal</a></h1>
+        <p class="site-subtitle">A Vietnamese-American Experience</p>
     </header>
 
-    <div class="section-intro">
-        This document preserves the historical record of the Russell Tribunal. It was established by Bertrand Russell and presided over by Jean-Paul Sartre to investigate allegations of war crimes committed during the Vietnam War. The following structure summarizes the foundation, testimony, and verdicts intended to prevent the silence that often accompanies such atrocities.
-    </div>
+    <!-- ─────────────────────────────────────────────
+    MAIN NAV — same on every page (15 links)
+    ★ aria-current="page" on this page's link
+    ───────────────────────────────────────────── -->
+    <nav class="main-nav" aria-label="Main navigation">
+        <div class="nav-inner">
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links" role="list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="childhood.html">Childhood</a></li>
+                <li><a href="usa.html">Life in the USA</a></li>
+                <li><a href="cominghome.html">Coming Home</a></li>
+                <li><a href="writings.html">My Writings</a></li>
+                <li><a href="meditation.html">Meditation</a></li>
+                <li><a href="taichi.html">Tai Chi</a></li>
+                <li><a href="diabetes.html">Diabetes</a></li>
+                <li><a href="marthahess.html">Then the Americans Came</a></li>
+                <li><a href="russelltribunal.html" aria-current="page">Russell Tribunal</a></li>
+                <li><a href="teaching.html">Teaching in Vietnam</a></li>
+                <li><a href="road-home.html">The Road Home</a></li>
+                <li><a href="songbirds.html">Songbirds</a></li>
+                <li><a href="poetry.html">Collected Poems</a></li>
+                <li><a href="comments.html">Comments</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <h2>I. Foundation & Purpose</h2>
-    <p>Constituted in London in November 1966, the tribunal operated under a unique legal framework. Unlike the Nuremberg Trials, it held no state power to enforce sanctions but relied on moral authority and the weight of evidence presented by international witnesses.</p>
+    <!-- ─────────────────────────────────────────────
+    BANNER — same image on every page
+    ───────────────────────────────────────────── -->
+    <img
+        src="banner.jpg"
+        alt="Vietnamese terraced rice fields"
+        class="banner"
+        width="1200"
+        height="280"
+        loading="lazy"
+    />
+
+    <!-- ═══════════════════════════════════════════════
+    PAGE-SPECIFIC CONTENT STARTS HERE
+    ═══════════════════════════════════════════════ -->
     
-    <h3>The Five Core Questions</h3>
-    <ol>
-        <li>Has the U.S. Government committed acts of aggression according to international law?</li>
-        <li>Has the American army made use of or experimented with weapons forbidden by the laws of war?</li>
-        <li>Has there been bombardment of targets of a purely civilian character (hospitals, schools, dams)?</li>
-        <li>Have prisoners been subjected to inhuman treatment, torture, or mutilation?</li>
-        <li>Have forced labor camps been created or acts of genocide committed against the population?</li>
-    </ol>
+    <main id="main">
 
-    <blockquote>
-        "We are not judges. We are witnesses. Our task is to make mankind bear witness to these terrible crimes and to unite humanity on the side of justice in Vietnam."
-        <cite>— Bertrand Russell</cite>
-    </blockquote>
+        <!-- PAGE TITLE BLOCK -->
+        <div class="page-title-block">
+            <span class="page-label">History & Documentation</span>
+            <h1 class="page-title">The Bertrand Russell Tribunal</h1>
+            <p class="page-desc">International War Crimes Proceedings on Vietnam (1966–1967)</p>
+        </div>
 
-    <h2>II. Historical Context & Origins</h2>
-    <p>Based on the analysis of historian Gabriel Kolko, the intervention of the United States in Vietnam was not a civil war but a direct extension of American global strategy following World War II.</p>
+        <article class="prose">
 
-    <table>
-        <thead>
-            <tr>
-                <th>Period</th>
-                <th>Key Event / Policy</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1945–1949</td>
-                <td>U.S. supports French restoration to contain communism; opposes Vietnamese independence movement.</td>
-            </tr>
-            <tr>
-                <td>1950–1954</td>
-                <td>Direct military aid begins ($2.95B). France defeated at Dien Bien Phu.</td>
-            </tr>
-            <tr>
-                <td>1954</td>
-                <td>Geneva Accords signed. U.S. refuses to sign; blocks elections Ho Chi Minh would likely win.</td>
-            </tr>
-            <tr>
-                <td>1955–1959</td>
-                <td>Partition of Vietnam. Diem regime installs with U.S. support. Repression begins (40,000+ political prisoners).</td>
-            </tr>
-            <tr>
-                <td>1965+</td>
-                <td>Full-scale invasion. 166,000 troops deployed by Dec 1965. Massive bombing campaigns begin.</td>
-            </tr>
-        </tbody>
-    </table>
+            <!-- SECTION 1: FOUNDATION & PURPOSE -->
+            <h2>I. Foundation & Purpose</h2>
+            <p>Constituted in London in November 1966, the tribunal operated under a unique legal framework. Unlike the Nuremberg Trials, it held no state power to enforce sanctions but relied on moral authority and the weight of evidence presented by international witnesses.</p>
 
-    <h2>III. Stockholm Session (May 1967)</h2>
-    <p>The first session focused on the origins of the conflict and the technical nature of U.S. weaponry.</p>
-    
-    <h3>Key Testimonies</h3>
-    <ul>
-        <li><strong>Jean-Paul Sartre:</strong> Established the legitimacy of the tribunal based on universal conscience rather than state mandate.</li>
-        <li><strong>Gabriel Kolko:</strong> Detailed the economic and strategic motives of U.S. imperialism in Southeast Asia.</li>
-        <li><strong>Jean-Pierre Vigier:</strong> Described the use of fragmentation bombs specifically designed to maximize civilian casualties.</li>
-        <li><strong>Vietnamese Witnesses:</strong> Do Van Ngoc, Ngo Thi Nga, and others provided firsthand accounts of bombing raids and destruction of dikes.</li>
-    </ul>
+            <h3>The Five Core Questions</h3>
+            <ol>
+                <li>Has the U.S. Government committed acts of aggression according to international law?</li>
+                <li>Has the American army made use of or experimented with weapons forbidden by the laws of war?</li>
+                <li>Has there been bombardment of targets of a purely civilian character (hospitals, schools, dams)?</li>
+                <li>Have prisoners been subjected to inhuman treatment, torture, or mutilation?</li>
+                <li>Have forced labor camps been created or acts of genocide committed against the population?</li>
+            </ol>
 
-    <h2>IV. Roskilde Session (November – December 1967)</h2>
-    <p>The second session focused on the conduct of the war, prisoner treatment, and complicity of other nations. This section contains the most disturbing testimonies from American veterans who admitted to violations.</p>
+            <blockquote class="pull-quote">
+                <p>"We are not judges. We are witnesses. Our task is to make mankind bear witness to these terrible crimes and to unite humanity on the side of justice in Vietnam."</p>
+                <cite>— Bertrand Russell</cite>
+            </blockquote>
 
-    <h3>Testimony of American Veterans</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Role</th>
-                <th>Critical Admission</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Donald Duncan</td>
-                <td>Former Green Beret</td>
-                <td>Admitted training in torture techniques (electric shocks, genital mutilation). Confirmed orders to "get rid of" prisoners when they became burdensome.</td>
-            </tr>
-            <tr>
-                <td>David Kenneth Tuck</td>
-                <td>Infantry Specialist</td>
-                <td>Testified to finishing off wounded prisoners on the battlefield. Witnessed prisoners thrown from helicopters.</td>
-            </tr>
-            <tr>
-                <td>Peter Martinsen</td>
-                <td>Intel Interrogator</td>
-                <td>Confirmed torture practices were standard. Stated: "As long as the torture left no marks it was OK to do it."</td>
-            </tr>
-        </tbody>
-    </table>
+            <!-- SECTION 2: HISTORICAL CONTEXT -->
+            <h2>II. Historical Context & Origins</h2>
+            <p>Based on the analysis of historian Gabriel Kolko, the intervention of the United States in Vietnam was not a civil war but a direct extension of American global strategy following World War II.</p>
 
-    <blockquote>
-        "They encouraged us to use our imagination, only insisted that whatever we did should not leave traces."
-        <cite>— Donald Duncan</cite>
-    </blockquote>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Period</th>
+                        <th>Key Event / Policy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1945–1949</td>
+                        <td>U.S. supports French restoration to contain communism; opposes Vietnamese independence movement.</td>
+                    </tr>
+                    <tr>
+                        <td>1950–1954</td>
+                        <td>Direct military aid begins ($2.95B). France defeated at Dien Bien Phu.</td>
+                    </tr>
+                    <tr>
+                        <td>1954</td>
+                        <td>Geneva Accords signed. U.S. refuses to sign; blocks elections Ho Chi Minh would likely win.</td>
+                    </tr>
+                    <tr>
+                        <td>1955–1959</td>
+                        <td>Partition of Vietnam. Diem regime installs with U.S. support. Repression begins (40,000+ political prisoners).</td>
+                    </tr>
+                    <tr>
+                        <td>1965+</td>
+                        <td>Full-scale invasion. 166,000 troops deployed by Dec 1965. Massive bombing campaigns begin.</td>
+                    </tr>
+                </tbody>
+            </table>
 
-    <blockquote>
-        "I am an average American, I am like any other student, and here I am a war criminal... Anyone in my place would have acted as I did."
-        <cite>— Peter Martinsen</cite>
-    </blockquote>
+            <!-- SECTION 3: STOCKHOLM SESSION -->
+            <h2>III. Stockholm Session (May 1967)</h2>
+            <p>The first session focused on the origins of the conflict and the technical nature of U.S. weaponry.</p>
 
-    <h3>Complicity of Other Nations</h3>
-    <p>The tribunal found that several nations facilitated U.S. aggression through bases, troops, or economic support.</p>
-    <ul>
-        <li><strong>Thailand:</strong> Hosted bomber bases launching 80% of raids on North Vietnam; sent expeditionary corps.</li>
-        <li><strong>Philippines:</strong> Provided naval/air bases (Subic, Clark) and 2,000+ troops.</li>
-        <li><strong>Japan:</strong> Used its shipyards to repair U.S. warships; exported napalm components and logistics support.</li>
-    </ul>
+            <h3>Key Testimonies</h3>
+            <ul>
+                <li><strong>Jean-Paul Sartre:</strong> Established the legitimacy of the tribunal based on universal conscience rather than state mandate.</li>
+                <li><strong>Gabriel Kolko:</strong> Detailed the economic and strategic motives of U.S. imperialism in Southeast Asia.</li>
+                <li><strong>Jean-Pierre Vigier:</strong> Described the use of fragmentation bombs specifically designed to maximize civilian casualties.</li>
+                <li><strong>Vietnamese Witnesses:</strong> Do Van Ngoc, Ngo Thi Nga, and others provided firsthand accounts of bombing raids and destruction of dikes.</li>
+            </ul>
 
-    <h2>V. Findings & Verdict</h2>
-    <p>Following deliberations in Roskilde, the Tribunal rendered the following unanimous verdicts:</p>
+            <!-- SECTION 4: ROSKILDE SESSION -->
+            <h2>IV. Roskilde Session (November – December 1967)</h2>
+            <p>The second session focused on the conduct of the war, prisoner treatment, and complicity of other nations. This section contains the most disturbing testimonies from American veterans who admitted to violations.</p>
 
-    <ul>
-        <li><strong>Aggression:</strong> Yes. The U.S. committed aggression against the people of Laos and Vietnam.</li>
-        <li><strong>Prohibited Weapons:</strong> Yes. Napalm, phosphorus, fragmentation bombs, and toxic gases were used illegally.</li>
-        <li><strong>Treatment of Prisoners:</strong> Yes. Torture, execution of wounded, and inhumane detention occurred systematically.</li>
-        <li><strong>Treatment of Civilians:</strong> Yes. Massacres, forced displacement into concentration camps ("strategic hamlets"), and destruction of crops/dams.</li>
-        <li><strong>Genocide:</strong> <strong>Yes (Unanimous).</strong> The Tribunal concluded the war was an attempt to destroy the national group of the Vietnamese people.</li>
-    </ul>
+            <h3>Testimony of American Veterans</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Critical Admission</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Donald Duncan</td>
+                        <td>Former Green Beret</td>
+                        <td>Admitted training in torture techniques (electric shocks, genital mutilation). Confirmed orders to "get rid of" prisoners when they became burdensome.</td>
+                    </tr>
+                    <tr>
+                        <td>David Kenneth Tuck</td>
+                        <td>Infantry Specialist</td>
+                        <td>Testified to finishing off wounded prisoners on the battlefield. Witnessed prisoners thrown from helicopters.</td>
+                    </tr>
+                    <tr>
+                        <td>Peter Martinsen</td>
+                        <td>Intel Interrogator</td>
+                        <td>Confirmed torture practices were standard. Stated: "As long as the torture left no marks it was OK to do it."</td>
+                    </tr>
+                </tbody>
+            </table>
 
-    <blockquote>
-        "In the North, as in the South, there is a choice between two types of destruction: collective death or disintegration."
-        <cite>— Jean-Paul Sartre, On Genocide</cite>
-    </blockquote>
+            <blockquote class="pull-quote">
+                <p>"They encouraged us to use our imagination, only insisted that whatever we did should not leave traces."</p>
+                <cite>— Donald Duncan</cite>
+            </blockquote>
 
-    <h2>VI. The Aftermath: My Lai (Pinkville)</h2>
-    <p>Two years after the tribunal, the My Lai massacre was revealed. Bertrand Russell responded immediately, noting that the event was not an anomaly but a confirmation of the tribunal's findings.</p>
+            <blockquote class="pull-quote">
+                <p>"I am an average American, I am like any other student, and here I am a war criminal... Anyone in my place would have acted as I did."</p>
+                <cite>— Peter Martinsen</cite>
+            </blockquote>
 
-    <h3>Russell's Response (Nov 1969)</h3>
-    <ul>
-        <li>The atrocities were not isolated acts but represented the general pattern of the war.</li>
-        <li>Prosecuting only junior officers was inadequate; the architects of policy in the White House and Pentagon were the true culprits.</li>
-        <li>He called for a UN-led inquiry rather than a self-serving Pentagon investigation.</li>
-    </ul>
+            <h3>Complicity of Other Nations</h3>
+            <p>The tribunal found that several nations facilitated U.S. aggression through bases, troops, or economic support.</p>
+            <ul>
+                <li><strong>Thailand:</strong> Hosted bomber bases launching 80% of raids on North Vietnam; sent expeditionary corps.</li>
+                <li><strong>Philippines:</strong> Provided naval/air bases (Subic, Clark) and 2,000+ troops.</li>
+                <li><strong>Japan:</strong> Used its shipyards to repair U.S. warships; exported napalm components and logistics support.</li>
+            </ul>
 
-    <blockquote>
-        "The entire American people are now on trial. If there is not a massive moral revulsion at what is being done in their names to the people of Vietnam, there may be little hope for the future of America."
-        <cite>— Bertrand Russell</cite>
-    </blockquote>
+            <!-- SECTION 5: FINDINGS & VERDICT -->
+            <h2>V. Findings & Verdict</h2>
+            <p>Following deliberations in Roskilde, the Tribunal rendered the following unanimous verdicts:</p>
 
+            <ul>
+                <li><strong>Aggression:</strong> Yes. The U.S. committed aggression against the people of Laos and Vietnam.</li>
+                <li><strong>Prohibited Weapons:</strong> Yes. Napalm, phosphorus, fragmentation bombs, and toxic gases were used illegally.</li>
+                <li><strong>Treatment of Prisoners:</strong> Yes. Torture, execution of wounded, and inhumane detention occurred systematically.</li>
+                <li><strong>Treatment of Civilians:</strong> Yes. Massacres, forced displacement into concentration camps ("strategic hamlets"), and destruction of crops/dams.</li>
+                <li><strong>Genocide:</strong> <strong>Yes (Unanimous).</strong> The Tribunal concluded the war was an attempt to destroy the national group of the Vietnamese people.</li>
+            </ul>
 
+            <blockquote class="pull-quote">
+                <p>"In the North, as in the South, there is a choice between two types of destruction: collective death or disintegration."</p>
+                <cite>— Jean-Paul Sartre, On Genocide</cite>
+            </blockquote>
 
-<!-- ADD THIS BLOCK IMMEDIATELY BEFORE YOUR FOOTER DIV -->
+            <!-- SECTION 6: AFTERMATH -->
+            <h2>VI. The Aftermath: My Lai (Pinkville)</h2>
+            <p>Two years after the tribunal, the My Lai massacre was revealed. Bertrand Russell responded immediately, noting that the event was not an anomaly but a confirmation of the tribunal's findings.</p>
 
-<div style="background: #f8f9fa; border: 1px solid #dee2e6; padding: 25px; margin-top: 50px; border-radius: 5px; font-family: Georgia, serif;">
-    <h3 style="margin-top: 0; color: #8b2020; font-size: 1.3rem; border-bottom: 1px solid #ddd; padding-bottom: 10px;">📜 Permanent Record</h3>
-    
-    <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px;">
-        To ensure this historical testimony is preserved against the loss of digital data, the complete text of these proceedings has been permanently archived by the Internet Archive (Wayback Machine). 
-    </p>
-    
-    <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 25px;">
-        If the original source becomes unavailable in the future, you can access the exact, unaltered record of this tribunal here:
-    </p>
+            <h3>Russell's Response (Nov 1969)</h3>
+            <ul>
+                <li>The atrocities were not isolated acts but represented the general pattern of the war.</li>
+                <li>Prosecuting only junior officers was inadequate; the architects of policy in the White House and Pentagon were the true culprits.</li>
+                <li>He called for a UN-led inquiry rather than a self-serving Pentagon investigation.</li>
+            </ul>
 
+            <blockquote class="pull-quote">
+                <p>"The entire American people are now on trial. If there is not a massive moral revulsion at what is being done in their names to the people of Vietnam, there may be little hope for the future of America."</p>
+                <cite>— Bertrand Russell</cite>
+            </blockquote>
 
-<div style="text-align: center; background: #fff; border: 1px solid #ccc; padding: 20px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-    <a href="https://web.archive.org/web/20260609043446/https://tuantran.org/russelltribunal.html" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       style="display: inline-block; background-color: #8b2020; color: white; text-decoration: none; padding: 12px 24px; border-radius: 4px; font-weight: bold; font-size: 1.1rem; transition: background 0.3s;"
-       onmouseover="this.style.backgroundColor='#6d1a1a'"
-       onmouseout="this.style.backgroundColor='#8b2020'">
-        🔗 Access Permanent Archive Copy (Verified June 9, 2026)
-    </a>
-    <p style="margin-top: 15px; font-size: 0.9rem; color: #666; font-style: italic;">
-        Link verified and hosted by archive.org (Internet Archive)
-    </p>
-</div>
+            <!-- PERMANENT RECORD BOX -->
+            <div class="permanent-record">
+                <h3>📜 Permanent Record</h3>
+                
+                <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px;">
+                    To ensure this historical testimony is preserved against the loss of digital data, the complete text of these proceedings has been permanently archived by the Internet Archive (Wayback Machine). 
+                </p>
+                
+                <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 25px;">
+                    If the original source becomes unavailable in the future, you can access the exact, unaltered record of this tribunal here:
+                </p>
 
-   
-    <p style="margin-top: 20px; font-size: 0.9rem; color: #555;">
-        <em>Note: This archive captures the full proceedings of the Bertrand Russell War Crimes Tribunal (Stockholm & Roskilde sessions), including testimonies from Vietnamese civilians, American veterans, and legal experts, ensuring this record of history cannot be erased.</em>
-    </p>
-</div>
+                <div style="text-align: center; background: #fff; border: 1px solid #ccc; padding: 20px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                    <a href="https://web.archive.org/web/20260609043446/https://tuantran.org/russelltribunal.html" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="archive-button">
+                        🔗 Access Permanent Archive Copy (Verified June 9, 2026)
+                    </a>
+                    <p style="margin-top: 15px; font-size: 0.9rem; color: #666; font-style: italic;">
+                        Link verified and hosted by archive.org (Internet Archive)
+                    </p>
+                </div>
 
+                <p style="margin-top: 20px; font-size: 0.9rem; color: #555;">
+                    <em>Note: This archive captures the full proceedings of the Bertrand Russell War Crimes Tribunal (Stockholm & Roskilde sessions), including testimonies from Vietnamese civilians, American veterans, and legal experts, ensuring this record of history cannot be erased.</em>
+                </p>
+            </div>
 
+        </article>
+
+        <!-- PREV / NEXT NAV (Optional) -->
+        <nav class="page-nav" aria-label="Page navigation" style="display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--paper-deep);">
+            <a href="marthahess.html" style="font-family: var(--font-display); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); text-decoration: none;">← Previous Page</a>
+            <a href="teaching.html" style="font-family: var(--font-display); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); text-decoration: none;">Next Page →</a>
+        </nav>
+
+    </main>
+
+    <!-- ─────────────────────────────────────────────
+    FOOTER — same on every page
+    ───────────────────────────────────────────── -->
     <footer>
-        <p>Preserved for educational purposes. <br>
-        Source material: The International War Crimes Tribunal on Vietnam (Russell Tribunal proceedings), Tuan Tran's Journal archive.</p>
+        <p>
+            This website shares personal reflections on war, migration, meditation, and health.<br>
+            &copy; <span id="yr"></span> Tuan Tran &mdash; <a href="sitemap.html">Site Map</a>
+        </p>
     </footer>
-</div>
+
+    <!-- ─────────────────────────────────────────────
+    SCRIPTS — same on every page
+    ───────────────────────────────────────────── -->
+    <script>
+        document.getElementById('yr').textContent = new Date().getFullYear();
+
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        toggle.addEventListener('click', () => {
+            const open = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!open));
+            navLinks.classList.toggle('open', !open);
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 680) {
+                    toggle.setAttribute('aria-expanded', 'false');
+                    navLinks.classList.remove('open');
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
