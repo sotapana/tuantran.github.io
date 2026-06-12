@@ -401,13 +401,91 @@ from { opacity: 0; transform: translateY(16px); }
 to { opacity: 1; transform: translateY(0); }
 }
 
-/* ── PRINT ────────────────────────────────────── */
-@media print {
-nav.main-nav, footer, .page-nav { display: none; }
-body { background: white; color: black; }
-main { max-width: 100%; padding: 0; }
-.poem-entry { background: none; border: 1px solid #eee; }
+/* --- BUTTON STYLING --- */
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--red);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s, transform 0.1s;
 }
+.print-btn:hover {
+  background-color: var(--red-soft);
+  transform: translateY(-1px);
+}
+.print-btn:active {
+  transform: translateY(0);
+}
+
+
+/* ── PRINT STYLES ─────────────────────────────── */
+@media print {
+  /* Hide navigation and UI elements */
+  nav.main-nav, footer, .page-nav, .skip-link, .print-btn, .nav-toggle {
+    display: none !important;
+  }
+
+  /* Reset body for clean paper look */
+  body {
+    background: white !important;
+    color: #000 !important;
+    font-size: 12pt;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Main content full width */
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 auto;
+  }
+
+  /* --- CRITICAL FIX FOR POEMS (Invisible Text Issue) --- */
+  .poem-entry {
+    display: block !important;
+    visibility: visible !important;
+    
+    /* Background: Transparent (so paper shows) */
+    background: transparent !important; 
+    
+    /* Border: Simple left border for visual anchor */
+    border-left: 3px solid #000 !important;
+    border-radius: 0;
+    padding: 1rem 0 1rem 1.5rem;
+    margin: 2rem 0;
+    
+    /* Prevent splitting across pages */
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Ensure all text inside poems is black */
+  .poem-entry *, 
+  .poem-text, 
+  .poem-number {
+    color: #000 !important;
+    background: transparent !important;
+    opacity: 1 !important;
+  }
+
+  /* Headers and prose */
+  h1, h2, h3, p, .prose p, .prose h3 {
+    color: #000 !important;
+    page-break-after: avoid;
+  }
+}
+
 </style>
 </head>
 
@@ -480,6 +558,18 @@ PAGE-SPECIFIC CONTENT BEGINS
   <h3>This archive contains all haiku written by Tuan Tran to date.</h3>
   <p>The first fifteen poems appeared on tuantran.org in June 2001. The remaining, except poem 16, were written between May 2026 and today, presented in chronological order.</p>
   <p><em>Last updated: June 11, 2026</em></p>
+  
+    <!-- DOWNLOAD BUTTON -->
+  <div style="text-align: center; margin: 2rem 0;">
+    <button id="print-pdf-btn" class="print-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      Download / Print PDF (77 Poems)
+    </button>
+  </div>
 
 <!-- ARCHIVE LIST STARTS HERE -->
 <div class="archive-poem-list">
@@ -983,25 +1073,38 @@ This website shares personal reflections on war, migration, meditation, and heal
 SCRIPTS — same on every page
 ───────────────────────────────────────────── -->
 <script>
+// 1. Year Update
 document.getElementById('yr').textContent = new Date().getFullYear();
 
+// 2. Mobile Navigation Logic
 const toggle = document.querySelector('.nav-toggle');
 const navLinks = document.getElementById('nav-links');
 
-toggle.addEventListener('click', () => {
-const open = toggle.getAttribute('aria-expanded') === 'true';
-toggle.setAttribute('aria-expanded', String(!open));
-navLinks.classList.toggle('open', !open);
-});
+if (toggle && navLinks) {
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    navLinks.classList.toggle('open', !open);
+  });
 
-navLinks.querySelectorAll('a').forEach(link => {
-link.addEventListener('click', () => {
-if (window.innerWidth <= 680) {
-toggle.setAttribute('aria-expanded', 'false');
-navLinks.classList.remove('open');
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 680) {
+        toggle.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('open');
+      }
+    });
+  });
 }
-});
-});
+
+// 3. PRINT BUTTON LOGIC
+const printBtn = document.getElementById('print-pdf-btn');
+if (printBtn) {
+  printBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.print();
+  });
+}
 </script>
 
 </body>
