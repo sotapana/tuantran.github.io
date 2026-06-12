@@ -540,21 +540,17 @@ margin: 1.5rem 0 2rem;
         width: 100%;
         border-top: 1px solid rgba(255,255,255,0.1);
       }
-
-      
-      
-      
-            .nav-links.open { 
+ 
+            
+        .nav-links.open { 
         display: flex;
         flex-direction: column;
         width: 100%;
-        border-top: 1px solid rgba(255,255,255,0.1);
+        border-top: 1px solid rgba(255,255,255,0.1);      
+        max-height: 75vh;       
+        overflow-y: auto;        
+        -webkit-overflow-scrolling: touch; 
         
-        /* --- ADD THESE THREE LINES BELOW --- */
-        max-height: 75vh;        /* Limits height so it fits on screen */
-        overflow-y: auto;        /* Adds a small scrollbar inside the menu */
-        -webkit-overflow-scrolling: touch; /* Makes scrolling smooth on iPhone/Android */
-        /* ----------------------------------- */
       }
       
       
