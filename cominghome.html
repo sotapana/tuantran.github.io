@@ -521,13 +521,16 @@ width: 100%;
 border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-.nav-links.open { display: flex; }
-
-.nav-links a {
-padding: 0.9rem var(--side);
-border-bottom: 1px solid rgba(255,255,255,0.05);
-font-size: 0.75rem;
-}
+.nav-links.open { 
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border-top: 1px solid rgba(255,255,255,0.1);      
+        max-height: 75vh;       
+        overflow-y: auto;        
+        -webkit-overflow-scrolling: touch; 
+        
+      }
 
 .nav-inner { flex-wrap: wrap; }
 .pull-quote { padding: 1.5rem 1.5rem 1.5rem 1.75rem; }
