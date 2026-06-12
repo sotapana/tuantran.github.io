@@ -541,13 +541,23 @@ margin: 1.5rem 0 2rem;
         border-top: 1px solid rgba(255,255,255,0.1);
       }
 
-      .nav-links.open { display: flex; }
-
-      .nav-links a {
-        padding: 0.9rem var(--side);
-        border-bottom: 1px solid rgba(255,255,255,0.05);
-        font-size: 0.75rem;
+      
+      
+      
+            .nav-links.open { 
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        
+        /* --- ADD THESE THREE LINES BELOW --- */
+        max-height: 75vh;        /* Limits height so it fits on screen */
+        overflow-y: auto;        /* Adds a small scrollbar inside the menu */
+        -webkit-overflow-scrolling: touch; /* Makes scrolling smooth on iPhone/Android */
+        /* ----------------------------------- */
       }
+      
+      
 
       .nav-inner { flex-wrap: wrap; }
 
