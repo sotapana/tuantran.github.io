@@ -313,51 +313,84 @@ text-transform: uppercase;
 color: var(--red);
 }
 
-/* ── POEM BLOCK ───────────────────────────────── */
-.poem-block {
-background: var(--ink);
-color: var(--paper);
-padding: 2.5rem 2rem;
-border-radius: 4px;
-margin: 2.5rem 0;
-position: relative;
-overflow: hidden;
+
+/* ── PRINT STYLES (CONSOLIDATED) ─────────────── */
+@media print {
+  /* Hide UI elements */
+  nav.main-nav, footer, .page-nav, .skip-link, .print-btn, .nav-toggle {
+    display: none !important;
+  }
+
+  /* Remove texture overlay */
+  body::before {
+    display: none !important;
+  }
+
+  /* Reset body for clean paper */
+  body {
+    background: white !important;
+    color: #000 !important;
+    font-size: 12pt;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Main content full width */
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* --- CRITICAL FIX FOR INVISIBLE TEXT --- */
+  .poem-block {
+    display: block !important;
+    visibility: visible !important;
+    background: transparent !important;
+    color: #000 !important;
+    opacity: 1 !important;
+    border-left: 3px solid #000;
+    border-radius: 0;
+    padding: 1rem 0 1rem 1.5rem;
+    margin: 1.5rem 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Ensure ALL text inside poems is black */
+  .poem-block *,
+  .poem-text,
+  .poem-label {
+    color: #000 !important;
+    background: transparent !important;
+    opacity: 1 !important;
+  }
+
+  /* Pull quotes */
+  .pull-quote {
+    background: transparent !important;
+    color: #000 !important;
+    border-left: 3px solid #000;
+  }
+
+  /* Headers */
+  h1, h2, h3, .site-title, .page-title {
+    color: #000 !important;
+  }
+
+  /* Prose text */
+  p, .prose p {
+    color: #000 !important;
+  }
+
+  /* Prevent awkward page breaks */
+  p, .chapter-section, .poem-block {
+    page-break-inside: avoid;
+  }
 }
 
-.poem-block::before {
-content: '';
-position: absolute;
-inset: 0;
-background: linear-gradient(135deg, rgba(139,32,32,0.15) 0%, transparent 60%);
-pointer-events: none;
-}
 
-.poem-label {
-font-family: var(--font-display);
-font-size: 0.6rem;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: var(--gold-light);
-margin-bottom: 1rem;
-display: block;
-}
-
-.poem-title {
-font-family: var(--font-display);
-font-size: clamp(0.9rem, 1.5vw, 1rem);
-letter-spacing: 0.1em;
-color: var(--gold-light);
-margin-bottom: 1.25rem;
-}
-.poem-text {
-font-family: var(--font-quote);
-font-style: italic;
-font-size: clamp(1rem, 2vw, 1.2rem);
-font-weight: 300;
-line-height: 2;
-color: var(--paper-warm);
-white-space: pre-line;
-}
 
 /* ── TOPICS GRID (homepage only) ──────────────── */
 .topics-grid {
@@ -547,12 +580,7 @@ from { opacity: 0; transform: translateY(16px); }
 to { opacity: 1; transform: translateY(0); }
 }
 
-/* ── PRINT ───────────────────────────────────── */
-@media print {
-nav.main-nav, footer, .page-nav { display: none; }
-body { background: white; color: black; }
-main { max-width: 100%; padding: 0; }
-}
+
 
 /* ── SECTION STYLING ──────────────────────────── */
 .chapter-section {
@@ -564,6 +592,37 @@ border-top: 1px dashed var(--paper-deep);
 .chapter-section:first-of-type {
 border-top: none;
 }
+
+
+/* --- BUTTON STYLING --- */
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--red);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.print-btn:hover {
+  background-color: var(--red-soft);
+  transform: translateY(-1px);
+}
+
+.print-btn:active {
+  transform: translateY(0);
+}
+
+
+
 </style>
 </head>
 
@@ -648,6 +707,17 @@ PAGE-SPECIFIC CONTENT BEGINS
   <li><a href="#ch5">CHAPTER 5: THE FOREST MONASTERY</a></li>
   <li><a href="#epilogue">EPILOGUE: THE ROAD HOME</a></li>
 </ul>    
+
+<div style="text-align: center; margin: 2rem 0;">
+  <button id="print-pdf-btn" class="print-btn">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+      <polyline points="7 10 12 15 17 10"></polyline>
+      <line x1="12" y1="15" x2="12" y2="3"></line>
+    </svg>
+    Download / Print PDF
+  </button>
+</div>
 
 <!-- PROLOGUE -->
 <section id="prologue" class="chapter-section">
@@ -1812,6 +1882,8 @@ the road home
 
 </article>
 </main>
+
+
 <!-- ═══════════════════════════════════════════════
 END OF PAGE-SPECIFIC CONTENT
 ═══════════════════════════════════════════════ -->
@@ -1828,28 +1900,41 @@ This website shares personal reflections on war, migration, meditation, and heal
 </footer>
 
 <!-- ─────────────────────────────────────────────
-SCRIPTS — same on every page
+SCRIPTS — SAME ON EVERY PAGE
 ───────────────────────────────────────────── -->
 <script>
+// 1. Update Year
 document.getElementById('yr').textContent = new Date().getFullYear();
 
+// 2. Mobile Navigation Logic
 const toggle = document.querySelector('.nav-toggle');
 const navLinks = document.getElementById('nav-links');
 
-toggle.addEventListener('click', () => {
-const open = toggle.getAttribute('aria-expanded') === 'true';
-toggle.setAttribute('aria-expanded', String(!open));
-navLinks.classList.toggle('open', !open);
-});
+if (toggle && navLinks) {
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    navLinks.classList.toggle('open', !open);
+  });
 
-navLinks.querySelectorAll('a').forEach(link => {
-link.addEventListener('click', () => {
-if (window.innerWidth <= 680) {
-toggle.setAttribute('aria-expanded', 'false');
-navLinks.classList.remove('open');
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 680) {
+        toggle.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('open');
+      }
+    });
+  });
 }
-});
-});
+
+// 3. Print Button Logic
+const printBtn = document.getElementById('print-pdf-btn');
+if (printBtn) {
+  printBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.print();
+  });
+}
 </script>
 
 </body>
