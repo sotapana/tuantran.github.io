@@ -5,21 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <!-- ═══════════════════════════════════════════════
-CHANGE THESE 6 LINES FOR EACH PAGE
+PER-PAGE META DATA
 ═══════════════════════════════════════════════ -->
 <meta name="description" content="Personal reflections on Vipassana meditation by Tuan Tran: reaching bhanga in a S.N. Goenka retreat, living as a monk in Myanmar, and the application of mindfulness to racism and daily life. Includes letters on the danger of seeking bliss over wisdom." />
 <meta name="keywords" content="Vipassana retreat memoir, S.N. Goenka bhanga experience, Theravada monk Vietnam, Webu Sayadaw breath awareness, Buddhist mindfulness trauma, refugee spiritual journey, Asian American Buddhism, meditation and racism" />
 <meta property="og:title" content="Meditation — Tuan Tran's Journal" />
 <meta property="og:description" content="A Vietnamese-American's journey through Goenka retreats, life as a monk in Myanmar, and applying mindfulness to survive racism and find peace." />
 <meta property="og:url" content="https://tuantran.org/meditation.html" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://tuantran.org/banner.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Meditation — Tuan Tran's Journal" />
+<meta name="twitter:description" content="A Vietnamese-American's journey through Goenka retreats, life as a monk in Myanmar, and applying mindfulness to survive racism and find peace." />
+<meta name="twitter:image" content="https://tuantran.org/banner.jpg" />
+<meta name="robots" content="index, follow" />
 <title>Vipassanā & Monastic Life: A Refugee's Path from Trauma to Mindfulness | Tuan Tran</title>
-<!-- ═══════════════════════════════════════════════
-END OF PER-PAGE CHANGES IN HEAD
-═══════════════════════════════════════════════ -->
-
 <meta name="author" content="Tuan Tran" />
 <link rel="canonical" href="https://tuantran.org/meditation.html" />
-<meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
@@ -84,6 +86,17 @@ z-index: 999;
 }
 .skip-link:focus { top: 0; }
 
+/* ── SCREEN READER ONLY ───────────────────────── */
+.sr-only {
+position: absolute;
+width: 1px; height: 1px;
+padding: 0; margin: -1px;
+overflow: hidden;
+clip: rect(0, 0, 0, 0);
+white-space: nowrap;
+border: 0;
+}
+
 /* ── HEADER ───────────────────────────────────── */
 header {
 position: relative;
@@ -113,10 +126,7 @@ line-height: 1.2;
 color: var(--paper);
 }
 
-.site-title a {
-color: inherit;
-text-decoration: none;
-}
+.site-title a { color: inherit; text-decoration: none; }
 
 .site-subtitle {
 font-family: var(--font-quote);
@@ -262,6 +272,15 @@ color: var(--red);
 margin: 2.5rem 0 1rem;
 }
 
+.prose h3 {
+font-family: var(--font-display);
+font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(--red-soft);
+margin: 2rem 0 1rem;
+}
+
 /* ── PULL QUOTE ───────────────────────────────── */
 .pull-quote {
 margin: 2.5rem 0;
@@ -341,6 +360,7 @@ letter-spacing: 0.1em;
 color: var(--gold-light);
 margin-bottom: 1.25rem;
 }
+
 .poem-text {
 font-family: var(--font-quote);
 font-style: italic;
@@ -349,67 +369,6 @@ font-weight: 300;
 line-height: 2;
 color: var(--paper-warm);
 white-space: pre-line;
-}
-
-/* ── TOPICS GRID (homepage only) ──────────────── */
-.topics-grid {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
-gap: 1px;
-background: var(--paper-deep);
-border: 1px solid var(--paper-deep);
-border-radius: 4px;
-overflow: hidden;
-margin-bottom: 3.5rem;
-}
-
-.topic-card {
-background: var(--paper);
-padding: 1.5rem;
-text-decoration: none;
-display: block;
-transition: background 0.2s;
-position: relative;
-}
-
-.topic-card:hover { background: var(--paper-warm); }
-
-.topic-card::after {
-content: '→';
-position: absolute;
-right: 1.25rem;
-top: 50%;
-transform: translateY(-50%);
-color: var(--red);
-opacity: 0;
-transition: opacity 0.2s, right 0.2s;
-}
-
-.topic-card:hover::after { opacity: 1; right: 1rem; }
-
-.topic-tag {
-font-family: var(--font-display);
-font-size: 0.6rem;
-letter-spacing: 0.18em;
-text-transform: uppercase;
-color: var(--red);
-display: block;
-margin-bottom: 0.4rem;
-}
-
-.topic-title {
-font-family: var(--font-quote);
-font-size: clamp(1rem, 1.8vw, 1.15rem);
-font-weight: 400;
-color: var(--ink);
-line-height: 1.3;
-}
-
-.topic-desc {
-margin-top: 0.4rem;
-font-size: 0.9rem;
-color: var(--ink-faint);
-line-height: 1.5;
 }
 
 /* ── DIVIDER ──────────────────────────────────── */
@@ -427,6 +386,7 @@ flex: 1;
 height: 1px;
 background: linear-gradient(to right, transparent, var(--paper-deep));
 }
+
 .divider::after {
 background: linear-gradient(to left, transparent, var(--paper-deep));
 }
@@ -440,7 +400,27 @@ color: var(--ink-faint);
 white-space: nowrap;
 }
 
-/* ── PAGE NAV (prev / next) ───────────────────── */
+/* ── BUTTON ───────────────────────────────────── */
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--red);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+.print-btn:hover { background-color: var(--red-soft); transform: translateY(-1px); }
+.print-btn:active { transform: translateY(0); }
+
+/* ── PAGE NAV ─────────────────────────────────── */
 .page-nav {
 display: flex;
 justify-content: space-between;
@@ -513,20 +493,18 @@ width: 100%;
 border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-.nav-links.open { 
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        border-top: 1px solid rgba(255,255,255,0.1);      
-        max-height: 75vh;       
-        overflow-y: auto;        
-        -webkit-overflow-scrolling: touch; 
-        
-      }
+.nav-links.open {
+display: flex;
+flex-direction: column;
+width: 100%;
+border-top: 1px solid rgba(255,255,255,0.1);
+max-height: 75vh;
+overflow-y: auto;
+-webkit-overflow-scrolling: touch;
+}
 
 .nav-inner { flex-wrap: wrap; }
 .pull-quote { padding: 1.5rem 1.5rem 1.5rem 1.75rem; }
-
 }
 
 /* ── ANIMATIONS ───────────────────────────────── */
@@ -539,11 +517,19 @@ from { opacity: 0; transform: translateY(16px); }
 to { opacity: 1; transform: translateY(0); }
 }
 
-/* ── PRINT ────────────────────────────────────── */
+/* ── PRINT STYLES (FULL) ──────────────────────── */
 @media print {
-nav.main-nav, footer, .page-nav { display: none; }
-body { background: white; color: black; }
-main { max-width: 100%; padding: 0; }
+nav.main-nav, footer, .page-nav, .skip-link, .print-btn { display: none !important; }
+body::before { display: none !important; }
+body { background: white !important; color: #000 !important; font-size: 12pt; line-height: 1.6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+main { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+.poem-block { display: block !important; visibility: visible !important; background: transparent !important; color: #000 !important; opacity: 1 !important; border-left: 3px solid #000; border-radius: 0; padding: 1rem 0 1rem 1.5rem; margin: 1.5rem 0; page-break-inside: avoid; break-inside: avoid; }
+.poem-block *, .poem-text, .poem-label, .poem-title { color: #000 !important; background: transparent !important; opacity: 1 !important; }
+.pull-quote { background: transparent !important; color: #000 !important; border-left: 3px solid #000; }
+h1, h2, h3, .site-title, .page-title { color: #000 !important; }
+p, .prose p { color: #000 !important; }
+img { max-width: 100% !important; page-break-inside: avoid; }
+p { page-break-inside: avoid; }
 }
 </style>
 </head>
@@ -551,16 +537,12 @@ main { max-width: 100%; padding: 0; }
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
 
-<!-- ─────────────────────────────────────────────
-SITE HEADER — same on every page
-───────────────────────────────────────────── -->
 <header>
 <p class="site-eyebrow">A personal journal</p>
 <h1 class="site-title"><a href="index.html">Tuan Tran's Journal</a></h1>
 <p class="site-subtitle">A Vietnamese-American Experience</p>
 </header>
 
-<!-- NAV -->
 <nav class="main-nav" aria-label="Main navigation">
 <div class="nav-inner">
 <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
@@ -577,7 +559,7 @@ SITE HEADER — same on every page
   <li><a href="diabetes.html">Diabetes</a></li>
   <li><a href="marthahess.html">Then the Americans Came</a></li>
   <li><a href="russelltribunal.html">Russell Tribunal</a></li>
-  <li><a href="teaching.html">Teaching in Vietnam</a></li>  
+  <li><a href="teaching.html">Teaching in Vietnam</a></li>
   <li><a href="road-home.html">The Road Home</a></li>
   <li><a href="songbirds.html">Songbirds</a></li>
   <li><a href="poetry.html">Collected Poems</a></li>
@@ -586,27 +568,10 @@ SITE HEADER — same on every page
 </div>
 </nav>
 
-<!-- ─────────────────────────────────────────────
-BANNER — same image on every page
-───────────────────────────────────────────── -->
-<img
-src="banner.jpg"
-alt="Vietnamese terraced rice fields"
-class="banner"
-width="1200"
-height="280"
-loading="lazy"
-/>
-
-<!-- ═══════════════════════════════════════════════
-★★★ REPLACE EVERYTHING BELOW THIS LINE ★★★
-with the page-specific content block.
-Keep the <main id="main"> wrapper.
-═══════════════════════════════════════════════ -->
+<img src="banner.jpg" alt="Vietnamese terraced rice fields" class="banner" width="1200" height="280" loading="lazy" />
 
 <main id="main">
 
-<!-- PAGE TITLE BLOCK -->
 <div class="page-title-block">
   <span class="page-label">Practice</span>
   <h1 class="page-title">Meditation & The Contemplative Life</h1>
@@ -615,21 +580,33 @@ Keep the <main id="main"> wrapper.
 
 <article class="prose">
 
-  <h2>On Meditation</h2>
-  <p>The present moment is all we have.</p>
-  <p>Breath awareness is easy the moment effort becomes effortless.</p>
+<!-- DOWNLOAD BUTTON -->
+<div style="text-align: center; margin: 2rem 0;">
+  <button id="print-pdf-btn" class="print-btn">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+      <polyline points="7 10 12 15 17 10"></polyline>
+      <line x1="12" y1="15" x2="12" y2="3"></line>
+    </svg>
+    Download / Print PDF
+  </button>
+</div>
 
-  <!-- Real-Life Application Quote -->
-  <blockquote class="pull-quote">
-    <p>"What is the use of meditation if it can't be applied to real life?"</p>
-    <p>I was parking in the loading area at Costco. A white American couple didn't want to take the crosswalk next to where I was parking. The woman started swearing at me. I observed my breath and didn't react. Afterward, I wrote the following poem.</p>
-    <cite>— Tuan Tran</cite>
-    <p><a href="poetry.html#poem-73" style="color: var(--red); font-weight: bold;">See Poem #73</a> from my archive regarding this incident.</p>
-  </blockquote>
+<h2>On Meditation</h2>
+<p>The present moment is all we have.</p>
+<p>Breath awareness is easy the moment effort becomes effortless.</p>
 
-  <!-- SECTION 1: LETTER TO FRIEND -->
-  <h3>Letter to a Friend: The Danger of Seeking Bliss</h3><br>
-  
+<!-- Real-Life Application Quote -->
+<blockquote class="pull-quote">
+  <p>"What is the use of meditation if it can't be applied to real life?"</p>
+  <p>I was parking in the loading area at Costco. A white American couple didn't want to take the crosswalk next to where I was parking. The woman started swearing at me. I observed my breath and didn't react. Afterward, I wrote the following poem.</p>
+  <cite>— Tuan Tran</cite>
+  <p><a href="poetry.html#poem-73" style="color: var(--red); font-weight: bold;">See Poem #73</a> from my archive regarding this incident.</p>
+</blockquote>
+
+<!-- SECTION 1: LETTER TO FRIEND -->
+<h3>Letter to a Friend: The Danger of Seeking Bliss</h3>
+
 <p>Sorry it took me a while to respond to your email. I'm not familiar with Turiya state so I can't comment on it. However, since the class reached that state through guided meditation then I would suspect it is achieved through the power of suggestion.</p>
 
 <p>I'm skeptical of any meditation that is not observing the reality of the present as is, whether one is experiencing a pleasant or an unpleasant mental state, with full acceptance. True happiness and compassion arise from experiencing suffering and letting it go since everything is impermanent; thus in essence there is no self as it is also impermanent and subject to change.</p>
@@ -638,77 +615,98 @@ Keep the <main id="main"> wrapper.
 
 <p>Trying to reach a Turiya state for its blissful effect will hinder one's progress in meditation. The goal of meditation is to move beyond suffering, which is not the same as trying to experience bliss. One can take drugs to feel good but it doesn't lead to greater wisdom and compassion, only more suffering.</p>
 
-Sincerely,<br>
-Tuan Tran<br><br>
-  
+<p>Sincerely,<br>Tuan Tran</p>
 
-  <!-- SECTION 2: PERSONAL JOURNEY -->
-  <h3>My Spiritual Journey: From Saigon to Myanmar</h3><br>
-  
-  <p>I have been drawn to meditation since I was a boy. At twelve years old I tried to meditate by myself, without instruction, without a teacher.</p>
+<!-- SECTION 2: PERSONAL JOURNEY -->
+<h3>My Spiritual Journey: From Saigon to Myanmar</h3>
+
+<p>I have been drawn to meditation since I was a boy. At twelve years old I tried to meditate by myself, without instruction, without a teacher.</p>
 
 <p>At twenty-six I attended my first Goenka course and reached bhanga during that retreat. It transformed my life. I traveled to India seeking deeper guidance, but did not find what I was looking for.</p>
 
 <p>In 2007, at forty-seven, I lived as a monk at a Theravada forest monastery in Myanmar. I woke each morning to the sound of the temple bell. I wanted to stay for the rest of my life. But my family needed me, so I returned.</p>
 
 <p>I now meditate daily on the breath. I carry that awareness through the day.</p>
-  
-  <!-- SECTION 3: METHODOLOGY -->
-  <h3>The Webu Sayadaw Method: Direct Path</h3><br>
-  <p>I believe <strong>Webu Sayadaw's method</strong>—mindfulness of breathing—is the most direct path. It is a complete method to achieve both concentration and wisdom:</p>
-  <blockquote>
-    <p>"Simply observe the natural breath at the nostrils where the breath touches, without controlling it, and with continuous awareness."</p>
-  </blockquote>
+
+<!-- SECTION 3: METHODOLOGY -->
+<h3>The Webu Sayadaw Method: Direct Path</h3>
+
+<p>I believe <strong>Webu Sayadaw's method</strong>—mindfulness of breathing—is the most direct path. It is a complete method to achieve both concentration and wisdom:</p>
+
+<blockquote>
+  <p>"Simply observe the natural breath at the nostrils where the breath touches, without controlling it, and with continuous awareness."</p>
+</blockquote>
 
 </article>
 
 <!-- PREV / NEXT NAV -->
 <nav class="page-nav" aria-label="Page navigation">
-  <a href="writings.html">← Previous Page</a>
-  <a href="taichi.html" class="next">Next Page →</a>
+  <a href="writings.html">&larr; Previous: My Writings</a>
+  <a href="taichi.html" class="next">Next: Tai Chi &rarr;</a>
 </nav>
 
 </main>
 
-
-<!-- ═══════════════════════════════════════════════
-★★★ END OF PAGE-SPECIFIC CONTENT ★★★
-═══════════════════════════════════════════════ -->
-
-<!-- ─────────────────────────────────────────────
-FOOTER — same on every page
-───────────────────────────────────────────── -->
 <footer>
-
+<ul class="footer-nav">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="childhood.html">Childhood</a></li>
+  <li><a href="usa.html">Life in the USA</a></li>
+  <li><a href="cominghome.html">Coming Home</a></li>
+  <li><a href="writings.html">My Writings</a></li>
+  <li><a href="meditation.html">Meditation</a></li>
+  <li><a href="taichi.html">Tai Chi</a></li>
+  <li><a href="diabetes.html">Diabetes</a></li>
+  <li><a href="road-home.html">The Road Home</a></li>
+  <li><a href="poetry.html">Collected Poems</a></li>
+  <li><a href="comments.html">Comments</a></li>
+</ul>
 <p>
 This website shares personal reflections on war, migration, meditation, and health.<br>
 &copy; <span id="yr"></span> Tuan Tran &mdash; <a href="sitemap.html">Site Map</a>
 </p>
+<p style="font-size: 0.75rem; margin-top: 0.5rem; opacity: 0.8;">
+Archived by the Vietnam Center and Archive, Texas Tech University.
+</p>
 </footer>
 
-<!-- ─────────────────────────────────────────────
-SCRIPTS — same on every page
-───────────────────────────────────────────── -->
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
 
 const toggle = document.querySelector('.nav-toggle');
 const navLinks = document.getElementById('nav-links');
 
-toggle.addEventListener('click', () => {
-const open = toggle.getAttribute('aria-expanded') === 'true';
-toggle.setAttribute('aria-expanded', String(!open));
-navLinks.classList.toggle('open', !open);
-});
+if (toggle && navLinks) {
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    navLinks.classList.toggle('open', !open);
+  });
 
-navLinks.querySelectorAll('a').forEach(link => {
-link.addEventListener('click', () => {
-if (window.innerWidth <= 680) {
-toggle.setAttribute('aria-expanded', 'false');
-navLinks.classList.remove('open');
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 680) {
+        toggle.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('open');
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+      toggle.setAttribute('aria-expanded', 'false');
+      navLinks.classList.remove('open');
+      toggle.focus();
+    }
+  });
 }
-});
-});
+
+const printBtn = document.getElementById('print-pdf-btn');
+if (printBtn) {
+  printBtn.addEventListener('click', () => {
+    window.print();
+  });
+}
 </script>
 
 </body>
