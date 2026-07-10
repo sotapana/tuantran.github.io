@@ -5,21 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <!-- ═══════════════════════════════════════════════
-CHANGE THESE 6 LINES FOR EACH PAGE
+PER-PAGE META DATA
 ═══════════════════════════════════════════════ -->
 <meta name="description" content="Essays by Tuan Tran on affirmative action (Washington Initiative 200), voting rights for Vietnamese-Americans, and non-violent civil disobedience. Philosophical reflections on race, justice, and ahimsa in the tradition of Gandhi and MLK." />
 <meta name="keywords" content="Vietnamese-American civil rights, Initiative 200 analysis, affirmative action Vietnam War refugees, civil disobedience ahimsa, voting rights Asian Americans, Martin Luther King Jr philosophy, racial profiling statistics, McCleskey v Kemp" />
+<meta name="author" content="Tuan Tran" />
+<link rel="canonical" href="https://tuantran.org/writings.html" />
 <meta property="og:title" content="My Writings — Tuan Tran's Journal" />
 <meta property="og:description" content="A collection of essays analyzing affirmative action in Washington state, the importance of voting for refugee communities, and the philosophy of non-violent resistance." />
 <meta property="og:url" content="https://tuantran.org/writings.html" />
-<title>Civil Rights Essays & Philosophy: Affirmative Action, Voting & Non-Violence | Tuan Tran</title>
-<!-- ═══════════════════════════════════════════════
-END OF PER-PAGE CHANGES IN HEAD
-═══════════════════════════════════════════════ -->
-
-<meta name="author" content="Tuan Tran" />
-<link rel="canonical" href="https://tuantran.org/writings.html" />
 <meta property="og:type" content="website" />
+<meta property="og:image" content="https://tuantran.org/banner.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="My Writings — Tuan Tran's Journal" />
+<meta name="twitter:description" content="A collection of essays analyzing affirmative action in Washington state, the importance of voting for refugee communities, and the philosophy of non-violent resistance." />
+<meta name="twitter:image" content="https://tuantran.org/banner.jpg" />
+<meta name="robots" content="index, follow" />
+<title>Civil Rights Essays & Philosophy: Affirmative Action, Voting & Non-Violence | Tuan Tran</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
@@ -84,6 +86,17 @@ z-index: 999;
 }
 .skip-link:focus { top: 0; }
 
+/* ── SCREEN READER ONLY ───────────────────────── */
+.sr-only {
+position: absolute;
+width: 1px; height: 1px;
+padding: 0; margin: -1px;
+overflow: hidden;
+clip: rect(0, 0, 0, 0);
+white-space: nowrap;
+border: 0;
+}
+
 /* ── HEADER ───────────────────────────────────── */
 header {
 position: relative;
@@ -113,10 +126,7 @@ line-height: 1.2;
 color: var(--paper);
 }
 
-.site-title a {
-color: inherit;
-text-decoration: none;
-}
+.site-title a { color: inherit; text-decoration: none; }
 
 .site-subtitle {
 font-family: var(--font-quote);
@@ -262,6 +272,15 @@ color: var(--red);
 margin: 2.5rem 0 1rem;
 }
 
+.prose h3 {
+font-family: var(--font-display);
+font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(--red-soft);
+margin: 2rem 0 1rem;
+}
+
 /* ── PULL QUOTE ───────────────────────────────── */
 .pull-quote {
 margin: 2.5rem 0;
@@ -341,6 +360,7 @@ letter-spacing: 0.1em;
 color: var(--gold-light);
 margin-bottom: 1.25rem;
 }
+
 .poem-text {
 font-family: var(--font-quote);
 font-style: italic;
@@ -349,67 +369,6 @@ font-weight: 300;
 line-height: 2;
 color: var(--paper-warm);
 white-space: pre-line;
-}
-
-/* ── TOPICS GRID (homepage only) ──────────────── */
-.topics-grid {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
-gap: 1px;
-background: var(--paper-deep);
-border: 1px solid var(--paper-deep);
-border-radius: 4px;
-overflow: hidden;
-margin-bottom: 3.5rem;
-}
-
-.topic-card {
-background: var(--paper);
-padding: 1.5rem;
-text-decoration: none;
-display: block;
-transition: background 0.2s;
-position: relative;
-}
-
-.topic-card:hover { background: var(--paper-warm); }
-
-.topic-card::after {
-content: '→';
-position: absolute;
-right: 1.25rem;
-top: 50%;
-transform: translateY(-50%);
-color: var(--red);
-opacity: 0;
-transition: opacity 0.2s, right 0.2s;
-}
-
-.topic-card:hover::after { opacity: 1; right: 1rem; }
-
-.topic-tag {
-font-family: var(--font-display);
-font-size: 0.6rem;
-letter-spacing: 0.18em;
-text-transform: uppercase;
-color: var(--red);
-display: block;
-margin-bottom: 0.4rem;
-}
-
-.topic-title {
-font-family: var(--font-quote);
-font-size: clamp(1rem, 1.8vw, 1.15rem);
-font-weight: 400;
-color: var(--ink);
-line-height: 1.3;
-}
-
-.topic-desc {
-margin-top: 0.4rem;
-font-size: 0.9rem;
-color: var(--ink-faint);
-line-height: 1.5;
 }
 
 /* ── DIVIDER ──────────────────────────────────── */
@@ -427,6 +386,7 @@ flex: 1;
 height: 1px;
 background: linear-gradient(to right, transparent, var(--paper-deep));
 }
+
 .divider::after {
 background: linear-gradient(to left, transparent, var(--paper-deep));
 }
@@ -440,7 +400,27 @@ color: var(--ink-faint);
 white-space: nowrap;
 }
 
-/* ── PAGE NAV (prev / next) ───────────────────── */
+/* ── BUTTON ───────────────────────────────────── */
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--red);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+.print-btn:hover { background-color: var(--red-soft); transform: translateY(-1px); }
+.print-btn:active { transform: translateY(0); }
+
+/* ── PAGE NAV ─────────────────────────────────── */
 .page-nav {
 display: flex;
 justify-content: space-between;
@@ -513,20 +493,18 @@ width: 100%;
 border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-.nav-links.open { 
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        border-top: 1px solid rgba(255,255,255,0.1);      
-        max-height: 75vh;       
-        overflow-y: auto;        
-        -webkit-overflow-scrolling: touch; 
-        
-      }
+.nav-links.open {
+display: flex;
+flex-direction: column;
+width: 100%;
+border-top: 1px solid rgba(255,255,255,0.1);
+max-height: 75vh;
+overflow-y: auto;
+-webkit-overflow-scrolling: touch;
+}
 
 .nav-inner { flex-wrap: wrap; }
 .pull-quote { padding: 1.5rem 1.5rem 1.5rem 1.75rem; }
-
 }
 
 /* ── ANIMATIONS ───────────────────────────────── */
@@ -539,11 +517,19 @@ from { opacity: 0; transform: translateY(16px); }
 to { opacity: 1; transform: translateY(0); }
 }
 
-/* ── PRINT ────────────────────────────────────── */
+/* ── PRINT STYLES (FULL) ──────────────────────── */
 @media print {
-nav.main-nav, footer, .page-nav { display: none; }
-body { background: white; color: black; }
-main { max-width: 100%; padding: 0; }
+nav.main-nav, footer, .page-nav, .skip-link, .print-btn { display: none !important; }
+body::before { display: none !important; }
+body { background: white !important; color: #000 !important; font-size: 12pt; line-height: 1.6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+main { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+.poem-block { display: block !important; visibility: visible !important; background: transparent !important; color: #000 !important; opacity: 1 !important; border-left: 3px solid #000; border-radius: 0; padding: 1rem 0 1rem 1.5rem; margin: 1.5rem 0; page-break-inside: avoid; break-inside: avoid; }
+.poem-block *, .poem-text, .poem-label, .poem-title { color: #000 !important; background: transparent !important; opacity: 1 !important; }
+.pull-quote { background: transparent !important; color: #000 !important; border-left: 3px solid #000; }
+h1, h2, h3, .site-title, .page-title { color: #000 !important; }
+p, .prose p { color: #000 !important; }
+img { max-width: 100% !important; page-break-inside: avoid; }
+p { page-break-inside: avoid; }
 }
 </style>
 </head>
@@ -551,16 +537,12 @@ main { max-width: 100%; padding: 0; }
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
 
-<!-- ─────────────────────────────────────────────
-SITE HEADER — same on every page
-───────────────────────────────────────────── -->
 <header>
 <p class="site-eyebrow">A personal journal</p>
 <h1 class="site-title"><a href="index.html">Tuan Tran's Journal</a></h1>
 <p class="site-subtitle">A Vietnamese-American Experience</p>
 </header>
 
-<!-- NAV -->
 <nav class="main-nav" aria-label="Main navigation">
 <div class="nav-inner">
 <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
@@ -577,7 +559,7 @@ SITE HEADER — same on every page
   <li><a href="diabetes.html">Diabetes</a></li>
   <li><a href="marthahess.html">Then the Americans Came</a></li>
   <li><a href="russelltribunal.html">Russell Tribunal</a></li>
-  <li><a href="teaching.html">Teaching in Vietnam</a></li>  
+  <li><a href="teaching.html">Teaching in Vietnam</a></li>
   <li><a href="road-home.html">The Road Home</a></li>
   <li><a href="songbirds.html">Songbirds</a></li>
   <li><a href="poetry.html">Collected Poems</a></li>
@@ -586,161 +568,168 @@ SITE HEADER — same on every page
 </div>
 </nav>
 
-<!-- ─────────────────────────────────────────────
-BANNER — same image on every page
-───────────────────────────────────────────── -->
-<img
-src="banner.jpg"
-alt="Vietnamese terraced rice fields"
-class="banner"
-width="1200"
-height="280"
-loading="lazy"
-/>
+<img src="banner.jpg" alt="Vietnamese terraced rice fields" class="banner" width="1200" height="280" loading="lazy" />
 
 <!-- ═══════════════════════════════════════════════
-★★★ REPLACE EVERYTHING BELOW THIS LINE ★★★
-with the page-specific content block.
-Keep the <main id="main"> wrapper.
+PAGE-SPECIFIC CONTENT
 ═══════════════════════════════════════════════ -->
 
-<main id="main">
-
-<!-- PAGE TITLE BLOCK -->
 <div class="page-title-block">
   <span class="page-label">Essays & Philosophy</span>
   <h1 class="page-title">Writings on Justice, Race, and Non-Violence</h1>
   <p class="page-desc">Reflections on affirmative action, voting rights, and civil disobedience.</p>
 </div>
 
+<main id="main">
+
 <article class="prose">
 
-  <!-- SECTION 1: AFFIRMATIVE ACTION -->
-  
-  <blockquote class="pull-quote">
-    <p>"I wish more people had a chip on their shoulder and protested when Nazi Germany exterminated six million Jews."</p>
-    <cite>Tuan Tran</cite>
-  </blockquote>
-  
-  <h2>On Affirmative Action: The Reality Behind Initiative 200</h2>
-  
-  <p>I was hoping that I would not have to write this letter. For the last three months, I spent so much time and effort on the No!200 campaign to try and defeat initiative 200. All along, I had a feeling we might lose, but I didn’t expect we would lose by such a wide margin. I must admit I am surprised and discouraged by the large percentage of voters in Washington State who voted against affirmative action program for women and minorities.</p>
+<p>The following essays were written in response to personal experiences with discrimination, the democratic process, and philosophical reflection on non-violent resistance. They are informed by the civil rights struggles of Martin Luther King Jr., Mahatma Gandhi, and the ongoing pursuit of equality in American society.</p>
 
-<p>But we must continue the struggle for equality. It has been over thirty years, but Dr. Martin Luther King’s dream is still but a dream. We all hope for a color-blind society, but that hope is not based on reality. The evidence is conclusive in that as a society, we still judge people by the color of their skin rather than the content of their character.</p>
+<!-- DOWNLOAD BUTTON -->
+<div style="text-align: center; margin: 2rem 0;">
+  <button id="print-pdf-btn" class="print-btn">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+      <polyline points="7 10 12 15 17 10"></polyline>
+      <line x1="12" y1="15" x2="12" y2="3"></line>
+    </svg>
+    Download / Print PDF
+  </button>
+</div>
 
-<p>As citizens in a democracy, each one of us has a duty and obligation to demand for a just society. Therefore, we must identify the areas of injustice, then stand up and speak out against it. If we don’t take a stand against an injustice, then we are accomplices to that act of injustice. I understand that one can become overly emotional when confronted by an act of injustice, such as the systematic discrimination against the people of color in this society. I had to examine myself objectively to see whether I have a chip on my shoulder, as a friend of mine bluntly put it. Well, perhaps my friend is correct. I wish more people had a chip on their shoulder and protested when Nazi Germany exterminated over six million Jews. I wish more people had a chip on their shoulder and protested when the United States of America forcefully put all Americans of Japanese decent, but not Americans of German decent, in concentration camps.</p>
+<!-- SECTION 1: AFFIRMATIVE ACTION -->
 
-<p>Proponents of anti-affirmative action would like us to believe that the United States is now a color blind society. However, Amnesty International, a human rights organization which monitors human rights violation world wide, condemns the United States for human rights violations against people of color in selective policing, police brutality, imprisonment, and the death penalty. For instance, in April 1998, in New Jersey, two state troopers stopped a vehicle with 3 blacks and 1 Latino occupants on their way to a university basketball game. The car accidentally rolled backward, causing an officer to fall. The troopers opened fire and seriously wounded three occupants. In the McCleskey case in 1987, the Supreme Court of the United States conceded that race is a factor in who will receive the death penalty, when the court was confronted with a statistical study which points out that blacks are four times more likely to receive the death penalty than whites. In fact, since 1977, 82 percent of blacks received the death penalty when the victims are white, even though homicide victims are about equal between black and white in the United States. Blacks are 12 percent of the population, but 42 percent of the prisoners on death row. By accepting institutionalized racism, the Supreme Court at the present time is no different than the Supreme Court in 1856 when it ruled in Scott V. Sandford that blacks were not people but property. McCleskey was executed in 1991.</p>
+<blockquote class="pull-quote">
+  <p>"I wish more people had a chip on their shoulder and protested when Nazi Germany exterminated six million Jews."</p>
+  <cite>Tuan Tran</cite>
+</blockquote>
 
-<p>We must continue the struggle for equality. Organizations and individuals that opposed initiative 200 must work together and coordinate their effort to combat racism. The fight must go on. It is time to stop dreaming. Now is the time to make Dr. King’s dream a reality.</p>
+<h2>On Affirmative Action: The Reality Behind Initiative 200</h2>
 
-Tuan Tran<br>
+<p>I was hoping that I would not have to write this letter. For the last three months, I spent so much time and effort on the No! 200 campaign to try and defeat Initiative 200. All along, I had a feeling we might lose, but I didn't expect we would lose by such a wide margin. I must admit I am surprised and discouraged by the large percentage of voters in Washington State who voted against affirmative action programs for women and minorities.</p>
 
+<p>But we must continue the struggle for equality. It has been over thirty years, but Dr. Martin Luther King's dream is still but a dream. We all hope for a color-blind society, but that hope is not based on reality. The evidence is conclusive in that as a society, we still judge people by the color of their skin rather than the content of their character.</p>
 
+<p>As citizens in a democracy, each one of us has a duty and obligation to demand a just society. Therefore, we must identify the areas of injustice, then stand up and speak out against them. If we don't take a stand against an injustice, then we are accomplices to that act of injustice. I understand that one can become overly emotional when confronted by an act of injustice, such as the systematic discrimination against people of color in this society. I had to examine myself objectively to see whether I have a chip on my shoulder, as a friend of mine bluntly put it. Well, perhaps my friend is correct. I wish more people had a chip on their shoulder and protested when Nazi Germany exterminated over six million Jews. I wish more people had a chip on their shoulder and protested when the United States of America forcefully put all Americans of Japanese descent, but not Americans of German descent, in concentration camps.</p>
 
+<p>Proponents of anti-affirmative action would like us to believe that the United States is now a color-blind society. However, Amnesty International, a human rights organization which monitors human rights violations worldwide, condemns the United States for human rights violations against people of color in selective policing, police brutality, imprisonment, and the death penalty. For instance, in April 1998, in New Jersey, two state troopers stopped a vehicle with three Black men and one Latino man on their way to a university basketball game. The car accidentally rolled backward, causing an officer to fall. The troopers opened fire, killing one and seriously wounding three occupants. In the McCleskey case in 1987, the Supreme Court of the United States conceded that race is a factor in who will receive the death penalty, when the court was confronted with a statistical study which points out that defendants who killed white victims were more than four times as likely to receive the death penalty as defendants who killed Black victims. In fact, since 1977, approximately 80 percent of all executions involved cases with white victims, even though homicide victims are about equal between Black and white in the United States. Blacks are 12 percent of the population, but 42 percent of the prisoners on death row. By accepting institutionalized racism, the Supreme Court at the present time is no different than the Supreme Court in 1857 when it ruled in Dred Scott v. Sandford that Black people were not citizens but property. McCleskey was executed in 1991.</p>
 
-  <!-- SECTION 2: VOTING RIGHTS -->
-  <h2>On Voting: The Fundamental Right for Equality</h2>
-  
-  
-  
+<p>We must continue the struggle for equality. Organizations and individuals that opposed Initiative 200 must work together and coordinate their efforts to combat racism. The fight must go on. It is time to stop dreaming. Now is the time to make Dr. King's dream a reality.</p>
 
-<p>"We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty, and the pursuit of Happiness. That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed." Thomas Jefferson</p>
+<p>— Tuan Tran</p>
+
+<!-- SECTION 2: VOTING RIGHTS -->
+<h2>On Voting: The Fundamental Right for Equality</h2>
+
+<blockquote class="pull-quote">
+  <p>"We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty, and the pursuit of Happiness. That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed."</p>
+  <cite>Thomas Jefferson, Declaration of Independence, 1776</cite>
+</blockquote>
 
 <p>These are the words of the Declaration of Independence written by Thomas Jefferson in 1776, thus establishing the foundation of a democracy for the United States of America. Since then, countless individuals from all corners of the world have emigrated to the United States of America seeking Life, Liberty, and Happiness.</p>
 
-<p>These individuals made great personal sacrifices for their freedom. Among these groups of emigrants, none has endured as much suffering or made as many personal sacrifices as the Vietnamese who came to the United States, since the fall of South Vietnam on April 30th 1975.</p>
+<p>These individuals made great personal sacrifices for their freedom. Among these groups of emigrants, none has endured as much suffering or made as many personal sacrifices as the Vietnamese who came to the United States since the fall of South Vietnam on April 30, 1975.</p>
 
-<p>As the 25th anniversary is approaching, let us reflect on our experiences of the last twenty five years within the context of the Civil Rights struggle by people of color in this country, and let us be resolute in our determination to achieve full equality as Vietnamese-Americans.</p>
+<p>As the 25th anniversary is approaching, let us reflect on our experiences of the last twenty-five years within the context of the Civil Rights struggle by people of color in this country, and let us be resolute in our determination to achieve full equality as Vietnamese-Americans.</p>
 
-<p>Although the Declaration of Independence insures that all men are treated as "equal" in 1776, it wasn't until 1870 that Amendment XV allowing people of color the right to vote was amended. It wasn't until 1920 that Amendment XIX allowing women the right to vote was amended. However, people of color were not able to exercise their rights to vote until around 1960 when the Civil Rights Movement, led by Rev. Martin Luther King, demanded equal treatment for people of color.</p>
+<p>Although the Declaration of Independence ensures that all men are treated as "equal" in 1776, it wasn't until 1870 that the Fifteenth Amendment allowing people of color the right to vote was ratified. It wasn't until 1920 that the Nineteenth Amendment allowing women the right to vote was ratified. However, people of color were not able to exercise their rights to vote until around 1960 when the Civil Rights Movement, led by Rev. Martin Luther King, demanded equal treatment for people of color.</p>
 
 <p>The right to vote is the most fundamental and cherished right of all citizens in a democracy. This is where we must begin our efforts to achieve equality as Vietnamese-Americans. Rather than living in isolation and poverty, we as Vietnamese-Americans must exercise our rights to vote in order to achieve full equality and integration. In the process, we can help America to put the Vietnam War in the past, and move toward a new millennium of peace and friendship.</p>
 
-Tuan Tran<br><br>
+<p>— Tuan Tran</p>
 
-  
-  
-  
-  
-  <!-- SECTION 3: CIVIL DISOBEDIENCE -->
-  <h2>On Civil Disobedience: The Power of Ahimsa (Non-Violence)</h2>
-  
-   <blockquote class="pull-quote">
-    <p>"Go find an orphan Muslim boy... whose parents were killed by Hindus, and raise that boy as though he is your own son."</p>
-    <cite>Gandhi's reply to a Hindu man seeking revenge</cite>
-  </blockquote>
-  
-  
-<p>The twentieth century was a century of great turmoil: of colonialism, wars, poverty, and famine. But during this time, the world also saw how love can transform the hearts of men. What does love have to do with Civil Disobedience? To answer this question, we need to reflect on the principle of "ahimsa," or non-violence, as exemplified by Mahatma Gandhi and Martin Luther King, Jr.</p>
+<!-- SECTION 3: CIVIL DISOBEDIENCE -->
+<h2>On Civil Disobedience: The Power of Ahimsa (Non-Violence)</h2>
 
-<p>Both Gandhi and King were men of religious conviction. By religious, I don't mean a person who follows a certain religion: such as a Christian, a Muslim, or a Buddhist. But an individual who believes that only the truth is unchanging, and the manifestation of this truth is the absolute love for all living beings. For love is the absence of violence in both thought and action.</p>
+<blockquote class="pull-quote">
+  <p>"Go find an orphan Muslim boy... whose parents were killed by Hindus, and raise that boy as though he is your own son."</p>
+  <cite>Gandhi's reply to a Hindu man seeking revenge</cite>
+</blockquote>
 
-<p>A non-violent act of Civil Disobedience is the most noble form of protest. For its aim is not merely to gain material benefits for an oppressed group, but to transform the heart of the people in a society. Without this love, then it is just a vicious circle. The victim will become the perpetrator, and the cycle will start all over again.</p>
+<p>The twentieth century was a century of great turmoil: of colonialism, wars, poverty, and famine. But during this time, the world also saw how love can transform the hearts of men. What does love have to do with civil disobedience? To answer this question, we need to reflect on the principle of "ahimsa," or non-violence, as exemplified by Mahatma Gandhi and Martin Luther King, Jr.</p>
 
-<p>Thus an effective protest is not necessarily the most vocal such as shouting down someone else, nor is it vindictive. Perhaps an example from the movie Gandhi will illustrate this point.</p>
+<p>Both Gandhi and King were men of religious conviction. By religious, I don't mean a person who follows a certain religion, such as a Christian, a Muslim, or a Buddhist, but an individual who believes that only the truth is unchanging, and the manifestation of this truth is the absolute love for all living beings. For love is the absence of violence in both thought and action.</p>
 
-<p>During Gandhi's fast to the death, as an act of self-sacrifice in order to stop the war between the Hindus and the Muslim, a Hindu man told Gandhi he wants to take revenge for the death of his son, who was killed by a mob of Muslims. Gandhi's reply was: go find an orphan Muslim boy about the age of your son, whose parents were killed by the Hindus, and raise that boy as though he is your own son.</p>
+<p>A non-violent act of civil disobedience is the most noble form of protest. For its aim is not merely to gain material benefits for an oppressed group, but to transform the heart of the people in a society. Without this love, then it is just a vicious circle. The victim will become the perpetrator, and the cycle will start over again.</p>
 
-Tuan Tran<br><br><br>
+<p>Thus an effective protest is not necessarily the most vocal, such as shouting down someone else, nor is it vindictive. Perhaps an example from the movie <em>Gandhi</em> will illustrate this point.</p>
 
-  
-  
-  
-  
-  
+<p>During Gandhi's fast to the death, as an act of self-sacrifice in order to stop the war between the Hindus and the Muslims, a Hindu man told Gandhi he wants to take revenge for the death of his son, who was killed by a mob of Muslims. Gandhi's reply was: go find an orphan Muslim boy about the age of your son, whose parents were killed by the Hindus, and raise that boy as though he is your own son.</p>
+
+<p>— Tuan Tran</p>
 
 </article>
 
 <!-- PREV / NEXT NAV -->
 <nav class="page-nav" aria-label="Page navigation">
-  <a href="cominghome.html">← Previous Page</a>
-  <a href="taichi.html" class="next">Next Page →</a>
+  <a href="cominghome.html">&larr; Previous: Coming Home</a>
+  <a href="taichi.html" class="next">Next: Tai Chi &rarr;</a>
 </nav>
 
 </main>
 
-
-<!-- ═══════════════════════════════════════════════
-★★★ END OF PAGE-SPECIFIC CONTENT ★★★
-═══════════════════════════════════════════════ -->
-
-<!-- ─────────────────────────────────────────────
-FOOTER — same on every page
-───────────────────────────────────────────── -->
 <footer>
-
+<ul class="footer-nav">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="childhood.html">Childhood</a></li>
+  <li><a href="usa.html">Life in the USA</a></li>
+  <li><a href="cominghome.html">Coming Home</a></li>
+  <li><a href="writings.html">My Writings</a></li>
+  <li><a href="meditation.html">Meditation</a></li>
+  <li><a href="taichi.html">Tai Chi</a></li>
+  <li><a href="diabetes.html">Diabetes</a></li>
+  <li><a href="road-home.html">The Road Home</a></li>
+  <li><a href="poetry.html">Collected Poems</a></li>
+  <li><a href="comments.html">Comments</a></li>
+</ul>
 <p>
 This website shares personal reflections on war, migration, meditation, and health.<br>
 &copy; <span id="yr"></span> Tuan Tran &mdash; <a href="sitemap.html">Site Map</a>
 </p>
+<p style="font-size: 0.75rem; margin-top: 0.5rem; opacity: 0.8;">
+Archived by the Vietnam Center and Archive, Texas Tech University.
+</p>
 </footer>
 
-<!-- ─────────────────────────────────────────────
-SCRIPTS — same on every page
-───────────────────────────────────────────── -->
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
 
 const toggle = document.querySelector('.nav-toggle');
 const navLinks = document.getElementById('nav-links');
 
-toggle.addEventListener('click', () => {
-const open = toggle.getAttribute('aria-expanded') === 'true';
-toggle.setAttribute('aria-expanded', String(!open));
-navLinks.classList.toggle('open', !open);
-});
+if (toggle && navLinks) {
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    navLinks.classList.toggle('open', !open);
+  });
 
-navLinks.querySelectorAll('a').forEach(link => {
-link.addEventListener('click', () => {
-if (window.innerWidth <= 680) {
-toggle.setAttribute('aria-expanded', 'false');
-navLinks.classList.remove('open');
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 680) {
+        toggle.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('open');
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+      toggle.setAttribute('aria-expanded', 'false');
+      navLinks.classList.remove('open');
+      toggle.focus();
+    }
+  });
 }
-});
-});
+
+const printBtn = document.getElementById('print-pdf-btn');
+if (printBtn) {
+  printBtn.addEventListener('click', () => {
+    window.print();
+  });
+}
 </script>
 
 </body>
 </html>
-
