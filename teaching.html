@@ -5,21 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <!-- ═══════════════════════════════════════════════
-CHANGE THESE 6 LINES FOR EACH PAGE
+PER-PAGE META DATA
 ═══════════════════════════════════════════════ -->
 <meta name="description" content="A Vietnamese-American teacher's account of racial discrimination in Ho Chi Minh City's English schools — and the classroom methods that worked for teaching American Literature, TOEFL, and second grade at an international school." />
 <meta name="keywords" content="Viet Kieu teacher Vietnam, teaching English Vietnam discrimination, Vietnamese-American educator, ESL teaching Ho Chi Minh City, TOEFL methodology, Overseas Vietnamese discrimination, colonial inferiority complex Vietnam, white English teachers Vietnam, American Literature Vietnam, international school Ho Chi Minh City, pedophilia English teachers Asia" />
 <meta property="og:title" content="Teaching English in Vietnam as a Viet Kieu: Discrimination and Methodology" />
 <meta property="og:description" content="A Vietnamese-American teacher's account of racial discrimination in Ho Chi Minh City's English schools — and the classroom methods that worked for teaching American Literature, TOEFL, and second grade at an international school." />
 <meta property="og:url" content="https://tuantran.org/teaching.html" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://tuantran.org/banner.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Teaching English in Vietnam as a Viet Kieu: Discrimination and Methodology" />
+<meta name="twitter:description" content="A Vietnamese-American teacher's account of racial discrimination in Ho Chi Minh City's English schools — and the classroom methods that worked for teaching American Literature, TOEFL, and second grade at an international school." />
+<meta name="twitter:image" content="https://tuantran.org/banner.jpg" />
+<meta name="robots" content="index, follow" />
 <title>Teaching English in Vietnam as a Viet Kieu: Discrimination and Methodology</title>
-<!-- ═══════════════════════════════════════════════
-END OF PER-PAGE CHANGES IN HEAD
-═══════════════════════════════════════════════ -->
-
 <meta name="author" content="Tuan Tran" />
 <link rel="canonical" href="https://tuantran.org/teaching.html" />
-<meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
@@ -84,6 +86,17 @@ z-index: 999;
 }
 .skip-link:focus { top: 0; }
 
+/* ── SCREEN READER ONLY ───────────────────────── */
+.sr-only {
+position: absolute;
+width: 1px; height: 1px;
+padding: 0; margin: -1px;
+overflow: hidden;
+clip: rect(0, 0, 0, 0);
+white-space: nowrap;
+border: 0;
+}
+
 /* ── HEADER ───────────────────────────────────── */
 header {
 position: relative;
@@ -113,10 +126,7 @@ line-height: 1.2;
 color: var(--paper);
 }
 
-.site-title a {
-color: inherit;
-text-decoration: none;
-}
+.site-title a { color: inherit; text-decoration: none; }
 
 .site-subtitle {
 font-family: var(--font-quote);
@@ -262,6 +272,15 @@ color: var(--red);
 margin: 2.5rem 0 1rem;
 }
 
+.prose h3 {
+font-family: var(--font-display);
+font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(--red-soft);
+margin: 2rem 0 1rem;
+}
+
 /* ── PULL QUOTE ───────────────────────────────── */
 .pull-quote {
 margin: 2.5rem 0;
@@ -304,6 +323,7 @@ letter-spacing: 0.15em;
 text-transform: uppercase;
 color: var(--red);
 }
+
 /* ── POEM BLOCK ───────────────────────────────── */
 .poem-block {
 background: var(--ink);
@@ -340,6 +360,7 @@ letter-spacing: 0.1em;
 color: var(--gold-light);
 margin-bottom: 1.25rem;
 }
+
 .poem-text {
 font-family: var(--font-quote);
 font-style: italic;
@@ -348,67 +369,6 @@ font-weight: 300;
 line-height: 2;
 color: var(--paper-warm);
 white-space: pre-line;
-}
-
-/* ── TOPICS GRID (homepage only) ──────────────── */
-.topics-grid {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
-gap: 1px;
-background: var(--paper-deep);
-border: 1px solid var(--paper-deep);
-border-radius: 4px;
-overflow: hidden;
-margin-bottom: 3.5rem;
-}
-
-.topic-card {
-background: var(--paper);
-padding: 1.5rem;
-text-decoration: none;
-display: block;
-transition: background 0.2s;
-position: relative;
-}
-
-.topic-card:hover { background: var(--paper-warm); }
-
-.topic-card::after {
-content: '→';
-position: absolute;
-right: 1.25rem;
-top: 50%;
-transform: translateY(-50%);
-color: var(--red);
-opacity: 0;
-transition: opacity 0.2s, right 0.2s;
-}
-
-.topic-card:hover::after { opacity: 1; right: 1rem; }
-
-.topic-tag {
-font-family: var(--font-display);
-font-size: 0.6rem;
-letter-spacing: 0.18em;
-text-transform: uppercase;
-color: var(--red);
-display: block;
-margin-bottom: 0.4rem;
-}
-
-.topic-title {
-font-family: var(--font-quote);
-font-size: clamp(1rem, 1.8vw, 1.15rem);
-font-weight: 400;
-color: var(--ink);
-line-height: 1.3;
-}
-
-.topic-desc {
-margin-top: 0.4rem;
-font-size: 0.9rem;
-color: var(--ink-faint);
-line-height: 1.5;
 }
 
 /* ── DIVIDER ──────────────────────────────────── */
@@ -426,6 +386,7 @@ flex: 1;
 height: 1px;
 background: linear-gradient(to right, transparent, var(--paper-deep));
 }
+
 .divider::after {
 background: linear-gradient(to left, transparent, var(--paper-deep));
 }
@@ -439,7 +400,27 @@ color: var(--ink-faint);
 white-space: nowrap;
 }
 
-/* ── PAGE NAV (prev / next) ───────────────────── */
+/* ── BUTTON ───────────────────────────────────── */
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--red);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+.print-btn:hover { background-color: var(--red-soft); transform: translateY(-1px); }
+.print-btn:active { transform: translateY(0); }
+
+/* ── PAGE NAV ─────────────────────────────────── */
 .page-nav {
 display: flex;
 justify-content: space-between;
@@ -512,20 +493,18 @@ width: 100%;
 border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-.nav-links.open { 
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        border-top: 1px solid rgba(255,255,255,0.1);      
-        max-height: 75vh;       
-        overflow-y: auto;        
-        -webkit-overflow-scrolling: touch; 
-        
-      }
+.nav-links.open {
+display: flex;
+flex-direction: column;
+width: 100%;
+border-top: 1px solid rgba(255,255,255,0.1);
+max-height: 75vh;
+overflow-y: auto;
+-webkit-overflow-scrolling: touch;
+}
 
 .nav-inner { flex-wrap: wrap; }
 .pull-quote { padding: 1.5rem 1.5rem 1.5rem 1.75rem; }
-
 }
 
 /* ── ANIMATIONS ───────────────────────────────── */
@@ -538,11 +517,19 @@ from { opacity: 0; transform: translateY(16px); }
 to { opacity: 1; transform: translateY(0); }
 }
 
-/* ── PRINT ────────────────────────────────────── */
+/* ── PRINT STYLES (FULL) ──────────────────────── */
 @media print {
-nav.main-nav, footer, .page-nav { display: none; }
-body { background: white; color: black; }
-main { max-width: 100%; padding: 0; }
+nav.main-nav, footer, .page-nav, .skip-link, .print-btn { display: none !important; }
+body::before { display: none !important; }
+body { background: white !important; color: #000 !important; font-size: 12pt; line-height: 1.6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+main { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+.poem-block { display: block !important; visibility: visible !important; background: transparent !important; color: #000 !important; opacity: 1 !important; border-left: 3px solid #000; border-radius: 0; padding: 1rem 0 1rem 1.5rem; margin: 1.5rem 0; page-break-inside: avoid; break-inside: avoid; }
+.poem-block *, .poem-text, .poem-label, .poem-title { color: #000 !important; background: transparent !important; opacity: 1 !important; }
+.pull-quote { background: transparent !important; color: #000 !important; border-left: 3px solid #000; }
+h1, h2, h3, .site-title, .page-title { color: #000 !important; }
+p, .prose p { color: #000 !important; }
+img { max-width: 100% !important; page-break-inside: avoid; }
+p { page-break-inside: avoid; }
 }
 </style>
 </head>
@@ -550,16 +537,12 @@ main { max-width: 100%; padding: 0; }
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
 
-<!-- ─────────────────────────────────────────────
-SITE HEADER — same on every page
-───────────────────────────────────────────── -->
 <header>
 <p class="site-eyebrow">A personal journal</p>
 <h1 class="site-title"><a href="index.html">Tuan Tran's Journal</a></h1>
 <p class="site-subtitle">A Vietnamese-American Experience</p>
 </header>
 
-<!-- NAV -->
 <nav class="main-nav" aria-label="Main navigation">
 <div class="nav-inner">
 <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
@@ -576,7 +559,7 @@ SITE HEADER — same on every page
   <li><a href="diabetes.html">Diabetes</a></li>
   <li><a href="marthahess.html">Then the Americans Came</a></li>
   <li><a href="russelltribunal.html">Russell Tribunal</a></li>
-  <li><a href="teaching.html" aria-current="page">Teaching in Vietnam</a></li>  
+  <li><a href="teaching.html" aria-current="page">Teaching in Vietnam</a></li>
   <li><a href="road-home.html">The Road Home</a></li>
   <li><a href="songbirds.html">Songbirds</a></li>
   <li><a href="poetry.html">Collected Poems</a></li>
@@ -585,152 +568,170 @@ SITE HEADER — same on every page
 </div>
 </nav>
 
-<!-- ─────────────────────────────────────────────
-BANNER — same image on every page
-───────────────────────────────────────────── -->
-<img
-src="banner.jpg"
-alt="Vietnamese terraced rice fields"
-class="banner"
-width="1200"
-height="280"
-loading="lazy"
-/>
-
-<!-- ═══════════════════════════════════════════════
-★★★ REPLACE EVERYTHING BELOW THIS LINE ★★★
-with the page-specific content block.
-Keep the <main id="main"> wrapper.
-═══════════════════════════════════════════════ -->
-
-<!-- PAGE TITLE BLOCK — change label, title, desc -->
-<div class="page-title-block">
-<span class="page-label">Education</span>
-<h2 class="page-title">Teaching in Vietnam</h2>
-<p class="page-desc">A Viet Kieu educator's experience — discrimination, identity, and the classroom</p>
-</div>
+<img src="banner.jpg" alt="Vietnamese terraced rice fields" class="banner" width="1200" height="280" loading="lazy" />
 
 <main id="main">
 
-<!-- YOUR PAGE CONTENT GOES HERE -->
-<article class="prose">
-<time datetime="2007-08-17">August 17, 2007</time>
+<div class="page-title-block">
+  <span class="page-label">Education</span>
+  <h1 class="page-title">Teaching in Vietnam</h1>
+  <p class="page-desc">A Viet Kieu educator's experience — discrimination, identity, and the classroom</p>
+</div>
 
-    <h2>A Journal Summary of My Teaching Experience in Vietnam</h2>
+<article class="prose">
+
+<!-- DOWNLOAD BUTTON -->
+<div style="text-align: center; margin: 2rem 0;">
+  <button id="print-pdf-btn" class="print-btn">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+      <polyline points="7 10 12 15 17 10"></polyline>
+      <line x1="12" y1="15" x2="12" y2="3"></line>
+    </svg>
+    Download / Print PDF
+  </button>
+</div>
+
+<p><time datetime="2007-08-17">August 17, 2007</time></p>
+
+<h2>A Journal Summary of My Teaching Experience in Vietnam</h2>
 
 <h3>From Boat Refugee to Certified Teacher</h3>
-    <p>I left Vietnam on April 30th 1975. I was fourteen years old at the time. I was taken in by the United States as a refugee, and I was relocated to Olympia, Washington. I lived in a white foster home. I graduated from Capital High School in 1978, Western Washington University in 1983, and the Evergreen State College in 1988. I studied in the Teacher Education Program, which later became the Master in Teaching Program.</p>
+<p>I left Vietnam on April 30th 1975. I was fourteen years old at the time. I was taken in by the United States as a refugee, and I was relocated to Olympia, Washington. I lived in a white foster home. I graduated from Capital High School in 1978, Western Washington University in 1983, and the Evergreen State College in 1988. I studied in the Teacher Education Program, which later became the Master in Teaching Program.</p>
 
-    <p>I was married to a white woman for two years after graduating from Western Washington University. For most of my life in the United States, I thought of myself as a white person, even though I don't look white. All of my friends were white. My experience is not unusual for people of color in America. We identify ourselves with the dominant white culture, as an oppressed person would identify with the oppressor. It is a survival mechanism.</p>
+<p>I was married to a white woman for two years after graduating from Western Washington University. For most of my life in the United States, I thought of myself as a white person, even though I don't look white. All of my friends were white. My experience is not unusual for people of color in America. We identify ourselves with the dominant white culture, as an oppressed person would identify with the oppressor. It is a survival mechanism.</p>
 
-    <p>I felt everything was fine. I was in an ignorant bliss until I discovered about racism in America. Racism has always existed in America. It first appeared in the Americas when the white men began their conquest and colonization of this continent. But I was in denial. I thought I was white.</p>
-    
+<p>I felt everything was fine. I was in an ignorant bliss until I discovered about racism in America. Racism has always existed in America. It first appeared in the Americas when the white men began their conquest and colonization of this continent. But I was in denial. I thought I was white.</p>
+
 <h3>Identity Crisis and Awakening</h3>
 
-    <p>I went through a gradual process of transformation, which culminated into a full blown identity crisis when I was about 37 years old. In a way, I am thankful to the Evergreen State College for hastening this process, even though what they did to me was wrong.</p>
-    
+<p>I went through a gradual process of transformation, which culminated into a full blown identity crisis when I was about 37 years old. In a way, I am thankful to the Evergreen State College for hastening this process, even though what they did to me was wrong.</p>
+
 <h3>The Colonial Roots of Vietnam's Inferiority Complex</h3>
 
-    <p>I went back to Vietnam in 2001 when I was 41 years old. At the time, I decided to return to Vietnam permanently. Since then I have returned to Vietnam three times. The transition back to Vietnam is a long and difficult process. I am a product of the Vietnam War, but I have lived most of my life in America. I have assimilated two very different cultures, between that of East and West, of individual freedom and family obligations, of a lack of tradition to a very deeply rooted tradition. However, the most painful thing for me is to see a form of identity crisis in the young people in the South of Vietnam. It is the same thing I went through in America.</p>
+<p>I went back to Vietnam in 2001 when I was 41 years old. At the time, I decided to return to Vietnam permanently. Since then I have returned to Vietnam three times. The transition back to Vietnam is a long and difficult process. I am a product of the Vietnam War, but I have lived most of my life in America. I have assimilated two very different cultures, between that of East and West, of individual freedom and family obligations, of a lack of tradition to a very deeply rooted tradition. However, the most painful thing for me is to see a form of identity crisis in the young people in the South of Vietnam. It is the same thing I went through in America.</p>
 
-    <p>To recognize this form of identity crisis, it requires a global perspective. Vietnam was colonized by the French for 100 years. The French left in 1955 after they were defeated by the Viet Minh, led by Ho Chi Minh. Immediately after that, America invaded and occupied South Vietnam until they were driven out by North Vietnam on April 30th 1975. Thus, the people of South Vietnam have lived continuously under colonial oppression by the French and the Americans.</p>
+<p>To recognize this form of identity crisis, it requires a global perspective. Vietnam was colonized by the French for 100 years. The French left in 1955 after they were defeated by the Viet Minh, led by Ho Chi Minh. Immediately after that, America invaded and occupied South Vietnam until they were driven out by North Vietnam on April 30th 1975. Thus, the people of South Vietnam have lived continuously under colonial oppression by the French and the Americans.</p>
 
-    <p>This colonial and imperial oppression confers a sense of racial superiority complex in the oppressor and instills a sense of racial inferiority complex in the oppressed. This is similar to the experience of African-Americans during slavery. Therefore, the Civil Rights Movement led by Martin Luther King is a revolt by black people against the systemic oppression of white America, much like the Viet Minh revolt against French colonialism which culminated into the decisive Battle of Dien Bien Phu and the French withdrawing from Vietnam. The only difference is that Martin Luther King adopted Gandhi's non-violent protest, or "ahimsa" in Sanskrit.</p>
+<p>This colonial and imperial oppression confers a sense of racial superiority complex in the oppressor and instills a sense of racial inferiority complex in the oppressed. This is similar to the experience of African-Americans during slavery. Therefore, the Civil Rights Movement led by Martin Luther King is a revolt by black people against the systemic oppression of white America, much like the Viet Minh revolt against French colonialism which culminated into the decisive Battle of Dien Bien Phu and the French withdrawing from Vietnam. The only difference is that Martin Luther King adopted Gandhi's non-violent protest, or "ahimsa" in Sanskrit.</p>
 
-    <p>After the Civil Rights Movement, the black people had their black pride movement with phrases such as: "black is beautiful." But the Vietnamese never had their Vietnamese pride movement. They were immediately invaded by the Americans. This racial inferiority complex is the root of the identity crisis in the young people of South Vietnam, and its manifestation is the practice of reverse discrimination towards "Viet Kieu" or Overseas Vietnamese like myself.</p>
+<p>After the Civil Rights Movement, the black people had their black pride movement with phrases such as: "black is beautiful." But the Vietnamese never had their Vietnamese pride movement. They were immediately invaded by the Americans. This racial inferiority complex is the root of the identity crisis in the young people of South Vietnam, and its manifestation is the practice of reverse discrimination towards "Viet Kieu" or Overseas Vietnamese like myself.</p>
 
 <h3>Reverse Discrimination: The White Face Premium</h3>
 
-    <p>After the communist victory in 1975, the United States declared a trade embargo on Vietnam. Using its influence with the World Bank, America also prevented the World Bank from lending money to Vietnam for postwar reconstruction. Thus, Vietnam became isolated from the world. The English language was no longer in demand. When the trade embargo was lifted in 1995, a lot of Vietnamese needed to learn English in order to work for companies doing business with the West. There was a severe shortage of qualified English teachers.</p>
+<p>After the communist victory in 1975, the United States declared a trade embargo on Vietnam. Using its influence with the World Bank, America also prevented the World Bank from lending money to Vietnam for postwar reconstruction. Thus, Vietnam became isolated from the world. The English language was no longer in demand. When the trade embargo was lifted in 1995, a lot of Vietnamese needed to learn English in order to work for companies doing business with the West. There was a severe shortage of qualified English teachers.</p>
 
-    <p>A lot of private English language centers started to open in Vietnam beginning in 2000, especially in Ho Chi Minh City, the economic center of Vietnam, as opposed to Hanoi, the political center of Vietnam. These English language centers would hire any white person walking in the door. These white teachers are being paid more than ten times the average salary of a Vietnamese worker, or about ten times the salary of a medical doctor. In Vietnam, as in the United States, only the very best students are accepted into medical schools.</p>
+<p>A lot of private English language centers started to open in Vietnam beginning in 2000, especially in Ho Chi Minh City, the economic center of Vietnam, as opposed to Hanoi, the political center of Vietnam. These English language centers would hire any white person walking in the door. These white teachers are being paid more than ten times the average salary of a Vietnamese worker, or about ten times the salary of a medical doctor. In Vietnam, as in the United States, only the very best students are accepted into medical schools.</p>
 
-    <p>Most of these white teachers have no college degrees or teaching credentials. Even more shocking is that a lot of these white teachers have criminal records in their countries, such as the convicted pedophile Gary Glitter the rock star from England, and John Mark Karr, the confessed killer of the child beauty queen JonBenet Ramsey in the United States. Both have taught English in Vietnam. Most recently, the homosexual pedophile from Canada, Christopher Paul Neil, who posted pictures of himself sexually molesting a dozen of young boys in Vietnam on the internet, was captured in Thailand. Christopher Paul Neil also taught English in Vietnam. These are only the cases that became public. Imagine the number of cases that have not become public.</p>
+<p>Most of these white teachers have no college degrees or teaching credentials. Even more shocking is that a lot of these white teachers have criminal records in their countries, such as the convicted pedophile Gary Glitter the rock star from England, and John Mark Karr, the confessed killer of the child beauty queen JonBenet Ramsey in the United States. Both have taught English in Vietnam. Most recently, the homosexual pedophile from Canada, Christopher Paul Neil, who posted pictures of himself sexually molesting a dozen of young boys in Vietnam on the internet, was captured in Thailand. Christopher Paul Neil also taught English in Vietnam. These are only the cases that became public. Imagine the number of cases that have not become public.</p>
 
-    <p>Most women in Vietnam think that white men are handsome. Vice versa, they think they are ugly compared to white women. There is a new trend in Vietnam that women try to look white by dyeing their hair, and even having eyelid surgery so that they look more white. As I mentioned before, this perception is rooted in their racial inferiority complex.</p>
+<p>Most women in Vietnam think that white men are handsome. Vice versa, they think they are ugly compared to white women. There is a new trend in Vietnam that women try to look white by dyeing their hair, and even having eyelid surgery so that they look more white. As I mentioned before, this perception is rooted in their racial inferiority complex.</p>
 
-    <p>This perception makes young Vietnamese female students especially vulnerable to being seduced and sexually exploited by white teachers. This is common knowledge amongst white English teachers in Vietnam. Just about every white teacher has seduced and sexually exploited their students, even virgins under eighteen years old. There is even a video being sold on the Internet, which depicts a real life event of a white male teacher having sex with a group of teenage female students.</p>
+<p>This perception makes young Vietnamese female students especially vulnerable to being seduced and sexually exploited by white teachers. This is common knowledge amongst white English teachers in Vietnam. Just about every white teacher has seduced and sexually exploited their students, even virgins under eighteen years old. There is even a video being sold on the Internet, which depicts a real life event of a white male teacher having sex with a group of teenage female students.</p>
 
-    <p>When I first returned to Vietnam in 2001, I applied for a teaching job at English language centers. Most of them told me they don't hire "Viet Kieu," or Overseas Vietnamese, even after I presented my resume, college degrees, and teaching credential. They said they only hire white teachers. In fact, they also hire local Vietnamese teachers, to teach mostly English grammar, who would teach for one-fifth of the pay of a white teacher.</p>
+<p>When I first returned to Vietnam in 2001, I applied for a teaching job at English language centers. Most of them told me they don't hire "Viet Kieu," or Overseas Vietnamese, even after I presented my resume, college degrees, and teaching credential. They said they only hire white teachers. In fact, they also hire local Vietnamese teachers, to teach mostly English grammar, who would teach for one-fifth of the pay of a white teacher.</p>
 
 <h3>Teaching American Literature: The Worksheet Method</h3>
 
-    <p>I found a job teaching American Literature to Vietnamese students at a high school. Most of these students have studied at English language centers with white teachers before. However, their command of the English language is very limited. Furthermore, their knowledge of the American culture and literature is practically zero. What they know about America is from watching MTV or Hollywood movies. They think America is a rich country with no poor people, and that almost everyone there is young, slim, white, and beautiful. I realized then my job is not only to teach them American Literature, but also to teach them about the real America.</p>
+<p>I found a job teaching American Literature to Vietnamese students at a high school. Most of these students have studied at English language centers with white teachers before. However, their command of the English language is very limited. Furthermore, their knowledge of the American culture and literature is practically zero. What they know about America is from watching MTV or Hollywood movies. They think America is a rich country with no poor people, and that almost everyone there is young, slim, white, and beautiful. I realized then my job is not only to teach them American Literature, but also to teach them about the real America.</p>
 
-    <p>This is a very challenging task. I have to teach American Literature in English to students with limited command of the English language. Fortunately, the school is using a very good textbook — the Pacemaker American Literature textbook, for high school students in America.</p>
+<p>This is a very challenging task. I have to teach American Literature in English to students with limited command of the English language. Fortunately, the school is using a very good textbook &mdash; the Pacemaker American Literature textbook, for high school students in America.</p>
 
-    <p>On Monday each week, I would give the students a worksheet I created for the story they are reading for that week. The students worked in small groups to discuss the story, using my worksheet as a guide. I created the worksheets with the purpose of getting them to understand the story and to think about the social and cultural aspects of America as well. I would let the students struggle with trying to understand the story for most of the week. Then on Thursday, I would give a discussion about the story to help them get a more in-depth understanding. On Friday, they have to turn in their answers for the worksheet.</p>
+<p>On Monday each week, I would give the students a worksheet I created for the story they are reading for that week. The students worked in small groups to discuss the story, using my worksheet as a guide. I created the worksheets with the purpose of getting them to understand the story and to think about the social and cultural aspects of America as well. I would let the students struggle with trying to understand the story for most of the week. Then on Thursday, I would give a discussion about the story to help them get a more in-depth understanding. On Friday, they have to turn in their answers for the worksheet.</p>
 
-    <p>I found this method of teaching American Literature to be very effective. Within three months, the students improved a lot in their reading comprehension. They also gained a new appreciation for the different literary styles and genres. Their writing also improved a lot, since I carefully read their answers and provided written feedback.</p>
+<p>I found this method of teaching American Literature to be very effective. Within three months, the students improved a lot in their reading comprehension. They also gained a new appreciation for the different literary styles and genres. Their writing also improved a lot, since I carefully read their answers and provided written feedback.</p>
 
 <h3>Teaching TOEFL: Reading as Foundation</h3>
 
-    <p>My second teaching job is at the University of Education Foreign Language Center. I taught TOEFL to university students. TOEFL is a very difficult test designed by Educational Testing Service (ETS) to test English proficiency of foreign students who want to attend a university in the US. This test consists of speaking, listening, reading, and writing.</p>
+<p>My second teaching job is at the University of Education Foreign Language Center. I taught TOEFL to university students. TOEFL is a very difficult test designed by Educational Testing Service (ETS) to test English proficiency of foreign students who want to attend a university in the US. This test consists of speaking, listening, reading, and writing.</p>
 
-    <p>I found that the key to teaching TOEFL is to get the students to understand the similarity between speaking, listening, reading, and writing. Starting from reading, I wanted them to understand the main idea of a paragraph, and how one paragraph is connected to the next paragraph based on the logical progression of ideas. Finally, how the writing is organized around a thesis that the writer is trying to get across. Then I tried to get the students to see that speaking, listening, and writing also have the same process.</p>
+<p>I found that the key to teaching TOEFL is to get the students to understand the similarity between speaking, listening, reading, and writing. Starting from reading, I wanted them to understand the main idea of a paragraph, and how one paragraph is connected to the next paragraph based on the logical progression of ideas. Finally, how the writing is organized around a thesis that the writer is trying to get across. Then I tried to get the students to see that speaking, listening, and writing also have the same process.</p>
 
-    <p>The second aspect of teaching TOEFL that is just as important is to help the students understand contextual meaning. For example, if there is a word that they don't understand, then they have to try to guess the meaning of that word within the context of the sentence. This idea is inherent in learning a native language. However, most Vietnamese students don't seem to know that the same process should be used in learning a foreign language.</p>
+<p>The second aspect of teaching TOEFL that is just as important is to help the students understand contextual meaning. For example, if there is a word that they don't understand, then they have to try to guess the meaning of that word within the context of the sentence. This idea is inherent in learning a native language. However, most Vietnamese students don't seem to know that the same process should be used in learning a foreign language.</p>
 
 <h3>International School: Second Grade and Parent Resistance</h3>
 
-    <p>My third teaching job is at an international school in Ho Chi Minh City. All of the other international schools only hire white teachers, and local Vietnamese teachers as teaching assistants. They don't hire Overseas Vietnamese or foreigners that are not white. This particular international school is a Singaporean school, and they decided to hire me as a teacher. I am teaching a second grade class. The students are from Singapore, Taiwan, Korea, the United States, and Canada. One-fourth of the students in my class are Overseas Vietnamese, or half Vietnamese.</p>
+<p>My third teaching job is at an international school in Ho Chi Minh City. All of the other international schools only hire white teachers, and local Vietnamese teachers as teaching assistants. They don't hire Overseas Vietnamese or foreigners that are not white. This particular international school is a Singaporean school, and they decided to hire me as a teacher. I am teaching a second grade class. The students are from Singapore, Taiwan, Korea, the United States, and Canada. One-fourth of the students in my class are Overseas Vietnamese, or half Vietnamese.</p>
 
-    <p>It is interesting that the parents who voiced their objections to my being hired were the local and Overseas Vietnamese parents. Also, the local Vietnamese teaching assistants, all of them young female teachers, don't like to have an Overseas Vietnamese teacher like myself on the teaching staff. They prefer to be assistant teachers to white teachers, and most of these white teachers are males.</p>
+<p>It is interesting that the parents who voiced their objections to my being hired were the local and Overseas Vietnamese parents. Also, the local Vietnamese teaching assistants, all of them young female teachers, don't like to have an Overseas Vietnamese teacher like myself on the teaching staff. They prefer to be assistant teachers to white teachers, and most of these white teachers are males.</p>
 
-    <p>This school uses the Singaporean curriculum, which is modelled after the British curriculum. I found that teaching at an international school is very similar to teaching in the USA. First of all, I have to establish classroom rules and consequences in order to manage the classroom. I found that communication with the parents is the key to getting the students to behave better and to perform better in school. Every week, I wrote a weekly progress report for each student in class and emailed the reports directly to the parents.</p>
+<p>This school uses the Singaporean curriculum, which is modelled after the British curriculum. I found that teaching at an international school is very similar to teaching in the USA. First of all, I have to establish classroom rules and consequences in order to manage the classroom. I found that communication with the parents is the key to getting the students to behave better and to perform better in school. Every week, I wrote a weekly progress report for each student in class and emailed the reports directly to the parents.</p>
 
-    <p>Since these students are international students, with most coming from non-English speaking countries, I discovered that reading a story aloud to them each day is crucial for their development in the English language. Most of them truly enjoy listening to the stories. I also require each student to read two books that they check out from the school library each week.</p>
+<p>Since these students are international students, with most coming from non-English speaking countries, I discovered that reading a story aloud to them each day is crucial for their development in the English language. Most of them truly enjoy listening to the stories. I also require each student to read two books that they check out from the school library each week.</p>
 
-    <p>For writing, I require the students to write one story each week. The topic of the story is related to the topic of the English unit we are studying for the week. I also created an email account for each student at epals.com, a website that connects students from all over the world so they can learn about other cultures and improve their writing skills.</p>
+<p>For writing, I require the students to write one story each week. The topic of the story is related to the topic of the English unit we are studying for the week. I also created an email account for each student at epals.com, a website that connects students from all over the world so they can learn about other cultures and improve their writing skills.</p>
 
-    <p>In conclusion, I encountered the same problem in Vietnam as in the USA — discrimination in trying to get a teaching job. However, the teaching methodology is similar, and the training I received at Evergreen in the Teacher Education Program has been invaluable.</p>
+<p>In conclusion, I encountered the same problem in Vietnam as in the USA &mdash; discrimination in trying to get a teaching job. However, the teaching methodology is similar, and the training I received at Evergreen in the Teacher Education Program has been invaluable.</p>
 </article>
 
-<!-- PREV / NEXT — update links per page -->
+<!-- PREV / NEXT NAV -->
 <nav class="page-nav" aria-label="Page navigation">
-<a href="russelltribunal.html">← Previous Page</a>
-<a href="comments.html" class="next">Next Page →</a>
+  <a href="russelltribunal.html">&larr; Previous: Russell Tribunal</a>
+  <a href="road-home.html" class="next">Next: The Road Home &rarr;</a>
 </nav>
 
 </main>
-<!-- ═══════════════════════════════════════════════
-★★★ END OF PAGE-SPECIFIC CONTENT ★★★
-═══════════════════════════════════════════════ -->
 
-<!-- ─────────────────────────────────────────────
-FOOTER — same on every page
-───────────────────────────────────────────── -->
 <footer>
-
+<ul class="footer-nav">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="childhood.html">Childhood</a></li>
+  <li><a href="usa.html">Life in the USA</a></li>
+  <li><a href="cominghome.html">Coming Home</a></li>
+  <li><a href="writings.html">My Writings</a></li>
+  <li><a href="meditation.html">Meditation</a></li>
+  <li><a href="taichi.html">Tai Chi</a></li>
+  <li><a href="diabetes.html">Diabetes</a></li>
+  <li><a href="road-home.html">The Road Home</a></li>
+  <li><a href="poetry.html">Collected Poems</a></li>
+  <li><a href="comments.html">Comments</a></li>
+</ul>
 <p>
 This website shares personal reflections on war, migration, meditation, and health.<br>
 &copy; <span id="yr"></span> Tuan Tran &mdash; <a href="sitemap.html">Site Map</a>
 </p>
+<p style="font-size: 0.75rem; margin-top: 0.5rem; opacity: 0.8;">
+Archived by the Vietnam Center and Archive, Texas Tech University.
+</p>
 </footer>
 
-<!-- ─────────────────────────────────────────────
-SCRIPTS — same on every page
-───────────────────────────────────────────── -->
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
 
 const toggle = document.querySelector('.nav-toggle');
 const navLinks = document.getElementById('nav-links');
 
-toggle.addEventListener('click', () => {
-const open = toggle.getAttribute('aria-expanded') === 'true';
-toggle.setAttribute('aria-expanded', String(!open));
-navLinks.classList.toggle('open', !open);
-});
+if (toggle && navLinks) {
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    navLinks.classList.toggle('open', !open);
+  });
 
-navLinks.querySelectorAll('a').forEach(link => {
-link.addEventListener('click', () => {
-if (window.innerWidth <= 680) {
-toggle.setAttribute('aria-expanded', 'false');
-navLinks.classList.remove('open');
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 680) {
+        toggle.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('open');
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+      toggle.setAttribute('aria-expanded', 'false');
+      navLinks.classList.remove('open');
+      toggle.focus();
+    }
+  });
 }
-});
-});
+
+const printBtn = document.getElementById('print-pdf-btn');
+if (printBtn) {
+  printBtn.addEventListener('click', () => {
+    window.print();
+  });
+}
 </script>
 
 </body>
