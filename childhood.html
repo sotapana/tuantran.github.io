@@ -5,21 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <!-- ═══════════════════════════════════════════════
-CHANGE THESE 6 LINES FOR EACH PAGE
+PER-PAGE META DATA
 ═══════════════════════════════════════════════ -->
 <meta name="description" content="A first-person memoir of childhood in Saigon during the Vietnam War — the fall of South Vietnam on April 30, 1975, escaping on a crowded cargo ship, and arriving at a Hong Kong refugee camp at age fourteen." />
 <meta name="keywords" content="Saigon childhood, Vietnam War, fall of Saigon 1975, Vietnamese refugee, boat people, Tuan Tran memoir" />
 <meta property="og:title" content="Childhood — Tuan Tran's Journal" />
 <meta property="og:description" content="Growing up in Saigon during the Vietnam War, escaping by sea on April 30, 1975, and the journey to America." />
 <meta property="og:url" content="https://tuantran.org/childhood.html" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://tuantran.org/banner.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Childhood — Tuan Tran's Journal" />
+<meta name="twitter:description" content="Growing up in Saigon during the Vietnam War, escaping by sea on April 30, 1975, and the journey to America." />
+<meta name="twitter:image" content="https://tuantran.org/banner.jpg" />
+<meta name="robots" content="index, follow" />
 <title>Growing Up in Saigon: A Vietnamese Child's Escape by Sea in 1975</title>
-<!-- ═══════════════════════════════════════════════
-END OF PER-PAGE CHANGES IN HEAD
-═══════════════════════════════════════════════ -->
 
 <meta name="author" content="Tuan Tran" />
 <link rel="canonical" href="https://tuantran.org/childhood.html" />
-<meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
@@ -262,6 +265,15 @@ color: var(--red);
 margin: 2.5rem 0 1rem;
 }
 
+.prose h3 {
+font-family: var(--font-display);
+font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(--red-soft);
+margin: 2rem 0 1rem;
+}
+
 /* ── PULL QUOTE ───────────────────────────────── */
 .pull-quote {
 margin: 2.5rem 0;
@@ -294,17 +306,6 @@ color: var(--ink);
 margin: 0 !important;
 }
 
-.pull-quote cite {
-display: block;
-margin-top: 0.75rem;
-font-family: var(--font-display);
-font-style: normal;
-font-size: 0.65rem;
-letter-spacing: 0.15em;
-text-transform: uppercase;
-color: var(--red);
-}
-
 /* ── POEM BLOCK ───────────────────────────────── */
 .poem-block {
 background: var(--ink);
@@ -334,13 +335,6 @@ margin-bottom: 1rem;
 display: block;
 }
 
-.poem-title {
-font-family: var(--font-display);
-font-size: clamp(0.9rem, 1.5vw, 1rem);
-letter-spacing: 0.1em;
-color: var(--gold-light);
-margin-bottom: 1.25rem;
-}
 .poem-text {
 font-family: var(--font-quote);
 font-style: italic;
@@ -349,67 +343,6 @@ font-weight: 300;
 line-height: 2;
 color: var(--paper-warm);
 white-space: pre-line;
-}
-
-/* ── TOPICS GRID (homepage only) ──────────────── */
-.topics-grid {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
-gap: 1px;
-background: var(--paper-deep);
-border: 1px solid var(--paper-deep);
-border-radius: 4px;
-overflow: hidden;
-margin-bottom: 3.5rem;
-}
-
-.topic-card {
-background: var(--paper);
-padding: 1.5rem;
-text-decoration: none;
-display: block;
-transition: background 0.2s;
-position: relative;
-}
-
-.topic-card:hover { background: var(--paper-warm); }
-
-.topic-card::after {
-content: '→';
-position: absolute;
-right: 1.25rem;
-top: 50%;
-transform: translateY(-50%);
-color: var(--red);
-opacity: 0;
-transition: opacity 0.2s, right 0.2s;
-}
-
-.topic-card:hover::after { opacity: 1; right: 1rem; }
-
-.topic-tag {
-font-family: var(--font-display);
-font-size: 0.6rem;
-letter-spacing: 0.18em;
-text-transform: uppercase;
-color: var(--red);
-display: block;
-margin-bottom: 0.4rem;
-}
-
-.topic-title {
-font-family: var(--font-quote);
-font-size: clamp(1rem, 1.8vw, 1.15rem);
-font-weight: 400;
-color: var(--ink);
-line-height: 1.3;
-}
-
-.topic-desc {
-margin-top: 0.4rem;
-font-size: 0.9rem;
-color: var(--ink-faint);
-line-height: 1.5;
 }
 
 /* ── DIVIDER ──────────────────────────────────── */
@@ -513,20 +446,18 @@ width: 100%;
 border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-.nav-links.open { 
+.nav-links.open {
         display: flex;
         flex-direction: column;
         width: 100%;
-        border-top: 1px solid rgba(255,255,255,0.1);      
-        max-height: 75vh;       
-        overflow-y: auto;        
-        -webkit-overflow-scrolling: touch; 
-        
+        border-top: 1px solid rgba(255,255,255,0.1);
+        max-height: 75vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
       }
 
 .nav-inner { flex-wrap: wrap; }
 .pull-quote { padding: 1.5rem 1.5rem 1.5rem 1.75rem; }
-
 }
 
 /* ── ANIMATIONS ───────────────────────────────── */
@@ -539,11 +470,98 @@ from { opacity: 0; transform: translateY(16px); }
 to { opacity: 1; transform: translateY(0); }
 }
 
-/* ── PRINT ────────────────────────────────────── */
+/* ── BUTTON STYLING ───────────────────────────── */
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--red);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+.print-btn:hover {
+  background-color: var(--red-soft);
+  transform: translateY(-1px);
+}
+.print-btn:active {
+  transform: translateY(0);
+}
+
+/* ── PRINT STYLES (FULL) ──────────────────────── */
 @media print {
-nav.main-nav, footer, .page-nav { display: none; }
-body { background: white; color: black; }
-main { max-width: 100%; padding: 0; }
+  nav.main-nav, footer, .page-nav, .skip-link, .print-btn, .nav-toggle {
+    display: none !important;
+  }
+
+  body::before { display: none !important; }
+
+  body {
+    background: white !important;
+    color: #000 !important;
+    font-size: 12pt;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .poem-block {
+    display: block !important;
+    visibility: visible !important;
+    background: transparent !important;
+    color: #000 !important;
+    opacity: 1 !important;
+    border-left: 3px solid #000;
+    border-radius: 0;
+    padding: 1rem 0 1rem 1.5rem;
+    margin: 1.5rem 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .poem-block *,
+  .poem-text,
+  .poem-label {
+    color: #000 !important;
+    background: transparent !important;
+    opacity: 1 !important;
+  }
+
+  .pull-quote {
+    background: transparent !important;
+    color: #000 !important;
+    border-left: 3px solid #000;
+  }
+
+  h1, h2, h3, .site-title, .page-title {
+    color: #000 !important;
+  }
+
+  p, .prose p {
+    color: #000 !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  p, .chapter-section, .poem-block {
+    page-break-inside: avoid;
+  }
 }
 </style>
 </head>
@@ -577,7 +595,7 @@ SITE HEADER — same on every page
   <li><a href="diabetes.html">Diabetes</a></li>
   <li><a href="marthahess.html">Then the Americans Came</a></li>
   <li><a href="russelltribunal.html">Russell Tribunal</a></li>
-  <li><a href="teaching.html">Teaching in Vietnam</a></li>  
+  <li><a href="teaching.html">Teaching in Vietnam</a></li>
   <li><a href="road-home.html">The Road Home</a></li>
   <li><a href="songbirds.html">Songbirds</a></li>
   <li><a href="poetry.html">Collected Poems</a></li>
@@ -587,7 +605,7 @@ SITE HEADER — same on every page
 </nav>
 
 <!-- ─────────────────────────────────────────────
-BANNER — same image on every page
+BANNER
 ───────────────────────────────────────────── -->
 <img
 src="banner.jpg"
@@ -599,11 +617,8 @@ loading="lazy"
 />
 
 <!-- ═══════════════════════════════════════════════
-★★★ REPLACE EVERYTHING BELOW THIS LINE ★★★
-with the page-specific content block.
-Keep the <main id="main"> wrapper.
+PAGE-SPECIFIC CONTENT
 ═══════════════════════════════════════════════ -->
-
 
 <main id="main">
 
@@ -616,7 +631,21 @@ Keep the <main id="main"> wrapper.
 
 <article class="prose">
 
-<h2>Childhood</h2><p>
+  <p>"Childhood in Saigon" was previously submitted to literary agents and small presses. It is now available here for readers to enjoy.</p>
+
+  <!-- DOWNLOAD BUTTON -->
+  <div style="text-align: center; margin: 2rem 0;">
+    <button id="print-pdf-btn" class="print-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      Download / Print PDF
+    </button>
+  </div>
+
+<h2>Childhood</h2>
 
 <h3>Family</h3>
 
@@ -626,28 +655,29 @@ Keep the <main id="main"> wrapper.
 
 <p>Vietnam agreed to this temporary division to allow the French its dignity, and at the urging of its allies: Russia and China. Both of these countries did not want to provoke the United States, a French ally during the war against Vietnam. Ho Chi Minh led the Viet Minh in the war for independence against the French. He was already a national hero, and would have won the national election by a landslide.</p>
 
-<p>But the history of Vietnam is a long and sorrowful one. The war came upon my generation like many previous generations of Vietnamese in the past. This war was always a backdrop of my childhood years in Vietnam. Once again, we were invaded by the most powerful nation of its time--the United States of America. But unlike other wars of the past, the enemy this time was particularly cruel and inhuman.</p>
+<p>But the history of Vietnam is a long and sorrowful one. The war came upon my generation like many previous generations of Vietnamese in the past. This war was always a backdrop of my childhood years in Vietnam. Once again, we were invaded by the most powerful nation of its time — the United States of America. But unlike other wars of the past, the enemy this time was particularly cruel and inhuman.</p>
 
-<img src="monk.jpg" width="191" height="250"><p>
-<img src="napalm.jpg" width="300" height="180"><p>
+<p><img src="monk.jpg" alt="Thich Quang Duc, a Buddhist monk, self-immolates at a Saigon intersection in protest against religious persecution, June 11, 1963" width="191" height="250"></p>
 
-<p>In 1956, the Eisenhower's administration of the United States installed a counter revolutionary government in South Vietnam, with Ngo Dinh Diem as the head of the government. Diem prevented the national election from taking place in 1956 according to the Geneva Accords. Instead, he rigged an election for the presidency of South Vietnam, with himself receiving more votes than the total number of registered voters. In 1959, Diem's government began to put all suspected Communists in prisons without a trial and subjected them to tortures, with the approval of the United States government. Diem, a devout Catholic, declared Catholicism to be the official religion of Vietnam, and began to persecute and oppress the Buddhists in South Vietnam. As a selfless gesture of protest against religious persecution, a monk by the name of Thich Quang Duc immolated himself at a busy intersection in Saigon in 1963.</p>
+<p><img src="napalm.jpg" alt="Vietnamese children flee a napalm attack on their village, 1972" width="300" height="180"></p>
 
-<p>Up until 1960, North Vietnam still wanted to unify Vietnam through political means. However, as the Diem's government intensified its attack on political dissidents, North Vietnam approved the creation of the National Liberation Front in South Vietnam to overthrow the Diem's government through both political and arms struggle. Thus, the war in Vietnam began in earnest the year I was born.</p>
+<p>In 1956, the Eisenhower administration of the United States installed a counter revolutionary government in South Vietnam, with Ngo Dinh Diem as the head of the government. Diem prevented the national election from taking place in 1956 according to the Geneva Accords. Instead, he rigged an election for the presidency of South Vietnam, with himself receiving more votes than the total number of registered voters. In 1959, Diem's government began to put all suspected Communists in prisons without a trial and subjected them to tortures, with the approval of the United States government. Diem, a devout Catholic, declared Catholicism to be the official religion of Vietnam, and began to persecute and oppress the Buddhists in South Vietnam. As a selfless gesture of protest against religious persecution, a monk by the name of Thich Quang Duc immolated himself at a busy intersection in Saigon on June 11, 1963.</p>
 
-<p>I was born to a poor family. We are a big family, even by Vietnamese standard. I have two older brothers, one younger brother, and three younger sisters. I am the third oldest child. Unlike my relatives who held high military and political positions with the government of South Vietnam, my father was a low ranking policeman for the government of Saigon.</p>
+<p>Up until 1960, North Vietnam still wanted to unify Vietnam through political means. However, as Diem's government intensified its attack on political dissidents, North Vietnam approved the creation of the National Liberation Front in South Vietnam to overthrow Diem's government through both political and armed struggle. Thus, the war in Vietnam began in earnest the year I was born.</p>
 
-<p>My father was a very intelligent man, but he didn't have the opportunity to go to college. My father and my uncle were raised by my grandmother, a single mother. I don't think my relatives on my father's side were very well to do in North Vietnam prior to moving to South Vietnam in 1955.</p>
+<p>I was born to a poor family. We are a big family, even by Vietnamese standards. I have two older brothers, one younger brother, and three younger sisters. I am the third oldest child. Unlike my relatives who held high military and political positions with the government of South Vietnam, my father was a low-ranking policeman for the government of Saigon.</p>
+
+<p>My father was a very intelligent man, but he didn't have the opportunity to go to college. My father and my uncle were raised by my grandmother, a single mother. I don't think my relatives on my father's side were very well-to-do in North Vietnam prior to moving to South Vietnam in 1955.</p>
 
 <p>I have never met my mother's side of the family. She was the only one in her family to move south. I think she would have stayed in North Vietnam if it wasn't for being married to my father. I do know that my mother's family was wealthy in North Vietnam.</p>
 
-<p>It is still a mystery to me as to why my parents would move south in 1955. My relatives told me that the North Vietnamese would torture and kill land owners, but my relatives were neither wealthy nor land owners in North Vietnam.</p>
+<p>It is still a mystery to me as to why my parents would move south in 1955. My relatives told me that the North Vietnamese would torture and kill landowners, but my relatives were neither wealthy nor landowners in North Vietnam.</p>
 
 <h3>School</h3>
 
 <p>My elementary school years were unremarkable. When I was twelve years old, my parents sent me to live with my grandmother. I think my parents weren't able to care for all of us. I suppose a policeman's salary in Saigon was grossly inadequate.</p>
 
-<p>My grandmother's house was huge. There were actually two houses within one compound. My grandmother lived in one house, and my uncle's family lived in another. My uncle was a high ranking military officer, I think one step below a one star general, and he was also a military judge. They enrolled me in the sixth grade at a school for children of military officers. There was no tuition, and the school was located inside a military base. Most of the teachers were civilians. I studied at this school until the seventh grade, when I left Vietnam at the end of the war.</p>
+<p>My grandmother's house was huge. There were actually two houses within one compound. My grandmother lived in one house, and my uncle's family lived in another. My uncle was a high-ranking military officer, I think one step below a one-star general, and he was also a military judge. They enrolled me in the sixth grade at a school for children of military officers. There was no tuition, and the school was located inside a military base. Most of the teachers were civilians. I studied at this school until the seventh grade, when I left Vietnam at the end of the war.</p>
 
 <p>Although I can't write in Vietnamese anymore, I was a good writer in the seventh grade. I was also a good speaker. Our school was co-ed, but each classroom was segregated by gender. Occasionally, the teacher would invite the best female students from the same grade to visit our classroom for a debate. The theme of a debate was about a book that we would have read in advance.</p>
 
@@ -655,101 +685,109 @@ Keep the <main id="main"> wrapper.
 
 <p>I was always a leader and a rebel. The principal at our school did not like me. He perceived me as a threat and wanted to make an example out of me. One day, there was a large military truck parked near our school. A group of my classmates and I climbed onto the truck to play. Eventually, some of us got inside the cab and turned the ignition key. We all ran away when the principal came out to investigate.</p>
 
-<p>He singled me out for punishment. The punishment was being hit by a rod on the buttocks. I don't know how many times I was hit, but I remember taking my punishment without flinching or making even a whimper. This only infuriated him even more as he would continue hitting me harder. When he saw that I was being defiant, he decided on the ultimate way to humiliate me. I was to kneel by the flag pole in the middle of the school yard so that all of the students could see. I had to kneel by that flag pole for half of the school day through the mid afternoon sun. At one point, I thought about getting up and leave, but I also knew that I wouldn't be able to go to school anymore, and I wanted to be in school.</p>
+<p>He singled me out for punishment. The punishment was being hit by a rod on the buttocks. I don't know how many times I was hit, but I remember taking my punishment without flinching or making even a whimper. This only infuriated him even more as he would continue hitting me harder. When he saw that I was being defiant, he decided on the ultimate way to humiliate me. I was to kneel by the flagpole in the middle of the schoolyard so that all of the students could see. I had to kneel by that flagpole for half of the school day through the mid-afternoon sun. At one point, I thought about getting up and leaving, but I also knew that I wouldn't be able to go to school anymore, and I wanted to be in school.</p>
 
 <p>One day, a student told the teacher that someone had stolen his book. The teacher couldn't find out who the thief was, so he got the principal to come to our classroom. The principal said he would punish the whole class unless the one who stole the book would stand up and identify himself. After what seemed like a very long five minutes of silence, the person who stole the book wouldn't identify himself. I knew the principal would punish everyone, and I just couldn't let him do it. I stood up and said I stole the book. He looked at me, then asked where I kept the book. I couldn't say where the book was, because I didn't have it. He didn't say anything and then walked away. After that incident, he never picked on me again. I think he knew I had the respect of my peers.</p>
 
 <h3>The War</h3>
 
-<p>"The sound of one hand clapping" - Zen Koan</p>
+<p style="font-family: var(--font-quote); font-style: italic; text-align: center; color: var(--ink-faint);">"The sound of one hand clapping" — Zen Koan</p>
 
-<p>Our next door neighbor's oldest son was in the military. But he deserted and hid in the attic for months. One day, the military police came and took him away. A few months later, he was killed in action. His family was very poor and his mom was a single mother. His father had died from tuberculosis.</p>
+<p>Our next-door neighbor's oldest son was in the military. But he deserted and hid in the attic for months. One day, the military police came and took him away. A few months later, he was killed in action. His family was very poor and his mom was a single mother. His father had died from tuberculosis.</p>
 
 <p>When his younger brother became close to eighteen years old, his mother didn't want the younger brother to get drafted into the military. One night, she borrowed a butcher knife from our family and chopped the younger son's right index finger off.</p>
 
-<p>"I love the smell of napalm in the morning" - Apocalypse Now</p>
+<p style="font-family: var(--font-quote); font-style: italic; text-align: center; color: var(--ink-faint);">"I love the smell of napalm in the morning" — Apocalypse Now</p>
 
 <p>Since I lived in Saigon, the capital city of South Vietnam, I didn't see the destruction that was happening all around us. We were kept in the dark about the atrocities of the war. The school I went to didn't teach us about the war at the time, and the media was controlled by the South Vietnamese government.</p>
 
+<div class="poem-block">
+  <span class="poem-label">Poem</span>
+  <div class="poem-text">
 I didn't know<br>
 about My Lai<br>
 or napalm<br>
 or anti-personnel<br>
-cluster bombs<br><br>
-
+cluster bombs<br>
+<br>
 I didn't know about B-52s<br>
 and carpet bombings<br>
 or Huey helicopters<br>
 shooting farmers<br>
-working in the fields<br><br>
-
+working in the fields<br>
+<br>
 I didn't know<br>
-about Agent Orange<br><br>
-
+about Agent Orange<br>
+<br>
 I didn't know they thought of us as "Gooks"<br>
 to be added to the body counts<br>
 and I didn't know they killed<br>
-over 5 million "Gooks"<br>
-of which 4 million were civilians<br><br>
+over 3 million of us<br>
+of which 2 million were civilians
+  </div>
+</div>
 
-<p><small>Note: According to the official statistics released by the Vietnamese government, three million Vietnamese were killed during the war, including one million soldiers. An additional two million Vietnamese were affected by Agent Orange.</small></p>
+<p><small>Note: According to the Vietnamese government's official 1995 statistics, approximately 2 million civilians on both sides and 1.1 million military personnel were killed during the war. The U.S. military estimates 200,000–250,000 South Vietnamese soldiers killed. The Vietnamese government also estimates that up to 4 million people were exposed to Agent Orange, with as many as 3 million suffering illnesses and approximately 500,000 children born with birth defects.</small></p>
 
 <h3>Walking the Plank</h3>
 
 <p>The day before I left Vietnam, my family and I went to stay at the home of some wealthy relatives. Their house was large and well built, and my parents thought it would be safer to stay at their house. I couldn't sleep very well that night. There were artillery shelling near Saigon, and at the airport. Our relatives' house shook all night from the shelling.</p>
 
-<p>On the morning of April 30, 1975, people were running around aimlessly in Saigon. The people were afraid. They could anticipate that the end of the war was near, and they were trying to find a way to get out. During the war, there were countless propaganda shows on television about the Communists committing massacres in the cities they had captured, and how they would also buried people alive in common graves. There was also one particular television drama showing how the Communists would torture these people by pulling out their fingernails with pliers. Even though I had never met any Communist, I was afraid from the stories I had seen on television. I think my parents were also afraid that the Communists would take revenge against them for moving South in 1955.</p>
+<p>On the morning of April 30, 1975, people were running around aimlessly in Saigon. The people were afraid. They could anticipate that the end of the war was near, and they were trying to find a way to get out. During the war, there were countless propaganda shows on television about the Communists committing massacres in the cities they had captured, and how they would also bury people alive in common graves. There was also one particular television drama showing how the Communists would torture these people by pulling out their fingernails with pliers. Even though I had never met any Communist, I was afraid from the stories I had seen on television. I think my parents were also afraid that the Communists would take revenge against them for moving South in 1955.</p>
 
 <p>That morning, my family and I went to the main port of Saigon where large ships would dock. There were so many people, and no ship would come to the dock because the people would try to get on board. I became separated from my family due to the sheer number of people crowding around.</p>
 
 <p>I was standing by the dock when this large ship moved along close to the dock. There were so many people on that ship. A man who stood near me found a long piece of planking and he placed it between the dock and the side of the moving ship. He walked on that plank and got on board. Several other people including me walked on that same planking and got aboard the ship.</p>
 
-<p>The ship continued to move toward the river. I found out later there were about four thousand people on that ship. It was some kind of a cargo ship, by the name of "Truong Xuan," which I think means Spring Time. I know "Xuan" means Spring, but I am not sure now what "Truong" means. My Vietnamese is not that good now.</p>
+<p>The ship continued to move toward the river. I found out later there were about four thousand people on that ship. It was some kind of a cargo ship, by the name of "Truong Xuan," which means "Eternal Spring." I know "Xuan" means Spring, but I am not sure now what "Truong" means. My Vietnamese is not that good now.</p>
 
-<p>It was before noon time when I got on that ship. The ship moved along that river until sometime in the afternoon when it got stuck in the sandbar. When night time came, we could see fireworks lighting up the sky in Saigon. I think there was a celebration of some sort.</p>
+<p>It was before noon when I got on that ship. The ship moved along that river until sometime in the afternoon when it got stuck in the sandbar. When nighttime came, we could see fireworks lighting up the sky in Saigon. I think there was a celebration of some sort.</p>
 
-<p>The next morning, there was a South Vietnamese Navy's patrol boat with several people on board. They pulled us off the sandbar then abandoned their patrol boat after getting on our ship. We continued on that river toward the sea. As we passed an island on our way to the open sea, the people on our ship were afraid we might get shot at by the Communists on that island.</p>
+<p>The next morning, there was a South Vietnamese Navy patrol boat with several people on board. They pulled us off the sandbar then abandoned their patrol boat after getting on our ship. We continued on that river toward the sea. As we passed an island on our way to the open sea, the people on our ship were afraid we might get shot at by the Communists on that island.</p>
 
-<p>There wasn't enough room on that ship for four thousand people. People could find enough room to lie down, but to walk around the ship was almost impossible. The ship didn't have food or water. Perhaps there was food and water for the crew and for a group of selected people, but for the majority of us, there was neither food nor water. After two days at sea without water, I tried but was unable to drink my own urine to quench my thirst. The ship developed engine troubles, and the engine room became flooded with water. We drifted around for most of the second day at sea.</p>
+<p>There wasn't enough room on that ship for four thousand people. People could find enough room to lie down, but to walk around the ship was almost impossible. The ship didn't have food or water. Perhaps there was food and water for the crew and for a group of selected people, but for the majority of us, there was neither food nor water. After two days at sea without water, I tried but was unable to drink my own urine to quench my thirst. The ship developed engine trouble, and the engine room became flooded with water. We drifted around for most of the second day at sea.</p>
 
 <p>On the third day, a Danish ship rescued us. We all boarded their ship and abandoned our ship at sea. I still didn't have any food to eat, but there was fresh water to drink. The Danish ship took two days to get us to Hong Kong, where we were processed and then trucked to the refugee camp.</p>
 
-<p>Since I was by myself, they put me in a camp with other single men. Others were sent to the family camp. At fourteen years old, I was the youngest person in the single men camp. Most of the men in that camp were in the military, and they were a tough bunch. I was too young to associate with these men, so I played with other boys around my age.</p>
+<p>Since I was by myself, they put me in a camp with other single men. Others were sent to the family camp. At fourteen years old, I was the youngest person in the single men's camp. Most of the men in that camp were in the military, and they were a tough bunch. I was too young to associate with these men, so I played with other boys around my age.</p>
 
-<p><img src="evac1.jpg" width="266" height="180"></p>
-<p><img src="evac2.jpg" width="262" height="210"></p>
-<p><img src="evac3.jpg" width="262" height="210"></p>
-<p><img src="evac4.jpg" width="262" height="210"></p>
-<p><img src="evac5.jpg" width="262" height="210"></p>
-<p><img src="evac6.jpg" width="264" height="210"></p>
-<p><img src="evac7.jpg" width="313" height="210"></p>
-<p><img src="evac8.jpg" width="304" height="210"></p>
-<p><img src="evac9.jpg" width="323" height="210"></p>
-<p><img src="evac10.jpg" width="321" height="209"></p>
-<p><img src="camp1.jpg" width="208" height="263"></p>
-<p><img src="camp2.jpg" width="331" height="210"></p>
-<p><img src="camp3.jpg" width="342" height="210"></p>
-<p><img src="camp4.jpg" width="210" height="286"></p>
-<p><img src="camp5.jpg" width="210" height="292"></p>
-<p><img src="camp6.jpg" width="260" height="210"></p>
+<p><img src="evac1.jpg" alt="Evacuation of Saigon, April 1975 — crowds at the port" width="266" height="180"></p>
+<p><img src="evac2.jpg" alt="Evacuation of Saigon, April 1975 — refugees boarding ships" width="262" height="210"></p>
+<p><img src="evac3.jpg" alt="Evacuation of Saigon, April 1975 — refugees on a ship" width="262" height="210"></p>
+<p><img src="evac4.jpg" alt="Evacuation of Saigon, April 1975 — refugees on deck" width="262" height="210"></p>
+<p><img src="evac5.jpg" alt="Evacuation of Saigon, April 1975 — crowded conditions on board" width="262" height="210"></p>
+<p><img src="evac6.jpg" alt="Evacuation of Saigon, April 1975 — view from the ship" width="264" height="210"></p>
+<p><img src="evac7.jpg" alt="Evacuation of Saigon, April 1975 — refugees at sea" width="313" height="210"></p>
+<p><img src="evac8.jpg" alt="Evacuation of Saigon, April 1975 — rescue at sea" width="304" height="210"></p>
+<p><img src="evac9.jpg" alt="Evacuation of Saigon, April 1975 — arriving at a refugee camp" width="323" height="210"></p>
+<p><img src="evac10.jpg" alt="Evacuation of Saigon, April 1975 — processing at a refugee camp" width="321" height="209"></p>
+<p><img src="camp1.jpg" alt="Hong Kong refugee camp, 1975 — camp exterior" width="208" height="263"></p>
+<p><img src="camp2.jpg" alt="Hong Kong refugee camp, 1975 — inside the camp" width="331" height="210"></p>
+<p><img src="camp3.jpg" alt="Hong Kong refugee camp, 1975 — camp buildings" width="342" height="210"></p>
+<p><img src="camp4.jpg" alt="Hong Kong refugee camp, 1975 — barbed wire perimeter" width="210" height="286"></p>
+<p><img src="camp5.jpg" alt="Hong Kong refugee camp, 1975 — daily life in the camp" width="210" height="292"></p>
+<p><img src="camp6.jpg" alt="Hong Kong refugee camp, 1975 — view from inside the camp" width="260" height="210"></p>
 
-<p>I lost track of time when I was in that camp. The camp was enclosed by barbed wire, and either the Hong Kong police or the British Ghurkas were guarding the camp 24 hours a day. We weren't allowed to leave the camp. I felt lonely and hungry most of the time I was there. They didn't feed us enough. There was no breakfast. Lunch and dinner was usually a bowl of rice and a couple cubes of stewed fatty pork.</p>
+<p>I lost track of time when I was in that camp. The camp was enclosed by barbed wire, and either the Hong Kong police or the British Gurkhas were guarding the camp 24 hours a day. We weren't allowed to leave the camp. I felt lonely and hungry most of the time I was there. They didn't feed us enough. There was no breakfast. Lunch and dinner was usually a bowl of rice and a couple cubes of stewed fatty pork.</p>
 
 <p>One night I couldn't sleep, so I walked to the courtyard. Out of the darkness, I heard a grown man sobbing. It was the saddest sound I've heard in my life.</p>
 
-<p>One day I heard my name on the list of people chosen for the United States on the loud speaker. I didn't feel anything. Perhaps I was too numb to feel anything. But several men approached me that day and congratulated me for being taken in by the United States. We were trucked to the airport and boarded a DC-10 for a refugee camp in Pennsylvania.</p>
-    
+<p>One day I heard my name on the list of people chosen for the United States on the loudspeaker. I didn't feel anything. Perhaps I was too numb to feel anything. But several men approached me that day and congratulated me for being taken in by the United States. We were trucked to the airport and boarded a DC-10 for a refugee camp in Pennsylvania.</p>
+
+<p style="text-align: center;"><small>© Tuan Tran. All rights reserved.</small></p>
+
 </article>
 
-<!-- PREV / NEXT — update links per page -->
+<!-- PREV / NEXT -->
 <nav class="page-nav" aria-label="Page navigation">
 <a href="index.html">← Previous Page</a>
 <a href="usa.html" class="next">Next Page →</a>
 </nav>
 
 </main>
+
 <!-- ═══════════════════════════════════════════════
-★★★ END OF PAGE-SPECIFIC CONTENT ★★★
+END OF PAGE-SPECIFIC CONTENT
 ═══════════════════════════════════════════════ -->
 
 <!-- ─────────────────────────────────────────────
@@ -766,25 +804,38 @@ This website shares personal reflections on war, migration, meditation, and heal
 SCRIPTS — same on every page
 ───────────────────────────────────────────── -->
 <script>
+// 1. Year Update
 document.getElementById('yr').textContent = new Date().getFullYear();
 
+// 2. Mobile Navigation Logic
 const toggle = document.querySelector('.nav-toggle');
 const navLinks = document.getElementById('nav-links');
 
-toggle.addEventListener('click', () => {
-const open = toggle.getAttribute('aria-expanded') === 'true';
-toggle.setAttribute('aria-expanded', String(!open));
-navLinks.classList.toggle('open', !open);
-});
+if (toggle && navLinks) {
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    navLinks.classList.toggle('open', !open);
+  });
 
-navLinks.querySelectorAll('a').forEach(link => {
-link.addEventListener('click', () => {
-if (window.innerWidth <= 680) {
-toggle.setAttribute('aria-expanded', 'false');
-navLinks.classList.remove('open');
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 680) {
+        toggle.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('open');
+      }
+    });
+  });
 }
-});
-});
+
+// 3. Print Button Logic
+const printBtn = document.getElementById('print-pdf-btn');
+if (printBtn) {
+  printBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.print();
+  });
+}
 </script>
 
 </body>
