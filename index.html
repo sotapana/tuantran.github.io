@@ -9,6 +9,7 @@
   <meta name="author" content="Tuan Tran" />
   <link rel="canonical" href="https://tuantran.org/" />
   
+  <!-- Structured Data for SEO -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -32,6 +33,12 @@
   <meta property="og:description" content="Personal reflections on war, migration, meditation, and the search for identity." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tuantran.org" />
+  <meta property="og:image" content="https://tuantran.org/banner.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tuan Tran's Journal — A Vietnamese-American Experience" />
+  <meta name="twitter:description" content="Personal reflections on war, migration, meditation, and the search for identity." />
+  <meta name="twitter:image" content="https://tuantran.org/banner.jpg" />
+  
   <title>Vietnamese Boat People Memoir — A 15-Year-Old Refugee's Escape from Saigon | Tuan Tran</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -136,7 +143,7 @@
     }
 
     /* ── NAV ──────────────────────────────────────── */
-    nav {
+    nav.main-nav {
       position: sticky;
       top: 0;
       z-index: 100;
@@ -377,7 +384,7 @@
       line-height: 1.5;
     }
 
-/* ── FEATURED POEM ────────────────────────────── */
+    /* ── FEATURED POEM ────────────────────────────── */
     .poem-block {
       background: var(--ink);
       color: var(--paper);
@@ -406,14 +413,15 @@
       display: block;
     }
 
-.poem-title {
-font-family: var(--font-display);
-font-size: clamp(0.9rem, 1.5vw, 1rem);
-letter-spacing: 0.1em;
-color: var(--gold-light);
-margin-bottom: 1.25rem;
-}
-      .poem-text {
+    .poem-title {
+      font-family: var(--font-display);
+      font-size: clamp(0.9rem, 1.5vw, 1rem);
+      letter-spacing: 0.1em;
+      color: var(--gold-light);
+      margin-bottom: 1.25rem;
+    }
+
+    .poem-text {
       font-family: var(--font-quote);
       font-style: italic;
       font-size: clamp(1rem, 2vw, 1.2rem);
@@ -424,58 +432,57 @@ margin-bottom: 1.25rem;
     }
     
     /* ── CLARIFICATION BOX STYLING ───────────────────────── */
-.clarification-wrapper {
-max-width: var(--max-w);
-margin: 0 auto;
-padding: 0 var(--side);
-position: relative;
-z-index: 20;
-}
+    .clarification-wrapper {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--side);
+      position: relative;
+      z-index: 20;
+    }
 
-.clarification-box {
-background: var(--paper-warm);
-border-left: 4px solid var(--gold);
-padding: 2rem 2.5rem;
-margin: 2rem 0 3rem;
-border-radius: 0 4px 4px 0;
-box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
+    .clarification-box {
+      background: var(--paper-warm);
+      border-left: 4px solid var(--gold);
+      padding: 2rem 2.5rem;
+      margin: 2rem 0 3rem;
+      border-radius: 0 4px 4px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
 
-.clarification-box p {
-font-family: var(--font-body);
-font-size: clamp(0.95rem, 1.6vw, 1.1rem);
-line-height: 1.8;
-color: var(--ink-soft);
-margin-bottom: 1.25em;
-}
+    .clarification-box p {
+      font-family: var(--font-body);
+      font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+      line-height: 1.8;
+      color: var(--ink-soft);
+      margin-bottom: 1.25em;
+    }
 
-.clarification-box p:last-child {
-margin-bottom: 0;
-}
+    .clarification-box p:last-child {
+      margin-bottom: 0;
+    }
 
-.clarification-contact {
-font-size: 0.85em !important;
-margin-top: 1.5rem !important;
-}
+    .clarification-contact {
+      font-size: 0.85em !important;
+      margin-top: 1.5rem !important;
+    }
 
-.clarification-contact a {
-color: var(--red);
-text-decoration: underline;
-}
+    .clarification-contact a {
+      color: var(--red);
+      text-decoration: underline;
+    }
 
-.clarification-contact a:hover {
-text-decoration: none;
-}
+    .clarification-contact a:hover {
+      text-decoration: none;
+    }
 
-/* Mobile responsiveness */
-@media (max-width: 680px) {
-.clarification-box {
-padding: 1.5rem 1.5rem;
-margin: 1.5rem 0 2rem;
-}
-}
+    /* Mobile responsiveness */
+    @media (max-width: 680px) {
+      .clarification-box {
+        padding: 1.5rem 1.5rem;
+        margin: 1.5rem 0 2rem;
+      }
+    }
     
- 
     /* ── FOOTER ───────────────────────────────────── */
     footer {
       position: relative;
@@ -530,9 +537,8 @@ margin: 1.5rem 0 2rem;
         width: 100%;
         border-top: 1px solid rgba(255,255,255,0.1);
       }
- 
-            
-        .nav-links.open { 
+      
+      .nav-links.open { 
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -540,15 +546,10 @@ margin: 1.5rem 0 2rem;
         max-height: 75vh;       
         overflow-y: auto;        
         -webkit-overflow-scrolling: touch; 
-        
       }
       
-      
-
       .nav-inner { flex-wrap: wrap; }
-
       .opening-quote { padding: 1.5rem 1.5rem 1.5rem 1.75rem; }
-      
     }
 
     /* ── ANIMATIONS ───────────────────────────────── */
@@ -557,7 +558,6 @@ margin: 1.5rem 0 2rem;
         animation: fadeUp 0.6s ease both;
       }
       .topics-grid { animation-delay: 0.15s; }
-      
     }
 
     @keyframes fadeUp {
@@ -585,30 +585,30 @@ margin: 1.5rem 0 2rem;
   </header>
 
   <!-- NAV -->
-<nav class="main-nav" aria-label="Main navigation">
-<div class="nav-inner">
-<button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
-<span></span><span></span><span></span>
-</button>
-<ul class="nav-links" id="nav-links" role="list">
-  <li><a href="index.html" aria-current="page">Home</a></li>
-  <li><a href="childhood.html">Childhood</a></li>
-  <li><a href="usa.html">Life in the USA</a></li>
-  <li><a href="cominghome.html">Coming Home</a></li>
-  <li><a href="writings.html">My Writings</a></li>
-  <li><a href="meditation.html">Meditation</a></li>
-  <li><a href="taichi.html">Tai Chi</a></li>
-  <li><a href="diabetes.html">Diabetes</a></li>
-  <li><a href="marthahess.html">Then the Americans Came</a></li>
-  <li><a href="russelltribunal.html">Russell Tribunal</a></li>
-  <li><a href="teaching.html">Teaching in Vietnam</a></li>  
-  <li><a href="road-home.html">The Road Home</a></li>
-  <li><a href="songbirds.html">Songbirds</a></li>
-  <li><a href="poetry.html">Collected Poems</a></li>
-  <li><a href="comments.html">Comments</a></li>
-</ul>
-</div>
-</nav>
+  <nav class="main-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="childhood.html">Childhood</a></li>
+        <li><a href="usa.html">Life in the USA</a></li>
+        <li><a href="cominghome.html">Coming Home</a></li>
+        <li><a href="writings.html">My Writings</a></li>
+        <li><a href="meditation.html">Meditation</a></li>
+        <li><a href="taichi.html">Tai Chi</a></li>
+        <li><a href="diabetes.html">Diabetes</a></li>
+        <li><a href="marthahess.html">Then the Americans Came</a></li>
+        <li><a href="russelltribunal.html">Russell Tribunal</a></li>
+        <li><a href="teaching.html">Teaching in Vietnam</a></li>  
+        <li><a href="road-home.html">The Road Home</a></li>
+        <li><a href="songbirds.html">Songbirds</a></li>
+        <li><a href="poetry.html">Collected Poems</a></li>
+        <li><a href="comments.html">Comments</a></li>
+      </ul>
+    </div>
+  </nav>
  
   <!-- BANNER -->
   <img
@@ -636,8 +636,7 @@ margin: 1.5rem 0 2rem;
 
     <!-- Intro -->
     <section class="intro" aria-label="About this journal">
-    
-    <h3 class="sr-only">The Story of a Boat Refugee</h3>
+      <h3 class="sr-only">The Story of a Boat Refugee</h3>
       <p>
         This website is a collection of personal reflections on meditation, identity,
         immigration, history, and the human search for understanding. Drawing from lived
@@ -668,12 +667,12 @@ margin: 1.5rem 0 2rem;
         <span class="topic-title">Refugee Experience</span>
         <span class="topic-desc">A teenage refugee's arrival in America — assimilation, racism, loss of identity, and awakening.</span>
       </a>
-       <a href="cominghome.html" class="topic-card">
+      <a href="cominghome.html" class="topic-card">
         <span class="topic-tag">Journey</span>
         <span class="topic-title">Coming Home</span>
         <span class="topic-desc">Returning to Ho Chi Minh City in 2001 — a Viet Kieu's confrontation with the homeland.</span>
       </a>
-       <a href="teaching.html" class="topic-card">
+      <a href="teaching.html" class="topic-card">
         <span class="topic-tag">Education</span>
         <span class="topic-title">Teaching in Vietnam</span>
         <span class="topic-desc">A Viet Kieu educator's experience — discrimination, identity, and the classroom.</span>
@@ -701,7 +700,7 @@ margin: 1.5rem 0 2rem;
       <a href="marthahess.html" class="topic-card">
         <span class="topic-tag">History</span>
         <span class="topic-title">Then the Americans Came</span>
-        <span class="topic-desc">Excerpted from the book <i>Then the Americans Came</i> by Martha Hess.</span>
+        <span class="topic-desc">Excerpted from the book <em>Then the Americans Came</em> by Martha Hess.</span>
       </a>
       <a href="russelltribunal.html" class="topic-card">
         <span class="topic-tag">History</span>
@@ -723,40 +722,39 @@ margin: 1.5rem 0 2rem;
         <span class="topic-title">The Road Home</span>
         <span class="topic-desc">A Memoir in Haibun by Tuan Tran.</span>
       </a>
-      
-      
     </div>
   
-  <!-- ── CLARIFICATION BOX ─────────────────────────────── -->
-<div class="clarification-wrapper">
-<div class="clarification-box">
-<p>There is another person named Tuan Tran online. This site, <b>tuantran.org</b>, documents my life. If you find similar titles elsewhere, please verify the URL.</p>
+    <!-- Clarification Box -->
+    <div class="clarification-wrapper">
+      <div class="clarification-box">
+        <p>There is another person named Tuan Tran online. This site, <b>tuantran.org</b>, documents my life. If you find similar titles elsewhere, please verify the URL.</p>
+      </div>
+    </div>
 
-</div>
-</div>
+    <!-- Featured Poem -->
+    <div class="divider" aria-hidden="true">
+      <span class="divider-text">Featured Poem</span>
+    </div>
 
-<!-- Featured Poem -->
-<div class="divider" aria-hidden="true">
-  <span class="divider-text">Featured Poem</span>
-</div>
-
-<div class="poem-block" role="complementary" aria-label="Featured poem">
-  <span class="poem-label">The Collected Haiku by Tuan Tran Poem 27</span>
-  <div class="poem-text">
-    Temple bell<br>
-    fading<br>
-    silence remains
-  </div>
-</div>    
+    <div class="poem-block" role="complementary" aria-label="Featured poem">
+      <span class="poem-label">Poem 27 — Selected Haiku</span>
+      <div class="poem-text">
+        Temple bell<br>
+        fading<br>
+        silence remains
+      </div>
+    </div>    
        
   </main>
 
   <!-- FOOTER -->
   <footer>
-   
     <p>
       This website shares personal reflections on war, migration, meditation, and health.<br>
       &copy; <span id="yr"></span> Tuan Tran &mdash; <a href="sitemap.html">Site Map</a>
+    </p>
+    <p style="font-size: 0.75rem; margin-top: 0.5rem; opacity: 0.8;">
+      Archived by the Vietnam Center and Archive, Texas Tech University.
     </p>
   </footer>
 
@@ -768,24 +766,32 @@ margin: 1.5rem 0 2rem;
     const toggle = document.querySelector('.nav-toggle');
     const navLinks = document.getElementById('nav-links');
 
-    toggle.addEventListener('click', () => {
-      const open = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!open));
-      navLinks.classList.toggle('open', !open);
-    });
+    if (toggle && navLinks) {
+      toggle.addEventListener('click', () => {
+        const open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        navLinks.classList.toggle('open', !open);
+      });
 
-    // Close nav when a link is clicked on mobile
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 680) {
+      // Close nav when a link is clicked on mobile
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 680) {
+            toggle.setAttribute('aria-expanded', 'false');
+            navLinks.classList.remove('open');
+          }
+        });
+      });
+
+      // Close nav on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinks.classList.contains('open')) {
           toggle.setAttribute('aria-expanded', 'false');
           navLinks.classList.remove('open');
+          toggle.focus();
         }
       });
-    });
+    }
   </script>
 </body>
 </html>
-
-
-
