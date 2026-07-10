@@ -5,21 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <!-- ═══════════════════════════════════════════════
-CHANGE THESE 6 LINES FOR EACH PAGE
+PER-PAGE META DATA
 ═══════════════════════════════════════════════ -->
 <meta name="description" content="Personal account of surviving a life-threatening liver clot caused by GLP-1 diabetes medication. A Vietnamese-American refugee's strategy for managing Type 2 diabetes safely using insulin, metformin, and diet instead of appetite-suppressing drugs." />
 <meta name="keywords" content="GLP-1 side effects, Ozempic liver blood clot, diabetes management without weight loss drugs, famine metabolism diabetes, refugee diet diabetes, Toujeo insulin safety, metformin vs GLP-1, Tuan Tran health journey" />
 <meta property="og:title" content="Diabetes — Tuan Tran's Journal" />
 <meta property="og:description" content="After nearly dying from a liver clot caused by GLP-1 therapy, I share my safe alternative strategy for Type 2 diabetes involving insulin, metformin, and mindful eating." />
 <meta property="og:url" content="https://tuantran.org/diabetes.html" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://tuantran.org/banner.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Diabetes — Tuan Tran's Journal" />
+<meta name="twitter:description" content="After nearly dying from a liver clot caused by GLP-1 therapy, I share my safe alternative strategy for Type 2 diabetes involving insulin, metformin, and mindful eating." />
+<meta name="twitter:image" content="https://tuantran.org/banner.jpg" />
+<meta name="robots" content="index, follow" />
 <title>Diabetes Management Without GLP-1s: A Personal Warning & Safe Strategy | Tuan Tran</title>
-<!-- ═══════════════════════════════════════════════
-END OF PER-PAGE CHANGES IN HEAD
-═══════════════════════════════════════════════ -->
-
 <meta name="author" content="Tuan Tran" />
 <link rel="canonical" href="https://tuantran.org/diabetes.html" />
-<meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
@@ -39,6 +41,8 @@ END OF PER-PAGE CHANGES IN HEAD
 --red-soft: #a83030;
 --gold: #9a7a3a;
 --gold-light: #c4a265;
+--warning-bg: #fff3cd;
+--warning-border: #ffc107;
 
 --font-display: 'Cinzel', serif;
 --font-body: 'Crimson Pro', serif;
@@ -84,6 +88,17 @@ z-index: 999;
 }
 .skip-link:focus { top: 0; }
 
+/* ── SCREEN READER ONLY ───────────────────────── */
+.sr-only {
+position: absolute;
+width: 1px; height: 1px;
+padding: 0; margin: -1px;
+overflow: hidden;
+clip: rect(0, 0, 0, 0);
+white-space: nowrap;
+border: 0;
+}
+
 /* ── HEADER ───────────────────────────────────── */
 header {
 position: relative;
@@ -113,10 +128,7 @@ line-height: 1.2;
 color: var(--paper);
 }
 
-.site-title a {
-color: inherit;
-text-decoration: none;
-}
+.site-title a { color: inherit; text-decoration: none; }
 
 .site-subtitle {
 font-family: var(--font-quote);
@@ -262,6 +274,40 @@ color: var(--red);
 margin: 2.5rem 0 1rem;
 }
 
+.prose h3 {
+font-family: var(--font-display);
+font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(--red-soft);
+margin: 2rem 0 1rem;
+}
+
+.prose ul, .prose ol {
+margin-bottom: 1.4em;
+padding-left: 1.5rem;
+color: var(--ink-soft);
+}
+
+.prose li {
+margin-bottom: 0.5em;
+}
+
+/* ── WARNING BOX ──────────────────────────────── */
+.warning-box {
+  background: var(--warning-bg);
+  border-left: 4px solid var(--warning-border);
+  padding: 1rem 1.25rem;
+  margin-bottom: 2rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.warning-box strong {
+  color: #856404;
+}
+
 /* ── PULL QUOTE ───────────────────────────────── */
 .pull-quote {
 margin: 2.5rem 0;
@@ -341,6 +387,7 @@ letter-spacing: 0.1em;
 color: var(--gold-light);
 margin-bottom: 1.25rem;
 }
+
 .poem-text {
 font-family: var(--font-quote);
 font-style: italic;
@@ -349,67 +396,6 @@ font-weight: 300;
 line-height: 2;
 color: var(--paper-warm);
 white-space: pre-line;
-}
-
-/* ── TOPICS GRID (homepage only) ──────────────── */
-.topics-grid {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
-gap: 1px;
-background: var(--paper-deep);
-border: 1px solid var(--paper-deep);
-border-radius: 4px;
-overflow: hidden;
-margin-bottom: 3.5rem;
-}
-
-.topic-card {
-background: var(--paper);
-padding: 1.5rem;
-text-decoration: none;
-display: block;
-transition: background 0.2s;
-position: relative;
-}
-
-.topic-card:hover { background: var(--paper-warm); }
-
-.topic-card::after {
-content: '→';
-position: absolute;
-right: 1.25rem;
-top: 50%;
-transform: translateY(-50%);
-color: var(--red);
-opacity: 0;
-transition: opacity 0.2s, right 0.2s;
-}
-
-.topic-card:hover::after { opacity: 1; right: 1rem; }
-
-.topic-tag {
-font-family: var(--font-display);
-font-size: 0.6rem;
-letter-spacing: 0.18em;
-text-transform: uppercase;
-color: var(--red);
-display: block;
-margin-bottom: 0.4rem;
-}
-
-.topic-title {
-font-family: var(--font-quote);
-font-size: clamp(1rem, 1.8vw, 1.15rem);
-font-weight: 400;
-color: var(--ink);
-line-height: 1.3;
-}
-
-.topic-desc {
-margin-top: 0.4rem;
-font-size: 0.9rem;
-color: var(--ink-faint);
-line-height: 1.5;
 }
 
 /* ── DIVIDER ──────────────────────────────────── */
@@ -427,6 +413,7 @@ flex: 1;
 height: 1px;
 background: linear-gradient(to right, transparent, var(--paper-deep));
 }
+
 .divider::after {
 background: linear-gradient(to left, transparent, var(--paper-deep));
 }
@@ -440,7 +427,27 @@ color: var(--ink-faint);
 white-space: nowrap;
 }
 
-/* ── PAGE NAV (prev / next) ───────────────────── */
+/* ── BUTTON ───────────────────────────────────── */
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--red);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+.print-btn:hover { background-color: var(--red-soft); transform: translateY(-1px); }
+.print-btn:active { transform: translateY(0); }
+
+/* ── PAGE NAV ─────────────────────────────────── */
 .page-nav {
 display: flex;
 justify-content: space-between;
@@ -513,20 +520,18 @@ width: 100%;
 border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-.nav-links.open { 
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        border-top: 1px solid rgba(255,255,255,0.1);      
-        max-height: 75vh;       
-        overflow-y: auto;        
-        -webkit-overflow-scrolling: touch; 
-        
-      }
+.nav-links.open {
+display: flex;
+flex-direction: column;
+width: 100%;
+border-top: 1px solid rgba(255,255,255,0.1);
+max-height: 75vh;
+overflow-y: auto;
+-webkit-overflow-scrolling: touch;
+}
 
 .nav-inner { flex-wrap: wrap; }
 .pull-quote { padding: 1.5rem 1.5rem 1.5rem 1.75rem; }
-
 }
 
 /* ── ANIMATIONS ───────────────────────────────── */
@@ -539,11 +544,20 @@ from { opacity: 0; transform: translateY(16px); }
 to { opacity: 1; transform: translateY(0); }
 }
 
-/* ── PRINT ────────────────────────────────────── */
+/* ── PRINT STYLES (FULL) ──────────────────────── */
 @media print {
-nav.main-nav, footer, .page-nav { display: none; }
-body { background: white; color: black; }
-main { max-width: 100%; padding: 0; }
+nav.main-nav, footer, .page-nav, .skip-link, .print-btn { display: none !important; }
+body::before { display: none !important; }
+body { background: white !important; color: #000 !important; font-size: 12pt; line-height: 1.6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+main { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+.poem-block { display: block !important; visibility: visible !important; background: transparent !important; color: #000 !important; opacity: 1 !important; border-left: 3px solid #000; border-radius: 0; padding: 1rem 0 1rem 1.5rem; margin: 1.5rem 0; page-break-inside: avoid; break-inside: avoid; }
+.poem-block *, .poem-text, .poem-label, .poem-title { color: #000 !important; background: transparent !important; opacity: 1 !important; }
+.pull-quote { background: transparent !important; color: #000 !important; border-left: 3px solid #000; }
+.warning-box { background: #f9f9f9 !important; border-left: 3px solid #000 !important; color: #000 !important; }
+h1, h2, h3, .site-title, .page-title { color: #000 !important; }
+p, .prose p, .prose li { color: #000 !important; }
+img { max-width: 100% !important; page-break-inside: avoid; }
+p { page-break-inside: avoid; }
 }
 </style>
 </head>
@@ -551,16 +565,12 @@ main { max-width: 100%; padding: 0; }
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
 
-<!-- ─────────────────────────────────────────────
-SITE HEADER — same on every page
-───────────────────────────────────────────── -->
 <header>
 <p class="site-eyebrow">A personal journal</p>
 <h1 class="site-title"><a href="index.html">Tuan Tran's Journal</a></h1>
 <p class="site-subtitle">A Vietnamese-American Experience</p>
 </header>
 
-<!-- NAV -->
 <nav class="main-nav" aria-label="Main navigation">
 <div class="nav-inner">
 <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
@@ -577,7 +587,7 @@ SITE HEADER — same on every page
   <li><a href="diabetes.html" aria-current="page">Diabetes</a></li>
   <li><a href="marthahess.html">Then the Americans Came</a></li>
   <li><a href="russelltribunal.html">Russell Tribunal</a></li>
-  <li><a href="teaching.html">Teaching in Vietnam</a></li>  
+  <li><a href="teaching.html">Teaching in Vietnam</a></li>
   <li><a href="road-home.html">The Road Home</a></li>
   <li><a href="songbirds.html">Songbirds</a></li>
   <li><a href="poetry.html">Collected Poems</a></li>
@@ -586,27 +596,10 @@ SITE HEADER — same on every page
 </div>
 </nav>
 
-<!-- ─────────────────────────────────────────────
-BANNER — same image on every page
-───────────────────────────────────────────── -->
-<img
-src="banner.jpg"
-alt="Vietnamese terraced rice fields"
-class="banner"
-width="1200"
-height="280"
-loading="lazy"
-/>
-
-<!-- ═══════════════════════════════════════════════
-★★★ REPLACE EVERYTHING BELOW THIS LINE ★★★
-with the page-specific content block.
-Keep the <main id="main"> wrapper.
-═══════════════════════════════════════════════ -->
+<img src="banner.jpg" alt="Vietnamese terraced rice fields" class="banner" width="1200" height="280" loading="lazy" />
 
 <main id="main">
 
-<!-- PAGE TITLE BLOCK -->
 <div class="page-title-block">
   <span class="page-label">Health & Safety</span>
   <h1 class="page-title">Safe Diabetes Management: A Warning Against GLP-1 Risks</h1>
@@ -615,104 +608,141 @@ Keep the <main id="main"> wrapper.
 
 <article class="prose">
 
-  <!-- WARNING/DISCLAIMER BOX -->
-  <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 1rem; margin-bottom: 2rem; border-radius: 4px;">
-    <strong>⚠️ Medical Disclaimer:</strong> This is a personal account of one individual's experience. Always consult your doctor before making changes to your diabetes medication.
-  </div>
+<!-- DOWNLOAD BUTTON -->
+<div style="text-align: center; margin: 2rem 0;">
+  <button id="print-pdf-btn" class="print-btn">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+      <polyline points="7 10 12 15 17 10"></polyline>
+      <line x1="12" y1="15" x2="12" y2="3"></line>
+    </svg>
+    Download / Print PDF
+  </button>
+</div>
 
-  <h2>Why I Share This Story</h2>
-  
-  <p>After nearly dying from a liver blood clot caused by GLP-1 medication, I felt compelled to share what I learned. My story may be relevant to anyone with a history of food scarcity or sensitive metabolism considering these drugs.</p>
+<!-- WARNING BOX -->
+<div class="warning-box">
+  <strong>⚠️ Medical Disclaimer:</strong> This is a personal account of one individual's experience. Always consult your doctor before making changes to your diabetes medication.
+</div>
 
-  <h3>My Experience with GLP-1 Therapy</h3>
-  
-  <p>  I was prescribed GLP-1 therapy for Type 2 diabetes. The results were severe: </p> 
+<h2>Why I Share This Story</h2>
 
- <p> Injection Form: Caused severe nausea and vomiting.<br>
-   Oral Form: Caused a liver blood clot that nearly killed me. </p> 
+<p>After nearly dying from a liver blood clot caused by GLP-1 medication, I felt compelled to share what I learned. My story may be relevant to anyone with a history of food scarcity or sensitive metabolism considering these drugs.</p>
 
- <p>   Crucially, I grew up during wartime Vietnam with chronic food scarcity. My metabolism adapted to survive famine. Appetite-suppressing drugs like GLP-1 can be catastrophic for a body wired to hoard energy in response to starvation signals.</p>
-  
-  <blockquote class="pull-quote">
-    <p>"Drugs that are safe for some people can be life-threatening for others, depending on their metabolic history."</p>
-    <cite>Tuan Tran</cite>
-  </blockquote>
+<h3>My Experience with GLP-1 Therapy</h3>
 
-  <h3>Three Key Lessons Learned</h3>
+<p>I was prescribed GLP-1 therapy for Type 2 diabetes. The results were severe:</p>
 
- <p> GLP-1s Are Not Universal Blockers: They are designed for adults with obesity/diabetes but can cause nausea, dehydration, liver stress, and clots in vulnerable individuals. </p> 
-  
-  <p> Dose Does Not Equal Safety: Higher doses do not guarantee better results. Even standard doses can overwhelm a famine-adapted metabolism. </p> 
-   
- <p> Lifestyle Comes First: Well-designed diets and safe medications often outperform risky drugs. Nutrient-dense foods support long-term organ health.</p>
+<ul>
+  <li><strong>Injection Form:</strong> Caused severe nausea and vomiting.</li>
+  <li><strong>Oral Form:</strong> Caused a liver blood clot that nearly killed me.</li>
+</ul>
 
+<p>Crucially, I grew up during wartime Vietnam with chronic food scarcity. My metabolism adapted to survive famine. Appetite-suppressing drugs like GLP-1 can be catastrophic for a body wired to hoard energy in response to starvation signals.</p>
 
-  <h3>My Current Safe Regimen</h3>
-  
-  <p>I made the following changes after consulting with my healthcare team:</p>
+<blockquote class="pull-quote">
+  <p>"Drugs that are safe for some people can be life-threatening for others, depending on their metabolic history."</p>
+  <cite>Tuan Tran</cite>
+</blockquote>
 
-  <u>Medications:</u><br>
-      
-        Stopped: All GLP-1 therapy.<br>
-        Continued: <em>Toujeo</em> (long-acting insulin) for steady blood sugar without appetite suppression or liver stress.<br>
-        Continued: <em>Metformin</em> to improve insulin sensitivity safely.<br>
-   
-  <u>Diet:</u><br>
-  Low-calorie, high-protein, high-fiber, mostly plant-based.<br>
+<h3>Three Key Lessons Learned</h3>
 
+<ul>
+  <li><strong>GLP-1s Are Not Universal Blockers:</strong> They are designed for adults with obesity/diabetes but can cause nausea, dehydration, liver stress, and clots in vulnerable individuals.</li>
+  <li><strong>Dose Does Not Equal Safety:</strong> Higher doses do not guarantee better results. Even standard doses can overwhelm a famine-adapted metabolism.</li>
+  <li><strong>Lifestyle Comes First:</strong> Well-designed diets and safe medications often outperform risky drugs. Nutrient-dense foods support long-term organ health.</li>
+</ul>
 
-  <h2>Final Thoughts</h2>
-  
-  <p>This page is part of my mission at <a href="index.html">tuantran.org</a> to share safe, evidence-based approaches to health. My goal is to help people get healthy without unnecessary risks, relying on nutrition, science, and awareness—not just pharmaceutical shortcuts.</p>
+<h3>My Current Safe Regimen</h3>
+
+<p>I made the following changes after consulting with my healthcare team:</p>
+
+<h4>Medications</h4>
+<ul>
+  <li><strong>Stopped:</strong> All GLP-1 therapy.</li>
+  <li><strong>Continued:</strong> <em>Toujeo</em> (long-acting insulin) for steady blood sugar without appetite suppression or liver stress.</li>
+  <li><strong>Continued:</strong> <em>Metformin</em> to improve insulin sensitivity safely.</li>
+</ul>
+
+<h4>Diet</h4>
+<ul>
+  <li>Low-calorie, high-protein, high-fiber, mostly plant-based.</li>
+</ul>
+
+<h2>Final Thoughts</h2>
+
+<p>This page is part of my mission at <a href="index.html">tuantran.org</a> to share safe, evidence-based approaches to health. My goal is to help people get healthy without unnecessary risks, relying on nutrition, science, and awareness—not just pharmaceutical shortcuts.</p>
 
 </article>
 
 <!-- PREV / NEXT NAV -->
 <nav class="page-nav" aria-label="Page navigation">
-  <a href="taichi.html">← Previous Page</a>
-  <a href="marthahess.html" class="next">Next Page →</a>
-
+  <a href="taichi.html">&larr; Previous: Tai Chi</a>
+  <a href="marthahess.html" class="next">Next: Then the Americans Came &rarr;</a>
 </nav>
 
 </main>
-<!-- ═══════════════════════════════════════════════
-★★★ END OF PAGE-SPECIFIC CONTENT ★★★
-═══════════════════════════════════════════════ -->
 
-<!-- ─────────────────────────────────────────────
-FOOTER — same on every page
-───────────────────────────────────────────── -->
 <footer>
-
+<ul class="footer-nav">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="childhood.html">Childhood</a></li>
+  <li><a href="usa.html">Life in the USA</a></li>
+  <li><a href="cominghome.html">Coming Home</a></li>
+  <li><a href="writings.html">My Writings</a></li>
+  <li><a href="meditation.html">Meditation</a></li>
+  <li><a href="taichi.html">Tai Chi</a></li>
+  <li><a href="diabetes.html">Diabetes</a></li>
+  <li><a href="road-home.html">The Road Home</a></li>
+  <li><a href="poetry.html">Collected Poems</a></li>
+  <li><a href="comments.html">Comments</a></li>
+</ul>
 <p>
 This website shares personal reflections on war, migration, meditation, and health.<br>
 &copy; <span id="yr"></span> Tuan Tran &mdash; <a href="sitemap.html">Site Map</a>
 </p>
+<p style="font-size: 0.75rem; margin-top: 0.5rem; opacity: 0.8;">
+Archived by the Vietnam Center and Archive, Texas Tech University.
+</p>
 </footer>
 
-<!-- ─────────────────────────────────────────────
-SCRIPTS — same on every page
-───────────────────────────────────────────── -->
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
 
 const toggle = document.querySelector('.nav-toggle');
 const navLinks = document.getElementById('nav-links');
 
-toggle.addEventListener('click', () => {
-const open = toggle.getAttribute('aria-expanded') === 'true';
-toggle.setAttribute('aria-expanded', String(!open));
-navLinks.classList.toggle('open', !open);
-});
+if (toggle && navLinks) {
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    navLinks.classList.toggle('open', !open);
+  });
 
-navLinks.querySelectorAll('a').forEach(link => {
-link.addEventListener('click', () => {
-if (window.innerWidth <= 680) {
-toggle.setAttribute('aria-expanded', 'false');
-navLinks.classList.remove('open');
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 680) {
+        toggle.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('open');
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+      toggle.setAttribute('aria-expanded', 'false');
+      navLinks.classList.remove('open');
+      toggle.focus();
+    }
+  });
 }
-});
-});
+
+const printBtn = document.getElementById('print-pdf-btn');
+if (printBtn) {
+  printBtn.addEventListener('click', () => {
+    window.print();
+  });
+}
 </script>
 
 </body>
