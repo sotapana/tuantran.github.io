@@ -1,3 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Site map for tuantran.org — a Vietnamese-American memoir covering war, refugee life, meditation, Tai Chi, and identity." />
+  <meta name="keywords" content="Vietnamese-American, Vietnam War, refugee memoir, meditation, Buddhism, Tuan Tran, diaspora, Saigon" />
+  <meta name="author" content="Tuan Tran" />
+  <link rel="canonical" href="https://tuantran.org/sitemap.html" />
+  
+  <!-- Social Media Tags -->
+  <meta property="og:title" content="Site Map — Tuan Tran's Journal" />
+  <meta property="og:description" content="Site map for tuantran.org — a Vietnamese-American memoir covering war, refugee life, meditation, Tai Chi, and identity." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tuantran.org/sitemap.html" />
+  <meta property="og:site_name" content="Tuan Tran's Journal" />
+  <meta property="og:image" content="https://tuantran.org/banner.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Site Map — Tuan Tran's Journal" />
+  <meta name="twitter:description" content="Site map for tuantran.org — a Vietnamese-American memoir covering war, refugee life, meditation, Tai Chi, and identity." />
+  <meta name="twitter:image" content="https://tuantran.org/banner.jpg" />
+  <meta name="robots" content="index, follow" />
+  
+  <title>Site Map — Tuan Tran's Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── RESET & BASE ─────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #1a1610;
+      --ink-soft:   #4a3f30;
+      --ink-faint:  #8a7a68;
+      --paper:      #f5f0e8;
+      --paper-warm: #ede5d4;
+      --paper-deep: #ddd2bc;
+      --red:        #8b2020;
+      --red-soft:   #a83030;
+      --gold:       #9a7a3a;
+      --gold-light: #c4a265;
+
+      --font-display: 'Cinzel', serif;
+      --font-body:    'Crimson Pro', serif;
+      --font-quote:   'Cormorant Garamond', serif;
+
+      --max-w: 860px;
+      --side:  clamp(1.25rem, 5vw, 3rem);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── TEXTURE OVERLAY ──────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── SKIP LINK ────────────────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--red);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 0 0 4px 4px;
+      font-family: var(--font-body);
+      transition: top 0.2s;
+      z-index: 999;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ── SCREEN READER ONLY ───────────────────────── */
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ── PRINT BUTTON ─────────────────────────────── */
+    .print-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--red);
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.2s, transform 0.1s;
+    }
+    .print-btn:hover { background-color: var(--red-soft); transform: translateY(-1px); }
+    .print-btn:active { transform: translateY(0); }
+
+    /* ── HEADER ───────────────────────────────────── */
+    header {
+      position: relative;
+      z-index: 10;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 2.5rem var(--side) 2rem;
+      text-align: center;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .site-eyebrow {
+      font-family: var(--font-display);
+      font-size: clamp(0.6rem, 1.2vw, 0.75rem);
+      letter-spacing: 0.25em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .site-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4.5vw, 3rem);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      line-height: 1.2;
+      color: var(--paper);
+      text-decoration: none;
+    }
+
+    .site-title a {
+      color: var(--paper);
+      text-decoration: none;
+    }
+
+    .site-subtitle {
+      font-family: var(--font-quote);
+      font-style: italic;
+      font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+      color: var(--gold-light);
+      margin-top: 0.5rem;
+      font-weight: 300;
+    }
+
+    /* ── NAV ──────────────────────────────────────── */
+    nav.main-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--ink);
+      border-bottom: 1px solid var(--gold);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--side);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 1rem 0;
+      background: none;
+      border: none;
+      color: var(--paper);
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--gold-light);
+      transition: all 0.3s;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 0.85rem 0.9rem;
+      font-family: var(--font-display);
+      font-size: clamp(0.55rem, 1vw, 0.7rem);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--paper-warm);
+      text-decoration: none;
+      transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
+      color: var(--gold-light);
+      background: rgba(255,255,255,0.05);
+    }
+
+    /* ── BANNER IMAGE ─────────────────────────────── */
+    .banner {
+      width: 100%;
+      max-height: 280px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: sepia(20%) contrast(0.9);
+    }
+
+    /* ── MAIN ─────────────────────────────────────── */
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 3rem var(--side) 4rem;
+    }
+
+    /* ── PAGE HEADING ─────────────────────────────── */
+    .page-eyebrow {
+      font-family: var(--font-display);
+      font-size: clamp(0.6rem, 1.2vw, 0.7rem);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-intro {
+      font-family: var(--font-quote);
+      font-style: italic;
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      color: var(--ink-faint);
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--paper-deep);
+    }
+
+    /* ── DIVIDER ──────────────────────────────────── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2.5rem 0 2rem;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--paper-deep));
+    }
+    .divider::after {
+      background: linear-gradient(to left, transparent, var(--paper-deep));
+    }
+
+    .divider-text {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      white-space: nowrap;
+    }
+
+    /* ── SITEMAP LIST ─────────────────────────────── */
+    .sitemap-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .sitemap-section-title {
+      font-family: var(--font-display);
+      font-size: clamp(0.6rem, 1.1vw, 0.7rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 1rem;
+    }
+
+    .sitemap-list {
+      list-style: none;
+      border: 1px solid var(--paper-deep);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .sitemap-list li {
+      border-bottom: 1px solid var(--paper-deep);
+    }
+
+    .sitemap-list li:last-child {
+      border-bottom: none;
+    }
+
+    .sitemap-list a {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      text-decoration: none;
+      background: var(--paper);
+      transition: background 0.2s;
+      gap: 1rem;
+    }
+
+    .sitemap-list a:hover {
+      background: var(--paper-warm);
+    }
+
+    .sitemap-link-title {
+      font-family: var(--font-quote);
+      font-size: clamp(1rem, 1.8vw, 1.1rem);
+      color: var(--ink);
+    }
+
+    .sitemap-link-desc {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--ink-faint);
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .sitemap-arrow {
+      color: var(--red);
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: opacity 0.2s;
+      flex-shrink: 0;
+    }
+
+    .sitemap-list a:hover .sitemap-arrow {
+      opacity: 1;
+    }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    footer {
+      position: relative;
+      z-index: 1;
+      background: var(--ink);
+      color: var(--ink-faint);
+      text-align: center;
+      padding: 2rem var(--side);
+      border-top: 1px solid rgba(154,122,58,0.3);
+    }
+
+    footer p {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      line-height: 1.8;
+    }
+
+    footer a {
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    .footer-nav {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.25rem 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-nav a {
+      font-family: var(--font-display);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-decoration: none;
+    }
+
+    .footer-nav a:hover { color: var(--gold-light); }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 680px) {
+      .nav-toggle { display: flex; }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+
+     .nav-links.open { 
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border-top: 1px solid rgba(255,255,255,0.1);      
+        max-height: 75vh;       
+        overflow-y: auto;        
+        -webkit-overflow-scrolling: touch; 
+        
+      }
+
+      .nav-inner { flex-wrap: wrap; }
+
+      .sitemap-link-desc { display: none; }
+    }
+
+    /* ── ANIMATIONS ───────────────────────────────── */
+    @media (prefers-reduced-motion: no-preference) {
+      header, main { animation: fadeUp 0.6s ease both; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── PRINT STYLES (FULL) ──────────────────────── */
+    @media print {
+      nav.main-nav, footer, .skip-link, .print-btn { display: none !important; }
+      body::before { display: none !important; }
+      body { background: white !important; color: #000 !important; font-size: 12pt; line-height: 1.6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      main { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+      .sitemap-list { border: 1px solid #999 !important; }
+      .sitemap-list li { border-bottom: 1px solid #ccc !important; page-break-inside: avoid; }
+      .sitemap-link-title { color: #000 !important; }
+      .sitemap-link-desc { color: #333 !important; }
+      .divider-text { color: #333 !important; }
+      h1, h2, h3 { color: #000 !important; }
+      p { page-break-inside: avoid; }
+      img { max-width: 100% !important; page-break-inside: avoid; }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- HEADER -->
+  <header>
+    <p class="site-eyebrow">A personal journal</p>
+    <h1 class="site-title"><a href="index.html">Tuan Tran's Journal</a></h1>
+    <p class="site-subtitle">A Vietnamese-American Experience</p>
+  </header>
+
+  <!-- NAV -->
+  <nav class="main-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="childhood.html">Childhood</a></li>
+        <li><a href="usa.html">Life in the USA</a></li>
+        <li><a href="cominghome.html">Coming Home</a></li>
+        <li><a href="writings.html">My Writings</a></li>
+        <li><a href="meditation.html">Meditation</a></li>
+        <li><a href="taichi.html">Tai Chi</a></li>
+        <li><a href="diabetes.html">Diabetes</a></li>
+        <li><a href="marthahess.html">Then the Americans Came</a></li>
+        <li><a href="russelltribunal.html">Russell Tribunal</a></li>
+        <li><a href="teaching.html">Teaching in Vietnam</a></li>  
+        <li><a href="road-home.html">The Road Home</a></li>
+        <li><a href="songbirds.html">Songbirds</a></li>
+        <li><a href="poetry.html">Collected Poems</a></li>
+        <li><a href="comments.html">Comments</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- BANNER -->
+  <img
+    src="banner.jpg"
+    alt="Vietnamese landscape — rice fields, water, and sky"
+    class="banner"
+    width="1200"
+    height="280"
+    loading="lazy"
+  />
+
+  <!-- MAIN -->
+  <main id="main">
+
+    <!-- DOWNLOAD BUTTON -->
+    <div style="text-align: center; margin: 0 0 2rem;">
+      <button id="print-pdf-btn" class="print-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Download / Print PDF
+      </button>
+    </div>
+
+    <p class="page-eyebrow">Navigation</p>
+    <h1 class="page-title">Site Map</h1>
+    <p class="page-intro">A complete guide to all pages on this website.</p>
+
+    <!-- Memoir -->
+    <div class="divider" aria-hidden="true">
+      <span class="divider-text">Memoir</span>
+    </div>
+
+    <section class="sitemap-section" aria-label="Memoir pages">
+      <ul class="sitemap-list">
+        <li>
+          <a href="index.html">
+            <span class="sitemap-link-title">Home</span>
+            <span class="sitemap-link-desc">Introduction & overview</span>
+            <span class="sitemap-arrow">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="childhood.html">
+            <span class="sitemap-link-title">Vietnam War Childhood</span>
+            <span class="sitemap-link-desc">Growing up in Saigon & escape by sea</span>
+            <span class="sitemap-arrow">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="usa.html">
+            <span class="sitemap-link-title">Refugee Experience</span>
+            <span class="sitemap-link-desc">Arriving in America — identity & awakening</span>
+            <span class="sitemap-arrow">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="cominghome.html">
+            <span class="sitemap-link-title">Coming Home</span>
+            <span class="sitemap-link-desc">Returning to Vietnam after decades in America</span>
+            <span class="sitemap-arrow">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="teaching.html">
+            <span class="sitemap-link-title">Teaching in Vietnam</span>
+            <span class="sitemap-link-desc">A Viet Kieu educator's experience</span>
+            <span class="sitemap-arrow">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="songbirds.html">
+            <span class="sitemap-link-title">Songbirds Still Sing</span>
+            <span class="sitemap-link-desc">Haiku by Tuan Tran</span>
+            <span class="sitemap-arrow">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="poetry.html">
+            <span class="sitemap-link-title">Poetry Archive</span>
+            <span class="sitemap-link-desc">The Collected Haiku by Tuan Tran</span>
+            <span class="sitemap-arrow">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="road-home.html">
+            <span class="sitemap-link-title">The Road Home</span>
+            <span class="sitemap-link-desc">A memoir in haibun by Tuan Tran</span>
+            <span class="sitemap-arrow">→</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Practice -->
+    <div class="divider" aria-hidden="true">
+      <span class="divider-text">Practice</span>
+    </div>
+
+    <section class="sitemap-section" aria-label="Practice pages">
+      <ul class="sitemap-list">
+        <li>
+          <a href="meditation.html">
+            <span class="sitemap-link-title">Meditation</span>
+            <span class="sitemap-link-desc">Vipassanā & contemplative life</span>
+            <span class="sitemap-arrow">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="taichi.html">
+            <span class="sitemap-link-title">Tai Chi</span>
+            <span class="sitemap-link-desc">Moving meditation & inner stillness</span>
+            <span class="sitemap-arrow">→</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Health -->
+    <div class="divider" aria-hidden="true">
+      <span class="divider-text">Health</span>
+    </div>
+
+    <section class="sitemap-section" aria-label="Health pages">
+      <ul class="sitemap-list">
+        <li>
+          <a href="diabetes.html">
+            <span class="sitemap-link-title">Diabetes Lifestyle</span>
+            <span class="sitemap-link-desc">Managing diabetes through diet & movement</span>
+            <span class="sitemap-arrow">→</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Essays & History -->
+    <div class="divider" aria-hidden="true">
+      <span class="divider-text">Essays & History</span>
+    </div>
+
+    <section class="sitemap-section" aria-label="Essays and history pages">
+      <ul class="sitemap-list">
+        <li>
+          <a href="writings.html">
+            <span class="sitemap-link-title">My Writings</span>
+            <span class="sitemap-link-desc">Essays on civil rights, voting, and nonviolence</span>
+            <span class="sitemap-arrow">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="marthahess.html">
+            <span class="sitemap-link-title">Then the Americans Came</span>
+            <span class="sitemap-link-desc">Vietnamese civilian testimonies of the Vietnam War</span>
+            <span class="sitemap-arrow">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="russelltribunal.html">
+            <span class="sitemap-link-title">Bertrand Russell Tribunal</span>
+            <span class="sitemap-link-desc">International war crimes inquiry — full proceedings</span>
+            <span class="sitemap-arrow">→</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Other -->
+    <div class="divider" aria-hidden="true">
+      <span class="divider-text">Other</span>
+    </div>
+
+    <section class="sitemap-section" aria-label="Other pages">
+      <ul class="sitemap-list">
+        <li>
+          <a href="comments.html">
+            <span class="sitemap-link-title">Reader Comments</span>
+            <span class="sitemap-link-desc">Responses from readers around the world</span>
+            <span class="sitemap-arrow">→</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <ul class="footer-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="childhood.html">Childhood</a></li>
+      <li><a href="usa.html">Life in the USA</a></li>
+      <li><a href="cominghome.html">Coming Home</a></li>
+      <li><a href="writings.html">My Writings</a></li>
+      <li><a href="meditation.html">Meditation</a></li>
+      <li><a href="taichi.html">Tai Chi</a></li>
+      <li><a href="diabetes.html">Diabetes</a></li>
+      <li><a href="road-home.html">The Road Home</a></li>
+      <li><a href="poetry.html">Collected Poems</a></li>
+      <li><a href="comments.html">Comments</a></li>
+    </ul>
+    <p>
+      This website shares personal reflections on war, migration, meditation, and health.<br>
+      &copy; <span id="yr"></span> Tuan Tran &mdash; <a href="sitemap.html">Site Map</a>
+    </p>
+    <p style="font-size: 0.75rem; margin-top: 0.5rem; opacity: 0.8;">
+      Archived by the Vietnam Center and Archive, Texas Tech University.
+    </p>
+  </footer>
+
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
 
@@ -36,3 +755,6 @@
       });
     }
   </script>
+
+</body>
+</html>
