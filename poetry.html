@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Collected Haiku by Tuan Tran | Complete Archive</title>
     <meta name="description" content="The complete collected haiku by Tuan Tran. A chronological archive of 159 poems documenting forty years of Buddhist practice, life as a Vietnamese boat refugee, and the silence of the forest monastery. From 'Spiderweb' (2001) to 'Conical Hats' (2026)." />
-   <meta name="keywords" content="Tuan Tran collected haiku, complete poetry archive, Vietnamese-American poet full works, haiku chronology, boat refugee poetry, Buddhist monk poetry, modern haiku poems, The Road Home poetry" />
+    <meta name="keywords" content="Tuan Tran collected haiku, complete poetry archive, Vietnamese-American poet full works, haiku chronology, boat refugee poetry, Buddhist monk poetry, modern haiku poems, The Road Home poetry" />
 
     <meta name="author" content="Tuan Tran">
     <meta property="og:title" content="The Collected Haiku by Tuan Tran">
@@ -22,7 +22,7 @@
 <link rel="canonical" href="https://tuantran.org/poetry.html" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&family=Be+Vietnam:wght@300;400&display=swap" rel="stylesheet" />
 
 <style>
 /* ── RESET & BASE ─────────────────────────────── */
@@ -43,8 +43,9 @@
 --font-display: 'Cinzel', serif;
 --font-body: 'Crimson Pro', serif;
 --font-quote: 'Cormorant Garamond', serif;
+--font-vietnamese: 'Be Vietnam', 'Crimson Pro', serif;
 
---max-w: 860px;
+--max-w: 960px;
 --side: clamp(1.25rem, 5vw, 3rem);
 }
 
@@ -262,7 +263,7 @@ color: var(--red);
 margin: 2.5rem 0 1rem;
 }
 
-/* ── POEM ARCHIVE STYLE (Minimal & Clean) ─────── */
+/* ── BILINGUAL POEM LAYOUT ───────────────────── */
 .archive-poem-list {
   display: flex;
   flex-direction: column;
@@ -270,7 +271,7 @@ margin: 2.5rem 0 1rem;
 }
 
 .poem-entry {
-  background: rgba(237, 229, 212, 0.4); /* Very subtle warm tint */
+  background: rgba(237, 229, 212, 0.4);
   padding: 1.5rem;
   border-radius: 4px;
   page-break-inside: avoid;
@@ -287,13 +288,103 @@ margin: 2.5rem 0 1rem;
   font-weight: 600;
 }
 
+/* Two-column grid: English | Vietnamese */
+.poem-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
 .poem-text {
   font-family: var(--font-quote);
   font-style: italic;
   font-size: clamp(1rem, 1.5vw, 1.15rem);
   line-height: 2;
   color: var(--ink);
-  white-space: pre-line; /* Preserves your manual breaks */
+  white-space: pre-line;
+}
+
+.poem-text.vi {
+  font-family: var(--font-vietnamese);
+  font-style: normal;
+  font-weight: 300;
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  line-height: 2;
+  color: var(--ink-soft);
+  border-left: 2px solid var(--paper-deep);
+  padding-left: 1.5rem;
+}
+
+/* Column labels */
+.col-label {
+  font-family: var(--font-display);
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.col-label.vi-label {
+  padding-left: 1.5rem;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 680px) {
+  .poem-columns {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .poem-text.vi {
+    border-left: none;
+    border-top: 2px solid var(--paper-deep);
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+
+  .col-label.vi-label {
+    padding-left: 0;
+  }
+}
+
+/* ── DIVIDER (Book II) ───────────────────────── */
+.divider {
+  text-align: center;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--paper-deep);
+}
+
+.divider-text {
+  position: relative;
+  background: var(--paper);
+  padding: 0 1.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.pull-quote {
+  text-align: center;
+  margin: 1.5rem 0;
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  color: var(--ink-soft);
 }
 
 /* ── FOOTER ───────────────────────────────────── */
@@ -358,7 +449,7 @@ transition: color 0.2s;
 .page-nav a:hover { color: var(--red-soft); }
 .page-nav .next { margin-left: auto; }
 
-/* ── RESPONSIVE ───────────────────────────────── */
+/* ── RESPONSIVE NAV ───────────────────────────── */
 @media (max-width: 680px) {
 .nav-toggle { display: flex; }
 
@@ -418,15 +509,12 @@ to { opacity: 1; transform: translateY(0); }
   transform: translateY(0);
 }
 
-
 /* ── PRINT STYLES ─────────────────────────────── */
 @media print {
-  /* Hide navigation and UI elements */
   nav.main-nav, footer, .page-nav, .skip-link, .print-btn, .nav-toggle {
     display: none !important;
   }
 
-  /* Reset body for clean paper look */
   body {
     background: white !important;
     color: #000 !important;
@@ -436,42 +524,44 @@ to { opacity: 1; transform: translateY(0); }
     print-color-adjust: exact;
   }
 
-  /* Main content full width */
   main {
     max-width: 100% !important;
     padding: 0 !important;
     margin: 0 auto;
   }
 
-  /* --- CRITICAL FIX FOR POEMS (Invisible Text Issue) --- */
   .poem-entry {
     display: block !important;
     visibility: visible !important;
-    
-    /* Background: Transparent (so paper shows) */
     background: transparent !important; 
-    
-    /* Border: Simple left border for visual anchor */
     border-left: 3px solid #000 !important;
     border-radius: 0;
     padding: 1rem 0 1rem 1.5rem;
     margin: 2rem 0;
-    
-    /* Prevent splitting across pages */
     page-break-inside: avoid;
     break-inside: avoid;
   }
 
-  /* Ensure all text inside poems is black */
   .poem-entry *, 
   .poem-text, 
-  .poem-number {
+  .poem-number,
+  .poem-text.vi {
     color: #000 !important;
     background: transparent !important;
     opacity: 1 !important;
   }
 
-  /* Headers and prose */
+  /* Keep side-by-side in print */
+  .poem-columns {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .poem-text.vi {
+    border-left: 1px solid #ccc;
+    padding-left: 1rem;
+  }
+
   h1, h2, h3, p, .prose p, .prose h3 {
     color: #000 !important;
     page-break-after: avoid;
@@ -484,16 +574,12 @@ to { opacity: 1; transform: translateY(0); }
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
 
-<!-- ─────────────────────────────────────────────
-SITE HEADER — same on every page
-───────────────────────────────────────────── -->
 <header>
 <p class="site-eyebrow">A personal journal</p>
 <h1 class="site-title"><a href="index.html">Tuan Tran's Journal</a></h1>
 <p class="site-subtitle">A Vietnamese-American Experience</p>
 </header>
 
-<!-- NAV -->
 <nav class="main-nav" aria-label="Main navigation">
 <div class="nav-inner">
 <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
@@ -520,9 +606,6 @@ SITE HEADER — same on every page
 </div>
 </nav>
 
-<!-- ─────────────────────────────────────────────
-BANNER — same image on every page
-───────────────────────────────────────────── -->
 <img
 src="poetry.jpg"
 alt="Pebbles"
@@ -532,14 +615,8 @@ height="280"
 loading="lazy"
 />
 
-<!-- ═══════════════════════════════════════════════
-PAGE-SPECIFIC CONTENT BEGINS
-═══════════════════════════════════════════════ -->
-
-
 <main id="main">
 
-<!-- PAGE TITLE BLOCK -->
 <div class="page-title-block">
   <span class="page-label">Poetry Archive</span>
   <h1 class="page-title">The Collected Haiku</h1>
@@ -553,10 +630,8 @@ PAGE-SPECIFIC CONTENT BEGINS
 
   <h3>This archive contains all haiku written by Tuan Tran to date.</h3>
   <p>The first fifteen poems appeared on tuantran.org in June 2001. Poem 16 was written in 2025. The remaining poems, from 17 to 159, were written between May 2026 and now, presented in chronological order.</p>
-  <p><em>Last updated: July 29, 2026</em></p>
-
+  <p><em>Last updated: August 5, 2026</em></p>
  
-    <!-- DOWNLOAD BUTTON -->
   <div style="text-align: center; margin: 2rem 0;">
     <button id="print-pdf-btn" class="print-btn">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;">
@@ -568,1072 +643,1508 @@ PAGE-SPECIFIC CONTENT BEGINS
     </button>
   </div>
 
-<!-- ARCHIVE LIST STARTS HERE -->
+<!-- ═══════════════════════════════════════════════
+     ARCHIVE LIST STARTS HERE
+     ═══════════════════════════════════════════════ -->
 <div class="archive-poem-list">
 
 <!-- Poem 1 -->
 <div class="poem-entry">
   <span class="poem-number">1</span>
-  <div class="poem-text">
-I saw<br>
-an earthworm<br>
-crawling<br>
-next to my feet<br>
-carefully<br>
-I picked it up<br>
-and placed it<br>
-in a flowerpot<br>
-so I wouldn't step on it<br>
-then I saw<br>
-another<br>
-I placed it<br>
-in the same flowerpot<br>
-so the other<br>
-won't be lonely
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">I saw
+an earthworm
+crawling
+next to my feet
+carefully
+I picked it up
+and placed it
+in a flowerpot
+so I wouldn't step on it
+then I saw
+another
+I placed it
+in the same flowerpot
+so the other
+won't be lonely</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Tôi thấy
+Một con giun
+Đang bò giữa chân
+Tôi nhặt nó lên
+Và đặt vào chậu hoa
+Để tôi không đạp lên nó
+Rồi tôi thấy một con nữa
+Tôi đặt nó vào chậu hoa đó
+Để con kia khỏi cô đơn</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 2 -->
 <div class="poem-entry">
   <span class="poem-number">2</span>
-  <div class="poem-text">
-Like a sailboat<br>
-in a vast blue sea<br>
-without a compass<br>
-or a star<br>
-to point the way<br>
-then you appear<br>
-bright as the northern star<br>
-radiant and lovely<br>
-with that far-away look<br>
-in your eyes<br>
-and lips so moist<br>
-as the morning dew<br>
-and suddenly<br>
-I am no longer lost<br>
-as I steer<br>
-by the light<br>
-of the northern star
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Like a sailboat
+in a vast blue sea
+without a compass
+or a star
+to point the way
+then you appear
+bright as the northern star
+radiant and lovely
+with that far-away look
+in your eyes
+and lips so moist
+as the morning dew
+and suddenly
+I am no longer lost
+as I steer
+by the light
+of the northern star</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Như thuyền buồm
+Giữa biển xanh mênh mông
+Không la bàn
+Không sao chỉ lối
+Rồi em đến
+Sáng như sao Bắc Đẩu
+Đẹp tuyệt vời
+Với ánh mắt xa xăm
+Đôi môi ẩm như sương mai
+Bỗng nhiên
+Tôi không còn lạc
+Lái thuyền theo ánh sáng
+Của sao Bắc Đẩu</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 3 -->
 <div class="poem-entry">
   <span class="poem-number">3</span>
-  <div class="poem-text">
-Spiderweb<br>
-collecting morning dew<br>
-a graveyard of mosquitoes
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Spiderweb
+collecting morning dew
+a graveyard of mosquitoes</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mạng nhện
+Hứng sương mai
+Muỗi nằm im giữa tơ</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 4 -->
 <div class="poem-entry">
   <span class="poem-number">4</span>
-  <div class="poem-text">
-Dark clouds<br>
-approaching<br>
-songbirds still sing
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Dark clouds
+approaching
+songbirds still sing</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mây đen
+Đến gần
+Chim vẫn hót</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 5 -->
 <div class="poem-entry">
   <span class="poem-number">5</span>
-  <div class="poem-text">
-Desert moon<br>
-shone brightly<br>
-a lone wanderer
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Desert moon
+shone brightly
+a lone wanderer</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Trong sa mạc
+Một người đi
+Dưới ánh trăng</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 6 -->
 <div class="poem-entry">
   <span class="poem-number">6</span>
-  <div class="poem-text">
-Dragonfly<br>
-in a pond of lotus flowers<br>
-be still
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Dragonfly
+in a pond of lotus flowers
+be still</div>
+    </div>
+    <!-- VI: Replace this comment with translation -->
+  </div>
 </div>
 
 <!-- Poem 7 -->
 <div class="poem-entry">
   <span class="poem-number">7</span>
-  <div class="poem-text">
-Bamboo branches swaying in the gentle breeze<br>
-water buffaloes reflecting in the moonlight<br>
-bombs falling like raindrops
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Bamboo branches swaying in the gentle breeze
+water buffaloes reflecting in the moonlight
+bombs falling like raindrops</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 8 -->
 <div class="poem-entry">
   <span class="poem-number">8</span>
-  <div class="poem-text">
-Ego<br>
-my own ego<br>
-big as a mountain<br>
-chip at it<br>
-a little<br>
-each day
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Ego
+my own ego
+big as a mountain
+chip at it
+a little
+each day</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 9 -->
 <div class="poem-entry">
   <span class="poem-number">9</span>
-  <div class="poem-text">
-Master<br>
-seeking for you<br>
-halfway around the world<br>
-Guru<br>
-where are you<br>
-but in my heart
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Master
+seeking for you
+halfway around the world
+Guru
+where are you
+but in my heart</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 10 -->
 <div class="poem-entry">
   <span class="poem-number">10</span>
-  <div class="poem-text">
-Ten years<br>
-seems as yesterday<br>
-I have not let go
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Ten years
+seems as yesterday
+I have not let go</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 11 -->
 <div class="poem-entry">
   <span class="poem-number">11</span>
-  <div class="poem-text">
-Autumn breeze<br>
-falling leaves<br>
-why think of summer
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Autumn breeze
+falling leaves
+why think of summer</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 12 -->
 <div class="poem-entry">
   <span class="poem-number">12</span>
-  <div class="poem-text">
-Every caterpillar<br>
-metamorphoses<br>
-in its own time
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Every caterpillar
+metamorphoses
+in its own time</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 13 -->
 <div class="poem-entry">
   <span class="poem-number">13</span>
-  <div class="poem-text">
-How strange<br>
-dragonflies<br>
-spitting fire
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">How strange
+dragonflies
+spitting fire</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 14 -->
 <div class="poem-entry">
   <span class="poem-number">14</span>
-  <div class="poem-text">
-One boat<br>
-alone<br>
-this vast ocean
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">One boat
+alone
+this vast ocean</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 15 -->
-<!-- 2001-->
 <div class="poem-entry">
   <span class="poem-number">15</span>
-  <div class="poem-text">
-In my darkest hour<br>
-I cried out for you<br>
-I love you, mom
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">In my darkest hour
+I cried out for you
+I love you, mom</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 16 -->
-<!-- 2025 -->
 <div class="poem-entry">
   <span class="poem-number">16</span>
-  <div class="poem-text">
-Temple bell ringing<br>
-I think<br>
-of my friend
-</div>
-    <p style="font-size: 0.8rem; font-style: italic; color: var(--ink-faint); margin-top: 0.5rem;">
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Temple bell ringing
+I think
+of my friend</div>
+    </div>
+    <!-- VI: -->
+  </div>
+  <p style="font-size: 0.8rem; font-style: italic; color: var(--ink-faint); margin-top: 0.5rem;">
     Written last year in 2025. The poem that sparked the collection.
   </p>
 </div>
 
 <!-- Poem 17 -->
-<!-- May 2026 -->
 <div class="poem-entry">
   <span class="poem-number">17</span>
-  <div class="poem-text">
-Peony flower<br>
-in spring<br>
-winter is over
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Peony flower
+in spring
+winter is over</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 18 -->
 <div class="poem-entry">
   <span class="poem-number">18</span>
-  <div class="poem-text">
-Autumn<br>
-leaves<br>
-falling
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Autumn
+leaves
+falling</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 19 -->
 <div class="poem-entry">
   <span class="poem-number">19</span>
-  <div class="poem-text">
-Hummingbird<br>
-darting<br>
-a field of honeysuckles
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Hummingbird
+darting
+a field of honeysuckles</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 20 -->
 <div class="poem-entry">
   <span class="poem-number">20</span>
-  <div class="poem-text">
-The bird feeder<br>
-black sunflower seeds<br>
-chirping red-headed finches
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The bird feeder
+black sunflower seeds
+chirping red-headed finches</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 21 -->
 <div class="poem-entry">
   <span class="poem-number">21</span>
-  <div class="poem-text">
-Yellow butterfly<br>
-floating above<br>
-purple lavender
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Yellow butterfly
+floating above
+purple lavender</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 22 -->
 <div class="poem-entry">
   <span class="poem-number">22</span>
-  <div class="poem-text">
-A bee<br>
-buzzing<br>
-the peony flower
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A bee
+buzzing
+the peony flower</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 23 -->
 <div class="poem-entry">
   <span class="poem-number">23</span>
-  <div class="poem-text">
-Cherry blossom<br>
-petal<br>
-falling
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Cherry blossom
+petal
+falling</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 24 -->
 <div class="poem-entry">
   <span class="poem-number">24</span>
-  <div class="poem-text">
-The koi<br>
-moving<br>
-in silent pond
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The koi
+moving
+in silent pond</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 25 -->
 <div class="poem-entry">
   <span class="poem-number">25</span>
-  <div class="poem-text">
-Cricket<br>
-chirping<br>
-in moonlit night
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Cricket
+chirping
+in moonlit night</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 26 -->
 <div class="poem-entry">
   <span class="poem-number">26</span>
-  <div class="poem-text">
-Pink lotus<br>
-in full bloom<br>
-this muddy pond
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Pink lotus
+in full bloom
+this muddy pond</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 27 -->
 <div class="poem-entry">
   <span class="poem-number">27</span>
-  <div class="poem-text">
-Temple bell<br>
-fading<br>
-silence remains
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Temple bell
+fading
+silence remains</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 28 -->
 <div class="poem-entry">
   <span class="poem-number">28</span>
-  <div class="poem-text">
-Footsteps<br>
-in<br>
-falling snow
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Footsteps
+in
+falling snow</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 29 -->
 <div class="poem-entry">
   <span class="poem-number">29</span>
-  <div class="poem-text">
-White butterfly<br>
-alights<br>
-upon pink orchid
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">White butterfly
+alights
+upon pink orchid</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 30 -->
 <div class="poem-entry">
   <span class="poem-number">30</span>
-  <div class="poem-text">
-White orchid<br>
-on the altar<br>
-the Buddha smiles
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">White orchid
+on the altar
+the Buddha smiles</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 31 -->
 <div class="poem-entry">
   <span class="poem-number">31</span>
-  <div class="poem-text">
-Autumn leaves<br>
-on<br>
-a winding path
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Autumn leaves
+on
+a winding path</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 32 -->
 <div class="poem-entry">
   <span class="poem-number">32</span>
-  <div class="poem-text">
-A grassy field<br>
-this wet spring evening<br>
-the sound of a frog
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A grassy field
+this wet spring evening
+the sound of a frog</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 33 -->
 <div class="poem-entry">
   <span class="poem-number">33</span>
-  <div class="poem-text">
-A salmon<br>
-returning<br>
-the stream awaits
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A salmon
+returning
+the stream awaits</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 34 -->
 <div class="poem-entry">
   <span class="poem-number">34</span>
-  <div class="poem-text">
-A brook<br>
-trickling down<br>
-a silent pond
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A brook
+trickling down
+a silent pond</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 35 -->
 <div class="poem-entry">
   <span class="poem-number">35</span>
-  <div class="poem-text">
-White peony<br>
-from the garden<br>
-on the kitchen table
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">White peony
+from the garden
+on the kitchen table</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 36 -->
 <div class="poem-entry">
   <span class="poem-number">36</span>
-  <div class="poem-text">
-White peony<br>
-bending<br>
-at the stem
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">White peony
+bending
+at the stem</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 37 -->
 <div class="poem-entry">
   <span class="poem-number">37</span>
-  <div class="poem-text">
-Cooper's hawk<br>
-waiting<br>
-at the bird feeder
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Cooper's hawk
+waiting
+at the bird feeder</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 38 -->
 <div class="poem-entry">
   <span class="poem-number">38</span>
-  <div class="poem-text">
-Forget-me-not<br>
-on<br>
-an empty park bench
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Forget-me-not
+on
+an empty park bench</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 39 -->
 <div class="poem-entry">
   <span class="poem-number">39</span>
-  <div class="poem-text">
-Temple bell<br>
-the forest<br>
-listens
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Temple bell
+the forest
+listens</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 40 -->
 <div class="poem-entry">
   <span class="poem-number">40</span>
-  <div class="poem-text">
-Autumn fog<br>
-covering<br>
-the road home
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Autumn fog
+covering
+the road home</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 41 -->
 <div class="poem-entry">
   <span class="poem-number">41</span>
-  <div class="poem-text">
-Moonlit night<br>
-water buffaloes<br>
-listen to falling bombs
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Moonlit night
+water buffaloes
+listen to falling bombs</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 42 -->
 <div class="poem-entry">
   <span class="poem-number">42</span>
-  <div class="poem-text">
-Spring rain<br>
-Spanish lavender<br>
-scent in the air
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Spring rain
+Spanish lavender
+scent in the air</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 43 -->
 <div class="poem-entry">
   <span class="poem-number">43</span>
-  <div class="poem-text">
-Pink orchid<br>
-the shape<br>
-of a butterfly
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Pink orchid
+the shape
+of a butterfly</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 44 -->
 <div class="poem-entry">
   <span class="poem-number">44</span>
-  <div class="poem-text">
-Pouring rain<br>
-the frogs<br>
-listen
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Pouring rain
+the frogs
+listen</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 45 -->
 <div class="poem-entry">
   <span class="poem-number">45</span>
-  <div class="poem-text">
-Woodpecker<br>
-the sound<br>
-echo
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Woodpecker
+the sound
+echo</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 46 -->
 <div class="poem-entry">
   <span class="poem-number">46</span>
-  <div class="poem-text">
-A finch released<br>
-chirping<br>
-on the fence
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A finch released
+chirping
+on the fence</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 47 -->
 <div class="poem-entry">
   <span class="poem-number">47</span>
-  <div class="poem-text">
-Still pond<br>
-full moon<br>
-no reflection
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Still pond
+full moon
+no reflection</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 48 -->
 <div class="poem-entry">
   <span class="poem-number">48</span>
-  <div class="poem-text">
-Each breath<br>
-a death<br>
-renewal
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Each breath
+a death
+renewal</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 49 -->
 <div class="poem-entry">
   <span class="poem-number">49</span>
-  <div class="poem-text">
-A rose<br>
-fragrance<br>
-this moment
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A rose
+fragrance
+this moment</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 50 -->
 <div class="poem-entry">
   <span class="poem-number">50</span>
-  <div class="poem-text">
-Spring rain<br>
-cherry blossom<br>
-without flowers
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Spring rain
+cherry blossom
+without flowers</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 51 -->
 <div class="poem-entry">
   <span class="poem-number">51</span>
-  <div class="poem-text">
-A mouse<br>
-trapped<br>
-set free
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A mouse
+trapped
+set free</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 52 -->
 <div class="poem-entry">
   <span class="poem-number">52</span>
-  <div class="poem-text">
-Sorry spider<br>
-have<br>
-a better next life
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Sorry spider
+have
+a better next life</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 53 -->
 <div class="poem-entry">
   <span class="poem-number">53</span>
-  <div class="poem-text">
-A fawn<br>
-the freeway<br>
-a truck swerves
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A fawn
+the freeway
+a truck swerves</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 54 -->
 <div class="poem-entry">
   <span class="poem-number">54</span>
-  <div class="poem-text">
-Bees<br>
-enjoy the lavender<br>
-I'm just watering
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Bees
+enjoy the lavender
+I'm just watering</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 55 -->
 <div class="poem-entry">
   <span class="poem-number">55</span>
-  <div class="poem-text">
-A teddy bear<br>
-my daughter's gift<br>
-on my birthday
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A teddy bear
+my daughter's gift
+on my birthday</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 56 -->
 <div class="poem-entry">
   <span class="poem-number">56</span>
-  <div class="poem-text">
-Summertime<br>
-cricket chirping<br>
-by Costco parking lot
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Summertime
+cricket chirping
+by Costco parking lot</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 57 -->
 <div class="poem-entry">
   <span class="poem-number">57</span>
-  <div class="poem-text">
-Summer evening<br>
-the cicadas<br>
-become quiet
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Summer evening
+the cicadas
+become quiet</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 58 -->
 <div class="poem-entry">
   <span class="poem-number">58</span>
-  <div class="poem-text">
-Three birds<br>
-on<br>
-a power line
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Three birds
+on
+a power line</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 59 -->
 <div class="poem-entry">
   <span class="poem-number">59</span>
-  <div class="poem-text">
-Sunset<br>
-a bird<br>
-on a bare branch
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Sunset
+a bird
+on a bare branch</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 60 -->
 <div class="poem-entry">
   <span class="poem-number">60</span>
-  <div class="poem-text">
-Petunia basket<br>
-hummingbird<br>
-feeder
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Petunia basket
+hummingbird
+feeder</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 61 -->
 <div class="poem-entry">
   <span class="poem-number">61</span>
-  <div class="poem-text">
-Petunia<br>
-in springtime<br>
-intoxicated bees
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Petunia
+in springtime
+intoxicated bees</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 62 -->
 <div class="poem-entry">
   <span class="poem-number">62</span>
-  <div class="poem-text">
-Autumn leaves<br>
-falling<br>
-in a gentle breeze
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Autumn leaves
+falling
+in a gentle breeze</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 63 -->
 <div class="poem-entry">
   <span class="poem-number">63</span>
-  <div class="poem-text">
-A cat<br>
-for a companion<br>
-after the separation
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A cat
+for a companion
+after the separation</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 64 -->
 <div class="poem-entry">
   <span class="poem-number">64</span>
-  <div class="poem-text">
-Kitty cat<br>
-would you like<br>
-a glass of wine
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Kitty cat
+would you like
+a glass of wine</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 65 -->
 <div class="poem-entry">
   <span class="poem-number">65</span>
-  <div class="poem-text">
-White peony petals<br>
-on the ground<br>
-the color of passing
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">White peony petals
+on the ground
+the color of passing</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 66 -->
 <div class="poem-entry">
   <span class="poem-number">66</span>
-  <div class="poem-text">
-I took the one less traveled by<br>
-in a yellow wood<br>
-but needed a cane
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">I took the one less traveled by
+in a yellow wood
+but needed a cane</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 67 -->
 <div class="poem-entry">
   <span class="poem-number">67</span>
-  <div class="poem-text">
-The fireplace<br>
-a log glowing<br>
-like fireflies
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The fireplace
+a log glowing
+like fireflies</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 68 -->
 <div class="poem-entry">
   <span class="poem-number">68</span>
-  <div class="poem-text">
-Walking<br>
-in falling snow<br>
-with no destination
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Walking
+in falling snow
+with no destination</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 69 -->
 <div class="poem-entry">
   <span class="poem-number">69</span>
-  <div class="poem-text">
-Mid-Autumn Festival<br>
-wishing for<br>
-a lantern and mooncake
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Mid-Autumn Festival
+wishing for
+a lantern and mooncake</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 70 -->
 <div class="poem-entry">
   <span class="poem-number">70</span>
-  <div class="poem-text">
-It's a school day<br>
-I get<br>
-a loaf of French bread
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">It's a school day
+I get
+a loaf of French bread</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 71 -->
 <div class="poem-entry">
   <span class="poem-number">71</span>
-  <div class="poem-text">
-Every<br>
-breath<br>
-aware
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Every
+breath
+aware</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
-</div>
-
 
 <!-- Poem 72 -->
 <div class="poem-entry">
   <span class="poem-number">72</span>
-  <div class="poem-text">
-A bicycle ride home<br>
-from school<br>
-ao dai flutters like butterfly
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A bicycle ride home
+from school
+ao dai flutters like butterfly</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
-</div>
-
 
 <!-- Poem 73 -->
-<div class="poem-entry" id="poem-73">
-      <span class="poem-number">73</span>
-      <div class="poem-text">
-A willow<br>
-yields<br>
-to the wind
-</div>
+<div class="poem-entry">
+  <span class="poem-number">73</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A willow
+yields
+to the wind</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 74 -->
 <div class="poem-entry">
-      <span class="poem-number">74</span>
-      <div class="poem-text">
-Persimmon branches<br>
-swaying<br>
-are you happy I'm watering
-</div>
+  <span class="poem-number">74</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Persimmon branches
+swaying
+are you happy I'm watering</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 75 -->
 <div class="poem-entry">
-      <span class="poem-number">75</span>
-      <div class="poem-text">
-Full moon<br>
-cold winter night<br>
-I walk on
-</div>
+  <span class="poem-number">75</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Full moon
+cold winter night
+I walk on</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 76 -->
 <div class="poem-entry">
-      <span class="poem-number">76</span>
-      <div class="poem-text">
-Lighthouse Mission<br>
-that was<br>
-a good meal
-</div>
+  <span class="poem-number">76</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Lighthouse Mission
+that was
+a good meal</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 77 -->
 <div class="poem-entry">
-      <span class="poem-number">77</span>
-      <div class="poem-text">
-Chopin nocturnes<br>
-in moonlight<br>
-alone
-</div>
+  <span class="poem-number">77</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Chopin nocturnes
+in moonlight
+alone</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 78 -->
 <div class="poem-entry">
-      <span class="poem-number">78</span>
-      <div class="poem-text">
-Last spring<br>
-I planted a persimmon tree<br>
-to remember you
-</div>
+  <span class="poem-number">78</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Last spring
+I planted a persimmon tree
+to remember you</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 79 -->
 <div class="poem-entry">
-      <span class="poem-number">79</span>
-      <div class="poem-text">
-The kite<br>
-my brother made<br>
-soaring in the wind
-</div>
+  <span class="poem-number">79</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The kite
+my brother made
+soaring in the wind</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 80 -->
-<!-- June 14 2026 -->
 <div class="poem-entry">
-      <span class="poem-number">80</span>
-      <div class="poem-text">
-The birds didn't sing<br>
-during Tet<br>
-of 1968
-</div>
+  <span class="poem-number">80</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The birds didn't sing
+during Tet
+of 1968</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 81 -->
 <div class="poem-entry">
-      <span class="poem-number">81</span>
-      <div class="poem-text">
-Dead bodies<br>
-at<br>
-a gas station
-</div>
+  <span class="poem-number">81</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Dead bodies
+at
+a gas station</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 82 -->
 <div class="poem-entry">
-      <span class="poem-number">82</span>
-      <div class="poem-text">
-A motorcycle<br>
-with<br>
-bullet holes
-</div>
+  <span class="poem-number">82</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A motorcycle
+with
+bullet holes</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 83 -->
 <div class="poem-entry">
-      <span class="poem-number">83</span>
-      <div class="poem-text">
-Winter snow<br>
-melting<br>
-the river flows
-</div>
+  <span class="poem-number">83</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Winter snow
+melting
+the river flows</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 84 -->
-<!-- June 15 2026 -->
 <div class="poem-entry">
-      <span class="poem-number">84</span>
-      <div class="poem-text">
-Moonlit night<br>
-casting my shadow<br>
-into the night
-</div>
+  <span class="poem-number">84</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Moonlit night
+casting my shadow
+into the night</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 85 -->
 <div class="poem-entry">
-      <span class="poem-number">85</span>
-      <div class="poem-text">
-Moonlight<br>
-shadow on snow<br>
-my companion
-</div>
+  <span class="poem-number">85</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Moonlight
+shadow on snow
+my companion</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 86 -->
-<!-- June 16 2026 -->
 <div class="poem-entry">
-      <span class="poem-number">86</span>
-      <div class="poem-text">
-A bee<br>
-makes honey<br>
-that's all
-</div>
+  <span class="poem-number">86</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A bee
+makes honey
+that's all</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 87 -->
 <div class="poem-entry">
-      <span class="poem-number">87</span>
-      <div class="poem-text">
-This summer<br>
-heat wave<br>
-the cicadas become quiet
-</div>
+  <span class="poem-number">87</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">This summer
+heat wave
+the cicadas become quiet</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 88 -->
 <div class="poem-entry">
-      <span class="poem-number">88</span>
-      <div class="poem-text">
-Two potted blueberries<br>
-by the fence<br>
-for passersby
-</div>
+  <span class="poem-number">88</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Two potted blueberries
+by the fence
+for passersby</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 89 -->
-<!-- June 17 2026 -->
 <div class="poem-entry">
-      <span class="poem-number">89</span>
-      <div class="poem-text">
-Rhododendrons<br>
-in full bloom<br>
-the length of a breath
-</div>
+  <span class="poem-number">89</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Rhododendrons
+in full bloom
+the length of a breath</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 90 -->
 <div class="poem-entry">
-      <span class="poem-number">90</span>
-      <div class="poem-text">
-A spider<br>
-has<br>
-feelings too
-</div>
+  <span class="poem-number">90</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A spider
+has
+feelings too</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 91 -->
 <div class="poem-entry">
-      <span class="poem-number">91</span>
-      <div class="poem-text">
-Dew drops<br>
-disappear<br>
-in morning sun
-</div>
+  <span class="poem-number">91</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Dew drops
+disappear
+in morning sun</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 92 -->
-<!-- June 18 2026 -->
 <div class="poem-entry">
-      <span class="poem-number">92</span>
-      <div class="poem-text">
-The moon<br>
-of yesterday<br>
-is the moon of yesterday
-</div>
+  <span class="poem-number">92</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The moon
+of yesterday
+is the moon of yesterday</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 93 -->
 <div class="poem-entry">
-      <span class="poem-number">93</span>
-      <div class="poem-text">
-A gold necklace<br>
-from mother<br>
-for the boat journey
-</div>
+  <span class="poem-number">93</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A gold necklace
+from mother
+for the boat journey</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 94 -->
 <div class="poem-entry">
-      <span class="poem-number">94</span>
-      <div class="poem-text">
-The ship<br>
-turning around<br>
-someone jumped overboard
-</div>
+  <span class="poem-number">94</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The ship
+turning around
+someone jumped overboard</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 95 -->
 <div class="poem-entry">
-      <span class="poem-number">95</span>
-      <div class="poem-text">
-A thirst<br>
-in a desert<br>
-of a boat at sea
-</div>
+  <span class="poem-number">95</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A thirst
+in a desert
+of a boat at sea</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 96 -->
 <div class="poem-entry">
-      <span class="poem-number">96</span>
-      <div class="poem-text">
-April 30, 1975<br>
-the journey<br>
-began
-</div>
+  <span class="poem-number">96</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">April 30, 1975
+the journey
+began</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 97 -->
-<!-- June 19 2026 -->
 <div class="poem-entry">
-      <span class="poem-number">97</span>
-      <div class="poem-text">
-White sand of Nha Trang<br>
-the French landed<br>
-then the Americans
-</div>
+  <span class="poem-number">97</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">White sand of Nha Trang
+the French landed
+then the Americans</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 98 -->
 <div class="poem-entry">
-      <span class="poem-number">98</span>
-      <div class="poem-text">
-S-shaped<br>
-hugging the sea<br>
-the shape of home
-</div>
+  <span class="poem-number">98</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">S-shaped
+hugging the sea
+the shape of home</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
-<!-- Poem 98b-->
+<!-- Poem 98b -->
 <div class="poem-entry">
   <span class="poem-number">98b</span>
-  <div class="poem-text">
-Ao dai<br>
-the shape<br>
-of Viet Nam
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Ao dai
+the shape
+of Viet Nam</div>
+    </div>
+    <!-- VI: -->
+  </div>
   <p style="font-size: 0.8rem; font-style: italic; color: var(--ink-faint); margin-top: 0.5rem;">
     Written June 27 2026 — Companion to Poem 98
   </p>
 </div>
 
-
 <!-- Poem 99 -->
 <div class="poem-entry">
-      <span class="poem-number">99</span>
-      <div class="poem-text">
-Tet here<br>
-is not like<br>
-Tet there
-</div>
+  <span class="poem-number">99</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Tet here
+is not like
+Tet there</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
-<!-- Poem 100 (The last one of Book I) -->
+<!-- Poem 100 -->
 <div class="poem-entry">
-      <span class="poem-number">100</span>
-      <div class="poem-text">
-Skylark<br>
-on a barbwire<br>
-are you looking for home
+  <span class="poem-number">100</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Skylark
+on a barbwire
+are you looking for home</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
-</div>
-</div> <!-- THIS CLOSES THE <div class="archive-poem-list"> -->
+
+</div> <!-- closes archive-poem-list -->
 
 <!-- ═══════════════════════════════════════════════
-     BOOK II SECTION STARTS HERE
+     BOOK II SECTION
      ═══════════════════════════════════════════════ -->
 <section style="margin-top: 4rem; margin-bottom: 2rem;">
   <div class="divider">
@@ -1651,630 +2162,836 @@ are you looking for home
   </div>
 </section>
 
+<!-- Volume II poems -->
+<div class="archive-poem-list">
+
 <!-- Poem 101 -->
-<!-- June 20 2026 -->
 <div class="poem-entry">
   <span class="poem-number">101</span>
-  <div class="poem-text">
-White peony<br>
-translucent<br>
-in sunlight
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">White peony
+translucent
+in sunlight</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 102 -->
-<!-- June 24 2026 -->
 <div class="poem-entry">
   <span class="poem-number">102</span>
-  <div class="poem-text">
-In breath<br>
-out breath<br>
-at touching point
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">In breath
+out breath
+at touching point</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 103 -->
-<!-- June 26 2026 -->
 <div class="poem-entry">
   <span class="poem-number">103</span>
-  <div class="poem-text">
-A meditation bell<br>
-at sunrise<br>
-the sunflowers listen
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A meditation bell
+at sunrise
+the sunflowers listen</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 104 -->
-<!-- June 27 2026 -->
 <div class="poem-entry">
   <span class="poem-number">104</span>
-  <div class="poem-text">
-Watching<br>
-the breath<br>
-in falling snow
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Watching
+the breath
+in falling snow</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 105 -->
 <div class="poem-entry">
   <span class="poem-number">105</span>
-  <div class="poem-text">
-White orchid<br>
-wilting<br>
-on the kitchen table
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">White orchid
+wilting
+on the kitchen table</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 106 -->
 <div class="poem-entry">
   <span class="poem-number">106</span>
-  <div class="poem-text">
-Empty chair<br>
-at the table<br>
-it's snowing
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Empty chair
+at the table
+it's snowing</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 107 -->
 <div class="poem-entry">
   <span class="poem-number">107</span>
-  <div class="poem-text">
-Ocean waves<br>
-the sound<br>
-of home
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Ocean waves
+the sound
+of home</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 108 -->
 <div class="poem-entry">
   <span class="poem-number">108</span>
-  <div class="poem-text">
-Bamboo pole across shoulder<br>
-carrying two loads<br>
-Saigon remembers me
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Bamboo pole across shoulder
+carrying two loads
+Saigon remembers me</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 109 -->
-<!-- June 28 2026 -->
 <div class="poem-entry">
   <span class="poem-number">109</span>
-  <div class="poem-text">
-Temple bell<br>
-echo<br>
-in the forest
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Temple bell
+echo
+in the forest</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 110 -->
-<!-- July 1 2026 -->
 <div class="poem-entry">
   <span class="poem-number">110</span>
-  <div class="poem-text">
-Temple bell<br>
-the frogs<br>
-become quiet
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Temple bell
+the frogs
+become quiet</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 111 -->
 <div class="poem-entry">
   <span class="poem-number">111</span>
-  <div class="poem-text">
-Temple bell<br>
-in moonlight<br>
-no shadow in the forest
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Temple bell
+in moonlight
+no shadow in the forest</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 112 -->
 <div class="poem-entry">
   <span class="poem-number">112</span>
-  <div class="poem-text">
-Napalm<br>
-on skin<br>
-the heat of the sun
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Napalm
+on skin
+the heat of the sun</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 113 -->
-<!-- July 2 2026 -->
 <div class="poem-entry">
   <span class="poem-number">113</span>
-  <div class="poem-text">
-Temple bell<br>
-vibration<br>
-enters the body
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Temple bell
+vibration
+enters the body</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 114 -->
-<!-- July 4 2026 -->
 <div class="poem-entry">
   <span class="poem-number">114</span>
-  <div class="poem-text">
-A monk robe<br>
-on the hook<br>
-the last time
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A monk robe
+on the hook
+the last time</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 115 -->
 <div class="poem-entry">
   <span class="poem-number">115</span>
-  <div class="poem-text">
-The outfit<br>
-worn on the journey<br>
-seems so small now
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The outfit
+worn on the journey
+seems so small now</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 116 -->
 <div class="poem-entry">
   <span class="poem-number">116</span>
-  <div class="poem-text">
-July 4th<br>
-the scent of charcoal<br>
-from the hibachi
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">July 4th
+the scent of charcoal
+from the hibachi</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 117 -->
 <div class="poem-entry">
   <span class="poem-number">117</span>
-  <div class="poem-text">
-The familiar<br>
-sound of explosion<br>
-on July 4th
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The familiar
+sound of explosion
+on July 4th</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 118 -->
 <div class="poem-entry">
   <span class="poem-number">118</span>
-  <div class="poem-text">
-The view from a boat<br>
-leaving<br>
-fireworks over Saigon
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The view from a boat
+leaving
+fireworks over Saigon</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 119 -->
-<!-- July 5 2026 -->
 <div class="poem-entry">
   <span class="poem-number">119</span>
-  <div class="poem-text">
-A Black man<br>
-became a mute<br>
-in America
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A Black man
+became a mute
+in America</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 120 -->
-<!-- July 8 2026 -->
 <div class="poem-entry">
   <span class="poem-number">120</span>
-  <div class="poem-text">
-A moon<br>
-reflected<br>
-in still water
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A moon
+reflected
+in still water</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 121 -->
-<!-- July 9 2026 -->
 <div class="poem-entry">
   <span class="poem-number">121</span>
-  <div class="poem-text">
-A meditation bell<br>
-at the end<br>
-the real practice begins
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A meditation bell
+at the end
+the real practice begins</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 122 -->
 <div class="poem-entry">
   <span class="poem-number">122</span>
-  <div class="poem-text">
-Deep blue and placid<br>
-a graveyard<br>
-of the boats at sea
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Deep blue and placid
+a graveyard
+of the boats at sea</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 123 -->
 <div class="poem-entry">
   <span class="poem-number">123</span>
-  <div class="poem-text">
-The wedding band<br>
-at the bottom of the lake<br>
-the moment I let go
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The wedding band
+at the bottom of the lake
+the moment I let go</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 124 -->
-<!-- July 10 2026 -->
 <div class="poem-entry">
   <span class="poem-number">124</span>
-  <div class="poem-text">
-Conical hats<br>
-in emerald rice field<br>
-the sound of helicopters approaching
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Conical hats
+in emerald rice field
+the sound of helicopters approaching</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 125 -->
-<!-- July 11 2026 -->
 <div class="poem-entry">
   <span class="poem-number">125</span>
-  <div class="poem-text">
-Weeping cherry<br>
-blossoms<br>
-hesitantly falling
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Weeping cherry
+blossoms
+hesitantly falling</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 126 -->
 <div class="poem-entry">
   <span class="poem-number">126</span>
-  <div class="poem-text">
-In winter snow<br>
-I asked the Abbott<br>
-for a place to stay
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">In winter snow
+I asked the Abbott
+for a place to stay</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 127 -->
-<!-- July 12 2026 -->
 <div class="poem-entry">
   <span class="poem-number">127</span>
-  <div class="poem-text">
-Winter snow<br>
-covering my home<br>
-the VW Bug
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Winter snow
+covering my home
+the VW Bug</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 128 -->
-<!-- July 13 2026 -->
 <div class="poem-entry">
   <span class="poem-number">128</span>
-  <div class="poem-text">
-Temple bell<br>
-the sound<br>
-coming from the forest
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Temple bell
+the sound
+coming from the forest</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 129 -->
 <div class="poem-entry">
   <span class="poem-number">129</span>
-  <div class="poem-text">
-Cu Chi tunnel<br>
-too small<br>
-for a mole
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Cu Chi tunnel
+too small
+for a mole</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 130 -->
 <div class="poem-entry">
   <span class="poem-number">130</span>
-  <div class="poem-text">
-A wrong turn<br>
-on solar eclipse<br>
-two men met me with two M16
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A wrong turn
+on solar eclipse
+two men met me with two M16</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 131 -->
-<!-- July 14 2026 -->
 <div class="poem-entry">
   <span class="poem-number">131</span>
-  <div class="poem-text">
-A spiderweb<br>
-across the rhododendron<br>
-how long have you been waiting
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A spiderweb
+across the rhododendron
+how long have you been waiting</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 132 -->
-<!-- July 15 2026 -->
 <div class="poem-entry">
   <span class="poem-number">132</span>
-  <div class="poem-text">
-Summer heat<br>
-the journey<br>
-in each step
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Summer heat
+the journey
+in each step</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 133 -->
 <div class="poem-entry">
   <span class="poem-number">133</span>
-  <div class="poem-text">
-In bitter cold<br>
-with no place to go<br>
-I keep walking
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">In bitter cold
+with no place to go
+I keep walking</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 134 -->
 <div class="poem-entry">
   <span class="poem-number">134</span>
-  <div class="poem-text">
-Lying awake<br>
-waiting for<br>
-the sound of the temple bell
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Lying awake
+waiting for
+the sound of the temple bell</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 135 -->
-<!-- July 16 2026 -->
 <div class="poem-entry">
   <span class="poem-number">135</span>
-  <div class="poem-text">
-This old wooden chair<br>
-weather worn in the garden<br>
-about to fall apart
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">This old wooden chair
+weather worn in the garden
+about to fall apart</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 136 -->
-<!-- July 17 2026 -->
 <div class="poem-entry">
   <span class="poem-number">136</span>
-  <div class="poem-text">
-Old crow<br>
-on a bare branch<br>
-autumn is not here yet
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Old crow
+on a bare branch
+autumn is not here yet</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
-</div>
-
 
 <!-- Poem 137 -->
-<!-- July 18 2026 -->
 <div class="poem-entry">
   <span class="poem-number">137</span>
-  <div class="poem-text">
-A rose<br>
-on a dining table<br>
-dinner for one
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A rose
+on a dining table
+dinner for one</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 138 -->
 <div class="poem-entry">
   <span class="poem-number">138</span>
-  <div class="poem-text">
-A boy<br>
-digging for metals<br>
-the bomb exploded
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A boy
+digging for metals
+the bomb exploded</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 139 -->
 <div class="poem-entry">
   <span class="poem-number">139</span>
-  <div class="poem-text">
-Children<br>
-with faces<br>
-of Agent Orange
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Children
+with faces
+of Agent Orange</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 140 -->
-<!-- July 19 2026 -->
 <div class="poem-entry">
   <span class="poem-number">140</span>
-  <div class="poem-text">
-How strange<br>
-these faces<br>
-of Agent Orange
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">How strange
+these faces
+of Agent Orange</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
-</div>
-
 
 <!-- Poem 141 -->
 <div class="poem-entry">
   <span class="poem-number">141</span>
-  <div class="poem-text">
-Summertime<br>
-the peony flowers<br>
-collecting dew from the hose
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Summertime
+the peony flowers
+collecting dew from the hose</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 142 -->
 <div class="poem-entry">
   <span class="poem-number">142</span>
-  <div class="poem-text">
-A peony<br>
-wilting<br>
-the bee lingers
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A peony
+wilting
+the bee lingers</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 143 -->
 <div class="poem-entry">
   <span class="poem-number">143</span>
-  <div class="poem-text">
-Cluster bomb pellets<br>
-rain down<br>
-from the sky
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Cluster bomb pellets
+rain down
+from the sky</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 144 -->
-<!-- July 20 2026 -->
 <div class="poem-entry">
   <span class="poem-number">144</span>
-  <div class="poem-text">
-The last flowering<br>
-of the Spanish Lavender<br>
-the bees can't let go
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The last flowering
+of the Spanish Lavender
+the bees can't let go</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 145 -->
-<!-- July 21 2026 -->
 <div class="poem-entry">
   <span class="poem-number">145</span>
-  <div class="poem-text">
-Summer heat<br>
-late to the garden<br>
-the sunflowers look away
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Summer heat
+late to the garden
+the sunflowers look away</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 146 -->
 <div class="poem-entry">
   <span class="poem-number">146</span>
-  <div class="poem-text">
-Don't worry'<br>
-spider<br>
-I don't mind the spiderweb
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Don't worry
+spider
+I don't mind the spiderweb</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 147 -->
 <div class="poem-entry">
   <span class="poem-number">147</span>
-  <div class="poem-text">
-A breath<br>
-between<br>
-the thoughts
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A breath
+between
+the thoughts</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 148 -->
-<!-- July 22 2026 -->
 <div class="poem-entry">
   <span class="poem-number">148</span>
-  <div class="poem-text">
-Autumn leaves<br>
-falling<br>
-the creek awaits
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Autumn leaves
+falling
+the creek awaits</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 149 -->
-<!-- July 24 2026 -->
 <div class="poem-entry">
   <span class="poem-number">149</span>
-  <div class="poem-text">
-Temple bell<br>
-the sound<br>
-of non-attachment
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Temple bell
+the sound
+of non-attachment</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
-</div>
-
 
 <!-- Poem 150 -->
 <div class="poem-entry">
   <span class="poem-number">150</span>
-  <div class="poem-text">
-I don't mind<br>
-standing in the sun<br>
-to water you peony
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">I don't mind
+standing in the sun
+to water you peony</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 151 -->
 <div class="poem-entry">
   <span class="poem-number">151</span>
-  <div class="poem-text">
-Sunflower<br>
-playing<br>
-peek-a-boo
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Sunflower
+playing
+peek-a-boo</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 152 -->
-<!-- July 25 2026 -->
 <div class="poem-entry">
   <span class="poem-number">152</span>
-  <div class="poem-text">
-A meditation<br>
-bell<br>
-the end can wait
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A meditation
+bell
+the end can wait</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 153 -->
 <div class="poem-entry">
   <span class="poem-number">153</span>
-  <div class="poem-text">
-The finger pointing at the moon<br>
-is not the moon<br>
-the breath is
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The finger pointing at the moon
+is not the moon
+the breath is</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 154 -->
-<!-- July 26 2026 -->
 <div class="poem-entry">
   <span class="poem-number">154</span>
-  <div class="poem-text">
-Awareness<br>
-of the breath<br>
-this moment
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Awareness
+of the breath
+this moment</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 155 -->
 <div class="poem-entry">
   <span class="poem-number">155</span>
-  <div class="poem-text">
-The beauty<br>
-of the cherry blossoms<br>
-is in this moment
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The beauty
+of the cherry blossoms
+is in this moment</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 156 -->
 <div class="poem-entry">
   <span class="poem-number">156</span>
-  <div class="poem-text">
-To live fully<br>
-in the present moment<br>
-is to be aware of the breath
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">To live fully
+in the present moment
+is to be aware of the breath</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 157 -->
-<!-- July 28 2026 -->
 <div class="poem-entry">
   <span class="poem-number">157</span>
-  <div class="poem-text">
-To move<br>
-beyond suffering<br>
-is to be aware of the breath
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">To move
+beyond suffering
+is to be aware of the breath</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 158 -->
 <div class="poem-entry">
   <span class="poem-number">158</span>
-  <div class="poem-text">
-The breath is for all<br>
-rich or poor<br>
-just be aware
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The breath is for all
+rich or poor
+just be aware</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
 <!-- Poem 159 -->
-<!-- July 29 2026 -->
 <div class="poem-entry">
   <span class="poem-number">159</span>
-  <div class="poem-text">
-Love<br>
-is being<br>
-in the moment
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Love
+is being
+in the moment</div>
+    </div>
+    <!-- VI: -->
+  </div>
 </div>
 
-
-<!-- END ARCHIVE LIST -->
+</div> <!-- END ARCHIVE LIST -->
 
 <p style="text-align: center;"><small>© Tuan Tran. All rights reserved.</small></p>
 
@@ -2332,4 +3049,3 @@ if (printBtn) {
 
 </body>
 </html>
-
