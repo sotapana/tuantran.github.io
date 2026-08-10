@@ -23,289 +23,57 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
 
+<link rel="stylesheet" href="site.css" />
+
 <style>
-/* ── RESET & BASE ─────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
---ink: #1a1610;
---ink-soft: #4a3f30;
---ink-faint: #8a7a68;
---paper: #f5f0e8;
---paper-warm: #ede5d4;
---paper-deep: #ddd2bc;
---red: #8b2020;
---red-soft: #a83030;
---gold: #9a7a3a;
---gold-light: #c4a265;
-
---font-display: 'Cinzel', serif;
---font-body: 'Crimson Pro', serif;
---font-quote: 'Cormorant Garamond', serif;
-
---max-w: 860px;
---side: clamp(1.25rem, 5vw, 3rem);
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-background-color: var(--paper);
-color: var(--ink);
-font-family: var(--font-body);
-font-size: clamp(1.05rem, 1.8vw, 1.2rem);
-line-height: 1.75;
-min-height: 100vh;
-}
-
-/* ── TEXTURE OVERLAY ──────────────────────────── */
-body::before {
-content: '';
-position: fixed;
-inset: 0;
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-pointer-events: none;
-z-index: 0;
-}
-
-/* ── SKIP LINK ────────────────────────────────── */
-.skip-link {
-position: absolute;
-top: -100%;
-left: 1rem;
-background: var(--red);
-color: #fff;
-padding: 0.5rem 1rem;
-border-radius: 0 0 4px 4px;
-font-family: var(--font-body);
-transition: top 0.2s;
-z-index: 999;
-}
-.skip-link:focus { top: 0; }
-
-/* ── HEADER ───────────────────────────────────── */
-header {
-position: relative;
-z-index: 10;
-background: var(--ink);
-color: var(--paper);
-padding: 2.5rem var(--side) 2rem;
-text-align: center;
-border-bottom: 3px solid var(--gold);
-}
-
-.site-eyebrow {
-font-family: var(--font-display);
-font-size: clamp(0.6rem, 1.2vw, 0.75rem);
-letter-spacing: 0.25em;
-color: var(--gold-light);
-text-transform: uppercase;
-margin-bottom: 0.75rem;
-}
-
-.site-title {
-font-family: var(--font-display);
-font-size: clamp(1.6rem, 4.5vw, 3rem);
-font-weight: 600;
-letter-spacing: 0.06em;
-line-height: 1.2;
-color: var(--paper);
-}
-
-.site-title a {
-color: inherit;
-text-decoration: none;
-}
-
-.site-subtitle {
-font-family: var(--font-quote);
-font-style: italic;
-font-size: clamp(0.95rem, 1.8vw, 1.2rem);
-color: var(--gold-light);
-margin-top: 0.5rem;
-font-weight: 300;
-}
-
-/* ── NAV ──────────────────────────────────────── */
-nav.main-nav {
-position: sticky;
-top: 0;
-z-index: 100;
-background: var(--ink);
-border-bottom: 1px solid var(--gold);
-}
-
-.nav-inner {
-max-width: var(--max-w);
-margin: 0 auto;
-padding: 0 var(--side);
-display: flex;
-align-items: center;
-justify-content: space-between;
-}
-
-.nav-toggle {
-display: none;
-flex-direction: column;
-gap: 5px;
-cursor: pointer;
-padding: 1rem 0;
-background: none;
-border: none;
-}
-.nav-toggle span {
-display: block;
-width: 24px;
-height: 2px;
-background: var(--gold-light);
-transition: all 0.3s;
-}
-.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-.nav-links {
-list-style: none;
-display: flex;
-flex-wrap: wrap;
-}
-
-.nav-links a {
-display: block;
-padding: 0.85rem 0.9rem;
-font-family: var(--font-display);
-font-size: clamp(0.55rem, 1vw, 0.7rem);
-letter-spacing: 0.12em;
-text-transform: uppercase;
-color: var(--paper-warm);
-text-decoration: none;
-transition: color 0.2s, background 0.2s;
-white-space: nowrap;
-}
-
-.nav-links a:hover,
-.nav-links a[aria-current="page"] {
-color: var(--gold-light);
-background: rgba(255,255,255,0.05);
-}
-
-/* ── BANNER ───────────────────────────────────── */
-.banner {
-width: 100%;
-max-height: 280px;
-object-fit: cover;
-object-position: center top;
-display: block;
-filter: sepia(20%) contrast(0.9);
-}
-
-/* ── PAGE TITLE BLOCK ─────────────────────────── */
-.page-title-block {
-background: var(--paper-warm);
-border-bottom: 1px solid var(--paper-deep);
-padding: 2rem var(--side);
-text-align: center;
-}
-
-.page-label {
-font-family: var(--font-display);
-font-size: 0.65rem;
-letter-spacing: 0.22em;
-text-transform: uppercase;
-color: var(--red);
-display: block;
-margin-bottom: 0.5rem;
-}
-
-.page-title {
-font-family: var(--font-display);
-font-size: clamp(1.4rem, 3.5vw, 2.2rem);
-font-weight: 600;
-letter-spacing: 0.06em;
-color: var(--ink);
-line-height: 1.2;
-}
-
-.page-desc {
-font-family: var(--font-quote);
-font-style: italic;
-font-weight: 300;
-font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-color: var(--ink-faint);
-margin-top: 0.5rem;
-}
-
-/* ── MAIN ─────────────────────────────────────── */
-main {
-position: relative;
-z-index: 1;
-max-width: var(--max-w);
-margin: 0 auto;
-padding: 3rem var(--side) 4rem;
-}
-
-/* ── PROSE ────────────────────────────────────── */
-.prose p {
-margin-bottom: 1.4em;
-color: var(--ink-soft);
-}
-
-.prose p:last-child { margin-bottom: 0; }
-
-.prose h2 {
-font-family: var(--font-display);
-font-size: clamp(0.8rem, 1.4vw, 0.95rem);
-letter-spacing: 0.18em;
-text-transform: uppercase;
-color: var(--red);
-margin: 2.5rem 0 1rem;
-}
-
-/* ── PULL QUOTE ───────────────────────────────── */
+/* ── PAGE-SPECIFIC: Pull Quote (road-home.html) ────────────── */
 .pull-quote {
-margin: 2.5rem 0;
-padding: 1.75rem 2rem;
-background: var(--paper-warm);
-border-left: 4px solid var(--red);
-border-radius: 0 4px 4px 0;
-position: relative;
+  margin: 2.5rem 0;
+  padding: 1.75rem 2rem;
+  background: var(--paper-warm);
+  border-left: 4px solid var(--red);
+  border-radius: 0 4px 4px 0;
+  position: relative;
 }
 
 .pull-quote::before {
-content: '\201C';
-position: absolute;
-top: -0.5rem;
-left: 1.5rem;
-font-family: var(--font-quote);
-font-size: 5rem;
-color: var(--red);
-opacity: 0.2;
-line-height: 1;
+  content: '\201C';
+  position: absolute;
+  top: -0.5rem;
+  left: 1.5rem;
+  font-family: var(--font-quote);
+  font-size: 5rem;
+  color: var(--red);
+  opacity: 0.2;
+  line-height: 1;
 }
 
 .pull-quote p {
-font-family: var(--font-quote);
-font-style: italic;
-font-size: clamp(1.05rem, 2vw, 1.25rem);
-font-weight: 300;
-line-height: 1.7;
-color: var(--ink);
-margin: 0 !important;
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--ink);
+  margin: 0 !important;
 }
 
 .pull-quote cite {
-display: block;
-margin-top: 0.75rem;
-font-family: var(--font-display);
-font-style: normal;
-font-size: 0.65rem;
-letter-spacing: 0.15em;
-text-transform: uppercase;
-color: var(--red);
+  display: block;
+  margin-top: 0.75rem;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--red);
 }
 
-
-/* ── POEM BLOCK ───────────────────────────────── */
+/* ── PAGE-SPECIFIC: Poem Block ─────────────────────────────── */
+/* Overrides site.css's .poem-text (that version is for the
+   bilingual archive layout on light backgrounds; this one sits
+   on the dark featured-poem block — used extensively throughout
+   this haibun memoir). */
 .poem-block {
   background: var(--ink);
   color: var(--paper);
@@ -343,37 +111,53 @@ color: var(--red);
   white-space: pre-line;
 }
 
+/* ── PAGE-SPECIFIC: Section Divider ────────────────────────── */
+/* Used throughout this page as an in-chapter visual break
+   (many instances have an inline margin override) */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0 2rem;
+}
 
-/* ── PRINT STYLES (CONSOLIDATED) ─────────────── */
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--paper-deep));
+}
+.divider::after {
+  background: linear-gradient(to left, transparent, var(--paper-deep));
+}
+
+.divider-text {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+/* ── PAGE-SPECIFIC: Chapter Sections ───────────────────────── */
+.chapter-section {
+  margin-bottom: 4rem;
+  padding-top: 2rem;
+  border-top: 1px dashed var(--paper-deep);
+}
+
+.chapter-section:first-of-type {
+  border-top: none;
+}
+
+@media (max-width: 680px) {
+  .pull-quote { padding: 1.5rem 1.5rem 1.5rem 1.75rem; }
+}
+
+/* ── PAGE-SPECIFIC: Print Styles ───────────────────────────── */
 @media print {
-  /* Hide UI elements */
-  nav.main-nav, footer, .page-nav, .skip-link, .print-btn, .nav-toggle {
-    display: none !important;
-  }
-
-  /* Remove texture overlay */
-  body::before {
-    display: none !important;
-  }
-
-  /* Reset body for clean paper */
-  body {
-    background: white !important;
-    color: #000 !important;
-    font-size: 12pt;
-    line-height: 1.6;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  /* Main content full width */
-  main {
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  /* --- CRITICAL FIX FOR INVISIBLE TEXT --- */
   .poem-block {
     display: block !important;
     visibility: visible !important;
@@ -388,7 +172,6 @@ color: var(--red);
     break-inside: avoid;
   }
 
-  /* Ensure ALL text inside poems is black */
   .poem-block *,
   .poem-text,
   .poem-label {
@@ -397,262 +180,24 @@ color: var(--red);
     opacity: 1 !important;
   }
 
-  /* Pull quotes */
   .pull-quote {
     background: transparent !important;
     color: #000 !important;
     border-left: 3px solid #000;
   }
 
-  /* Headers */
   h1, h2, h3, .site-title, .page-title {
     color: #000 !important;
   }
 
-  /* Prose text */
   p, .prose p {
     color: #000 !important;
   }
 
-  /* Prevent awkward page breaks */
   p, .chapter-section, .poem-block {
     page-break-inside: avoid;
   }
 }
-
-
-
-/* ── TOPICS GRID (homepage only) ──────────────── */
-.topics-grid {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
-gap: 1px;
-background: var(--paper-deep);
-border: 1px solid var(--paper-deep);
-border-radius: 4px;
-overflow: hidden;
-margin-bottom: 3.5rem;
-}
-
-.topic-card {
-background: var(--paper);
-padding: 1.5rem;
-text-decoration: none;
-display: block;
-transition: background 0.2s;
-position: relative;
-}
-
-.topic-card:hover { background: var(--paper-warm); }
-
-.topic-card::after {
-content: '→';
-position: absolute;
-right: 1.25rem;
-top: 50%;
-transform: translateY(-50%);
-color: var(--red);
-opacity: 0;
-transition: opacity 0.2s, right 0.2s;
-}
-
-.topic-card:hover::after { opacity: 1; right: 1rem; }
-
-.topic-tag {
-font-family: var(--font-display);
-font-size: 0.6rem;
-letter-spacing: 0.18em;
-text-transform: uppercase;
-color: var(--red);
-display: block;
-margin-bottom: 0.4rem;
-}
-
-.topic-title {
-font-family: var(--font-quote);
-font-size: clamp(1rem, 1.8vw, 1.15rem);
-font-weight: 400;
-color: var(--ink);
-line-height: 1.3;
-}
-
-.topic-desc {
-margin-top: 0.4rem;
-font-size: 0.9rem;
-color: var(--ink-faint);
-line-height: 1.5;
-}
-
-/* ── DIVIDER ──────────────────────────────────── */
-.divider {
-display: flex;
-align-items: center;
-gap: 1rem;
-margin: 3rem 0 2rem;
-}
-
-.divider::before,
-.divider::after {
-content: '';
-flex: 1;
-height: 1px;
-background: linear-gradient(to right, transparent, var(--paper-deep));
-}
-.divider::after {
-background: linear-gradient(to left, transparent, var(--paper-deep));
-}
-
-.divider-text {
-font-family: var(--font-display);
-font-size: 0.65rem;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: var(--ink-faint);
-white-space: nowrap;
-}
-
-/* ── PAGE NAV (prev / next) ───────────────────── */
-.page-nav {
-display: flex;
-justify-content: space-between;
-gap: 1rem;
-margin-top: 3rem;
-padding-top: 2rem;
-border-top: 1px solid var(--paper-deep);
-}
-
-.page-nav a {
-font-family: var(--font-display);
-font-size: 0.65rem;
-letter-spacing: 0.15em;
-text-transform: uppercase;
-color: var(--red);
-text-decoration: none;
-transition: color 0.2s;
-}
-
-.page-nav a:hover { color: var(--red-soft); }
-.page-nav .next { margin-left: auto; }
-
-/* ── FOOTER ───────────────────────────────────── */
-footer {
-position: relative;
-z-index: 1;
-background: var(--ink);
-color: var(--ink-faint);
-text-align: center;
-padding: 2rem var(--side);
-border-top: 1px solid rgba(154,122,58,0.3);
-}
-
-footer p {
-font-family: var(--font-body);
-font-size: 0.85rem;
-line-height: 1.8;
-}
-
-footer a { color: var(--gold-light); text-decoration: none; }
-footer a:hover { text-decoration: underline; }
-
-.footer-nav {
-list-style: none;
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-gap: 0.25rem 1.5rem;
-margin-bottom: 1.25rem;
-}
-
-.footer-nav a {
-font-family: var(--font-display);
-font-size: 0.6rem;
-letter-spacing: 0.15em;
-text-transform: uppercase;
-color: var(--ink-faint);
-}
-
-.footer-nav a:hover { color: var(--gold-light); }
-
-/* ── RESPONSIVE ───────────────────────────────── */
-@media (max-width: 680px) {
-.nav-toggle { display: flex; }
-
-.nav-links {
-display: none;
-flex-direction: column;
-width: 100%;
-border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.nav-links.open { 
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        border-top: 1px solid rgba(255,255,255,0.1);      
-        max-height: 75vh;       
-        overflow-y: auto;        
-        -webkit-overflow-scrolling: touch; 
-        
-      }
-
-.nav-inner { flex-wrap: wrap; }
-.pull-quote { padding: 1.5rem 1.5rem 1.5rem 1.75rem; }
-
-}
-
-/* ── ANIMATIONS ───────────────────────────────── */
-@media (prefers-reduced-motion: no-preference) {
-main { animation: fadeUp 0.6s ease both; }
-}
-
-@keyframes fadeUp {
-from { opacity: 0; transform: translateY(16px); }
-to { opacity: 1; transform: translateY(0); }
-}
-
-
-
-/* ── SECTION STYLING ──────────────────────────── */
-.chapter-section {
-margin-bottom: 4rem;
-padding-top: 2rem;
-border-top: 1px dashed var(--paper-deep);
-}
-
-.chapter-section:first-of-type {
-border-top: none;
-}
-
-
-/* --- BUTTON STYLING --- */
-.print-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--red);
-  color: #fff;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.2s, transform 0.1s;
-}
-
-.print-btn:hover {
-  background-color: var(--red-soft);
-  transform: translateY(-1px);
-}
-
-.print-btn:active {
-  transform: translateY(0);
-}
-
-
-
 </style>
 </head>
 
@@ -711,14 +256,14 @@ loading="lazy"
 PAGE-SPECIFIC CONTENT BEGINS
 ═══════════════════════════════════════════════ -->
 
+<main id="main">
+
 <!-- PAGE TITLE BLOCK → -->
 <div class="page-title-block">
 <span class="page-label">Memoir</span>
 <h1 class="page-title">The Road Home</h1>
 <p class="page-desc">A Memoir in Haibun by Tuan Tran</p>
 </div>
-
-<main id="main">
 
 <article class="prose">
 
