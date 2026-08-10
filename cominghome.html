@@ -27,232 +27,30 @@ PER-PAGE META DATA
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
 
+<link rel="stylesheet" href="site.css" />
+
 <style>
-/* ── RESET & BASE ─────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
---ink: #1a1610;
---ink-soft: #4a3f30;
---ink-faint: #8a7a68;
---paper: #f5f0e8;
---paper-warm: #ede5d4;
---paper-deep: #ddd2bc;
---red: #8b2020;
---red-soft: #a83030;
---gold: #9a7a3a;
---gold-light: #c4a265;
-
---font-display: 'Cinzel', serif;
---font-body: 'Crimson Pro', serif;
---font-quote: 'Cormorant Garamond', serif;
-
---max-w: 860px;
---side: clamp(1.25rem, 5vw, 3rem);
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-background-color: var(--paper);
-color: var(--ink);
-font-family: var(--font-body);
-font-size: clamp(1.05rem, 1.8vw, 1.2rem);
-line-height: 1.75;
-min-height: 100vh;
-}
-
-/* ── TEXTURE OVERLAY ──────────────────────────── */
-body::before {
-content: '';
-position: fixed;
-inset: 0;
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-pointer-events: none;
-z-index: 0;
-}
-
-/* ── SKIP LINK ────────────────────────────────── */
-.skip-link {
-position: absolute;
-top: -100%;
-left: 1rem;
-background: var(--red);
-color: #fff;
-padding: 0.5rem 1rem;
-border-radius: 0 0 4px 4px;
-font-family: var(--font-body);
-transition: top 0.2s;
-z-index: 999;
-}
-.skip-link:focus { top: 0; }
-
-/* ── HEADER ───────────────────────────────────── */
-header {
-position: relative;
-z-index: 10;
-background: var(--ink);
-color: var(--paper);
-padding: 2.5rem var(--side) 2rem;
-text-align: center;
-border-bottom: 3px solid var(--gold);
-}
-
-.site-eyebrow {
-font-family: var(--font-display);
-font-size: clamp(0.6rem, 1.2vw, 0.75rem);
-letter-spacing: 0.25em;
-color: var(--gold-light);
-text-transform: uppercase;
-margin-bottom: 0.75rem;
-}
-
-.site-title {
-font-family: var(--font-display);
-font-size: clamp(1.6rem, 4.5vw, 3rem);
-font-weight: 600;
-letter-spacing: 0.06em;
-line-height: 1.2;
-color: var(--paper);
-}
-
-.site-title a { color: inherit; text-decoration: none; }
-
-.site-subtitle {
-font-family: var(--font-quote);
-font-style: italic;
-font-size: clamp(0.95rem, 1.8vw, 1.2rem);
-color: var(--gold-light);
-margin-top: 0.5rem;
-font-weight: 300;
-}
-
-/* ── NAV ──────────────────────────────────────── */
-nav.main-nav {
-position: sticky;
-top: 0;
-z-index: 100;
-background: var(--ink);
-border-bottom: 1px solid var(--gold);
-}
-
-.nav-inner {
-max-width: var(--max-w);
-margin: 0 auto;
-padding: 0 var(--side);
-display: flex;
-align-items: center;
-justify-content: space-between;
-}
-
-.nav-toggle {
-display: none;
-flex-direction: column;
-gap: 5px;
-cursor: pointer;
-padding: 1rem 0;
-background: none;
-border: none;
-}
-.nav-toggle span {
-display: block;
-width: 24px;
-height: 2px;
-background: var(--gold-light);
-transition: all 0.3s;
-}
-.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-.nav-links { list-style: none; display: flex; flex-wrap: wrap; }
-
-.nav-links a {
-display: block;
-padding: 0.85rem 0.9rem;
-font-family: var(--font-display);
-font-size: clamp(0.55rem, 1vw, 0.7rem);
-letter-spacing: 0.12em;
-text-transform: uppercase;
-color: var(--paper-warm);
-text-decoration: none;
-transition: color 0.2s, background 0.2s;
-white-space: nowrap;
-}
-
-.nav-links a:hover,
-.nav-links a[aria-current="page"] {
-color: var(--gold-light);
-background: rgba(255,255,255,0.05);
-}
-
-/* ── BANNER ───────────────────────────────────── */
-.banner {
-width: 100%;
-max-height: 280px;
-object-fit: cover;
-object-position: center top;
-display: block;
-filter: sepia(20%) contrast(0.9);
-}
-
-/* ── PAGE TITLE BLOCK ─────────────────────────── */
-.page-title-block {
-background: var(--paper-warm);
-border-bottom: 1px solid var(--paper-deep);
-padding: 2rem var(--side);
-text-align: center;
-}
-
-.page-label {
-font-family: var(--font-display);
-font-size: 0.65rem;
-letter-spacing: 0.22em;
-text-transform: uppercase;
-color: var(--red);
-display: block;
-margin-bottom: 0.5rem;
-}
-
-.page-title {
-font-family: var(--font-display);
-font-size: clamp(1.4rem, 3.5vw, 2.2rem);
-font-weight: 600;
-letter-spacing: 0.06em;
-color: var(--ink);
-line-height: 1.2;
-}
-
-.page-desc {
-font-family: var(--font-quote);
-font-style: italic;
-font-weight: 300;
-font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-color: var(--ink-faint);
-margin-top: 0.5rem;
-}
-
-/* ── TABLE OF CONTENTS ───────────────────────── */
+/* ── PAGE-SPECIFIC: Table of Contents (cominghome.html) ───── */
 .toc-container {
-background: var(--paper-warm);
-border: 1px solid var(--paper-deep);
-border-left: 4px solid var(--gold);
-padding: 1.5rem 2rem;
-margin: 2rem auto;
-max-width: var(--max-w);
-border-radius: 0 4px 4px 0;
-box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  background: var(--paper-warm);
+  border: 1px solid var(--paper-deep);
+  border-left: 4px solid var(--gold);
+  padding: 1.5rem 2rem;
+  margin: 2rem auto;
+  max-width: var(--max-w);
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .toc-title {
-font-family: var(--font-display);
-font-size: 1rem;
-letter-spacing: 0.15em;
-text-transform: uppercase;
-color: var(--red);
-margin-bottom: 1rem;
-border-bottom: 1px solid var(--paper-deep);
-padding-bottom: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--paper-deep);
+  padding-bottom: 0.5rem;
 }
 
 .toc-list { list-style: none; columns: 1; column-gap: 2rem; }
@@ -262,229 +60,111 @@ padding-bottom: 0.5rem;
 .toc-list li { break-inside: avoid; margin-bottom: 0.5rem; }
 
 .toc-list a {
-font-family: var(--font-body);
-font-size: 0.95rem;
-color: var(--ink-soft);
-text-decoration: none;
-transition: color 0.2s;
-display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.2s;
+  display: inline-block;
 }
 
 .toc-list a:hover { color: var(--red); text-decoration: underline; }
 
-/* ── MAIN ─────────────────────────────────────── */
-main {
-position: relative;
-z-index: 1;
-max-width: var(--max-w);
-margin: 0 auto;
-padding: 3rem var(--side) 4rem;
-}
-
-/* ── PROSE ────────────────────────────────────── */
-.prose p { margin-bottom: 1.4em; color: var(--ink-soft); }
-.prose p:last-child { margin-bottom: 0; }
-
-.prose h2 {
-font-family: var(--font-display);
-font-size: clamp(0.8rem, 1.4vw, 0.95rem);
-letter-spacing: 0.18em;
-text-transform: uppercase;
-color: var(--red);
-margin: 2.5rem 0 1rem;
-}
-
-.prose h3 {
-font-family: var(--font-display);
-font-size: clamp(0.75rem, 1.2vw, 0.85rem);
-letter-spacing: 0.15em;
-text-transform: uppercase;
-color: var(--red-soft);
-margin: 2rem 0 1rem;
-}
-
-/* ── ENTRY DATE ───────────────────────────────── */
+/* ── PAGE-SPECIFIC: Journal Entry Dates ───────────────────── */
 .entry-date {
-font-family: var(--font-display);
-font-size: clamp(0.8rem, 1.4vw, 1rem);
-letter-spacing: 0.18em;
-text-transform: uppercase;
-color: var(--red);
-margin: 2.5rem 0 1rem;
-scroll-margin-top: 100px;
-line-height: 1.2;
+  font-family: var(--font-display);
+  font-size: clamp(0.8rem, 1.4vw, 1rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: 2.5rem 0 1rem;
+  scroll-margin-top: 100px;
+  line-height: 1.2;
 }
 .entry-date b { font-weight: normal; color: inherit; }
 
-/* ── PULL QUOTE ───────────────────────────────── */
-.pull-quote {
-margin: 2.5rem 0;
-padding: 1.75rem 2rem;
-background: var(--paper-warm);
-border-left: 4px solid var(--red);
-border-radius: 0 4px 4px 0;
-position: relative;
-}
-
-.pull-quote::before {
-content: '\201C';
-position: absolute;
-top: -0.5rem;
-left: 1.5rem;
-font-family: var(--font-quote);
-font-size: 5rem;
-color: var(--red);
-opacity: 0.2;
-line-height: 1;
-}
-
-.pull-quote p {
-font-family: var(--font-quote);
-font-style: italic;
-font-size: clamp(1.05rem, 2vw, 1.25rem);
-font-weight: 300;
-line-height: 1.7;
-color: var(--ink);
-margin: 0 !important;
-}
-
-.pull-quote cite {
-display: block;
-margin-top: 0.75rem;
-font-family: var(--font-display);
-font-style: normal;
-font-size: 0.65rem;
-letter-spacing: 0.15em;
-text-transform: uppercase;
-color: var(--red);
-}
-
-/* ── POEM BLOCK ───────────────────────────────── */
+/* ── PAGE-SPECIFIC: Poem Block ─────────────────────────────── */
+/* Overrides site.css's .poem-text (that version is for the
+   bilingual archive layout on light backgrounds; this one sits
+   on the dark featured-poem block, same design as the other pages) */
 .poem-block {
-background: var(--ink);
-color: var(--paper);
-padding: 2.5rem 2rem;
-border-radius: 4px;
-margin: 2.5rem 0;
-position: relative;
-overflow: hidden;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 2.5rem 2rem;
+  border-radius: 4px;
+  margin: 2.5rem 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .poem-block::before {
-content: '';
-position: absolute;
-inset: 0;
-background: linear-gradient(135deg, rgba(139,32,32,0.15) 0%, transparent 60%);
-pointer-events: none;
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(139,32,32,0.15) 0%, transparent 60%);
+  pointer-events: none;
 }
 
 .poem-label {
-font-family: var(--font-display);
-font-size: 0.6rem;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: var(--gold-light);
-margin-bottom: 1rem;
-display: block;
-}
-
-.poem-title {
-font-family: var(--font-display);
-font-size: clamp(0.9rem, 1.5vw, 1rem);
-letter-spacing: 0.1em;
-color: var(--gold-light);
-margin-bottom: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 1rem;
+  display: block;
 }
 
 .poem-text {
-font-family: var(--font-quote);
-font-style: italic;
-font-size: clamp(1rem, 2vw, 1.2rem);
-font-weight: 300;
-line-height: 2;
-color: var(--paper-warm);
-white-space: pre-line;
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 300;
+  line-height: 2;
+  color: var(--paper-warm);
+  white-space: pre-line;
 }
 
-/* ── DIVIDER ──────────────────────────────────── */
-.divider { display: flex; align-items: center; gap: 1rem; margin: 3rem 0 2rem; }
-.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--paper-deep)); }
-.divider::after { background: linear-gradient(to left, transparent, var(--paper-deep)); }
-.divider-text { font-family: var(--font-display); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint); white-space: nowrap; }
-
-/* ── PAGE NAV ─────────────────────────────────── */
-.page-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--paper-deep); }
-.page-nav a { font-family: var(--font-display); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); text-decoration: none; transition: color 0.2s; }
-.page-nav a:hover { color: var(--red-soft); }
-.page-nav .next { margin-left: auto; }
-
-/* ── FOOTER ───────────────────────────────────── */
-footer {
-position: relative;
-z-index: 1;
-background: var(--ink);
-color: var(--ink-faint);
-text-align: center;
-padding: 2rem var(--side);
-border-top: 1px solid rgba(154,122,58,0.3);
-}
-
-footer p { font-family: var(--font-body); font-size: 0.85rem; line-height: 1.8; }
-footer a { color: var(--gold-light); text-decoration: none; }
-footer a:hover { text-decoration: underline; }
-
-.footer-nav { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem 1.5rem; margin-bottom: 1.25rem; }
-.footer-nav a { font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-faint); }
-.footer-nav a:hover { color: var(--gold-light); }
-
-/* ── BUTTON ───────────────────────────────────── */
-.print-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--red);
-  color: #fff;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.2s, transform 0.1s;
-}
-.print-btn:hover { background-color: var(--red-soft); transform: translateY(-1px); }
-.print-btn:active { transform: translateY(0); }
-
-/* ── RESPONSIVE ───────────────────────────────── */
-@media (max-width: 680px) {
-  .nav-toggle { display: flex; }
-  .nav-links { display: none; flex-direction: column; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
-  .nav-links.open { display: flex; flex-direction: column; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); max-height: 75vh; overflow-y: auto; -webkit-overflow-scrolling: touch; }
-  .nav-inner { flex-wrap: wrap; }
-  .pull-quote { padding: 1.5rem 1.5rem 1.5rem 1.75rem; }
-  .toc-container { padding: 1rem; }
-  .toc-list { columns: 1; }
-}
-
-/* ── ANIMATIONS ───────────────────────────────── */
-@media (prefers-reduced-motion: no-preference) { main { animation: fadeUp 0.6s ease both; } }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-
-/* ── PRINT STYLES (FULL) ──────────────────────── */
+/* ── PAGE-SPECIFIC: Print Styles ───────────────────────────── */
 @media print {
-  nav.main-nav, footer, .page-nav, .skip-link, .print-btn, .nav-toggle { display: none !important; }
-  body::before { display: none !important; }
-  body { background: white !important; color: #000 !important; font-size: 12pt; line-height: 1.6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  main { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
-  .poem-block { display: block !important; visibility: visible !important; background: transparent !important; color: #000 !important; opacity: 1 !important; border-left: 3px solid #000; border-radius: 0; padding: 1rem 0 1rem 1.5rem; margin: 1.5rem 0; page-break-inside: avoid; break-inside: avoid; }
-  .poem-block *, .poem-text, .poem-label, .poem-title { color: #000 !important; background: transparent !important; opacity: 1 !important; }
-  .pull-quote { background: transparent !important; color: #000 !important; border-left: 3px solid #000; }
-  h1, h2, h3, .site-title, .page-title, .entry-date { color: #000 !important; }
-  p, .prose p { color: #000 !important; }
-  img { max-width: 100% !important; page-break-inside: avoid; }
-  p, .entry-date { page-break-inside: avoid; }
+  .poem-block {
+    display: block !important;
+    visibility: visible !important;
+    background: transparent !important;
+    color: #000 !important;
+    opacity: 1 !important;
+    border-left: 3px solid #000;
+    border-radius: 0;
+    padding: 1rem 0 1rem 1.5rem;
+    margin: 1.5rem 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .poem-block *,
+  .poem-text,
+  .poem-label {
+    color: #000 !important;
+    background: transparent !important;
+    opacity: 1 !important;
+  }
+
+  h1, h2, h3, .site-title, .page-title, .entry-date {
+    color: #000 !important;
+  }
+
+  p, .prose p {
+    color: #000 !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  p, .entry-date {
+    page-break-inside: avoid;
+  }
 }
 </style>
 </head>
@@ -530,13 +210,13 @@ footer a:hover { text-decoration: underline; }
 PAGE-SPECIFIC CONTENT
 ═══════════════════════════════════════════════ -->
 
+<main id="main">
+
 <div class="page-title-block">
   <span class="page-label">Journey</span>
   <h1 class="page-title">Returning to Vietnam:<br>A Viet Kieu's Journal (2001–2026)</h1>
   <p class="page-desc">Reuniting with family, confronting discrimination, and rediscovering roots.</p>
 </div>
-
-<main id="main">
 
 <article class="prose">
 
@@ -565,34 +245,33 @@ PAGE-SPECIFIC CONTENT
 <li><a href="#apr-25-2002">Apr 25, 2002 — Racism & Identity</a></li>
 <li><a href="#apr-30-2002">Apr 30, 2002 — Liberation Anniversary</a></li>
 <li><a href="#may-04-2002">May 04, 2002 — War Remnants Museum</a></li>
-<li><a href="#jun-14-2002">Jun 14, 2002 — Return to US</a></li>
+<li><a href="#may-05-2002">May 05, 2002 — Saigon Pictures</a></li>
+<li><a href="#may-14-2002">May 14, 2002 — Trade Embargo</a></li>
+<li><a href="#nov-08-2002">Nov 08, 2002 — From the Dhammapada</a></li>
 <li><a href="#jan-29-2004">Jan 29, 2004 — Education Standards</a></li>
 <li><a href="#feb-04-2004">Feb 04, 2004 — Operation Babylift</a></li>
-<li><a href="#apr-30-2004">Apr 30, 2004 — Response to JLF</a></li>
+<li><a href="#feb-21-2004">Feb 21, 2004 — Wedding Pictures</a></li>
+<li><a href="#apr-30-2004">Apr 30, 2004 — Letter from an American Teacher</a></li>
 <li><a href="#aug-16-2007">Aug 16, 2007 — International Schools</a></li>
+<li><a href="#aug-17-2007">Aug 17, 2007 — Teaching in Vietnam</a></li>
 <li><a href="#mar-22-2008">Mar 22, 2008 — Sexual Exploitation</a></li>
+<li><a href="#mar-23-2008">Mar 23, 2008 — Criminal Records Search</a></li>
+<li><a href="#mar-26-2008">Mar 26, 2008 — Reading about Myself</a></li>
 <li><a href="#apr-10-2008">Apr 10, 2008 — Obama & Hope</a></li>
-<li><a href="#nov-06-2008">Nov 06, 2008 — To President-Elect</a></li>
-<li><a href="#feb-28-2009">Feb 28, 2009 — Dialogue with Vet</a></li>
-<li><a href="#may-12-2009">May 12, 2009 — Advice for Viet Kieu</a></li>
-<li><a href="#oct-03-2010">Oct 03, 2010 — Novice Monk</a></li>
 <li><a href="#dec-11-2010">Dec 11, 2010 — PISA Test Scores</a></li>
-<li><a href="#feb-24-2011">Feb 24, 2011 — Letters to Teachers</a></li>
-<li><a href="#apr-22-2011">Apr 22, 2011 — Reverse Discrimination</a></li>
-<li><a href="#jun-02-2011">Jun 02, 2011 — The Deer Hunter</a></li>
-<li><a href="#dec-17-2012">Dec 17, 2012 — Chinese-Vietnamese</a></li>
-<li><a href="#oct-10-2014">Oct 10, 2014 — Advice to V.</a></li>
-<li><a href="#may-16-2016">May 16, 2016 — Donald Trump</a></li>
-<li><a href="#feb-15-2019">Feb 15, 2019 — Advice to MT</a></li>
 <li><a href="#jun-16-2026">Jun 16, 2026 — A Personal Note</a></li>
 </ul>
 </div>
 
 <h2 id="sep-19-2001" class="entry-date"><b>September 19, 2001</b></h2>
 <p>I arrived in Ho Chi Minh City on September 6, 2001. It was strange looking at the city from the airplane at night. The city lights were not like those of the West. They were of a different color, almost dreamy.</p>
-<p>The airport was very modern, not much different from other airports of developed countries. I felt joy seeing that Vietnam is not as impoverished or backward as I thought. There was order in going through customs. People waited in lines, not fighting to get to the front of the line, like the Vietnam I remembered in my childhood.</p>
+
+<p>The airport was very modern, not much different from other airports of developed countries. I felt joy seeing that Vietnam is not as impoverished or backward as I thought. There was order in going through customs. People waited in lines, not fighting to get to the front of the line, like the Vietnam I remembered in my childhood.
+</p>
 <p>I felt a little trepidation as I approached the customs official wearing a police uniform. He didn't say much as he inspected my U.S. passport and entry visa. I could read the expression of disdain on his face as he took some time inspecting my documents. I could tell he was thinking of me as a typical Viet Kieu (Overseas Vietnamese) who left Vietnam for a better life. So I said, "I left Vietnam in 1975, before the liberation of Saigon, and I am glad to see the airport is so modern." He curtly replied in the form of a question, "If not better, then what?" That was the extent of our conversation. I thanked him then proceeded to the baggage claims area.</p>
+
 <p>Some of the pictures of my childhood, and of the time I spent in the United States, I found looking through my mom's photo album.</p>
+
 <p><img src="infant.jpg" alt="Tuan Tran as an infant in Saigon" width="300" height="216"></p>
 <p><img src="boy.jpg" alt="Tuan Tran as a young boy in Saigon" width="194" height="300"></p>
 <p><img src="high-school.jpg" alt="Tuan Tran as a high school student in Saigon" width="234" height="300"></p>
@@ -602,26 +281,40 @@ PAGE-SPECIFIC CONTENT
 
 <h2 id="apr-18-2002" class="entry-date"><b>April 18, 2002</b></h2>
 <p>Dear Mr. Mark Godwin,</p>
+
 <p>I received your telephone call this morning in regard to your reasoning for not hiring me as a teacher at the ILA branch in Ho Chi Minh City, Vietnam. During your phone call, you stated the following reasons for not hiring me:</p>
+
 <p>1. I am not a native speaker.<br>
 2. I don't have English as a Second Language training.</p>
+
 <p>First of all, I want to point out that your reasons are mere excuses designed to hide the fact that your school practices racial discrimination. Specifically, your school discriminates against Vietnamese teachers, including Overseas Vietnamese.</p>
+
 <p>In regard to the phrase "native speaker," I am sure you are well aware of the fact that different countries speak English differently. For example, the British speak English quite differently compared to the Americans. Furthermore, even within a country such as the United States, African-Americans speak English differently compared to whites, or shall I say "European-Americans." Thus, there is no such thing as a "native speaker," since that phrase implies there is one correct way of speaking English.</p>
+
 <p>By the way, are you aware of the fact that both Henry Kissinger, the Secretary of State under the Nixon administration, and Madeleine Albright, the Secretary of State under the Clinton administration, are both immigrants who emigrated to the United States? Kissinger was fifteen years old when he arrived in America; Albright was eleven. To you, they are both native speakers simply because they are white.</p>
+
 <p>Secondly, in regard to not having English as a Second Language training, I would like to remind you that English is my second language. I am perfectly bilingual in both languages: English and Vietnamese. Moreover, I was a schoolteacher in the United States, and my students were both Americans and immigrants. In fact, it would be reasonable to make an assumption that an educated Overseas Vietnamese would make a better teacher by far, in comparison to white foreigners, since he or she has intimate knowledge of both languages and cultures.</p>
+
 <p>I think the evidence would be conclusive in that your school discriminates against Vietnamese teachers. There is not one single Vietnamese teacher, including Overseas Vietnamese, on your staff. I even have knowledge of an individual who was not even considered for an interview because she is Vietnamese.</p>
+
 <p>I am reasonably certain that most of your teachers don't even have a college education. What they have is a one-month training, at the most, on how to teach English. Do you think that would even approach the criteria of being a competent teacher?</p>
+
 <p>Sincerely,<br>Tuan Tran</p>
 
 <h2 id="apr-23-2002" class="entry-date"><b>April 23, 2002</b></h2>
 <p>When I was twelve years old, I went to live with my grandmother. When I was fourteen years old, I left for the United States. I left my family when I was too young, so I really didn't know my parents very well. I mean I didn't know about their personalities or characters as individuals.</p>
+
 <p>I had about three weeks with my mother before she suddenly passed away. It wasn't long enough for me to know her. But I am comforted by the knowledge that she did love me. You see, she was looking intently at the two pictures of my childhood which I posted on this website, and unbeknownst to her, I was watching her facial expression as she was looking at my pictures and describing me as a child.</p>
+
 <p>I don't have many memories of my childhood. The longer I am staying in Vietnam, though, the more I remember of my childhood. One day I was looking at the ceiling and I saw a gecko eating mosquitoes, and I remembered I used to watch geckos capturing and eating mosquitoes with their very quick movements. I also remember I used to look at the clouds in the sky — the deep blue sky and the swirls of the white clouds that would resemble whatever my imagination would conjure up at the time.</p>
 
 <h2 id="apr-25-2002" class="entry-date"><b>April 25, 2002</b></h2>
 <p>I used to smile a lot. I don't think it was by any coincidence that I lost my smile when I was in my thirties. It was around this time when I discovered racism in the United States, and I understood that I would never be totally accepted by mainstream American culture, or shall I say the Euro-centric American culture.</p>
+
 <p>I also realized that even if I had children and they were born in the United States, my children would not be accepted by mainstream America due to the fact that they are not white. Which reminds me of the lines from the famous "I Have a Dream" speech by Martin Luther King Jr.: "I have a dream that my four children will one day live in a nation where they will not be judged by the color of their skin but by the content of their character."</p>
+
 <p>I understood that America is a lie. Moreover, anyone decent and charismatic enough to challenge the status quo would be assassinated. For instance: Abraham Lincoln, Martin Luther King Jr., Malcolm X, John F. Kennedy, and Robert F. Kennedy.</p>
+
 <p>Well, I really should be writing about Vietnam, but I can't help it. I am very happy being in Vietnam. I find myself smiling again, and I notice that people here don't treat me like an outsider. I don't detect any of the discrimination I experienced in the United States.</p>
 
 <h2 id="apr-30-2002" class="entry-date"><b>April 30, 2002</b></h2>
@@ -636,12 +329,19 @@ PAGE-SPECIFIC CONTENT
 
 <h2 id="may-04-2002" class="entry-date"><b>May 4, 2002</b></h2>
 <p>I visited the American War Crimes Museum today (renamed the War Remnants Museum in 1995). The pictures confirmed what I discovered through my research about the Vietnam War while living in the United States.</p>
+
 <p>I am haunted by the images of the suffering. Sometimes I would see images of the people being burned by napalm, of the people being tortured by having long nails driven into their skulls, of the people being tortured by electricity and being thrown out of helicopters, or of children being shot while in their mothers' arms. I tried to comprehend how anyone could do these things, and why the Americans have so much hatred toward the Vietnamese people.</p>
+
 <p>I talked to the Vietnamese people here about the Vietnam War, or the American War as it is called here. I am astounded by the lack of hatred the Vietnamese people feel toward the Americans, and I am amazed by their kindness and their forgiving nature. I think it must be rooted in their belief about karma.</p>
+
 <p>But I am not as nice and forgiving as the people in Vietnam. I lived in America for so long, therefore I can't help but pick up some of the American values.</p>
+
 <p>Some of the statistics from the American War: approximately 2.2 million American males were drafted, with 543,400 soldiers in Vietnam at the peak in 1969. The United States dropped approximately 7.5 million tons of bombs on Vietnam, Laos, and Cambodia — more than three times the amount dropped by the U.S. during all of World War II. Approximately 75 million liters of herbicides, including Agent Orange, were sprayed in Vietnam. Over 22,000 corporations were directly involved in producing war materials.</p>
+
 <p>The impact on the Vietnamese people was devastating, with approximately 3 million Vietnamese people killed, and another 4 million injured.</p>
+
 <p><small>Note: According to the Vietnamese government's official 1995 statistics, approximately 2 million civilians on both sides and 1.1 million military personnel were killed. The U.S. military estimates 200,000–250,000 South Vietnamese soldiers killed. The Vietnamese government estimates up to 4 million people were exposed to Agent Orange, with as many as 3 million suffering illnesses and approximately 500,000 children born with birth defects.</small></p>
+
 <p><img src="war1.jpg" alt="War Remnants Museum exhibit — photograph of war victims" width="293" height="293"></p>
 <p><img src="war2.jpg" alt="War Remnants Museum exhibit — photograph of war atrocities" width="279" height="279"></p>
 <p><img src="war3.jpg" alt="War Remnants Museum exhibit — photograph of war damage" width="277" height="277"></p>
@@ -652,7 +352,8 @@ PAGE-SPECIFIC CONTENT
 <p><img src="war8.jpg" alt="War Remnants Museum exhibit — photograph of war consequences" width="280" height="280"></p>
 <p><img src="war9.jpg" alt="War Remnants Museum exhibit — photograph of war memorial display" width="295" height="295"></p>
 
-<h2 class="entry-date"><b>May 5, 2002</b></h2>
+
+<h2 id="may-05-2002" class="entry-date"><b>May 5, 2002</b></h2>
 <p>Le Loi street is the main street in the center of Ho Chi Minh City. This is where all of the big hotels and old buildings are located.</p>
 <p><img src="home13.jpg" alt="Le Loi Street, Ho Chi Minh City, May 2002" width="292" height="292"></p>
 <p><img src="home14.jpg" alt="Le Loi Street, Ho Chi Minh City, May 2002" width="279" height="279"></p>
@@ -660,15 +361,14 @@ PAGE-SPECIFIC CONTENT
 <p><img src="home16.jpg" alt="Le Loi Street, Ho Chi Minh City, May 2002" width="279" height="279"></p>
 <p><img src="home17.jpg" alt="Le Loi Street, Ho Chi Minh City, May 2002" width="293" height="293"></p>
 
-<h2 class="entry-date"><b>May 14, 2002</b></h2>
+<h2 id="may-14-2002" class="entry-date"><b>May 14, 2002</b></h2>
 <p>Vietnam is developing very quickly. There are construction sites going on everywhere. After the war, America used its influence worldwide to impose an economic embargo against Vietnam. The reasoning for not normalizing relations with Vietnam was the "fantasy" that Vietnam still held American soldiers in prison. In addition, the United States wanted a full accounting of the missing in action (MIA). The truth is America wanted to punish Vietnam for winning the war.</p>
+
 <p>It was only about five years ago that America lifted the embargo and normalized relations with Vietnam. Corporations in the United States exerted their political influence to press for normalizing relations with Vietnam, since a lot of other countries were doing business in Vietnam, and American corporations wanted to cash in on an emerging market.</p>
+
 <p>Vietnamese are ancestor worshipers. In fact, deceased family members are worshiped as well. Therefore, it is very important for the Vietnamese people to know for sure if a relative had died. During the war, the Americans dropped such gigantic bombs that Vietnamese soldiers often disintegrated. To this day, there are appeals every day on television for help locating missing soldiers.</p>
 
-<h2 id="jun-14-2002" class="entry-date"><b>June 14, 2002</b></h2>
-<p>I have decided to return to the United States and resume my teaching career there. I will continue to teach in Vietnam and get involved in humanitarian projects during each summer. I plan to be back in the United States early this September 2002.</p>
-
-<h2 class="entry-date"><b>November 8, 2002</b></h2>
+<h2 id="nov-08-2002" class="entry-date"><b>November 8, 2002</b></h2>
 <div class="poem-block">
   <span class="poem-label">From the Dhammapada</span>
   <div class="poem-text">Hate is never conquered by hate.<br>
@@ -678,8 +378,11 @@ This is an eternal law.</div>
 
 <h2 id="jan-29-2004" class="entry-date"><b>January 29, 2004</b></h2>
 <p>A report to the CSU's Board of Trustees (a governing body for the California State University system) found that more than 48 percent of the 38,086 first-time freshmen entering in the 2003 fall semester failed to meet English proficiency requirements, while 40 percent were not even ready for introductory math.</p>
+
 <p>Remember, these college freshmen have already graduated from high school and have been accepted to a university. Their level of education (high school graduate) is about the same as most of the white American teachers teaching English in Vietnam.</p>
-<p>It is no wonder why more than half of the Vietnamese students in Vietnam failed the English proficiency test such as the TOEFL, which is a requirement to study overseas, even after studying for years at expensive private English schools with foreign teachers, such as Hoi Viet My (Vietnam-USA Society, English Language Center).</p>
+
+<p>It is no wonder why more than half of the Vietnamese students in Vietnam failed the English proficiency test such as the TOEFL, which is a requirement to study overseas, even after studying for years at expensive private English schools with foreign teachers, such as Hoi Viet My (Vietnam-USA Society, English Language Center).
+</p>
 
 <h2 id="feb-04-2004" class="entry-date"><b>February 4, 2004</b></h2>
 <p>This journal entry is dedicated to the adopted children of Operation Babylift. Many of these adoptions lacked the consent of the parents, who never intended to give up their babies.</p>
@@ -694,7 +397,7 @@ What kind of name is that for a war victim?!</p>
 <p>Mrs. Rosenthal, aren't you and your husband just trying to atone for our collective national guilt through individual action?</p>
 <p>What an awful, CYNICAL thing to say! How could you… you think… think that…</p>
 
-<h2 class="entry-date"><b>February 21, 2004</b></h2>
+<h2 id="feb-21-2004"  class="entry-date"><b>February 21, 2004</b></h2>
 <p>A wedding album</p>
 <p><img src="1.jpg" alt="Wedding photograph, Vietnam" width="362" height="512"></p>
 <p><img src="2.jpg" alt="Wedding photograph, Vietnam" width="362" height="512"></p>
@@ -731,161 +434,122 @@ What kind of name is that for a war victim?!</p>
 <h2 id="apr-30-2004" class="entry-date"><b>April 30, 2004</b></h2>
 <p>Mr. Tran,</p>
 <p>As I was preparing a lesson on the Vietnam War, or American war as you called it, for my class, I came upon your pictures and journal. I must say that I was drawn into reading your journal by your pictures from your mother. You were a beautiful baby and a handsome young man.</p>
+
 <p>I was disturbed, however, to hear the bitterness and hate that you complain about in others in your own writing. I would like to apologize to you for any injustice that you feel you have received at the hands of Americans. I, too, look at pictures from Vietnam and am deeply disturbed by them. I do think that there was a lot of anger from many Americans toward the Vietnamese people after the war was over. I think that many of our "boys" did not want to be there and in that situation. From what I have learned over the years, many of our young men were traumatized by seeing the deaths of babies and children at the hands of their own people. This trauma turned them into something that could kill without conscience. I do not think that the hate was necessarily with the people of Vietnam but the concept of Vietnam. I also think that it was a long time ago and that the hate is no longer existent. Many of our men have traveled back to Vietnam to see people that they had made friends with so long ago. Many men have gone in search of their wives and loved ones that they were forced to leave when the Army pulled out and they were ordered to go.</p>
+
 <p>I was born a year before the war ended. I do not recall the feelings and only know about them through my parents and history, but I can say that I do not agree with many things done there. However, please do not hate a whole nation because of their government and the government's mistakes. Do not hate all of us because of a few bigots either. Take each and every person as an individual until you find a friend.</p>
+
 <p>From your description of Vietnam, I would hope to visit someday. It sounds truly lovely.</p>
+
 <p>Sincerely and with outstretched hands of friendship,</p>
 <p>JLF</p>
 <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid var(--paper-deep);">
-<p>Hello JLF,</p>
-<p>Thank you for your email. I certainly don't hate all Americans. In fact, I don't hate any American simply because that person is American. I know that any hatred I feel will only harm me ultimately, and not anyone else.</p>
-<p>Mistakes were made by the American government during the Vietnam War. However, the American people as a whole were also responsible, since they didn't stop the war. I think a lot of Americans would feel that I hate America and Americans from my writings.</p>
-<p>By the same logic, should the Jewish people hate all German people because of the Holocaust? Certainly, the German people as a whole didn't stop the Holocaust from happening. As for me, I can't hate anyone simply because they are ignorant.</p>
-<p>It is a lot like what Jesus said as He was dying on the cross: "Forgive them Father, for they don't know what they are doing."</p>
-<p>Sincerely,</p>
-<p>Tuan Tran</p>
-<p>P.S. One can't ever have too many friends, but even one enemy would be too many. I am more than happy to have you as a friend.</p>
 
 <h2 id="aug-16-2007" class="entry-date"><b>August 16, 2007</b></h2>
 <p>In Vietnam, especially in Ho Chi Minh City, there seems to be a great demand for international schools. The Vietnamese parents want their children to be enrolled in expensive private international schools, with the most popular ones being the American international schools. The tuition for these international schools is exorbitant, about one thousand U.S. dollars a month.</p>
+
 <p>However, the people in Vietnam are not aware that the U.S. educational system is failing. Due to the No Child Left Behind Act by Congress, elementary and high school students are required to take and pass both the English and math tests for their grade level. In 2005, only 23 percent of the grade 12 students were proficient or passed the math test, and only 35 percent were proficient or passed the English test. (Source: U.S. Department of Education, National Center for Educational Statistics.)</p>
+
 <p>Furthermore, there is an achievement gap between minority and white students. Minority students, such as Black and Hispanic, have lower scores than white students. There are various arguments as to why there is an achievement gap between minority and white students. However, there is evidence that students of color tend to perform better in school if their teachers are of the same race. Therefore, one can reasonably argue that a contributing factor of the achievement gap is the white teachers' inability or unwillingness to identify with the racial and cultural backgrounds of students of color.</p>
+
 <p>Now, we have the facts. First, the U.S. educational system is failing, yet parents in Vietnam are flocking to American international schools so that their children can have an American education. I even saw one parent putting two one-hundred-dollar U.S. bills in an envelope for a school administrator because the school "accepted" her child. Second, most international schools in Vietnam only hire white foreign teachers, even though most of these teachers have no teaching degrees or even college degrees, while Vietnamese-American teachers like myself have a hard time getting a teaching job in Vietnam. A lot of these white teachers think they are superior to the Vietnamese people. They have no interest in anything Vietnamese, except for the women.</p>
 
-<h2 class="entry-date"><b>August 17, 2007</b></h2>
+<h2 id="aug-17-2007" class="entry-date"><b>August 17, 2007</b></h2>
 <p>For my reflections on teaching English in Vietnam, see <a href="teaching.html">Teaching in Vietnam</a>.</p>
 
 <h2 id="mar-22-2008" class="entry-date"><b>March 22, 2008</b></h2>
 <p>It seems a lot of white English teachers in Ho Chi Minh City don't want the truth to come out. They don't want the Vietnamese people to know that most of them don't have a college degree from an accredited university, and a lot of them have sex with their students. On top of that (no pun intended), they make a ridiculous amount of money teaching English in Vietnam — an amount of money they would be unable to make in their own countries given their educational level.</p>
+
 <p>This week, a white teacher at my school made a photocopy of about half a page of my writing, with one sentence he strongly disagrees with, and handed it out to other white foreign teachers. The sentence is: "Just about every white teacher has seduced and sexually exploited their students, even virgins under eighteen years old." Two of the teachers decided to confront me. One entered my classroom while I was teaching and said I shouldn't be a teacher. He threatened to talk to the principal to get me fired. The other called me by a four-letter f-word and threatened to put me in a hospital.</p>
+
 <p>It would be inconceivable that any educated person, who is a teacher, would do that in a classroom in America. If they had done that to me in their own countries, I am sure they would have been fired by the school district or arrested by the police. Such is the white English teachers' disregard for the law in Vietnam. They also seem to forget about the freedom of speech accorded to every individual by the law, in their own countries, as well as in Vietnam.</p>
+
 <p>Anyway, I decided to do a search on the Internet today to find out if anything I wrote about white English teachers in Vietnam is so out of line or so grossly incorrect. I found out about the big brouhaha in Korea with white English teachers bragging on the Internet about how easy it is to get a job teaching English and have sex with Korean women.</p>
+
 <p>I found two of the postings below from a website to be very informative and funny:</p>
+
 <p>William<br>
 Posted January 12, 2005 at 5:20 pm | Permalink</p>
 <p>I've gotten an MA in Education from a well-known university in the U.S., as well as teaching six years at an inner-city school. There is an inherent process in getting a B.A. and M.A. in Education which weeds out incompetent and ethically unsuitable candidates from becoming an educator/teacher — a six-year process. Moreover, when one applies to a school district, he gets to have his fingerprints taken, FBI background check, etc., etc. As a teacher, I would spend a minimum of 60 hours per week "working" as a teacher — for pay less than what a grocery checker would make.</p>
+
 <p>As a teacher close to gaining his tenure, I was thinking about taking a year off to teach English in Korea. Out of curiosity I frequented a well-known, so-called "teachers" forum, a-hem, Dave's ESL Cafe, for a year or two.</p>
+
 <p>The amount of sleazy and filthy topics had me wonder whether I was actually at a "teacher's" forum. The negativity about Korean culture and the ridiculing of its people were quite common. The frequent posting of topics about having sex with Korean women or some delusional idea that if you are a Caucasian male teacher, you would have no problems having sex with different Korean women every night is probably the main reason why Hagwons are filled with the filthiest of filth from the Western countries. Based on what I learned about Korea, I guess you can't blame these losers for the English teacher problems — the Hagwon system has to take the blame as well.</p>
+
 <p>Of course, this is not to say that there weren't good, competent, and honest teachers; the bad ones tend to make the loudest noise just like in the classroom.</p>
+
 <p>I am not surprised by this type of reaction from the Korean fringe groups. I just wish that Korea implement some type of standard in hiring foreign English teachers, just like Japan — a minimum of an English degree and some teaching experience, or a non-English teaching degree plus a teaching credential.</p>
+
 <p>CH<br>
 Posted January 12, 2005 at 6:04 pm | Permalink</p>
+
 <p>A friend of mine who taught English in Japan called these white guys who teach English in Asian countries 2/10s. As in they were 2s in the U.S. They come to Asia and suddenly, they're 10s and they can bag any lady they want.</p>
+
 <p>I'm not a defensive Korean guy who wants to protect his "territory" but a Korean American woman (who happens to date a white guy back in the States). Aside from the fact that these English teachers make creepy Asianphiles in the States seem like sensitive gentlemen, I'm also just shocked, simply shocked that Korean women are attracted to these men. Behold the power of English! I mean I know there is this national obsession with the language, but come on. Get glasses! So many white male English teachers here are such pale pasty sad little sacks. Not to mention they're dumb as rocks and have absolutely no inclination to learn the culture. Oh well — they might be studs for a year but they'll have to return to their home countries someday, where all they'll have is a jar of Vaseline and a subscription to porn sites.</p>
 
-<h2 class="entry-date"><b>March 23, 2008</b></h2>
+<h2 id="mar-23-2008" class="entry-date"><b>March 23, 2008</b></h2>
 <p>Today's journal entry is a public service announcement to all of the schools: English language centers, Vietnamese schools, and international schools, in Vietnam.</p>
+
 <p>An American citizen's criminal record can be easily obtained by any employer, as a condition of employment, especially when it is related to working with children. This can be done by having that individual's fingerprints taken and checked against the FBI database of all convicted criminals in the United States.</p>
+
 <p>In Ho Chi Minh City, the IOM office (International Organization for Migration) will take an individual's fingerprints and have the prints processed by the FBI. I would request the IOM office directly mail the fingerprints, instead of having the individual mail the fingerprints to the FBI, and have the results sent to the school directly. The cost of having the fingerprints taken and processed is fifty U.S. dollars. The address of the IOM office is:</p>
+
 <p>IOM Sub-Office in Ho Chi Minh City<br>1B Pham Ngoc Thach Street<br>District 1<br>Ho Chi Minh City, Vietnam</p>
+
 <p>I am sure the process would be similar for citizens of other countries. The school can contact their embassy directly for further information.</p>
+
 <p>One can also check to see if a college in the United States and Canada is an accredited college, or a phony college, at www.chea.org. For accreditation in other countries, their embassy would also be able to help the school find out if a college in their country is accredited or not.</p>
+
 <p>To find out whether an individual's college diploma is real or not, one can check at National Student Clearinghouse to verify degree and enrollment. If a college is not listed on this website, one can contact the Registrar's Office of the college directly to verify a college degree and enrollment.</p>
 
-<h2 class="entry-date"><b>March 26, 2008</b></h2>
+<h2 id="mar-26-2008" class="entry-date"><b>March 26, 2008</b></h2>
 <p>I recently read about myself on an electronic bulletin board for foreign English teachers in Vietnam. A guy by the name of Jerry wrote the first posting about my website, asking them to read only one page of the website, to try to stir up problems for me. After that, I am amazed at the number of threats and negative postings about me. The following is one of the postings by "saigoncowboy."</p>
+
 <p>saigoncowboy<br>
 Joined: 16 Jun 2007<br>
 Posts: 47</p>
 <p>Post Posted: Mar Tue 25, 2008 9:59 am</p>
+
 <p>The web page has been deleted and new material has been added. What is disturbing is that the new material is just as damning. This guy isn't just shooting himself in the foot but in the head.</p>
+
 <p>I feel sorry for him. He is lost. Saigon is not a good place to be lost.</p>
+
 <p>The following is a paste from his current page: "One week later, four policemen and a community mental health counselor showed up at my apartment. They said the counselor at Evergreen told them I made a threat to shoot school children. They delivered a 'No Trespassing' order and told me I am banned from the Evergreen State College, and the Olympia School District, and all of the surrounding school districts as well.</p>
+
 <p>The Olympia newspaper ran a story about me the next day about the 'threat' I made. The Olympia School District sent letters to all of the parents about me. They circulated my name and picture, along with what kind of car I drove, to all of the schools. The parents demanded I'd be arrested. The community mental health counselor told me to be careful, and that my life was in danger."</p>
+
 <p>It seems that this writer, "saigoncowboy," is trying to portray me as being mentally unstable, by quoting something I wrote out of context, without giving the readers the benefit of reading my whole website and making their own opinions. Quoting someone out of context is simply being dishonest — intellectually dishonest.</p>
+
 <p>Even the Buddha, one of the greatest beings that has ever walked on this Earth, could be portrayed as being mentally unstable, if I quote one sentence from one of his sermons out of context. Furthermore, the Community Mental Health Therapist would have involuntarily committed me to a mental hospital if I was mentally unstable, and I could never have taught again in the United States.</p>
+
 <p>Secondly, this writer, "saigoncowboy," is a liar. He wrote that the material he quoted was "new material has been added." He doesn't know that my website is one of the websites that is archived by www.archive.org, an internet archive in the form of a digital library of internet sites. The passage he quoted existed from the beginning of my website in 2001.</p>
+
 <p>Finally, one white English teacher, "magic8ball," tried to defend me, but he was threatened and intimidated by "xyz."</p>
 
 <h2 id="apr-10-2008" class="entry-date"><b>April 10, 2008</b></h2>
 <p>I recently read about Barack Obama's speech on race in Philadelphia. I was struck by his ability to speak about the complexities of race in America with such nuance and depth. He acknowledged the pain and anger of both black and white communities, without demonizing either side.</p>
+
 <p>His speech reminded me of the importance of dialogue and understanding. We cannot solve our differences by ignoring them or pretending they don't exist. We must confront them head-on, with honesty and compassion.</p>
+
 <p>Obama's speech gave me hope that we can overcome our divisions and build a more just and equitable society. It also reminded me of the power of words to inspire change and bring people together.</p>
-
-<h2 id="nov-06-2008" class="entry-date"><b>November 6, 2008</b></h2>
-<p>To President-Elect Barack Obama,</p>
-<p>Congratulations on your historic victory. Your election represents a turning point in American history, and a beacon of hope for people around the world.</p>
-<p>As a Vietnamese-American who has experienced the pain of war and the challenges of immigration, I am deeply moved by your message of unity and change. I believe that your leadership can help heal the divisions in our country and restore America's standing in the world.</p>
-<p>I urge you to continue to champion the values of democracy, human rights, and social justice. I also encourage you to address the root causes of global conflict, including poverty, inequality, and environmental degradation.</p>
-<p>Thank you for your service to our country, and for giving us hope for a better future.</p>
-<p>Sincerely,<br>Tuan Tran</p>
-
-<h2 id="feb-28-2009" class="entry-date"><b>February 28, 2009</b></h2>
-<p>A veteran named John wrote to me after reading my journal. He shared his own experiences of the Vietnam War and expressed regret for the violence he witnessed. He apologized for the suffering caused by American forces.</p>
-<p>We exchanged emails for several months, discussing the war, its aftermath, and the possibility of reconciliation. His willingness to acknowledge the pain he caused, and his desire to make amends, touched me deeply.</p>
-<p>This dialogue reminded me that even in the midst of conflict, there is room for empathy and understanding. It also reinforced my belief in the power of forgiveness and the possibility of healing.</p>
-
-<h2 id="may-12-2009" class="entry-date"><b>May 12, 2009</b></h2>
-<p>Advice to Viet Kieu considering a return to Vietnam:</p>
-<p>1. Be prepared for culture shock. Vietnam has changed dramatically since you left, and it may not be the country you remember.</p>
-<p>2. Learn the language. While many Vietnamese speak English, knowing the local language will help you connect with people and navigate daily life.</p>
-<p>3. Be patient. Building relationships takes time, and trust must be earned.</p>
-<p>4. Be open-minded. Vietnam is a complex society with its own history, culture, and values. Avoid imposing your own beliefs or expectations.</p>
-<p>5. Be respectful. Acknowledge the pain of the past, but focus on building a better future.</p>
-<p>6. Be humble. You are a guest in your ancestral homeland, and should approach it with humility and gratitude.</p>
-
-<h2 id="oct-03-2010" class="entry-date"><b>October 3, 2010</b></h2>
-<p>I recently spent two weeks as a novice monk at a Buddhist temple in rural Vietnam. The experience was transformative, allowing me to reflect on my life, my purpose, and my connection to my heritage.</p>
-<p>The daily routine of meditation, chanting, and manual labor helped me cultivate mindfulness and inner peace. The monks' simplicity, generosity, and wisdom inspired me to live more intentionally and compassionately.</p>
-<p>Though I am not sure if I will pursue a monastic path, the lessons I learned during those two weeks will stay with me for the rest of my life.</p>
 
 <h2 id="dec-11-2010" class="entry-date"><b>December 11, 2010</b></h2>
 <p>The PISA (Programme for International Student Assessment) test results were released today. Vietnam ranked 17th out of 65 countries in math, 8th in science, and 12th in reading. This is a remarkable achievement for a developing country with limited resources.</p>
+
 <p>In contrast, the United States ranked 36th in math, 23rd in science, and 17th in reading. Despite spending more per student than any other country, the U.S. lags behind many nations in educational outcomes.</p>
+
 <p>This disparity highlights the importance of investing in education, particularly in early childhood and teacher training. It also underscores the need for systemic reforms to address inequality and improve student performance.</p>
-
-<h2 id="feb-24-2011" class="entry-date"><b>February 24, 2011</b></h2>
-<p>Letters to teachers in Vietnam:</p>
-<p>Dear Teacher,</p>
-<p>Thank you for your dedication to your students and your commitment to excellence. Your work is essential to the future of Vietnam, and I appreciate the sacrifices you make every day.</p>
-<p>I encourage you to continue seeking professional development, collaborating with colleagues, and exploring innovative teaching methods. Your passion and creativity can inspire generations of learners.</p>
-<p>With gratitude,<br>Tuan Tran</p>
-
-<h2 id="apr-22-2011" class="entry-date"><b>April 22, 2011</b></h2>
-<p>Reverse discrimination in Vietnam:</p>
-<p>While teaching in Vietnam, I have encountered instances of reverse discrimination, where Vietnamese people are treated unfairly because of their race or nationality. For example, some employers prefer to hire white foreign teachers over qualified Vietnamese teachers, regardless of their credentials or experience.</p>
-<p>This phenomenon reflects the lingering effects of colonialism and the global hierarchy of whiteness. It also highlights the need for greater awareness and advocacy for equity in hiring practices.</p>
-<p>As a Vietnamese-American, I feel a responsibility to challenge these biases and promote diversity and inclusion in the workplace.</p>
-
-<h2 id="jun-02-2011" class="entry-date"><b>June 2, 2011</b></h2>
-<p>I recently watched the film <em>The Deer Hunter</em>, which depicts the experiences of Vietnamese-American veterans returning home after the Vietnam War. The film's portrayal of trauma, alienation, and the struggle to reintegrate into society resonated deeply with me.</p>
-<p>Though the film has been criticized for its stereotypical depiction of Vietnamese people, it remains a powerful exploration of the psychological toll of war. It also raises important questions about the legacy of the Vietnam War and the ongoing impact on veterans and their families.</p>
-
-<h2 id="dec-17-2012" class="entry-date"><b>December 17, 2012</b></h2>
-<p>Chinese-Vietnamese identity:</p>
-<p>As a Chinese-Vietnamese, I have often struggled with questions of identity and belonging. My heritage is a complex mix of cultures, languages, and histories, and I sometimes feel caught between two worlds.</p>
-<p>However, I have come to embrace this hybridity as a source of strength and richness. My dual identity allows me to bridge divides, foster understanding, and celebrate diversity.</p>
-<p>I am proud to be Chinese-Vietnamese, and I will continue to explore and express this identity in all aspects of my life.</p>
-
-<h2 id="oct-10-2014" class="entry-date"><b>October 10, 2014</b></h2>
-<p>Advice to V., a young Viet Kieu teacher:</p>
-<p>Dear V.,</p>
-<p>I am grateful for your letter and your interest in my experiences. Teaching in Vietnam is a rewarding but challenging endeavor, and I am happy to offer some advice based on my own journey.</p>
-<p>First, be patient with yourself and others. Learning and growth take time, and setbacks are inevitable. Embrace them as opportunities for reflection and improvement.</p>
-<p>Second, seek out mentors and peers who can support and guide you. Building a network of trusted colleagues can provide valuable insights and encouragement.</p>
-<p>Third, stay curious and open-minded. Vietnam is a vibrant and dynamic country, and there is always something new to discover. Embrace the unknown with enthusiasm and humility.</p>
-<p>Finally, remember why you started. Keep your初心 (original intention) alive, and let it guide your actions and decisions.</p>
-<p>Warm regards,<br>Tuan Tran</p>
-
-<h2 id="may-16-2016" class="entry-date"><b>May 16, 2016</b></h2>
-<p>Donald Trump's rise to prominence in American politics has been a source of concern for many, including myself. His rhetoric of division, xenophobia, and nationalism threatens to undermine the values of democracy, equality, and justice.</p>
-<p>As a Vietnamese-American who has witnessed the consequences of authoritarianism and racism, I feel a deep sense of urgency to speak out against these harmful ideologies. I believe that we must stand together in defense of our shared humanity and our common future.</p>
-<p>I urge all Americans to reject fear and embrace hope, to reject hatred and embrace love, and to reject division and embrace unity.</p>
-
-<h2 id="feb-15-2019" class="entry-date"><b>February 15, 2019</b></h2>
-<p>Advice to MT, a fellow teacher:</p>
-<p>Dear MT,</p>
-<p>Thank you for reaching out and sharing your thoughts and concerns. Teaching is a noble profession, but it can also be demanding and frustrating at times. I understand the challenges you face, and I am here to support you in any way I can.</p>
-<p>Remember that you are not alone. There are many educators who share your passion and dedication, and who are willing to collaborate and learn from one another. Together, we can make a difference in the lives of our students and our communities.</p>
-<p>Keep shining your light, and never lose sight of the importance of your work.</p>
-<p>With warmth,<br>Tuan Tran</p>
 
 <h2 id="jun-16-2026" class="entry-date"><b>June 16, 2026</b></h2>
 <p>Reflecting on my journey from a refugee child to a teacher, writer, and community member, I am filled with gratitude for the opportunities and challenges that have shaped my life.</p>
+
 <p>The road home has been long and winding, filled with moments of joy and sorrow, triumph and defeat. But through it all, I have remained committed to the pursuit of truth, justice, and peace.</p>
+
 <p>I hope that my story can inspire others to embrace their own journeys, to find meaning in their struggles, and to build bridges across divides.</p>
 <p>Thank you for reading, and for being part of this journey with me.</p>
-<p>Sincerely,<br>Tuan Tran</p>
+
+<p>Sincerely,<br>
+Tuan Tran</p>
 
 </article>
 
