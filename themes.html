@@ -4,19 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Collected Haiku by Theme | Tuan Tran</title>
-    <meta name="description" content="The collected haiku of Tuan Tran arranged by theme: War, The Boat, The Forest, Daily Life, Snow, and Home." />
+    <meta name="description" content="The collected haiku of Tuan Tran arranged by theme: 1. War and Aftermath, 2. The Boat, 3. The Practice, 4. The Forest and the Robe, 5. The Garden and Daily Life, 6. The Snow and Winter, 7. Loss and Memory, 8. America and 9. Home." />
     <meta name="author" content="Tuan Tran">
-    
-    <!-- Reusing the same Google Fonts as poetry.html -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&family=Be+Vietnam:wght@300;400&display=swap" rel="stylesheet" />
 
     <style>
-        /* ── COPY OF YOUR EXISTING STYLES ─────────────────────────── */
-        /* (Ideally, you would link to an external stylesheet, but 
-           including them here ensures this page looks exactly right) */
-        
+               
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 /* Accessibility: Skip Link */
@@ -26,8 +21,8 @@
     left: 0;
     z-index: 1000;
     padding: 0.5rem 1rem;
-    background: var(--ink);
-    color: var(--paper);
+    background: var(--red);
+    color: #fff;
     font-family: var(--font-display);
     font-size: 0.75rem;
     letter-spacing: 0.1em;
@@ -54,6 +49,7 @@
             --font-display: 'Cinzel', serif;
             --font-body: 'Crimson Pro', serif;
             --font-quote: 'Cormorant Garamond', serif;
+            --font-vietnamese: 'Be Vietnam', 'Crimson Pro', serif;
 
             --max-w: 860px;
             --side: clamp(1.25rem, 5vw, 3rem);
@@ -118,6 +114,17 @@
             margin-top: 0.5rem;
             font-weight: 300;
         }
+
+/* ── ANIMATIONS ───────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+main { animation: fadeUp 0.6s ease both; }
+}
+
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(16px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
 
         /* Nav */
         nav.main-nav {
@@ -261,6 +268,14 @@
             font-weight: 600;
         }
 
+        /* Two-column grid: English | Vietnamese */
+        .poem-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
         .poem-text {
             font-family: var(--font-quote);
             font-style: italic;
@@ -268,6 +283,51 @@
             line-height: 2;
             color: var(--ink);
             white-space: pre-line;
+        }
+
+        .poem-text.vi {
+            font-family: var(--font-vietnamese);
+            font-style: normal;
+            font-weight: 300;
+            font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+            line-height: 2;
+            color: var(--ink-soft);
+            border-left: 2px solid var(--paper-deep);
+            padding-left: 1.5rem;
+        }
+
+        /* Column labels */
+        .col-label {
+            font-family: var(--font-display);
+            font-size: 0.55rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .col-label.vi-label {
+            padding-left: 1.5rem;
+        }
+
+        /* Responsive: stack vertically on small screens */
+        @media (max-width: 680px) {
+            .poem-columns {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .poem-text.vi {
+                border-left: none;
+                border-top: 2px solid var(--paper-deep);
+                padding-left: 0;
+                padding-top: 1rem;
+            }
+
+            .col-label.vi-label {
+                padding-left: 0;
+            }
         }
 
         /* Footer */
@@ -327,7 +387,10 @@
             body { background: white !important; color: #000 !important; font-size: 12pt; }
             main { max-width: 100% !important; padding: 0 !important; margin: 0 auto; }
             .poem-entry { background: transparent !important; border-left: 3px solid #000 !important; border-radius: 0; padding: 1rem 0 1rem 1.5rem; margin: 2rem 0; page-break-inside: avoid; }
-            .poem-entry *, .poem-text, .poem-number { color: #000 !important; background: transparent !important; opacity: 1 !important; }
+            .poem-entry *, .poem-text, .poem-number, .poem-text.vi { color: #000 !important; background: transparent !important; opacity: 1 !important; }
+            /* Keep side-by-side in print */
+            .poem-columns { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+            .poem-text.vi { border-left: 1px solid #ccc; padding-left: 1rem; }
             /* Remove forced page breaks for sections to prevent blank pages */
 .theme-section { 
     break-inside: avoid; 
@@ -405,165 +468,309 @@
 
     <!-- THEME 1: THE WAR AND THE AFTERMATH -->
     <section class="theme-section" id="war">
-        <h2 class="theme-header">I. The War and the Aftermath</h2>
+        <h2 class="theme-header">Theme 1. The War and the Aftermath</h2>
         <p class="theme-intro">
             Poems that bear witness to the conflict that shaped a generation, the fall of Saigon, and the immediate aftermath. These are the memories that refuse to fade.
         </p>
         
         <div class="archive-poem-list">
             <!-- Poem 7 -->
-            <div class="poem-entry">
-              <span class="poem-number">7</span>
-              <div class="poem-text">
-Bamboo branches swaying in the gentle breeze<br>
-water buffaloes reflecting in the moonlight<br>
-bombs falling like raindrops
-</div>
+<div class="poem-entry">
+  <span class="poem-number">7</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Bamboo branches swaying in the gentle breeze
+water buffaloes reflecting in the moonlight
+bombs falling like raindrops</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Cây tre đung đưa trong gió nhẹ
+Trâu nước chiếu dưới ánh trăng
+Bom rơi như hạt mưa</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 41 -->
-            <div class="poem-entry">
-              <span class="poem-number">41</span>
-              <div class="poem-text">
-Moonlit night<br>
-water buffaloes<br>
-listen to falling bombs
-</div>
+<div class="poem-entry">
+  <span class="poem-number">41</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Moonlit night
+water buffaloes
+listen to falling bombs</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Đêm trăng sáng
+Trâu nước
+Nghe bom rơi</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 80 -->
-            <div class="poem-entry">
-              <span class="poem-number">80</span>
-              <div class="poem-text">
-The birds didn't sing<br>
-during Tet<br>
-of 1968
-</div>
+<div class="poem-entry">
+  <span class="poem-number">80</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The birds didn't sing
+during Tet
+of 1968</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Chim không hót
+Trong dịp Tết
+Năm 1968</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 81 -->
-            <div class="poem-entry">
-              <span class="poem-number">81</span>
-              <div class="poem-text">
-Dead bodies<br>
-at<br>
-a gas station
-</div>
+<div class="poem-entry">
+  <span class="poem-number">81</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Dead bodies
+at
+a gas station</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Xác chết
+Tại
+Trạm xăng</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 82 -->
-            <div class="poem-entry">
-              <span class="poem-number">82</span>
-              <div class="poem-text">
-A motorcycle<br>
-with<br>
-bullet holes
-</div>
+<div class="poem-entry">
+  <span class="poem-number">82</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A motorcycle
+with
+bullet holes</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Chiếc xe máy
+Với
+Lỗ đạn</div>
+    </div>
+  </div>
 </div>
 
 
 <!-- Poem 69 -->
-            <div class="poem-entry">
-              <span class="poem-number">69</span>
-              <div class="poem-text">
-Mid-Autumn Festival<br>
-wishing for<br>
-a lantern and mooncake
-</div>
+<div class="poem-entry">
+  <span class="poem-number">69</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Mid-Autumn Festival
+wishing for
+a lantern and mooncake</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Tết Trung Thu
+Mong ước
+Đèn lồng và bánh trung thu</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 70 -->
-            <div class="poem-entry">
-              <span class="poem-number">70</span>
-              <div class="poem-text">
-It's a school day<br>
-I get<br>
-a loaf of French bread
-</div>
+<div class="poem-entry">
+  <span class="poem-number">70</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">It's a school day
+I get
+a loaf of French bread</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Ngày đi học
+Tôi được phát
+Một ổ bánh mì</div>
+    </div>
+  </div>
 </div>
 
             <!-- Poem 97 -->
-            <div class="poem-entry">
-              <span class="poem-number">97</span>
-              <div class="poem-text">
-White sand of Nha Trang<br>
-the French landed<br>
-then the Americans
-</div>
+<div class="poem-entry">
+  <span class="poem-number">97</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">White sand of Nha Trang
+the French landed
+then the Americans</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Cát trắng Nha Trang
+Người Pháp đổ bộ
+Rồi người Mỹ</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 112 -->
-            <div class="poem-entry">
-              <span class="poem-number">112</span>
-              <div class="poem-text">
-Napalm<br>
-on skin<br>
-the heat of the sun
-</div>
+<div class="poem-entry">
+  <span class="poem-number">112</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Napalm
+on skin
+the heat of the sun</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Napalm
+Trên da
+Nhiệt độ của mặt trời</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 143 -->
 <div class="poem-entry">
   <span class="poem-number">143</span>
-  <div class="poem-text">
-Cluster bomb pellets<br>
-rain down<br>
-from the sky
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Cluster bomb pellets
+rain down
+from the sky</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Bom bi
+Rơi xuống
+Như mưa</div>
+    </div>
+  </div>
 </div>
             
 <!-- Poem 13 -->
 <div class="poem-entry">
   <span class="poem-number">13</span>
-  <div class="poem-text">
-How strange<br>
-dragonflies<br>
-spitting fire
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">How strange
+dragonflies
+spitting fire</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Lạ lùng
+Chuồn chuồn
+Phun lửa</div>
+    </div>
+  </div>
 </div>
             
             <!-- Poem 124 -->
-            <div class="poem-entry">
-              <span class="poem-number">124</span>
-              <div class="poem-text">
-Conical hats<br>
-in emerald rice field<br>
-the sound of helicopters approaching
-</div>
+<div class="poem-entry">
+  <span class="poem-number">124</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Conical hats
+in emerald rice field
+the sound of helicopters approaching</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Những chiếc nón lá
+Trong cánh đồng lúa xanh
+Tiếng trực thăng tới gần</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 129 -->
-            <div class="poem-entry">
-              <span class="poem-number">129</span>
-              <div class="poem-text">
-Cu Chi tunnel<br>
-too small<br>
-for a mole
-</div>
+<div class="poem-entry">
+  <span class="poem-number">129</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Cu Chi tunnel
+too small
+for a mole</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Địa đạo Củ Chi
+Quá nhỏ
+Cho con chuột chũi</div>
+    </div>
+  </div>
 </div>
 
 
 <!-- Poem 138 -->
 <div class="poem-entry">
   <span class="poem-number">138</span>
-  <div class="poem-text">
-A boy<br>
-digging for metals<br>
-the bomb exploded
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A boy
+digging for scrap metals
+the bomb exploded</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Thằng bé
+Nhặt sắt vụn
+Quả bom nổ</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 139 -->
 <div class="poem-entry">
   <span class="poem-number">139</span>
-  <div class="poem-text">
-Children<br>
-with faces<br>
-of Agent Orange
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Children
+with faces
+of Agent Orange</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Những đứa trẻ
+Mang khuôn mặt
+Chất độc da cam</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 140 -->
 <div class="poem-entry">
   <span class="poem-number">140</span>
-  <div class="poem-text">
-How strange<br>
-these faces<br>
-of Agent Orange
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">How strange
+these faces
+of Agent Orange</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Lạ thay
+Những khuôn mặt này
+Của chất độc da cam</div>
+    </div>
+  </div>
 </div>
 
 
@@ -572,92 +779,164 @@ of Agent Orange
 
     <!-- THEME 2: THE BOAT -->
     <section class="theme-section" id="boat">
-        <h2 class="theme-header">II. The Boat</h2>
+        <h2 class="theme-header">Theme 2. The Boat</h2>
         <p class="theme-intro">
             The journey across the South China Sea. The thirst, the fear, the silence, and the rescue. The moment the ocean became a graveyard of boats.
         </p>
         <div class="archive-poem-list">
 
  <!-- Poem 96 -->
-            <div class="poem-entry">
-              <span class="poem-number">96</span>
-              <div class="poem-text">
-April 30, 1975<br>
-the journey<br>
-began
-</div>
+<div class="poem-entry">
+  <span class="poem-number">96</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">April 30, 1975
+the journey
+began</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Ngày 30 tháng 4 năm 1975
+Bắt đầu
+Cuộc hành trình</div>
+    </div>
+  </div>
 </div>
             
             <!-- Poem 93 -->
-            <div class="poem-entry">
-              <span class="poem-number">93</span>
-              <div class="poem-text">
-A gold necklace<br>
-from mother<br>
-for the boat journey
-</div>
+<div class="poem-entry">
+  <span class="poem-number">93</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A gold necklace
+from mother
+for the boat journey</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Vòng cổ vàng
+Mẹ cho
+Cho chuyến đi</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 118 -->
-            <div class="poem-entry">
-              <span class="poem-number">118</span>
-              <div class="poem-text">
-The view from a boat<br>
-leaving<br>
-fireworks over Saigon
-</div>
+<div class="poem-entry">
+  <span class="poem-number">118</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The view from a boat
+leaving
+fireworks over Saigon</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Cảnh nhìn từ thuyền
+Trên sông
+Pháo hoa từ Sài Gòn</div>
+    </div>
+  </div>
 </div>
 
 
 <!-- Poem 14 -->
-            <div class="poem-entry">
-              <span class="poem-number">14</span>
-              <div class="poem-text">
-One boat<br>
-alone<br>
-this vast ocean
-</div>
+<div class="poem-entry">
+  <span class="poem-number">14</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">One boat
+alone
+this vast ocean</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Một chiếc thuyền
+Bơ vơ
+Trên biển cả</div>
+    </div>
+  </div>
 </div>
 
 
 <!-- Poem 115 -->
-            <div class="poem-entry">
-              <span class="poem-number">115</span>
-              <div class="poem-text">
-The outfit<br>
-worn on the journey<br>
-seems so small now
-</div>
+<div class="poem-entry">
+  <span class="poem-number">115</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The outfit
+worn on the journey
+seems so small now</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Bộ đồ
+Mặc ngày vượt biển
+Giờ thấy nhỏ quá</div>
+    </div>
+  </div>
 </div>
 
             <!-- Poem 94 -->
-            <div class="poem-entry">
-              <span class="poem-number">94</span>
-              <div class="poem-text">
-The ship<br>
-turning around<br>
-someone jumped overboard
-</div>
+<div class="poem-entry">
+  <span class="poem-number">94</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The ship
+turning around
+someone jumped overboard</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Con tàu
+Quay lại
+Có người nhảy xuống biển</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 95 -->
-            <div class="poem-entry">
-              <span class="poem-number">95</span>
-              <div class="poem-text">
-A thirst<br>
-in a desert<br>
-of a boat at sea
-</div>
+<div class="poem-entry">
+  <span class="poem-number">95</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A thirst
+in a desert
+of a boat at sea</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Cái khát
+Trong sa mạc
+Của con tàu giữa biển</div>
+    </div>
+  </div>
 </div>
             
            
             <!-- Poem 122 -->
-            <div class="poem-entry">
-              <span class="poem-number">122</span>
-              <div class="poem-text">
-Deep blue and placid<br>
-a graveyard<br>
-of the boats at sea
-</div>
+<div class="poem-entry">
+  <span class="poem-number">122</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Deep blue and placid
+a graveyard
+of the boats at sea</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Xanh thẳm và lặng lẽ 
+Nghĩa địa
+Những con tàu giữa biển</div>
+    </div>
+  </div>
 </div>
 
         </div>
@@ -665,7 +944,7 @@ of the boats at sea
 
     <!-- THEME 3: THE PRACTICE -->
     <section class="theme-section" id="practice">
-        <h2 class="theme-header">III. The Practice</h2>
+        <h2 class="theme-header">Theme 3. The Practice</h2>
         <p class="theme-intro">
             The breath, the bell, the silence. Poems born from forty years of meditation, from the log on the beach to the forest monastery in Myanmar.
         </p>
@@ -674,414 +953,801 @@ of the boats at sea
 <!-- Poem 30 -->
 <div class="poem-entry">
   <span class="poem-number">30</span>
-  <div class="poem-text">
-White orchid<br>
-on the altar<br>
-the Buddha smiles
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">White orchid
+on the altar
+the Buddha smiles</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Phong lan trắng
+Trên ban thờ
+Đức Phật mỉm cười</div>
+    </div>
+  </div>
 </div>
 
 
 <!-- Poem 4 -->
 <div class="poem-entry">
-<span class="poem-number">4</span>
-<div class="poem-text">
-Dark clouds<br>
-approaching<br>
-songbirds still sing
-</div>
+  <span class="poem-number">4</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Dark clouds
+approaching
+songbirds still sing</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mây đen
+Đến gần
+Chim vẫn hót</div>
+    </div>
+  </div>
 </div>
               <!-- Poem 8 -->
-              <div class="poem-entry">
-              <span class="poem-number">8</span>
-              <div class="poem-text">
-Ego<br>
-my own ego<br>
-big as a mountain<br>
-chip at it<br>
-a little<br>
-each day
-</div>
+<div class="poem-entry">
+  <span class="poem-number">8</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Ego
+my own ego
+big as a mountain
+chip at it
+a little
+each day</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Như nước chảy đá mòn
+Hãy bớt cái mình
+Một ít mỗi ngày</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 9 -->
-            <div class="poem-entry">
-              <span class="poem-number">9</span>
-              <div class="poem-text">
-Master<br>
-seeking for you<br>
-halfway around the world<br>
-Guru<br>
-where are you<br>
-but in my heart
-</div>
+<div class="poem-entry">
+  <span class="poem-number">9</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Master
+seeking for you
+halfway around the world
+Guru
+where are you
+but in my heart</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Hãy tìm người thầy
+Từ
+Chính mình</div>
+    </div>
+  </div>
 </div>
             
             <!-- Poem 11 -->
-            <div class="poem-entry">
-              <span class="poem-number">11</span>
-              <div class="poem-text">
-Autumn breeze<br>
-falling leaves<br>
-why think of summer
-</div>
+<div class="poem-entry">
+  <span class="poem-number">11</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Autumn breeze
+falling leaves
+why think of summer</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Gió thu
+Lá rụng
+Sao nghĩ đến mùa hè</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 12 -->
-            <div class="poem-entry">
-              <span class="poem-number">12</span>
-              <div class="poem-text">
-Every caterpillar<br>
-metamorphoses<br>
-in its own time
-</div>
+<div class="poem-entry">
+  <span class="poem-number">12</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Every caterpillar
+metamorphoses
+in its own time</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mỗi sâu bướm
+Biến hình
+Theo thời gian của chính mình</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 27 -->
-            <div class="poem-entry">
-              <span class="poem-number">27</span>
-              <div class="poem-text">
-Temple bell<br>
-fading<br>
-silence remains
-</div>
+<div class="poem-entry">
+  <span class="poem-number">27</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Temple bell
+fading
+silence remains</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Tiếng chuông chùa
+Tan dần
+Còn lại tĩnh lặng</div>
+    </div>
+  </div>
 </div>
                                            
             <!-- Poem 47 -->
-            <div class="poem-entry">
-              <span class="poem-number">47</span>
-              <div class="poem-text">
-Still pond<br>
-full moon<br>
-no reflection
-</div>
+<div class="poem-entry">
+  <span class="poem-number">47</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Still pond
+full moon
+no reflection</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Ao lặng
+Trăng tròn
+Không thấy bóng</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 48 -->
-            <div class="poem-entry">
-              <span class="poem-number">48</span>
-              <div class="poem-text">
-Each breath<br>
-a death<br>
-renewal
-</div>
+<div class="poem-entry">
+  <span class="poem-number">48</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Each breath
+a death
+renewal</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mỗi hơi thở
+Một cái chết
+Tái sinh</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 71 -->
-            <div class="poem-entry">
-              <span class="poem-number">71</span>
-              <div class="poem-text">
-Every<br>
-breath<br>
-aware
-</div>
+<div class="poem-entry">
+  <span class="poem-number">71</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Every
+breath
+aware</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mỗi
+Hơi thở
+Đều biết</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 147 -->
 <div class="poem-entry">
   <span class="poem-number">147</span>
-  <div class="poem-text">
-A breath<br>
-between<br>
-the thoughts
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A breath
+between
+the thoughts</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Một hơi thở
+Giữa
+Những suy nghĩ</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 92 -->
 <div class="poem-entry">
-      <span class="poem-number">92</span>
-      <div class="poem-text">
-The moon<br>
-of yesterday<br>
-is the moon of yesterday
-</div>
+  <span class="poem-number">92</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The moon
+of yesterday
+is the moon of yesterday</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Ánh trăng hôm qua
+Vẫn là
+Ánh trăng hôm qua</div>
+    </div>
+  </div>
 </div>
 
             <!-- Poem 73 -->
-            <div class="poem-entry">
-              <span class="poem-number">73</span>
-              <div class="poem-text">
-A willow<br>
-yields<br>
-to the wind
-</div>
+<div class="poem-entry">
+  <span class="poem-number">73</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A willow
+yields
+to the wind</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Cây liễu
+Uốn mình
+Theo chiều gió</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 89 -->
-            <div class="poem-entry">
-              <span class="poem-number">89</span>
-              <div class="poem-text">
-Rhododendrons<br>
-in full bloom<br>
-the length of a breath
-</div>
+<div class="poem-entry">
+  <span class="poem-number">89</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Rhododendrons
+in full bloom
+the length of a breath</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Hoa đỗ quyên
+Nở
+Thời gian của một hơi thở</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 102 -->
-            <div class="poem-entry">
-              <span class="poem-number">102</span>
-              <div class="poem-text">
-In breath<br>
-out breath<br>
-at touching point
-</div>
+<div class="poem-entry">
+  <span class="poem-number">102</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">In breath
+out breath
+at touching point</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Thở vào
+Thở ra
+Tại điểm chạm</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 103 -->
-            <div class="poem-entry">
-              <span class="poem-number">103</span>
-              <div class="poem-text">
-A meditation bell<br>
-at sunrise<br>
-the sunflowers listen
-</div>
+<div class="poem-entry">
+  <span class="poem-number">103</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A meditation bell
+at sunrise
+the sunflowers listen</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Tiếng chuông thiền
+Lúc bình minh
+Hoa hướng dương lắng nghe</div>
+    </div>
+  </div>
 </div>
            
             <!-- Poem 110 -->
-            <div class="poem-entry">
-              <span class="poem-number">110</span>
-              <div class="poem-text">
-Temple bell<br>
-the frogs<br>
-become quiet
-</div>
+<div class="poem-entry">
+  <span class="poem-number">110</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Temple bell
+the frogs
+become quiet</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Tiếng chuông chùa
+Những con ếch
+Trở nên im lặng</div>
+    </div>
+  </div>
 </div>
             
             <!-- Poem 113 -->
-            <div class="poem-entry">
-              <span class="poem-number">113</span>
-              <div class="poem-text">
-Temple bell<br>
-vibration<br>
-enters the body
-</div>
+<div class="poem-entry">
+  <span class="poem-number">113</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Temple bell
+vibration
+enters the body</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Tiếng chuông chùa
+Rung động
+Thấm vào người</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 120 -->
-            <div class="poem-entry">
-              <span class="poem-number">120</span>
-              <div class="poem-text">
-A moon<br>
-reflected<br>
-in still water
-</div>
+<div class="poem-entry">
+  <span class="poem-number">120</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A moon
+reflected
+in still water</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mặt trăng
+Phản chiếu
+Trong nước tĩnh</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 121 -->
-            <div class="poem-entry">
-              <span class="poem-number">121</span>
-              <div class="poem-text">
-A meditation bell<br>
-at the end<br>
-the real practice begins
-</div>
+<div class="poem-entry">
+  <span class="poem-number">121</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A meditation bell
+at the end
+the real practice begins</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Tiếng chuông thiền
+Kết thúc
+Thực hành bắt đầu</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 149 -->
 <div class="poem-entry">
   <span class="poem-number">149</span>
-  <div class="poem-text">
-Temple bell<br>
-the sound<br>
-of non-attachment
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Temple bell
+the sound
+of non-attachment</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Chuông chùa
+Tiếng
+Của vô luyến</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 152 -->
 <div class="poem-entry">
   <span class="poem-number">152</span>
-  <div class="poem-text">
-A meditation<br>
-bell<br>
-the end can wait
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A meditation
+bell
+the end can wait</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Chuông thiền
+Sự kết thúc
+Chờ đợi</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 153 -->
 <div class="poem-entry">
   <span class="poem-number">153</span>
-  <div class="poem-text">
-The finger pointing at the moon<br>
-is not the moon<br>
-the breath is
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The finger pointing at the moon
+is not the moon
+the breath is</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Ngón tay chỉ vào mặt trăng
+Không phải là mặt trăng
+Mà là hơi thở</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 154 -->
 <div class="poem-entry">
   <span class="poem-number">154</span>
-  <div class="poem-text">
-Awareness<br>
-of the breath<br>
-this moment
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Awareness
+of the breath
+this moment</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Chánh niệm
+Của hơi thở
+Giây phút này</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 155 -->
 <div class="poem-entry">
   <span class="poem-number">155</span>
-  <div class="poem-text">
-The beauty<br>
-of the cherry blossoms<br>
-is in this moment
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The beauty
+of the cherry blossoms
+is in this moment</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Cái đẹp của hoa anh đào
+Nằm trong
+Giây phút này</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 156 -->
 <div class="poem-entry">
   <span class="poem-number">156</span>
-  <div class="poem-text">
-To live fully<br>
-in the present moment<br>
-is to be aware of the breath
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">To live fully
+in the present moment
+is to be aware of the breath</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Sống trọn vẹn
+Trong giây phút này
+Là nhận biết hơi thở</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 157 -->
 <div class="poem-entry">
   <span class="poem-number">157</span>
-  <div class="poem-text">
-To move<br>
-beyond suffering<br>
-is to be aware of the breath
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">To move
+beyond suffering
+is to be aware of the breath</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Vượt qua đau khổ
+Là nhận biết
+Hơi thở</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 158 -->
 <div class="poem-entry">
   <span class="poem-number">158</span>
-  <div class="poem-text">
-The breath is for all<br>
-rich or poor<br>
-just be aware
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The breath is for all
+rich or poor
+just be aware</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Hơi thở dành cho tất cả
+Kẻ giàu người nghèo
+Chỉ cần nhận biết</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 159 -->
 <div class="poem-entry">
   <span class="poem-number">159</span>
-  <div class="poem-text">
-Love<br>
-is being<br>
-in the moment
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Love
+is being
+in the moment</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Yêu
+Là sống
+Trong giây phút này</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 160 -->
 <div class="poem-entry">
   <span class="poem-number">160</span>
-  <div class="poem-text">
-Temple bell<br>
-the sound<br>
-of the moment
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Temple bell
+the sound
+of the moment</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Chuông chùa
+Âm thanh
+Của hiện tại</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 162 -->
 <div class="poem-entry">
   <span class="poem-number">162</span>
-  <div class="poem-text">
-An eternity<br>
-in the length<br>
-of a breath
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">An eternity
+in the length
+of a breath</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Một kiếp
+Trong chiều dài
+Của một hơi thở</div>
+    </div>
+  </div>
 </div>
 
+<!-- Poem 163 -->
+<div class="poem-entry">
+  <span class="poem-number">163</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Cherry blossoms
+fading
+the breath remains</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Hoa anh đào
+Đang tàn
+Còn lại hơi thở</div>
+    </div>
+  </div>
+</div>
 
         </div>
     </section>
 
     <!-- THEME 4: THE FOREST AND THE ROBE -->
     <section class="theme-section" id="forest">
-        <h2 class="theme-header">IV. The Forest and the Robe</h2>
+        <h2 class="theme-header">Theme 4. The Forest and the Robe</h2>
         <p class="theme-intro">
             The forty-five days as a novice monk in Myanmar. The simplicity of the hut, the silence of the woods, and the moment of leaving.
         </p>
         <div class="archive-poem-list">
             <!-- Poem 3 -->
-            <div class="poem-entry">
-              <span class="poem-number">3</span>
-              <div class="poem-text">
-Spiderweb<br>
-collecting morning dew<br>
-a graveyard of mosquitoes
-</div>
+<div class="poem-entry">
+  <span class="poem-number">3</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Spiderweb
+collecting morning dew
+a graveyard of mosquitoes</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mạng nhện
+Hứng sương mai
+Muỗi nằm im giữa tơ</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 6 -->
-            <div class="poem-entry">
-              <span class="poem-number">6</span>
-              <div class="poem-text">
-Dragonfly<br>
-in a pond of lotus flowers<br>
-be still
-</div>
+<div class="poem-entry">
+  <span class="poem-number">6</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Dragonfly
+in a pond of lotus flowers
+be still</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Chuồn chuồn
+Trên ao sen
+Hãy đứng yên</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 26 -->
-            <div class="poem-entry">
-              <span class="poem-number">26</span>
-              <div class="poem-text">
-Pink lotus<br>
-in full bloom<br>
-this muddy pond
-</div>
+<div class="poem-entry">
+  <span class="poem-number">26</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Pink lotus
+in full bloom
+this muddy pond</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Hoa sen hồng
+Nở rực rỡ
+Giữa ao bùn</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 39 -->
-            <div class="poem-entry">
-              <span class="poem-number">39</span>
-              <div class="poem-text">
-Temple bell<br>
-the forest<br>
-listens
-</div>
+<div class="poem-entry">
+  <span class="poem-number">39</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Temple bell
+the forest
+listens</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Tiếng chuông chùa
+Rừng
+Lắng nghe</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 109 -->
-            <div class="poem-entry">
-              <span class="poem-number">109</span>
-              <div class="poem-text">
-Temple bell<br>
-echo<br>
-in the forest
-</div>
+<div class="poem-entry">
+  <span class="poem-number">109</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Temple bell
+echo
+in the forest</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Chuông chùa
+Tiếng vang
+Trong rừng</div>
+    </div>
+  </div>
 </div>
             
             <!-- Poem 111 -->
-            <div class="poem-entry">
-              <span class="poem-number">111</span>
-              <div class="poem-text">
-Temple bell<br>
-in moonlight<br>
-no shadow in the forest
-</div>
+<div class="poem-entry">
+  <span class="poem-number">111</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Temple bell
+in moonlight
+no shadow in the forest</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Tiếng chuông chùa dưới ánh trăng
+Trong rừng
+Không thấy bóng</div>
+    </div>
+  </div>
 </div>
            
             <!-- Poem 128 -->
-            <div class="poem-entry">
-              <span class="poem-number">128</span>
-              <div class="poem-text">
-Temple bell<br>
-the sound<br>
-coming from the forest
-</div>
+<div class="poem-entry">
+  <span class="poem-number">128</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Temple bell
+the sound
+coming from the forest</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Tiếng chuông chùa
+Từ
+Trong rừng</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 148 -->
 <div class="poem-entry">
   <span class="poem-number">148</span>
-  <div class="poem-text">
-Autumn leaves<br>
-falling<br>
-the creek awaits
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Autumn leaves
+falling
+the creek awaits</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Lá mùa thu rơi
+Dòng suối
+Chờ đợi</div>
+    </div>
+  </div>
 </div>
 
             <!-- Poem 114 -->
-            <div class="poem-entry">
-              <span class="poem-number">114</span>
-              <div class="poem-text">
-A monk robe<br>
-on the hook<br>
-the last time
-</div>
+<div class="poem-entry">
+  <span class="poem-number">114</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A monk robe
+on the hook
+the last time</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Áo cà sa
+Trên cái móc
+Lần cuối</div>
+    </div>
+  </div>
 </div>
             
 <!-- Poem 134 -->
 <div class="poem-entry">
   <span class="poem-number">134</span>
-  <div class="poem-text">
-Lying awake<br>
-waiting for<br>
-the sound of the temple bell
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Lying awake
+waiting for
+the sound of the temple bell</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Nằm thao thức
+Chờ đợi
+Tiếng chuông chùa</div>
+    </div>
+  </div>
 </div>
 
         </div>
@@ -1089,7 +1755,7 @@ the sound of the temple bell
 
     <!-- THEME 5: THE GARDEN AND DAILY LIFE -->
     <section class="theme-section" id="garden">
-        <h2 class="theme-header">V. The Garden and Daily Life</h2>
+        <h2 class="theme-header">Theme 5. The Garden and Daily Life</h2>
         <p class="theme-intro">
             The quiet observations of the present. The bees, the peonies, the hummingbirds, and the simple act of watering. The watcher at work in the ordinary.
         </p>
@@ -1098,611 +1764,1176 @@ the sound of the temple bell
 <!-- Poem 1 -->
 <div class="poem-entry">
   <span class="poem-number">1</span>
-  <div class="poem-text">
-I saw<br>
-an earthworm<br>
-crawling<br>
-next to my feet<br>
-carefully<br>
-I picked it up<br>
-and placed it<br>
-in a flowerpot<br>
-so I wouldn't step on it<br>
-then I saw<br>
-another<br>
-I placed it<br>
-in the same flowerpot<br>
-so the other<br>
-won't be lonely
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">I saw
+an earthworm
+crawling
+next to my feet
+carefully
+I picked it up
+and placed it
+in a flowerpot
+so I wouldn't step on it
+then I saw
+another
+I placed it
+in the same flowerpot
+so the other
+won't be lonely</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Tôi thấy
+Một con giun
+Đang bò giữa chân
+Tôi nhặt nó lên
+Và đặt vào chậu hoa
+Để tôi không đạp lên nó
+Rồi tôi thấy một con nữa
+Tôi đặt nó vào chậu hoa đó
+Để con kia khỏi cô đơn</div>
+    </div>
+  </div>
 </div>
 
 
 <!-- Poem 19 -->
 <div class="poem-entry">
-<span class="poem-number">19</span>
-<div class="poem-text">
-Hummingbird<br>
-darting<br>
-a field of honeysuckles
-</div>
+  <span class="poem-number">19</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Hummingbird
+darting
+a field of honeysuckles</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Chim ruồi
+Bay chớp nhoáng
+Trên cánh đồng kim ngân</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 20 -->
-            <div class="poem-entry">
-              <span class="poem-number">20</span>
-              <div class="poem-text">
-The bird feeder<br>
-black sunflower seeds<br>
-chirping red-headed finches
-</div>
+<div class="poem-entry">
+  <span class="poem-number">20</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The bird feeder
+black sunflower seeds
+chirping red-headed finches</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Hạt hướng dương
+Cho chim
+Họa mi đầu đỏ</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 21 -->
-            <div class="poem-entry">
-              <span class="poem-number">21</span>
-              <div class="poem-text">
-Yellow butterfly<br>
-floating above<br>
-purple lavender
-</div>
+<div class="poem-entry">
+  <span class="poem-number">21</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Yellow butterfly
+floating above
+purple lavender</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Bươm bướm vàng
+Bay lượn
+Trên oải hương tím</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 22 -->
-            <div class="poem-entry">
-              <span class="poem-number">22</span>
-              <div class="poem-text">
-A bee<br>
-buzzing<br>
-the peony flower
-</div>
+<div class="poem-entry">
+  <span class="poem-number">22</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A bee
+buzzing
+the peony flower</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Con ong
+Vo ve
+Trên hoa mẫu đơn</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 131 -->
 <div class="poem-entry">
   <span class="poem-number">131</span>
-  <div class="poem-text">
-A spiderweb<br>
-across the rhododendron<br>
-how long have you been waiting
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A spiderweb
+across the rhododendron
+how long have you been waiting</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mạng nhện
+Giăng ngang hoa đỗ quyên
+Nhện chờ lâu chưa</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 146 -->
 <div class="poem-entry">
   <span class="poem-number">146</span>
-  <div class="poem-text">
-Don't worry'<br>
-spider<br>
-I don't mind the spiderweb
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Don't worry
+spider
+I don't mind the spiderweb</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Đừng lo nhện
+Mình không ngại
+Mạng nhện</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 34 -->
 <div class="poem-entry">
   <span class="poem-number">34</span>
-  <div class="poem-text">
-A brook<br>
-trickling down<br>
-a silent pond
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A brook
+trickling down
+a silent pond</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Dòng suối
+Chảy róc rách
+Vào hồ lặng</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 24 -->
-            <div class="poem-entry">
-              <span class="poem-number">24</span>
-              <div class="poem-text">
-The koi<br>
-moving<br>
-in silent pond
-</div>
+<div class="poem-entry">
+  <span class="poem-number">24</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The koi
+moving
+in silent pond</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Cá chép Nhật
+Uyển chuyển
+Trong hồ lặng</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 25 -->
-            <div class="poem-entry">
-              <span class="poem-number">25</span>
-              <div class="poem-text">
-Cricket<br>
-chirping<br>
-in moonlit night
-</div>
+<div class="poem-entry">
+  <span class="poem-number">25</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Cricket
+chirping
+in moonlit night</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Tiếng gọi
+Con dế
+Đêm trăng sáng</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 17 -->
 <!-- May 2026 -->
+<!-- Poem 17 -->
 <div class="poem-entry">
   <span class="poem-number">17</span>
-  <div class="poem-text">
-Peony flower<br>
-in spring<br>
-winter is over
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Peony flower
+in spring
+winter is over</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Hoa mẫu đơn
+Xuân đã đến
+Mùa đông đã đi qua</div>
+    </div>
+  </div>
 </div>
 
             <!-- Poem 35 -->
-            <div class="poem-entry">
-              <span class="poem-number">35</span>
-              <div class="poem-text">
-White peony<br>
-from the garden<br>
-on the kitchen table
-</div>
+<div class="poem-entry">
+  <span class="poem-number">35</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">White peony
+from the garden
+on the kitchen table</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mẫu đơn trắng
+Từ vườn
+Lên bàn</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 36 -->
-            <div class="poem-entry">
-              <span class="poem-number">36</span>
-              <div class="poem-text">
-White peony<br>
-bending<br>
-at the stem
-</div>
+<div class="poem-entry">
+  <span class="poem-number">36</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">White peony
+bending
+at the stem</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mẫu đơn trắng
+Uốn cong
+Tại cuống hoa</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 37 -->
-            <div class="poem-entry">
-              <span class="poem-number">37</span>
-              <div class="poem-text">
-Cooper's hawk<br>
-waiting<br>
-at the bird feeder
-</div>
+<div class="poem-entry">
+  <span class="poem-number">37</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Cooper's hawk
+waiting
+at the bird feeder</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Chim ưng Cooper
+Chờ đợi
+Nơi cho chim ăn</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 42 -->
-            <div class="poem-entry">
-              <span class="poem-number">42</span>
-              <div class="poem-text">
-Spring rain<br>
-Spanish lavender<br>
-scent in the air
-</div>
+<div class="poem-entry">
+  <span class="poem-number">42</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Spring rain
+Spanish lavender
+scent in the air</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mưa xuân
+Oải hương Tây Ban Nha
+Hương thơm trong gió</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 29 -->
 <div class="poem-entry">
   <span class="poem-number">29</span>
-  <div class="poem-text">
-White butterfly<br>
-alights<br>
-upon pink orchid
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">White butterfly
+alights
+upon pink orchid</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Bươm bướm trắng
+Nhẹ nhàng
+Trên phong lan hồng</div>
+    </div>
+  </div>
 </div>
 
             <!-- Poem 43 -->
-            <div class="poem-entry">
-              <span class="poem-number">43</span>
-              <div class="poem-text">
-Pink orchid<br>
-the shape<br>
-of a butterfly
-</div>
+<div class="poem-entry">
+  <span class="poem-number">43</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Pink orchid
+the shape
+of a butterfly</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Phong lan hồng
+Hình dáng
+Bươm bướm</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 32 -->
 <div class="poem-entry">
   <span class="poem-number">32</span>
-  <div class="poem-text">
-A grassy field<br>
-this wet spring evening<br>
-the sound of a frog
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A grassy field
+this wet spring evening
+the sound of a frog</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Cánh đồng cỏ
+Chiều xuân ẩm ướt
+Tiếng ếch vang</div>
+    </div>
+  </div>
 </div>
 
             <!-- Poem 44 -->
-            <div class="poem-entry">
-              <span class="poem-number">44</span>
-              <div class="poem-text">
-Pouring rain<br>
-the frogs<br>
-listen
-</div>
+<div class="poem-entry">
+  <span class="poem-number">44</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Pouring rain
+the frogs
+listen</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mưa tầm tã
+Những con cóc
+Lắng nghe</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 45 -->
-            <div class="poem-entry">
-              <span class="poem-number">45</span>
-              <div class="poem-text">
-Woodpecker<br>
-the sound<br>
-echo
-</div>
+<div class="poem-entry">
+  <span class="poem-number">45</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Woodpecker
+the sound
+echo</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Con gõ kiến
+Tiếng vang
+Trong rừng</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 46 -->
-            <div class="poem-entry">
-              <span class="poem-number">46</span>
-              <div class="poem-text">
-A finch released<br>
-chirping<br>
-on the fence
-</div>
+<div class="poem-entry">
+  <span class="poem-number">46</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A finch released
+chirping
+on the fence</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Chim họa mi
+Được thả
+Hót trên hàng rào</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 49 -->
-            <div class="poem-entry">
-              <span class="poem-number">49</span>
-              <div class="poem-text">
-A rose<br>
-fragrance<br>
-this moment
-</div>
+<div class="poem-entry">
+  <span class="poem-number">49</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A rose
+fragrance
+this moment</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Hoa hồng
+Hương thơm
+Trong khoảnh khắc này</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 23 -->
 <div class="poem-entry">
   <span class="poem-number">23</span>
-  <div class="poem-text">
-Cherry blossom<br>
-petal<br>
-falling
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Cherry blossom
+petal
+falling</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Cánh hoa
+Anh đào
+Rơi</div>
+    </div>
+  </div>
 </div>
 
             <!-- Poem 50 -->
-            <div class="poem-entry">
-              <span class="poem-number">50</span>
-              <div class="poem-text">
-Spring rain<br>
-cherry blossom<br>
-without flowers
-</div>
+<div class="poem-entry">
+  <span class="poem-number">50</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Spring rain
+cherry blossom
+without flowers</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mưa xuân
+Cây anh đào
+Không thấy hoa</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 51 -->
-            <div class="poem-entry">
-              <span class="poem-number">51</span>
-              <div class="poem-text">
-A mouse<br>
-trapped<br>
-set free
-</div>
+<div class="poem-entry">
+  <span class="poem-number">51</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A mouse
+trapped
+set free</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Con chuột
+Mắc bẫy
+Được thả</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 52 -->
-            <div class="poem-entry">
-              <span class="poem-number">52</span>
-              <div class="poem-text">
-Sorry spider<br>
-have<br>
-a better next life
-</div>
+<div class="poem-entry">
+  <span class="poem-number">52</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Sorry spider
+have
+a better next life</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Nhện ơi
+Xin lỗi
+Kiếp sau tốt hơn</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 53 -->
-            <div class="poem-entry">
-              <span class="poem-number">53</span>
-              <div class="poem-text">
-A fawn<br>
-the freeway<br>
-a truck swerves
-</div>
+<div class="poem-entry">
+  <span class="poem-number">53</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A fawn
+the freeway
+a truck swerves</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Nai con
+Trên xa lộ
+Xe tải né tránh</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 54 -->
-            <div class="poem-entry">
-              <span class="poem-number">54</span>
-              <div class="poem-text">
-Bees<br>
-enjoy the lavender<br>
-I'm just watering
-</div>
+<div class="poem-entry">
+  <span class="poem-number">54</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Bees
+enjoy the lavender
+I'm just watering</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Ong
+Cứ thưởng thức hoa oải hương
+Tôi chỉ tưới cây thôi</div>
+    </div>
+  </div>
 </div>
 
 
             <!-- Poem 55 -->
-            <div class="poem-entry">
-              <span class="poem-number">55</span>
-              <div class="poem-text">
-A teddy bear<br>
-my daughter's gift<br>
-on my birthday
-</div>
+<div class="poem-entry">
+  <span class="poem-number">55</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A teddy bear
+my daughter's gift
+on my birthday</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Con gấu bông
+Con gái tặng
+Sinh nhật mình</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 56 -->
-            <div class="poem-entry">
-              <span class="poem-number">56</span>
-              <div class="poem-text">
-Summertime<br>
-cricket chirping<br>
-by Costco parking lot
-</div>
+<div class="poem-entry">
+  <span class="poem-number">56</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Summertime
+cricket chirping
+by Costco parking lot</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mùa hè
+Tiếng dế kêu
+Bên bãi đậu xe Costco</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 57 -->
-            <div class="poem-entry">
-              <span class="poem-number">57</span>
-              <div class="poem-text">
-Summer evening<br>
-the cicadas<br>
-become quiet
-</div>
+<div class="poem-entry">
+  <span class="poem-number">57</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Summer evening
+the cicadas
+become quiet</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Chiều hè
+Ve sầu
+Trở nên yên lặng</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 58 -->
-            <div class="poem-entry">
-              <span class="poem-number">58</span>
-              <div class="poem-text">
-Three birds<br>
-on<br>
-a power line
-</div>
+<div class="poem-entry">
+  <span class="poem-number">58</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Three birds
+on
+a power line</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Ba con chim
+Trên
+Dây điện</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 59 -->
-            <div class="poem-entry">
-              <span class="poem-number">59</span>
-              <div class="poem-text">
-Sunset<br>
-a bird<br>
-on a bare branch
-</div>
+<div class="poem-entry">
+  <span class="poem-number">59</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Sunset
+a bird
+on a bare branch</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Hoàng hôn
+Một con chim
+Trên cành trơ</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 60 -->
-            <div class="poem-entry">
-              <span class="poem-number">60</span>
-              <div class="poem-text">
-Petunia basket<br>
-hummingbird<br>
-feeder
-</div>
+<div class="poem-entry">
+  <span class="poem-number">60</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Petunia basket
+hummingbird
+feeder</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Giỏ hoa petunia
+Chỗ ăn
+Của chim ruồi</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 61 -->
-            <div class="poem-entry">
-              <span class="poem-number">61</span>
-              <div class="poem-text">
-Petunia<br>
-in springtime<br>
-intoxicated bees
-</div>
+<div class="poem-entry">
+  <span class="poem-number">61</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Petunia
+in springtime
+intoxicated bees</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mùa xuân
+Hoa petunia
+Đàn ong say ngất ngây</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 18 -->
 <div class="poem-entry">
   <span class="poem-number">18</span>
-  <div class="poem-text">
-Autumn<br>
-leaves<br>
-falling
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Autumn
+leaves
+falling</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mùa thu
+Lá
+Rơi</div>
+    </div>
+  </div>
 </div>
 
             <!-- Poem 62 -->
-            <div class="poem-entry">
-              <span class="poem-number">62</span>
-              <div class="poem-text">
-Autumn leaves<br>
-falling<br>
-in a gentle breeze
-</div>
+<div class="poem-entry">
+  <span class="poem-number">62</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Autumn leaves
+falling
+in a gentle breeze</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mùa thu
+Lá vàng
+Rơi trong gió nhẹ</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 67 -->
-            <div class="poem-entry">
-              <span class="poem-number">67</span>
-              <div class="poem-text">
-The fireplace<br>
-a log glowing<br>
-like fireflies
-</div>
+<div class="poem-entry">
+  <span class="poem-number">67</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The fireplace
+a log glowing
+like fireflies</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Lò sưởi
+Củi cháy
+Như đom đóm</div>
+    </div>
+  </div>
 </div>
             
             <!-- Poem 74 -->
-            <div class="poem-entry">
-              <span class="poem-number">74</span>
-              <div class="poem-text">
-Persimmon branches<br>
-swaying<br>
-are you happy I'm watering
-</div>
+<div class="poem-entry">
+  <span class="poem-number">74</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Persimmon branches
+swaying
+are you happy I'm watering</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Cây hồng
+Đung đưa
+Vui vì được tưới nước</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 79 -->
-            <div class="poem-entry">
-              <span class="poem-number">79</span>
-              <div class="poem-text">
-The kite<br>
-my brother made<br>
-soaring in the wind
-</div>
+<div class="poem-entry">
+  <span class="poem-number">79</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The kite
+my brother made
+soaring in the wind</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Chiếc diều
+Anh làm
+Bay cao trong gió</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 86 -->
-            <div class="poem-entry">
-              <span class="poem-number">86</span>
-              <div class="poem-text">
-A bee<br>
-makes honey<br>
-that's all
-</div>
+<div class="poem-entry">
+  <span class="poem-number">86</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A bee
+makes honey
+that's all</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Con ong
+Làm mật
+Thế thôi</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 87 -->
-            <div class="poem-entry">
-              <span class="poem-number">87</span>
-              <div class="poem-text">
-This summer<br>
-heat wave<br>
-the cicadas become quiet
-</div>
+<div class="poem-entry">
+  <span class="poem-number">87</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">This summer
+heat wave
+the cicadas become quiet</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mùa hè này
+Trời nóng bức
+Ve sầu trở nên im lặng</div>
+    </div>
+  </div>
 </div>
 
 
 <!-- Poem 141 -->
 <div class="poem-entry">
   <span class="poem-number">141</span>
-  <div class="poem-text">
-Summertime<br>
-the peony flowers<br>
-collecting dew from the hose
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Summertime
+the peony flowers
+collecting dew from the hose</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mùa hè
+Hoa mẫu đơn
+Hứng sương từ vòi nước</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 145 -->
 <div class="poem-entry">
   <span class="poem-number">145</span>
-  <div class="poem-text">
-Summer heat<br>
-late to the garden<br>
-the sunflowers look away
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Summer heat
+late to the garden
+the sunflowers look away</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Nắng hè
+Vào vườn trễ
+Hoa hướng dương quay mặt đi</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 151 -->
 <div class="poem-entry">
   <span class="poem-number">151</span>
-  <div class="poem-text">
-Sunflower<br>
-playing<br>
-peek-a-boo
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Sunflower
+playing
+peek-a-boo</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Hoa hướng dương
+Chơi
+Trốn tìm</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 161 -->
 <div class="poem-entry">
   <span class="poem-number">161</span>
-  <div class="poem-text">
-Sunflower<br>
-awaiting<br>
-butterflies
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Sunflower
+awaiting
+butterflies</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Hoa hướng dương
+Chờ đợi
+Bươm bướm</div>
+    </div>
+  </div>
 </div>
 
 
 <!-- Poem 150 -->
 <div class="poem-entry">
   <span class="poem-number">150</span>
-  <div class="poem-text">
-I don't mind<br>
-standing in the sun<br>
-to water you peony
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">I don't mind
+standing in the sun
+to water you peony</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mình không ngại
+Đứng dưới nắng
+Để tưới hoa mẫu đơn</div>
+    </div>
+  </div>
 </div>
 
             <!-- Poem 88 -->
-            <div class="poem-entry">
-              <span class="poem-number">88</span>
-              <div class="poem-text">
-Two potted blueberries<br>
-by the fence<br>
-for passersby
-</div>
+<div class="poem-entry">
+  <span class="poem-number">88</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Two potted blueberries
+by the fence
+for passersby</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Hai chậu việt quất
+Bên hàng rào
+Cho người qua đường</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 90 -->
-            <div class="poem-entry">
-              <span class="poem-number">90</span>
-              <div class="poem-text">
-A spider<br>
-has<br>
-feelings too
-</div>
+<div class="poem-entry">
+  <span class="poem-number">90</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A spider
+has
+feelings too</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Con nhện
+Cũng có
+Cảm xúc</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 91 -->
-            <div class="poem-entry">
-              <span class="poem-number">91</span>
-              <div class="poem-text">
-Dew drops<br>
-disappear<br>
-in morning sun
-</div>
+<div class="poem-entry">
+  <span class="poem-number">91</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Dew drops
+disappear
+in morning sun</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Giọt sương
+Tan biến
+Trong nắng mai</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 101 -->
-            <div class="poem-entry">
-              <span class="poem-number">101</span>
-              <div class="poem-text">
-White peony<br>
-translucent<br>
-in sunlight
-</div>
+<div class="poem-entry">
+  <span class="poem-number">101</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">White peony
+translucent
+in sunlight</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Hoa mẫu đơn trắng
+Trong suốt
+Dưới ánh nắng</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 105 -->
-            <div class="poem-entry">
-              <span class="poem-number">105</span>
-              <div class="poem-text">
-White orchid<br>
-wilting<br>
-on the kitchen table
-</div>
+<div class="poem-entry">
+  <span class="poem-number">105</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">White orchid
+wilting
+on the kitchen table</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Phong lan trắng
+Đang tàn
+Trên bàn ăn</div>
+    </div>
+  </div>
 </div>
         </div>
     </section>
 
     <!-- THEME 6: SNOW AND WINTER -->
     <section class="theme-section" id="snow">
-        <h2 class="theme-header">VI. Snow and Winter</h2>
+        <h2 class="theme-header">Theme 6. Snow and Winter</h2>
         <p class="theme-intro">
             The cold of Pennsylvania, the homelessness, the quiet of the empty chair. The snow that covers the past and the present alike.
         </p>
         <div class="archive-poem-list">
             <!-- Poem 28 -->
-            <div class="poem-entry">
-              <span class="poem-number">28</span>
-              <div class="poem-text">
-Footsteps<br>
-in<br>
-falling snow
-</div>
+<div class="poem-entry">
+  <span class="poem-number">28</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Footsteps
+in
+falling snow</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Dấu chân
+Trong
+Băng tuyết</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 68 -->
-            <div class="poem-entry">
-              <span class="poem-number">68</span>
-              <div class="poem-text">
-Walking<br>
-in falling snow<br>
-with no destination
-</div>
+<div class="poem-entry">
+  <span class="poem-number">68</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Walking
+in falling snow
+with no destination</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Bước đi
+Trong tuyết rơi
+Không nơi đến</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 75 -->
-            <div class="poem-entry">
-              <span class="poem-number">75</span>
-              <div class="poem-text">
-Full moon<br>
-cold winter night<br>
-I walk on
-</div>
+<div class="poem-entry">
+  <span class="poem-number">75</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Full moon
+cold winter night
+I walk on</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Trăng tròn
+Đêm đông lạnh
+Tôi đi từng bước</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 83 -->
-            <div class="poem-entry">
-              <span class="poem-number">83</span>
-              <div class="poem-text">
-Winter snow<br>
-melting<br>
-the river flows
-</div>
+<div class="poem-entry">
+  <span class="poem-number">83</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Winter snow
+melting
+the river flows</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Tuyết mùa đông
+Tan
+Sông chảy</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 84 -->
-            <div class="poem-entry">
-              <span class="poem-number">84</span>
-              <div class="poem-text">
-Moonlit night<br>
-casting my shadow<br>
-into the night
-</div>
+<div class="poem-entry">
+  <span class="poem-number">84</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Moonlit night
+casting my shadow
+into the night</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Đêm trăng sáng
+In bóng
+Mình</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 85 -->
-            <div class="poem-entry">
-              <span class="poem-number">85</span>
-              <div class="poem-text">
-Moonlight<br>
-shadow on snow<br>
-my companion
-</div>
+<div class="poem-entry">
+  <span class="poem-number">85</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Moonlight
+shadow on snow
+my companion</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Ánh trăng
+Bóng trên tuyết
+Người bạn đồng hành</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 104 -->
-            <div class="poem-entry">
-              <span class="poem-number">104</span>
-              <div class="poem-text">
-Watching<br>
-the breath<br>
-in falling snow
-</div>
+<div class="poem-entry">
+  <span class="poem-number">104</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Watching
+the breath
+in falling snow</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Nhìn
+Hơi thở
+Giữa tuyết rơi</div>
+    </div>
+  </div>
 </div>
             
             <!-- Poem 126 -->
-            <div class="poem-entry">
-              <span class="poem-number">126</span>
-              <div class="poem-text">
-In winter snow<br>
-I asked the Abbot<br>
-for a place to stay
-</div>
+<div class="poem-entry">
+  <span class="poem-number">126</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">In winter snow
+I asked the Abbott
+for a place to stay</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Trong tuyết mùa đông
+Mình xin sư trụ trì
+Nơi trú ngụ</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 127 -->
-            <div class="poem-entry">
-              <span class="poem-number">127</span>
-              <div class="poem-text">
-Winter snow<br>
-covering my home<br>
-the VW Bug
-</div>
+<div class="poem-entry">
+  <span class="poem-number">127</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Winter snow
+covering my home
+the VW Bug</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Tuyết mùa đông
+Phủ kín nhà tôi
+Chiếc VW Bug</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 133 -->
 <div class="poem-entry">
   <span class="poem-number">133</span>
-  <div class="poem-text">
-In bitter cold<br>
-with no place to go<br>
-I keep walking
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">In bitter cold
+with no place to go
+I keep walking</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Giá buốt
+Không nơi nào để về
+Mình vẫn bước đi</div>
+    </div>
+  </div>
 </div>
 
 
@@ -1711,178 +2942,332 @@ I keep walking
 
     <!-- THEME 7: LOSS AND MEMORY -->
     <section class="theme-section" id="loss">
-        <h2 class="theme-header">VII. Loss and Memory</h2>
+        <h2 class="theme-header">Theme 7. Loss and Memory</h2>
         <p class="theme-intro">
             The things left behind, the people who are gone, the moments of letting go. The ache that remains when the snow melts.
         </p>
         <div class="archive-poem-list">
             <!-- Poem 10 -->
-            <div class="poem-entry">
-              <span class="poem-number">10</span>
-              <div class="poem-text">
-Ten years<br>
-seems as yesterday<br>
-I have not let go
-</div>
+<div class="poem-entry">
+  <span class="poem-number">10</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Ten years
+seems as yesterday
+I have not let go</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mười năm
+Trông như ngày hôm qua
+Mình đã chưa buông bỏ</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 15 -->
-            <div class="poem-entry">
-              <span class="poem-number">15</span>
-              <div class="poem-text">
-In my darkest hour<br>
-I cried out for you<br>
-I love you, mom
-</div>
+<div class="poem-entry">
+  <span class="poem-number">15</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">In my darkest hour
+I cried out for you
+I love you, mom</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Trong thời gian tối tăm nhất
+Con nghĩ đến mẹ
+Con yêu mẹ</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 38 -->
-            <div class="poem-entry">
-              <span class="poem-number">38</span>
-              <div class="poem-text">
-Forget-me-not<br>
-on<br>
-an empty park bench
-</div>
+<div class="poem-entry">
+  <span class="poem-number">38</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Forget-me-not
+on
+an empty park bench</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Hoa forget-me-not
+Trên ghế công viên
+Không người</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 2 -->
 <div class="poem-entry">
   <span class="poem-number">2</span>
-  <div class="poem-text">
-Like a sailboat<br>
-in a vast blue sea<br>
-without a compass<br>
-or a star<br>
-to point the way<br>
-then you appear<br>
-bright as the northern star<br>
-radiant and lovely<br>
-with that far-away look<br>
-in your eyes<br>
-and lips so moist<br>
-as the morning dew<br>
-and suddenly<br>
-I am no longer lost<br>
-as I steer<br>
-by the light<br>
-of the northern star
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Like a sailboat
+in a vast blue sea
+without a compass
+or a star
+to point the way
+then you appear
+bright as the northern star
+radiant and lovely
+with that far-away look
+in your eyes
+and lips so moist
+as the morning dew
+and suddenly
+I am no longer lost
+as I steer
+by the light
+of the northern star</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Như thuyền buồm
+Giữa biển xanh mênh mông
+Không la bàn
+Không sao chỉ lối
+Rồi em đến
+Sáng như sao Bắc Đẩu
+Đẹp tuyệt vời
+Với ánh mắt xa xăm
+Đôi môi ẩm như sương mai
+Bỗng nhiên
+Tôi không còn lạc lõng
+Và lái thuyền theo ánh sáng
+Của sao Bắc Đẩu</div>
+    </div>
+  </div>
 </div>
 
             <!-- Poem 63 -->
-            <div class="poem-entry">
-              <span class="poem-number">63</span>
-              <div class="poem-text">
-A cat<br>
-for a companion<br>
-after the separation
-</div>
+<div class="poem-entry">
+  <span class="poem-number">63</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A cat
+for a companion
+after the separation</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Con mèo
+Là bạn
+Sau khi chia tay</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 64 -->
 <div class="poem-entry">
   <span class="poem-number">64</span>
-  <div class="poem-text">
-Kitty cat<br>
-would you like<br>
-a glass of wine
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Kitty cat
+would you like
+a glass of wine</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mèo ơi
+Có muốn
+Một ly rượu vang không</div>
+    </div>
+  </div>
 </div>
  
 <!-- Poem 142 -->
 <div class="poem-entry">
   <span class="poem-number">142</span>
-  <div class="poem-text">
-A peony<br>
-wilting<br>
-the bee lingers
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A peony
+wilting
+the bee lingers</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Hoa mẫu đơn
+Đang tàn
+Ong vẫn vương vấn</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 144 -->
 <div class="poem-entry">
   <span class="poem-number">144</span>
-  <div class="poem-text">
-The last flowering<br>
-of the Spanish Lavender<br>
-the bees can't let go
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The last flowering
+of the Spanish Lavender
+the bees can't let go</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Hoa oải hương cuối cùng
+Đang tàn
+Ong vẫn còn lưu luyến</div>
+    </div>
+  </div>
 </div>
 
            <!-- Poem 65 -->
-            <div class="poem-entry">
-              <span class="poem-number">65</span>
-              <div class="poem-text">
-White peony petals<br>
-on the ground<br>
-the color of passing
-</div>
+<div class="poem-entry">
+  <span class="poem-number">65</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">White peony petals
+on the ground
+the color of passing</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Cánh hoa mẫu đơn trắng
+Trên mặt đất
+Màu của sự ra đi</div>
+    </div>
+  </div>
 </div>
             
             <!-- Poem 77 -->
-            <div class="poem-entry">
-              <span class="poem-number">77</span>
-              <div class="poem-text">
-Chopin nocturnes<br>
-in moonlight<br>
-alone
-</div>
+<div class="poem-entry">
+  <span class="poem-number">77</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Chopin nocturnes
+in moonlight
+alone</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Nocturne Chopin
+Trong ánh trăng
+Một mình</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 78 -->
-            <div class="poem-entry">
-              <span class="poem-number">78</span>
-              <div class="poem-text">
-Last spring<br>
-I planted a persimmon tree<br>
-to remember you
-</div>
+<div class="poem-entry">
+  <span class="poem-number">78</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Last spring
+I planted a persimmon tree
+to remember you</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Xuân năm ngoái
+Anh trồng cây hồng
+Để nhớ em</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 16 -->
 <div class="poem-entry">
-<span class="poem-number">16</span>
-<div class="poem-text">
-Temple bell ringing<br>
-I think<br>
-of my friend
-</div>
+  <span class="poem-number">16</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Temple bell ringing
+I think
+of my friend</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Tiếng chuông chùa
+Tôi nghĩ tới
+Người bạn</div>
+    </div>
+  </div>
 </div>
 
             <!-- Poem 106 -->
-            <div class="poem-entry">
-              <span class="poem-number">106</span>
-              <div class="poem-text">
-Empty chair<br>
-at the table<br>
-it's snowing
-</div>
+<div class="poem-entry">
+  <span class="poem-number">106</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Empty chair
+at the table
+it's snowing</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Chiếc ghế trống
+Tại bàn ăn
+Tuyết đang rơi</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 123 -->
-            <div class="poem-entry">
-              <span class="poem-number">123</span>
-              <div class="poem-text">
-The wedding band<br>
-at the bottom of the lake<br>
-the moment I let go
-</div>
+<div class="poem-entry">
+  <span class="poem-number">123</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The wedding band
+at the bottom of the lake
+the moment I let go</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Nhẫn cưới
+Dưới đáy hồ
+Giải thoát</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 125 -->
-            <div class="poem-entry">
-              <span class="poem-number">125</span>
-              <div class="poem-text">
-Weeping cherry<br>
-blossoms<br>
-hesitantly falling
-</div>
+<div class="poem-entry">
+  <span class="poem-number">125</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Weeping cherry
+blossoms
+hesitantly falling</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Hoa anh đào rủ
+Đã nở
+Rơi ngập ngừng</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 137 -->
 <div class="poem-entry">
   <span class="poem-number">137</span>
-  <div class="poem-text">
-A rose<br>
-on a dining table<br>
-dinner for one
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A rose
+on a dining table
+dinner for one</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Một bông hồng
+Trên bàn ăn
+Bữa tối một mình</div>
+    </div>
+  </div>
 </div>
 
 
@@ -1891,65 +3276,119 @@ dinner for one
 
     <!-- THEME 8: AMERICA -->
     <section class="theme-section" id="america">
-        <h2 class="theme-header">VIII. America</h2>
+        <h2 class="theme-header">Theme 8. America</h2>
         <p class="theme-intro">
             The strange land of arrival. The fireworks, the BBQ, the silence of the immigrant, the feeling of being a guest.
         </p>
         <div class="archive-poem-list">
             <!-- Poem 66 -->
-            <div class="poem-entry">
-              <span class="poem-number">66</span>
-              <div class="poem-text">
-I took the one less traveled by<br>
-in a yellow wood<br>
-but needed a cane
-</div>
+<div class="poem-entry">
+  <span class="poem-number">66</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">I took the one less traveled by
+in a yellow wood
+but needed a cane</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Tôi chọn con đường ít ai đi
+Trong rừng lá vàng
+Nhưng cần gậy chống</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 76 -->
-            <div class="poem-entry">
-              <span class="poem-number">76</span>
-              <div class="poem-text">
-Lighthouse Mission<br>
-that was<br>
-a good meal
-</div>
+<div class="poem-entry">
+  <span class="poem-number">76</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Lighthouse Mission
+that was
+a good meal</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Lighthouse Mission
+Một bữa ăn
+Ngon</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 116 -->
-            <div class="poem-entry">
-              <span class="poem-number">116</span>
-              <div class="poem-text">
-July 4th<br>
-the scent of charcoal<br>
-from the hibachi
-</div>
+<div class="poem-entry">
+  <span class="poem-number">116</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">July 4th
+the scent of charcoal
+from the hibachi</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Ngày 4 tháng 7
+Hương than
+Từ lò nướng Hibachi</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 117 -->
-            <div class="poem-entry">
-              <span class="poem-number">117</span>
-              <div class="poem-text">
-The familiar<br>
-sound of explosion<br>
-on July 4th
-</div>
+<div class="poem-entry">
+  <span class="poem-number">117</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">The familiar
+sound of explosion
+on July 4th</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Âm thanh của tuổi thơ
+Tiếng nổ
+Ngày 4 tháng 7</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 119 -->
-            <div class="poem-entry">
-              <span class="poem-number">119</span>
-              <div class="poem-text">
-A Black man<br>
-became a mute<br>
-in America
-</div>
+<div class="poem-entry">
+  <span class="poem-number">119</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A Black man
+became a mute
+in America</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Người Mỹ da đen
+Trở thành người câm
+Trên đất Mỹ</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 130 -->
 <div class="poem-entry">
   <span class="poem-number">130</span>
-  <div class="poem-text">
-A wrong turn<br>
-on solar eclipse<br>
-two men met me with two M16
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A wrong turn
+on solar eclipse
+two men met me with two M16</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Rẽ nhầm
+Vào lúc nhật thực
+Hai gã cầm hai khẩu M16 đón tôi</div>
+    </div>
+  </div>
 </div>
 
 
@@ -1958,145 +3397,271 @@ two men met me with two M16
 
     <!-- THEME 9: HOME -->
     <section class="theme-section" id="home">
-        <h2 class="theme-header">IX. Home</h2>
+        <h2 class="theme-header">Theme 9. Home</h2>
         <p class="theme-intro">
             The shape of Vietnam, the sound of the ocean, the return. The question of where the road ends.
         </p>
         <div class="archive-poem-list">
             <!-- Poem 33 -->
-            <div class="poem-entry">
-              <span class="poem-number">33</span>
-              <div class="poem-text">
-A salmon<br>
-returning<br>
-the stream awaits
-</div>
+<div class="poem-entry">
+  <span class="poem-number">33</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A salmon
+returning
+the stream awaits</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Cá hồi
+Trở về
+Dòng suối chờ đợi</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 31 -->
 <div class="poem-entry">
   <span class="poem-number">31</span>
-  <div class="poem-text">
-Autumn leaves<br>
-on<br>
-a winding path
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Autumn leaves
+on
+a winding path</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Lá thu vàng
+Trên con đường
+Quanh co</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 40 -->
-            <div class="poem-entry">
-              <span class="poem-number">40</span>
-              <div class="poem-text">
-Autumn fog<br>
-covering<br>
-the road home
-</div>
+<div class="poem-entry">
+  <span class="poem-number">40</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Autumn fog
+covering
+the road home</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Sương mùa thu
+Bao phủ
+Lối về</div>
+    </div>
+  </div>
 </div>
             
             <!-- Poem 98 -->
-            <div class="poem-entry">
-              <span class="poem-number">98</span>
-              <div class="poem-text">
-S-shaped<br>
-hugging the sea<br>
-the shape of home
-</div>
+<div class="poem-entry">
+  <span class="poem-number">98</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">S-shaped
+hugging the sea
+the shape of home</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Hình chữ S
+Ôm lấy biển
+Hình dáng quê hương</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 98b -->
-            <div class="poem-entry">
-              <span class="poem-number">98b</span>
-              <div class="poem-text">
-Ao dai<br>
-the shape<br>
-of Viet Nam
-</div>
+<div class="poem-entry">
+  <span class="poem-number">98b</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Ao dai
+the shape
+of Viet Nam</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Áo dài
+Hình dáng
+Việt Nam</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 72 -->
 <div class="poem-entry">
   <span class="poem-number">72</span>
-  <div class="poem-text">
-A bicycle ride home<br>
-from school<br>
-ao dai flutters like butterfly
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">A bicycle ride home
+from school
+ao dai flutters like butterfly</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Chiếc xe đạp về nhà
+Từ trường
+Áo dài bay như bươm bướm</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 99 -->
-            <div class="poem-entry">
-              <span class="poem-number">99</span>
-              <div class="poem-text">
-Tet here<br>
-is not like<br>
-Tet there
-</div>
+<div class="poem-entry">
+  <span class="poem-number">99</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Tet here
+is not like
+Tet there</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Tết bên đây
+Không như
+Tết bên kia</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 100 -->
-            <div class="poem-entry">
-              <span class="poem-number">100</span>
-              <div class="poem-text">
-Skylark<br>
-on a barbwire<br>
-are you looking for home
-</div>
+<div class="poem-entry">
+  <span class="poem-number">100</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Skylark
+on a barbwire
+are you looking for home</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Chim sơn ca
+Trên dây kẽm gai
+Đang tìm lối về</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 5 -->
 <div class="poem-entry">
   <span class="poem-number">5</span>
-  <div class="poem-text">
-Desert moon<br>
-shone brightly<br>
-a lone wanderer
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Desert moon
+shone brightly
+a lone wanderer</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Trong sa mạc
+Một người đi
+Dưới ánh trăng</div>
+    </div>
+  </div>
 </div>
 
             <!-- Poem 107 -->
-            <div class="poem-entry">
-              <span class="poem-number">107</span>
-              <div class="poem-text">
-Ocean waves<br>
-the sound<br>
-of home
-</div>
+<div class="poem-entry">
+  <span class="poem-number">107</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Ocean waves
+the sound
+of home</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Sóng biển
+Âm thanh
+Của quê hương</div>
+    </div>
+  </div>
 </div>
             <!-- Poem 108 -->
-            <div class="poem-entry">
-              <span class="poem-number">108</span>
-              <div class="poem-text">
-Bamboo pole across shoulder<br>
-carrying two loads<br>
-Saigon remembers me
-</div>
+<div class="poem-entry">
+  <span class="poem-number">108</span>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Bamboo pole across shoulder
+carrying two loads
+Saigon remembers me</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Đòn gánh
+Trên vai
+Sài Gòn còn nhớ tôi</div>
+    </div>
+  </div>
 </div>
             
             
 <!-- Poem 132 -->
 <div class="poem-entry">
   <span class="poem-number">132</span>
-  <div class="poem-text">
-Summer heat<br>
-the journey<br>
-in each step
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Summer heat
+the journey
+in each step</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Mùa hè nóng
+Cuộc hành trình
+Trong từng bước</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 135 -->
 <div class="poem-entry">
   <span class="poem-number">135</span>
-  <div class="poem-text">
-This old wooden chair<br>
-weather worn in the garden<br>
-about to fall apart
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">This old wooden chair
+weather worn in the garden
+about to fall apart</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Chiếc ghế gỗ cũ
+Ở ngoài vườn
+Sắp gãy</div>
+    </div>
+  </div>
 </div>
 
 <!-- Poem 136 -->
 <div class="poem-entry">
   <span class="poem-number">136</span>
-  <div class="poem-text">
-Old crow<br>
-on a bare branch<br>
-autumn is not here yet
-</div>
+  <div class="poem-columns">
+    <div>
+      <span class="col-label">English</span>
+      <div class="poem-text">Old crow
+on a bare branch
+autumn is not here yet</div>
+    </div>
+    <div>
+      <span class="col-label vi-label">Tiếng Việt</span>
+      <div class="poem-text vi">Quạ già
+Trên cành cây khô
+Mùa thu chưa tới</div>
+    </div>
+  </div>
 </div>
 
         </div>
