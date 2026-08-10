@@ -44,568 +44,300 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
 
-  <style>
-    /* ── RESET & BASE ─────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --ink:        #1a1610;
-      --ink-soft:   #4a3f30;
-      --ink-faint:  #8a7a68;
-      --paper:      #f5f0e8;
-      --paper-warm: #ede5d4;
-      --paper-deep: #ddd2bc;
-      --red:        #8b2020;
-      --red-soft:   #a83030;
-      --gold:       #9a7a3a;
-      --gold-light: #c4a265;
-
-      --font-display: 'Cinzel', serif;
-      --font-body:    'Crimson Pro', serif;
-      --font-quote:   'Cormorant Garamond', serif;
-
-      --max-w: 860px;
-      --side:  clamp(1.25rem, 5vw, 3rem);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background-color: var(--paper);
-      color: var(--ink);
-      font-family: var(--font-body);
-      font-size: clamp(1.05rem, 1.8vw, 1.2rem);
-      line-height: 1.75;
-      min-height: 100vh;
-    }
-
-    /* ── TEXTURE OVERLAY ──────────────────────────── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* ── SKIP LINK ────────────────────────────────── */
-    .skip-link {
-      position: absolute;
-      top: -100%;
-      left: 1rem;
-      background: var(--red);
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 0 0 4px 4px;
-      font-family: var(--font-body);
-      transition: top 0.2s;
-      z-index: 999;
-    }
-    .skip-link:focus { top: 0; }
-
-
-    /* ── PRINT BUTTON ─────────────────────────────── */
-    .print-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background-color: var(--red);
-      color: #fff;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      font-family: var(--font-display);
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: background-color 0.2s, transform 0.1s;
-    }
-    .print-btn:hover { background-color: var(--red-soft); transform: translateY(-1px); }
-    .print-btn:active { transform: translateY(0); }
-
-
-
-    /* ── HEADER ───────────────────────────────────── */
-    header {
-      position: relative;
-      z-index: 10;
-      background: var(--ink);
-      color: var(--paper);
-      padding: 2.5rem var(--side) 2rem;
-      text-align: center;
-      border-bottom: 3px solid var(--gold);
-    }
-
-    .site-eyebrow {
-      font-family: var(--font-display);
-      font-size: clamp(0.6rem, 1.2vw, 0.75rem);
-      letter-spacing: 0.25em;
-      color: var(--gold-light);
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-
-    .site-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.6rem, 4.5vw, 3rem);
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      line-height: 1.2;
-      color: var(--paper);
-    }
-
-    .site-subtitle {
-      font-family: var(--font-quote);
-      font-style: italic;
-      font-size: clamp(0.95rem, 1.8vw, 1.2rem);
-      color: var(--gold-light);
-      margin-top: 0.5rem;
-      font-weight: 300;
-    }
-
-    /* ── NAV ──────────────────────────────────────── */
-    nav.main-nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--ink);
-      border-bottom: 1px solid var(--gold);
-    }
-
-    .nav-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 var(--side);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    /* hamburger */
-    .nav-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 1rem 0;
-      background: none;
-      border: none;
-      color: var(--paper);
-    }
-    .nav-toggle span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--gold-light);
-      transition: all 0.3s;
-    }
-    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0;
-    }
-
-    .nav-links a {
-      display: block;
-      padding: 0.85rem 0.9rem;
-      font-family: var(--font-display);
-      font-size: clamp(0.55rem, 1vw, 0.7rem);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--paper-warm);
-      text-decoration: none;
-      transition: color 0.2s, background 0.2s;
-      white-space: nowrap;
-    }
-
-    .nav-links a:hover,
-    .nav-links a[aria-current="page"] {
-      color: var(--gold-light);
-      background: rgba(255,255,255,0.05);
-    }
-
-    /* ── BANNER IMAGE ─────────────────────────────── */
-    .banner {
-      width: 100%;
-      max-height: 280px;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-      filter: sepia(20%) contrast(0.9);
-    }
-
-    /* ── MAIN ─────────────────────────────────────── */
-    main {
-      position: relative;
-      z-index: 1;
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 3rem var(--side) 4rem;
-    }
-
-    /* ── OPENING QUOTE ────────────────────────────── */
-    .opening-quote {
-      margin: 0 0 3rem;
-      padding: 2rem 2.5rem;
-      background: var(--paper-warm);
-      border-left: 4px solid var(--red);
-      border-radius: 0 4px 4px 0;
-      position: relative;
-    }
-
-    .opening-quote::before {
-      content: '\201C';
-      position: absolute;
-      top: -0.5rem;
-      left: 1.5rem;
-      font-family: var(--font-quote);
-      font-size: 5rem;
-      color: var(--red);
-      opacity: 0.25;
-      line-height: 1;
-    }
-
-    .opening-quote p {
-      font-family: var(--font-quote);
-      font-style: italic;
-      font-size: clamp(1.1rem, 2.2vw, 1.4rem);
-      font-weight: 300;
-      line-height: 1.7;
-      color: var(--ink);
-    }
-
-    .opening-quote cite {
-      display: block;
-      margin-top: 0.75rem;
-      font-family: var(--font-display);
-      font-style: normal;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--red);
-    }
-
-    /* ── INTRO ────────────────────────────────────── */
-    .intro {
-      margin-bottom: 3.5rem;
-    }
-
-    .intro p {
-      margin-bottom: 1.2em;
-      color: var(--ink-soft);
-    }
-
-    .intro p:last-child { margin-bottom: 0; }
-
-    /* ── SECTION DIVIDER ──────────────────────────── */
-    .divider {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin: 3rem 0 2rem;
-    }
-
-    .divider::before,
-    .divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--paper-deep));
-    }
-    .divider::after {
-      background: linear-gradient(to left, transparent, var(--paper-deep));
-    }
-
-    .divider-text {
-      font-family: var(--font-display);
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      white-space: nowrap;
-    }
-
-    /* ── TOPICS GRID ──────────────────────────────── */
-    .topics-heading {
-      font-family: var(--font-display);
-      font-size: clamp(0.65rem, 1.2vw, 0.75rem);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      margin-bottom: 1.5rem;
-    }
-
-    .topics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
-      gap: 1px;
-      background: var(--paper-deep);
-      border: 1px solid var(--paper-deep);
-      border-radius: 4px;
-      margin-bottom: 3.5rem;
-    }
-
-    .topic-card {
-      background: var(--paper);
-      padding: 1.5rem;
-      text-decoration: none;
-      display: block;
-      transition: background 0.2s;
-      position: relative;
-    }
-
-    .topic-card:hover {
-      background: var(--paper-warm);
-    }
-
-    .topic-card::after {
-      content: '→';
-      position: absolute;
-      right: 1.25rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--red);
-      opacity: 0;
-      transition: opacity 0.2s, right 0.2s;
-      font-size: 1.1rem;
-    }
-
-    .topic-card:hover::after {
-      opacity: 1;
-      right: 1rem;
-    }
-
-    .topic-tag {
-      font-family: var(--font-display);
-      font-size: 0.6rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--red);
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-
-    .topic-title {
-      font-family: var(--font-quote);
-      font-size: clamp(1rem, 1.8vw, 1.15rem);
-      font-weight: 400;
-      color: var(--ink);
-      line-height: 1.3;
-    }
-
-    .topic-desc {
-      margin-top: 0.4rem;
-      font-size: 0.9rem;
-      color: var(--ink-faint);
-      line-height: 1.5;
-    }
-
-    /* ── FEATURED POEM ────────────────────────────── */
-    .poem-block {
-      background: var(--ink);
-      color: var(--paper);
-      padding: 2.5rem 2rem;
-      border-radius: 4px;
-      margin-bottom: 3.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .poem-block::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(139,32,32,0.15) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .poem-label {
-      font-family: var(--font-display);
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    .poem-title {
-      font-family: var(--font-display);
-      font-size: clamp(0.9rem, 1.5vw, 1rem);
-      letter-spacing: 0.1em;
-      color: var(--gold-light);
-      margin-bottom: 1.25rem;
-    }
-
-    .poem-text {
-      font-family: var(--font-quote);
-      font-style: italic;
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      font-weight: 300;
-      line-height: 2;
-      color: var(--paper-warm);
-      white-space: pre-line;
-    }
-    
-    /* ── CLARIFICATION BOX STYLING ───────────────────────── */
-    .clarification-wrapper {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 var(--side);
-      position: relative;
-      z-index: 20;
-    }
-
-    .clarification-box {
-      background: var(--paper-warm);
-      border-left: 4px solid var(--gold);
-      padding: 2rem 2.5rem;
-      margin: 2rem 0 3rem;
-      border-radius: 0 4px 4px 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-
-    .clarification-box p {
-      font-family: var(--font-body);
-      font-size: clamp(0.95rem, 1.6vw, 1.1rem);
-      line-height: 1.8;
-      color: var(--ink-soft);
-      margin-bottom: 1.25em;
-    }
-
-    .clarification-box p:last-child {
-      margin-bottom: 0;
-    }
-
-    .clarification-contact {
-      font-size: 0.85em !important;
-      margin-top: 1.5rem !important;
-    }
-
-    .clarification-contact a {
-      color: var(--red);
-      text-decoration: underline;
-    }
-
-    .clarification-contact a:hover {
-      text-decoration: none;
-    }
-
-    /* Mobile responsiveness */
-    @media (max-width: 680px) {
-      .clarification-box {
-        padding: 1.5rem 1.5rem;
-        margin: 1.5rem 0 2rem;
-      }
-    }
-    
-    /* ── FOOTER ───────────────────────────────────── */
-    footer {
-      position: relative;
-      z-index: 1;
-      background: var(--ink);
-      color: var(--ink-faint);
-      text-align: center;
-      padding: 2rem var(--side);
-      border-top: 1px solid rgba(154,122,58,0.3);
-    }
-
-    footer p {
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      line-height: 1.8;
-    }
-
-    footer a {
-      color: var(--gold-light);
-      text-decoration: none;
-    }
-
-    footer a:hover { text-decoration: underline; }
-
-    .footer-nav {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.25rem 1.5rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .footer-nav a {
-      font-family: var(--font-display);
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      text-decoration: none;
-    }
-
-    .footer-nav a:hover { color: var(--gold-light); }
-
-    /* ── RESPONSIVE ───────────────────────────────── */
-    @media (max-width: 680px) {
-      .nav-toggle { display: flex; }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        border-top: 1px solid rgba(255,255,255,0.1);
-      }
-      
-      .nav-links.open { 
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        border-top: 1px solid rgba(255,255,255,0.1);      
-        max-height: 75vh;       
-        overflow-y: auto;        
-        -webkit-overflow-scrolling: touch; 
-      }
-      
-      .nav-inner { flex-wrap: wrap; }
-      .opening-quote { padding: 1.5rem 1.5rem 1.5rem 1.75rem; }
-    }
-
-    /* ── ANIMATIONS ───────────────────────────────── */
-    @media (prefers-reduced-motion: no-preference) {
-      header, .opening-quote, .intro, .topics-grid {
-        animation: fadeUp 0.6s ease both;
-      }
-      .topics-grid { animation-delay: 0.15s; }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-        /* ── PRINT STYLES (FULL) ──────────────────────── */
-    @media print {
-      nav.main-nav, footer, .skip-link, .print-btn, .clarification-wrapper { display: none !important; }
-      body::before { display: none !important; }
-      body { background: white !important; color: #000 !important; font-size: 12pt; line-height: 1.6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      main { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
-      .opening-quote { background: transparent !important; border-left: 3px solid #000 !important; color: #000 !important; }
-      .opening-quote p { color: #000 !important; }
-      .poem-block { background: transparent !important; color: #000 !important; border-left: 3px solid #000; border-radius: 0; padding: 1rem 0 1rem 1.5rem; margin: 1.5rem 0; page-break-inside: avoid; break-inside: avoid; }
-      .poem-block *, .poem-text, .poem-label { color: #000 !important; background: transparent !important; }
-      .topics-grid { display: block !important; background: none !important; border: none !important; }
-      .topic-card { page-break-inside: avoid; border-bottom: 1px solid #ccc; background: transparent !important; }
-      h1, h2, h3 { color: #000 !important; }
-      p, .intro p, .topic-title, .topic-desc { color: #000 !important; }
-      img { max-width: 100% !important; page-break-inside: avoid; }
-      p { page-break-inside: avoid; }
-    }
-  </style>
+<link rel="stylesheet" href="site.css" />
+
+<style>
+/* ── PAGE-SPECIFIC: Opening Quote (index.html) ────────────── */
+.opening-quote {
+  margin: 0 0 3rem;
+  padding: 2rem 2.5rem;
+  background: var(--paper-warm);
+  border-left: 4px solid var(--red);
+  border-radius: 0 4px 4px 0;
+  position: relative;
+}
+
+.opening-quote::before {
+  content: '\201C';
+  position: absolute;
+  top: -0.5rem;
+  left: 1.5rem;
+  font-family: var(--font-quote);
+  font-size: 5rem;
+  color: var(--red);
+  opacity: 0.25;
+  line-height: 1;
+}
+
+.opening-quote p {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+.opening-quote cite {
+  display: block;
+  margin-top: 0.75rem;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+/* ── PAGE-SPECIFIC: Intro ─────────────────────────────────── */
+.intro {
+  margin-bottom: 3.5rem;
+}
+
+.intro p {
+  margin-bottom: 1.2em;
+  color: var(--ink-soft);
+}
+
+.intro p:last-child { margin-bottom: 0; }
+
+/* ── PAGE-SPECIFIC: Section Divider (index.html) ──────────── */
+/* Note: this is a different visual style from poetry.html's .divider
+   (line-through-text vs. this page's gap-with-fade-lines design) */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0 2rem;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--paper-deep));
+}
+.divider::after {
+  background: linear-gradient(to left, transparent, var(--paper-deep));
+}
+
+.divider-text {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+/* ── PAGE-SPECIFIC: Topics Grid ───────────────────────────── */
+.topics-heading {
+  font-family: var(--font-display);
+  font-size: clamp(0.65rem, 1.2vw, 0.75rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 1.5rem;
+}
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: 1px;
+  background: var(--paper-deep);
+  border: 1px solid var(--paper-deep);
+  border-radius: 4px;
+  margin-bottom: 3.5rem;
+}
+
+.topic-card {
+  background: var(--paper);
+  padding: 1.5rem;
+  text-decoration: none;
+  display: block;
+  transition: background 0.2s;
+  position: relative;
+}
+
+.topic-card:hover {
+  background: var(--paper-warm);
+}
+
+.topic-card::after {
+  content: '→';
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--red);
+  opacity: 0;
+  transition: opacity 0.2s, right 0.2s;
+  font-size: 1.1rem;
+}
+
+.topic-card:hover::after {
+  opacity: 1;
+  right: 1rem;
+}
+
+.topic-tag {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.topic-title {
+  font-family: var(--font-quote);
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.topic-desc {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--ink-faint);
+  line-height: 1.5;
+}
+
+/* ── PAGE-SPECIFIC: Featured Poem Block ───────────────────── */
+.poem-block {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 2.5rem 2rem;
+  border-radius: 4px;
+  margin-bottom: 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.poem-block::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(139,32,32,0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.poem-label {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.poem-title {
+  font-family: var(--font-display);
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  letter-spacing: 0.1em;
+  color: var(--gold-light);
+  margin-bottom: 1.25rem;
+}
+
+/* Overrides site.css's .poem-text (that version is for the bilingual
+   archive layout on light backgrounds; this one sits on the dark
+   featured-poem block) */
+.poem-text {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 300;
+  line-height: 2;
+  color: var(--paper-warm);
+  white-space: pre-line;
+}
+
+/* ── PAGE-SPECIFIC: Clarification Box ─────────────────────── */
+.clarification-wrapper {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--side);
+  position: relative;
+  z-index: 20;
+}
+
+.clarification-box {
+  background: var(--paper-warm);
+  border-left: 4px solid var(--gold);
+  padding: 2rem 2.5rem;
+  margin: 2rem 0 3rem;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.clarification-box p {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  line-height: 1.8;
+  color: var(--ink-soft);
+  margin-bottom: 1.25em;
+}
+
+.clarification-box p:last-child {
+  margin-bottom: 0;
+}
+
+.clarification-contact {
+  font-size: 0.85em !important;
+  margin-top: 1.5rem !important;
+}
+
+.clarification-contact a {
+  color: var(--red);
+  text-decoration: underline;
+}
+
+.clarification-contact a:hover {
+  text-decoration: none;
+}
+
+@media (max-width: 680px) {
+  .clarification-box {
+    padding: 1.5rem 1.5rem;
+    margin: 1.5rem 0 2rem;
+  }
+  .opening-quote { padding: 1.5rem 1.5rem 1.5rem 1.75rem; }
+}
+
+/* ── PAGE-SPECIFIC: Animation targets ─────────────────────── */
+/* This page animates header/opening-quote/intro/topics-grid
+   individually (staggered) instead of fading in all of <main> at
+   once like site.css's default, so main's animation is turned off. */
+@media (prefers-reduced-motion: no-preference) {
+  main { animation: none; }
+  header, .opening-quote, .intro, .topics-grid {
+    animation: fadeUp 0.6s ease both;
+  }
+  .topics-grid { animation-delay: 0.15s; }
+}
+
+/* ── PAGE-SPECIFIC: Print Styles ──────────────────────────── */
+@media print {
+  nav.main-nav, footer, .skip-link, .print-btn, .clarification-wrapper { display: none !important; }
+  body::before { display: none !important; }
+  body { background: white !important; color: #000 !important; font-size: 12pt; line-height: 1.6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  main { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+  .opening-quote { background: transparent !important; border-left: 3px solid #000 !important; color: #000 !important; }
+  .opening-quote p { color: #000 !important; }
+  .poem-block { background: transparent !important; color: #000 !important; border-left: 3px solid #000; border-radius: 0; padding: 1rem 0 1rem 1.5rem; margin: 1.5rem 0; page-break-inside: avoid; break-inside: avoid; }
+  .poem-block *, .poem-text, .poem-label { color: #000 !important; background: transparent !important; }
+  .topics-grid { display: block !important; background: none !important; border: none !important; }
+  .topic-card { page-break-inside: avoid; border-bottom: 1px solid #ccc; background: transparent !important; }
+  h1, h2, h3 { color: #000 !important; }
+  p, .intro p, .topic-title, .topic-desc { color: #000 !important; }
+  img { max-width: 100% !important; page-break-inside: avoid; }
+  p { page-break-inside: avoid; }
+}
+</style>
 </head>
 
 <body>
