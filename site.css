@@ -64,6 +64,19 @@ body::before {
 }
 .skip-link:focus { top: 0; }
 
+/* ── SCREEN READER ONLY ───────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ── HEADER ───────────────────────────────────── */
 header {
   position: relative;
@@ -455,6 +468,8 @@ footer a:hover { text-decoration: underline; }
   nav.main-nav, footer, .page-nav, .skip-link, .print-btn, .nav-toggle {
     display: none !important;
   }
+
+  body::before { display: none !important; }
 
   body {
     background: white !important;
