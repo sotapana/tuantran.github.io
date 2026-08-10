@@ -6,398 +6,50 @@
     <title>The Collected Haiku by Theme | Tuan Tran</title>
     <meta name="description" content="The collected haiku of Tuan Tran arranged by theme: 1. War and Aftermath, 2. The Boat, 3. The Practice, 4. The Forest and the Robe, 5. The Garden and Daily Life, 6. The Snow and Winter, 7. Loss and Memory, 8. America and 9. Home." />
     <meta name="author" content="Tuan Tran">
+    <meta property="og:title" content="The Collected Haiku by Theme | Tuan Tran">
+    <meta property="og:description" content="The collected haiku of Tuan Tran arranged by theme: war, the boat, the practice, the forest, the garden, snow, loss, America, and home." />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tuantran.org/themes.html">
+    <meta property="og:image" content="https://tuantran.org/poetry.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Collected Haiku by Theme | Tuan Tran">
+    <meta name="twitter:description" content="The collected haiku of Tuan Tran arranged by theme: war, the boat, the practice, the forest, the garden, snow, loss, America, and home.">
+    <meta name="twitter:image" content="https://tuantran.org/poetry.jpg">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tuantran.org/themes.html" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&family=Be+Vietnam:wght@300;400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&family=Be+Vietnam:wght@300;400&display=swap" rel="stylesheet" />
 
-    <style>
-               
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<link rel="stylesheet" href="site.css" />
 
-/* Accessibility: Skip Link */
-.skip-link {
-    position: absolute;
-    top: -100px;
-    left: 0;
-    z-index: 1000;
-    padding: 0.5rem 1rem;
-    background: var(--red);
-    color: #fff;
-    font-family: var(--font-display);
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: top 0.2s ease;
-}
-.skip-link:focus {
-    top: 0;
+<style>
+/* ── PAGE-SPECIFIC: Theme Sections (themes.html) ─────────── */
+.theme-section {
+  margin-bottom: 4rem;
+  border-top: 1px solid var(--paper-deep);
+  padding-top: 2rem;
 }
 
-        :root {
-            --ink: #1a1610;
-            --ink-soft: #4a3f30;
-            --ink-faint: #8a7a68;
-            --paper: #f5f0e8;
-            --paper-warm: #ede5d4;
-            --paper-deep: #ddd2bc;
-            --red: #8b2020;
-            --red-soft: #a83030;
-            --gold: #9a7a3a;
-            --gold-light: #c4a265;
+.theme-section:first-of-type { border-top: none; padding-top: 0; }
 
-            --font-display: 'Cinzel', serif;
-            --font-body: 'Crimson Pro', serif;
-            --font-quote: 'Cormorant Garamond', serif;
-            --font-vietnamese: 'Be Vietnam', 'Crimson Pro', serif;
-
-            --max-w: 860px;
-            --side: clamp(1.25rem, 5vw, 3rem);
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            background-color: var(--paper);
-            color: var(--ink);
-            font-family: var(--font-body);
-            font-size: clamp(1.05rem, 1.8vw, 1.2rem);
-            line-height: 1.75;
-            min-height: 100vh;
-        }
-
-        /* Texture Overlay */
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* Header */
-        header {
-            position: relative;
-            z-index: 10;
-            background: var(--ink);
-            color: var(--paper);
-            padding: 2.5rem var(--side) 2rem;
-            text-align: center;
-            border-bottom: 3px solid var(--gold);
-        }
-
-        .site-eyebrow {
-            font-family: var(--font-display);
-            font-size: clamp(0.6rem, 1.2vw, 0.75rem);
-            letter-spacing: 0.25em;
-            color: var(--gold-light);
-            text-transform: uppercase;
-            margin-bottom: 0.75rem;
-        }
-
-        .site-title {
-            font-family: var(--font-display);
-            font-size: clamp(1.6rem, 4.5vw, 3rem);
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            line-height: 1.2;
-            color: var(--paper);
-        }
-        .site-title a { color: inherit; text-decoration: none; }
-
-        .site-subtitle {
-            font-family: var(--font-quote);
-            font-style: italic;
-            font-size: clamp(0.95rem, 1.8vw, 1.2rem);
-            color: var(--gold-light);
-            margin-top: 0.5rem;
-            font-weight: 300;
-        }
-
-/* ── ANIMATIONS ───────────────────────────────── */
-@media (prefers-reduced-motion: no-preference) {
-main { animation: fadeUp 0.6s ease both; }
-}
-
-@keyframes fadeUp {
-from { opacity: 0; transform: translateY(16px); }
-to { opacity: 1; transform: translateY(0); }
-}
-
-
-        /* Nav */
-        nav.main-nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: var(--ink);
-            border-bottom: 1px solid var(--gold);
-        }
-        .nav-inner {
-            max-width: var(--max-w);
-            margin: 0 auto;
-            padding: 0 var(--side);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 1rem 0; background: none; border: none; }
-        .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--gold-light); transition: all 0.3s; }
-        .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-        .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-        .nav-links { list-style: none; display: flex; flex-wrap: wrap; }
-        .nav-links a {
-            display: block;
-            padding: 0.85rem 0.9rem;
-            font-family: var(--font-display);
-            font-size: clamp(0.55rem, 1vw, 0.7rem);
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--paper-warm);
-            text-decoration: none;
-            transition: color 0.2s, background 0.2s;
-            white-space: nowrap;
-        }
-        .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--gold-light); background: rgba(255,255,255,0.05); }
-
-        /* Banner */
-        .banner {
-            width: 100%;
-            max-height: 280px;
-            object-fit: cover;
-            object-position: center top;
-            display: block;
-            filter: sepia(20%) contrast(0.9);
-        }
-
-        /* Page Title Block */
-        .page-title-block {
-            background: var(--paper-warm);
-            border-bottom: 1px solid var(--paper-deep);
-            padding: 2rem var(--side);
-            text-align: center;
-        }
-        .page-label {
-            font-family: var(--font-display);
-            font-size: 0.65rem;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--red);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        .page-title {
-            font-family: var(--font-display);
-            font-size: clamp(1.4rem, 3.5vw, 2.2rem);
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            color: var(--ink);
-            line-height: 1.2;
-        }
-        .page-desc {
-            font-family: var(--font-quote);
-            font-style: italic;
-            font-weight: 300;
-            font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-            color: var(--ink-faint);
-            margin-top: 0.5rem;
-        }
-
-        /* Main */
-        main {
-            position: relative;
-            z-index: 1;
-            max-width: var(--max-w);
-            margin: 0 auto;
-            padding: 3rem var(--side) 4rem;
-        }
-
-        /* Prose & Sections */
-        .prose p { margin-bottom: 1.4em; color: var(--ink-soft); }
-        .prose p:last-child { margin-bottom: 0; }
-
-        .theme-section {
-            margin-bottom: 4rem;
-            border-top: 1px solid var(--paper-deep);
-            padding-top: 2rem;
-        }
-
-        .theme-section:first-of-type { border-top: none; padding-top: 0; }
-
-        .theme-header {
-            font-family: var(--font-display);
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
-            color: var(--red);
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.05em;
-        }
-
-        .theme-intro {
-            font-family: var(--font-quote);
-            font-style: italic;
-            color: var(--ink-faint);
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Poem List Styles */
-        .archive-poem-list {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .poem-entry {
-            background: rgba(237, 229, 212, 0.4);
-            padding: 1.5rem;
-            border-radius: 4px;
-            page-break-inside: avoid;
-        }
-
-        .poem-number {
-            font-family: var(--font-display);
-            font-size: 0.75rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--red);
-            margin-bottom: 1rem;
-            display: block;
-            font-weight: 600;
-        }
-
-        /* Two-column grid: English | Vietnamese */
-        .poem-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: start;
-        }
-
-        .poem-text {
-            font-family: var(--font-quote);
-            font-style: italic;
-            font-size: clamp(1rem, 1.5vw, 1.15rem);
-            line-height: 2;
-            color: var(--ink);
-            white-space: pre-line;
-        }
-
-        .poem-text.vi {
-            font-family: var(--font-vietnamese);
-            font-style: normal;
-            font-weight: 300;
-            font-size: clamp(0.95rem, 1.4vw, 1.1rem);
-            line-height: 2;
-            color: var(--ink-soft);
-            border-left: 2px solid var(--paper-deep);
-            padding-left: 1.5rem;
-        }
-
-        /* Column labels */
-        .col-label {
-            font-family: var(--font-display);
-            font-size: 0.55rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--ink-faint);
-            margin-bottom: 0.75rem;
-            display: block;
-        }
-
-        .col-label.vi-label {
-            padding-left: 1.5rem;
-        }
-
-        /* Responsive: stack vertically on small screens */
-        @media (max-width: 680px) {
-            .poem-columns {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .poem-text.vi {
-                border-left: none;
-                border-top: 2px solid var(--paper-deep);
-                padding-left: 0;
-                padding-top: 1rem;
-            }
-
-            .col-label.vi-label {
-                padding-left: 0;
-            }
-        }
-
-        /* Footer */
-        footer {
-            position: relative;
-            z-index: 1;
-            background: var(--ink);
-            color: var(--ink-faint);
-            text-align: center;
-            padding: 2rem var(--side);
-            border-top: 1px solid rgba(154,122,58,0.3);
-        }
-        footer p { font-family: var(--font-body); font-size: 0.85rem; line-height: 1.8; }
-        footer a { color: var(--gold-light); text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
-        .footer-nav { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem 1.5rem; margin-bottom: 1.25rem; }
-        .footer-nav a { font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-faint); }
-        .footer-nav a:hover { color: var(--gold-light); }
-
-        /* Responsive */
-        @media (max-width: 680px) {
-            .nav-toggle { display: flex; }
-            .nav-links { display: none; flex-direction: column; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
-            .nav-links.open { display: flex; flex-direction: column; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); max-height: 75vh; overflow-y: auto; -webkit-overflow-scrolling: touch; }
-            .nav-inner { flex-wrap: wrap; }
-        }
-
-/* --- BUTTON STYLING (Screen) --- */
-.print-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--red);
-  color: #fff;
-  border: none;
-  padding: 0.75rem 1.5rem;
+.theme-header {
   font-family: var(--font-display);
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.2s, transform 0.1s;
-}
-.print-btn:hover {
-  background-color: var(--red-soft);
-  transform: translateY(-1px);
-}
-.print-btn:active {
-  transform: translateY(0);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: var(--red);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
 }
 
-
-        /* Print Styles */
-        @media print {
-            nav.main-nav, footer, .nav-toggle, .page-nav, .print-btn { display: none !important; }
-            body { background: white !important; color: #000 !important; font-size: 12pt; }
-            main { max-width: 100% !important; padding: 0 !important; margin: 0 auto; }
-            .poem-entry { background: transparent !important; border-left: 3px solid #000 !important; border-radius: 0; padding: 1rem 0 1rem 1.5rem; margin: 2rem 0; page-break-inside: avoid; }
-            .poem-entry *, .poem-text, .poem-number, .poem-text.vi { color: #000 !important; background: transparent !important; opacity: 1 !important; }
-            /* Keep side-by-side in print */
-            .poem-columns { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-            .poem-text.vi { border-left: 1px solid #ccc; padding-left: 1rem; }
-            /* Remove forced page breaks for sections to prevent blank pages */
-.theme-section { 
-    break-inside: avoid; 
-    margin-top: 3rem; 
+.theme-intro {
+  font-family: var(--font-quote);
+  font-style: italic;
+  color: var(--ink-faint);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
-        }
-    </style>
+</style>
 </head>
 
 <body>
@@ -440,14 +92,14 @@ to { opacity: 1; transform: translateY(0); }
 <!-- BANNER -->
 <img src="poetry.jpg" alt="Pebbles" class="banner" width="1200" height="280" loading="lazy" />
 
+<main id="main">
+
 <!-- PAGE TITLE -->
 <div class="page-title-block">
     <span class="page-label">Thematic Archive</span>
     <h1 class="page-title">The Collected Haiku by Theme</h1>
     <p class="page-desc">Exploring the terrain of a life through nine lenses</p>
 </div>
-
-<main id="main">
 
 <article class="prose">
     
