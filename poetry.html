@@ -6,7 +6,6 @@
     <title>The Collected Haiku by Tuan Tran | Complete Archive</title>
     <meta name="description" content="The complete collected haiku by Tuan Tran. A chronological archive of 203 poems documenting forty years of Buddhist practice, life as a Vietnamese boat refugee, and the silence of the forest monastery. From 'Spiderweb' (2001) to 'Conical Hats' (2026)." />
     <meta name="keywords" content="Tuan Tran collected haiku, complete poetry archive, Vietnamese-American poet full works, haiku chronology, boat refugee poetry, Buddhist monk poetry, modern haiku poems, The Road Home poetry" />
-
     <meta name="author" content="Tuan Tran">
     <meta property="og:title" content="The Collected Haiku by Tuan Tran">
     <meta property="og:description" content="A chronological archive of all haiku written by Tuan Tran. Includes early works from 2001 and recent poems on aging, nature, and impermanence." />
@@ -18,7 +17,6 @@
     <meta name="twitter:description" content="The Collected Haiku by Tuan Tran. Poems of war, meditation, and the road home.">
     <meta name="twitter:image" content="https://tuantran.org/poetry.jpg">
     <meta name="robots" content="index, follow">
-
 <link rel="canonical" href="https://tuantran.org/poetry.html" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -64,6 +62,72 @@
   color: var(--ink-soft);
 }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://tuantran.org/#person",
+      "name": "Tuan Tran",
+      "givenName": "Tuan",
+      "familyName": "Tran",
+      "url": "https://tuantran.org/",
+      "description": "Vietnamese-American poet, boat refugee, and former Buddhist novice monk. Author of the haiku collection documenting the Vietnam War, the refugee journey, and Zen practice.",
+      "knowsLanguage": ["en", "vi"],
+      "nationality": { "@type": "Country", "name": "United States" }
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://tuantran.org/poetry.html",
+      "url": "https://tuantran.org/poetry.html",
+      "name": "The Collected Haiku by Tuan Tran",
+      "description": "The complete collected haiku by Tuan Tran: a chronological archive of 203 poems on the Vietnam War, the boat refugee journey, and Zen meditation.",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://tuantran.org/#website" },
+      "about": { "@id": "https://tuantran.org/#person" },
+      "author": { "@id": "https://tuantran.org/#person" },
+      "dateModified": "2026-10-05",
+      "publisher": { "@id": "https://tuantran.org/#person" },
+      "mainEntity": { "@id": "https://tuantran.org/poetry.html#collection" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://tuantran.org/#website",
+      "url": "https://tuantran.org/",
+      "name": "Tuan Tran's Journal",
+      "publisher": { "@id": "https://tuantran.org/#person" }
+    },
+    {
+      "@type": "CreativeWorkSeries",
+      "@id": "https://tuantran.org/poetry.html#collection",
+      "name": "The Collected Haiku",
+      "author": { "@id": "https://tuantran.org/#person" },
+      "inLanguage": ["en", "vi"],
+      "copyrightHolder": { "@id": "https://tuantran.org/#person" },
+      "license": "https://tuantran.org/poetry.html#rights",
+      "hasPart": [
+        {
+          "@type": "CreativeWorkSeries",
+          "name": "Volume I: The First Hundred",
+          "position": 1
+        },
+        {
+          "@type": "CreativeWorkSeries",
+          "name": "Volume II: The Road Continues",
+          "position": 2
+        },
+        {
+          "@type": "CreativeWorkSeries",
+          "name": "Volume III: The Zen State of Mind",
+          "position": 3
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
@@ -135,7 +199,7 @@ Poem 16 was written in 2025. The remaining poems, from 17 to 203 (204 including 
   <p><a href="selected.html" style="font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); text-decoration: none; border-bottom: 1px dotted var(--red);">Selected Poems — 20 haiku →</a></p>
 </div>
 
-  <p><em>Last updated: October 5, 2026</em></p>
+  <p><em>Last updated: October 7, 2026</em></p>
  
   <div style="text-align: center; margin: 2rem 0;">
     <button id="print-pdf-btn" class="print-btn">
@@ -4245,13 +4309,14 @@ Hơi ấm của hơi thở</div>
 </main>
 
 <footer>
-    <p>
-    &copy; <span id="yr"></span> Tuan Tran &mdash; <a href="sitemap.html">Site Map</a>
-    </p>
-    <p style="font-size: 0.75rem; margin-top: 0.5rem; opacity: 0.8;">
-      Archived by Texas Tech's Vietnam Center and linked from the Library of Congress Vietnam War research guide as a primary source. Note: tuantran.net is a different
-website by a different author.
-    </p>
+  <p>
+    &copy; <span id="yr"></span> Tuan Tran &mdash; 
+    Vietnamese-American poet and former monk. Boat refugee, 1975.
+    &mdash; <a href="sitemap.html">Site Map</a>
+  </p>
+  <p style="font-size: 0.75rem; margin-top: 0.5rem; opacity: 0.8;">
+    Archived by Texas Tech's Vietnam Center and linked from the Library of Congress Vietnam War research guide as a primary source. Note: tuantran.net is a different website by a different author.
+  </p>
 </footer>
 
 <script>
