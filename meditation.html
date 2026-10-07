@@ -90,6 +90,38 @@ PER-PAGE META DATA
   h1, h2, h3, .site-title, .page-title { color: #000 !important; }
 }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://tuantran.org/#person",
+      "name": "Tuan Tran",
+      "url": "https://tuantran.org/",
+      "description": "Vietnamese-American poet, boat refugee, former Theravada monk, and educator.",
+      "knowsLanguage": ["en", "vi"]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://tuantran.org/meditation.html#article",
+      "headline": "Meditation & The Contemplative Life: A Refugee's Path from Trauma to Mindfulness",
+      "description": "Personal reflections on Vipassana meditation, the bhanga experience, life as a monk in Myanmar, and applying mindfulness to racism and daily life.",
+      "author": { "@id": "https://tuantran.org/#person" },
+      "publisher": { "@id": "https://tuantran.org/#person" },
+      "datePublished": "2026-10-07",
+      "dateModified": "2026-10-07",
+      "inLanguage": "en",
+      "mainEntityOfPage": {
+        "@id": "https://tuantran.org/meditation.html"
+      },
+      "genre": "Memoir / Spiritual Practice",
+      "keywords": "Vipassana, S.N. Goenka, bhanga, Webu Sayadaw, Buddhist monk, Vietnam War, trauma, mindfulness"
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
@@ -351,13 +383,14 @@ same.</p>
 </main>
 
 <footer>
-    <p>
-    &copy; <span id="yr"></span> Tuan Tran &mdash; <a href="sitemap.html">Site Map</a>
-    </p>
-    <p style="font-size: 0.75rem; margin-top: 0.5rem; opacity: 0.8;">
-      Archived by Texas Tech's Vietnam Center and linked from the Library of Congress Vietnam War research guide as a primary source. Note: tuantran.net is a different
-website by a different author.
-    </p>
+  <p>
+    &copy; <span id="yr"></span> Tuan Tran &mdash; 
+    Vietnamese-American poet and former monk. Boat refugee, 1975.
+    &mdash; <a href="sitemap.html">Site Map</a>
+  </p>
+  <p style="font-size: 0.75rem; margin-top: 0.5rem; opacity: 0.8;">
+    Archived by Texas Tech's Vietnam Center and linked from the Library of Congress Vietnam War research guide as a primary source. Note: tuantran.net is a different website by a different author.
+  </p>
 </footer>
 
 <script>
