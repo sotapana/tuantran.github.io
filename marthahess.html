@@ -3,10 +3,6 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<!-- ═══════════════════════════════════════════════
-PER-PAGE META DATA
-═══════════════════════════════════════════════ -->
 <meta name="description" content="First-hand testimonies from Vietnamese civilians featured in Martha Hess's 'Then the Americans Came'. Survivors of the My Lai massacre, Con Son prison, bombing campaigns, and sexual violence speak about the human cost of the Vietnam War." />
 <meta name="keywords" content="Martha Hess Then the Americans Came, My Lai massacre testimony, Con Son tiger cage survivor, Vietnamese civilian war crimes, oral history Vietnam War, Mrs. Le Thi Dieu torture, Mrs. Ha Thi Qui My Lai, war atrocities Vietnam, human rights documentation" />
 <meta property="og:title" content="Then the Americans Came — Tuan Tran's Journal" />
@@ -76,6 +72,63 @@ PER-PAGE META DATA
   p, .prose p, .prose li { color: #000 !important; }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://tuantran.org/#person",
+      "name": "Tuan Tran",
+      "givenName": "Tuan",
+      "familyName": "Tran",
+      "url": "https://tuantran.org/",
+      "description": "Vietnamese-American poet, boat refugee, and former Buddhist novice monk. Author of 'The Collected Haiku' and 'The Road Home', a memoir in haibun.",
+      "knowsLanguage": ["en", "vi"],
+      "nationality": { "@type": "Country", "name": "United States" },
+      "sameAs": [
+        "https://vva.vietnam.ttu.edu/repositories/2/resources/3141"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://tuantran.org/#website",
+      "url": "https://tuantran.org/",
+      "name": "Tuan Tran's Journal",
+      "alternateName": "A Vietnamese-American Experience",
+      "description": "Personal journal of Tuan Tran: Vietnamese-American poet, boat refugee, and former monk. Haiku archive, memoir, and reflections on meditation.",
+      "publisher": { "@id": "https://tuantran.org/#person" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Article",
+      "@id": "https://tuantran.org/marthahess.html#article",
+      "headline": "Then the Americans Came: Vietnamese Civilian Testimonies",
+      "description": "First-hand testimonies from Vietnamese civilians, excerpted from Martha Hess's 'Then the Americans Came' (1996). Survivors of the My Lai massacre, the Con Son tiger cages, the Kham Thien Street bombing, and torture speak about the human cost of the war.",
+      "keywords": "Martha Hess Then the Americans Came, My Lai massacre testimony, Con Son tiger cages, Vietnamese civilian oral history, Vinh Linh bombing, Agent Orange legacy, war crimes documentation",
+      "author": {
+    "@type": "Person",
+    "name": "Martha Hess"
+  },
+      "publisher": { "@id": "https://tuantran.org/#person" },
+      "datePublished": "2026-10-08",
+      "dateModified": "2026-10-08",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://tuantran.org/#website" },
+      "mainEntityOfPage": { "@id": "https://tuantran.org/marthahess.html" },
+      "isBasedOn": {
+        "@type": "Book",
+        "name": "Then the Americans Came: Voices from Vietnam",
+        "author": {
+          "@type": "Person",
+          "name": "Martha Hess"
+        },
+        "datePublished": "1996"
+      }
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
@@ -113,7 +166,7 @@ PER-PAGE META DATA
 </div>
 </nav>
 
-<img src="banner.jpg" alt="Vietnamese terraced rice fields" class="banner" width="1200" height="280" loading="lazy" />
+<img src="banner.jpg" alt="Vietnamese terraced rice fields" class="banner" width="1200" height="280" loading="eager" />
 
 <main id="main">
 
