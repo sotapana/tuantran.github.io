@@ -83,6 +83,80 @@ PER-PAGE META DATA
   p, .prose p { color: #000 !important; }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://tuantran.org/#person",
+      "name": "Tuan Tran",
+      "givenName": "Tuan",
+      "familyName": "Tran",
+      "url": "https://tuantran.org/",
+      "description": "Vietnamese-American poet, boat refugee, and former Buddhist novice monk. Author of 'The Collected Haiku' and 'The Road Home', a memoir in haibun.",
+      "knowsLanguage": ["en", "vi"],
+      "nationality": { "@type": "Country", "name": "United States" },
+      "sameAs": [
+        "https://vva.vietnam.ttu.edu/repositories/2/resources/3141"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://tuantran.org/#website",
+      "url": "https://tuantran.org/",
+      "name": "Tuan Tran's Journal",
+      "alternateName": "A Vietnamese-American Experience",
+      "description": "Personal journal of Tuan Tran: Vietnamese-American poet, boat refugee, and former monk. Haiku archive, memoir, and reflections on meditation.",
+      "publisher": { "@id": "https://tuantran.org/#person" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://tuantran.org/writings.html#page",
+      "url": "https://tuantran.org/writings.html",
+      "name": "Writings on Justice, Race, and Non-Violence",
+      "description": "Three essays by Tuan Tran: the reality behind Washington's Initiative 200 and affirmative action, voting rights for Vietnamese-Americans, and the philosophy of non-violent civil disobedience in the tradition of Gandhi and Martin Luther King Jr.",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://tuantran.org/#website" },
+      "about": { "@id": "https://tuantran.org/#person" },
+      "author": { "@id": "https://tuantran.org/#person" },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Article",
+              "name": "On Affirmative Action: The Reality Behind Initiative 200",
+              "author": { "@id": "https://tuantran.org/#person" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Article",
+              "name": "On Voting: The Fundamental Right for Equality",
+              "author": { "@id": "https://tuantran.org/#person" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Article",
+              "name": "On Civil Disobedience: The Power of Ahimsa (Non-Violence)",
+              "author": { "@id": "https://tuantran.org/#person" }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
@@ -120,11 +194,7 @@ PER-PAGE META DATA
 </div>
 </nav>
 
-<img src="banner.jpg" alt="Vietnamese terraced rice fields" class="banner" width="1200" height="280" loading="lazy" />
-
-<!-- ═══════════════════════════════════════════════
-PAGE-SPECIFIC CONTENT
-═══════════════════════════════════════════════ -->
+<img src="banner.jpg" alt="Vietnamese terraced rice fields" class="banner" width="1200" height="280" loading="eager" />
 
 <main id="main">
 
