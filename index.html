@@ -4,31 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="First-person memoir by Tuan Tran, who escaped Vietnam by boat at age 15 in 1975. A rare teenage refugee's account of wartime Saigon, the boat journey, refugee camps, resettlement in America, and returning to Vietnam as a Viet Kieu." />
-  <meta name="keywords" content="Vietnamese boat people, refugee memoir, 15 year old refugee, escape from Saigon 1975, Vietnamese refugee experience, Viet Kieu return, boat people first person account, teenage refugee, Tuan Tran, Vietnamese American memoir, refugee camp, escaping Vietnam by boat" />
+  <meta name="description" content="First-person memoir by Tuan Tran, who escaped Vietnam by boat at age 14 in 1975. A rare teenage refugee's account of wartime Saigon, the boat journey, refugee camps, resettlement in America, and returning to Vietnam as a Viet Kieu." />
+  <meta name="keywords" content="Vietnamese boat people, refugee memoir, 14 year old refugee, escape from Saigon 1975, Vietnamese refugee experience, Viet Kieu return, boat people first person account, teenage refugee, Tuan Tran, Vietnamese American memoir, refugee camp, escaping Vietnam by boat" />
   <meta name="author" content="Tuan Tran" />
-  <link rel="canonical" href="https://tuantran.org/" />
-  
-  <!-- Structured Data for SEO -->
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Tuan Tran's Journal",
-  "url": "https://tuantran.org",
-  "description": "First-person memoir by a Vietnamese refugee who escaped by boat at age 15 in 1975.",
-  "author": {
-    "@type": "Person",
-    "name": "Tuan Tran"
-  },
-  "genre": "Memoir",
-  "about": [
-    {"@type": "Thing", "name": "Vietnamese Boat People"},
-    {"@type": "Thing", "name": "Vietnam War Refugee Experience"},
-    {"@type": "Thing", "name": "Viet Kieu"}
-  ]
-}
-</script>
+  <link rel="canonical" href="https://tuantran.org/" />    
   <meta property="og:title" content="Tuan Tran's Journal — A Vietnamese-American Experience" />
   <meta property="og:description" content="Personal reflections on war, migration, meditation, and the search for identity." />
   <meta property="og:type" content="website" />
@@ -38,8 +17,7 @@
   <meta name="twitter:title" content="Tuan Tran's Journal — A Vietnamese-American Experience" />
   <meta name="twitter:description" content="Personal reflections on war, migration, meditation, and the search for identity." />
   <meta name="twitter:image" content="https://tuantran.org/banner.jpg" />
-  
-  <title>Vietnamese Boat People Memoir — A 15-Year-Old Refugee's Escape from Saigon | Tuan Tran</title>
+  <title>Vietnamese Boat People Memoir — A 14-Year-Old Refugee's Escape from Saigon | Tuan Tran</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
@@ -338,6 +316,46 @@
   p { page-break-inside: avoid; }
 }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://tuantran.org/#person",
+      "name": "Tuan Tran",
+      "givenName": "Tuan",
+      "familyName": "Tran",
+      "url": "https://tuantran.org/",
+      "description": "Vietnamese-American poet, boat refugee, and former Buddhist novice monk. Author of 'The Collected Haiku' and 'The Road Home', a memoir in haibun.",
+      "knowsLanguage": ["en", "vi"],
+      "nationality": { "@type": "Country", "name": "United States" },
+      "sameAs": [
+        "https://vva.vietnam.ttu.edu/repositories/2/resources/3141"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://tuantran.org/#website",
+      "url": "https://tuantran.org/",
+      "name": "Tuan Tran's Journal",
+      "alternateName": "A Vietnamese-American Experience",
+      "description": "Personal journal of Tuan Tran: Vietnamese-American poet, boat refugee, and former monk. Haiku archive, memoir, and reflections on meditation.",
+      "publisher": { "@id": "https://tuantran.org/#person" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://tuantran.org/#profile",
+      "url": "https://tuantran.org/",
+      "about": { "@id": "https://tuantran.org/#person" },
+      "mainEntity": { "@id": "https://tuantran.org/#person" },
+      "isPartOf": { "@id": "https://tuantran.org/#website" }
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
@@ -418,6 +436,7 @@
     <section class="intro" aria-label="About this journal">
       <h3 class="sr-only">The Story of a Boat Refugee</h3>
       <p>
+        The author escaped Vietnam by boat at fourteen, in 1975.
         This website is a collection of personal reflections on meditation, identity,
         immigration, history, and the human search for understanding. Drawing from lived
         experience shaped by war, cultural transition, and contemplative practice, these
@@ -440,7 +459,7 @@
       <a href="childhood.html" class="topic-card">
         <span class="topic-tag">Memoir</span>
         <span class="topic-title">Vietnam War Childhood</span>
-        <span class="topic-desc">Growing up in Saigon, the fall of South Vietnam, and fleeing as a boat refugee at age 15.</span>
+        <span class="topic-desc">Growing up in Saigon, the fall of South Vietnam, and fleeing as a boat refugee at age 14.</span>
       </a>
       <a href="usa.html" class="topic-card">
         <span class="topic-tag">Memoir</span>
@@ -520,14 +539,19 @@
        
   </main>
 
-  <footer>
+ <footer>
   <p>
-    &copy; <span id="yr"></span> Tuan Tran &mdash; 
+    &copy; <span id="yr"></span> Tuan Tran &mdash;
     Vietnamese-American poet and former monk. Boat refugee, 1975.
     &mdash; <a href="sitemap.html">Site Map</a>
   </p>
   <p style="font-size: 0.75rem; margin-top: 0.5rem; opacity: 0.8;">
-    Archived by Texas Tech's Vietnam Center and linked from the Library of Congress Vietnam War research guide as a primary source. Note: tuantran.net is a different website by a different author.
+    Preserved as the
+    <a href="https://vva.vietnam.ttu.edu/repositories/2/resources/3141">Tuan Tran Collection (3684)</a>
+    at the Vietnam Center &amp; Sam Johnson Vietnam Archive, Texas Tech University,
+    and cited in the
+    <a href="https://guides.loc.gov/vietnam-war">Library of Congress Vietnam War Research Guide</a>.
+    Note: tuantran.net is a different website by a different author.
   </p>
 </footer> 
 
