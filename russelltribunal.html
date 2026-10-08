@@ -210,6 +210,61 @@ tr:nth-child(even) {
   th, td { border: 1px solid #000 !important; }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://tuantran.org/#person",
+      "name": "Tuan Tran",
+      "givenName": "Tuan",
+      "familyName": "Tran",
+      "url": "https://tuantran.org/",
+      "description": "Vietnamese-American poet, boat refugee, and former Buddhist novice monk. Author of 'The Collected Haiku' and 'The Road Home', a memoir in haibun.",
+      "knowsLanguage": ["en", "vi"],
+      "nationality": { "@type": "Country", "name": "United States" },
+      "sameAs": [
+        "https://vva.vietnam.ttu.edu/repositories/2/resources/3141"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://tuantran.org/#website",
+      "url": "https://tuantran.org/",
+      "name": "Tuan Tran's Journal",
+      "alternateName": "A Vietnamese-American Experience",
+      "description": "Personal journal of Tuan Tran: Vietnamese-American poet, boat refugee, and former monk. Haiku archive, memoir, and reflections on meditation.",
+      "publisher": { "@id": "https://tuantran.org/#person" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Article",
+      "@id": "https://tuantran.org/russelltribunal.html#article",
+      "headline": "The Russell Tribunal on Vietnam",
+      "description": "Documentation of the Russell Tribunal on Vietnam (1966-1967), the citizens' tribunal that examined U.S. military conduct in the Vietnam War. Curated testimony and findings presented by Tuan Tran.",
+      "keywords": "Russell Tribunal Vietnam, Bertrand Russell, Jean-Paul Sartre, citizens tribunal war crimes, Vietnam War documentation, Stockholm Copenhagen sessions",
+      "author": { "@id": "https://tuantran.org/#person" },
+      "publisher": { "@id": "https://tuantran.org/#person" },
+      "datePublished": "2026-10-08",
+      "dateModified": "2026-10-08",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://tuantran.org/#website" },
+      "mainEntityOfPage": { "@id": "https://tuantran.org/russelltribunal.html" },
+      "isBasedOn": {
+        "@type": "Event",
+        "name": "Russell Tribunal on Vietnam",
+        "startDate": "1966",
+        "endDate": "1967",
+        "location": [
+          { "@type": "Place", "name": "Stockholm" },
+          { "@type": "Place", "name": "Copenhagen" }
+        ]
+      }
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
