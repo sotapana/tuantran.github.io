@@ -207,13 +207,25 @@
       "@type": "Person",
       "@id": "https://tuantran.org/#person",
       "name": "Tuan Tran",
+      "givenName": "Tuan",
+      "familyName": "Tran",
       "url": "https://tuantran.org/",
-      "description": "Vietnamese-American poet, boat refugee, former Buddhist novice monk, and educator. Author of 'The Road Home' and 'The Collected Haiku'.",
+      "description": "Vietnamese-American poet, boat refugee, and former Buddhist novice monk. Author of 'The Collected Haiku' and 'The Road Home', a memoir in haibun.",
+      "knowsLanguage": ["en", "vi"],
+      "nationality": { "@type": "Country", "name": "United States" },
       "sameAs": [
-        "https://texas-tech.edu/vietnam-center", 
-        "https://library.loc.gov/vietnam-war"
-      ],
-      "knowsLanguage": ["en", "vi"]
+        "https://vva.vietnam.ttu.edu/repositories/2/resources/3141"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://tuantran.org/#website",
+      "url": "https://tuantran.org/",
+      "name": "Tuan Tran's Journal",
+      "alternateName": "A Vietnamese-American Experience",
+      "description": "Personal journal of Tuan Tran: Vietnamese-American poet, boat refugee, and former monk. Haiku archive, memoir, and reflections on meditation.",
+      "publisher": { "@id": "https://tuantran.org/#person" },
+      "inLanguage": "en"
     },
     {
       "@type": "Article",
@@ -237,7 +249,12 @@
       "name": "The Road Home: A Memoir in Haibun",
       "author": { "@id": "https://tuantran.org/#person" },
       "genre": "Memoir / Poetry",
-      "workExample": [
+            "workExample": [
+        {
+          "@type": "Chapter",
+          "name": "Prologue: The Convergence",
+          "position": 0
+        },
         {
           "@type": "Chapter",
           "name": "The Boy Who Sat Still",
@@ -250,13 +267,29 @@
         },
         {
           "@type": "Chapter",
+          "name": "The Arrival",
+          "position": 3
+        },
+        {
+          "@type": "Chapter",
+          "name": "The First Retreat",
+          "position": 4
+        },
+        {
+          "@type": "Chapter",
           "name": "The Forest Monastery",
           "position": 5
-        }
-      ]
+        },
+        {
+          "@type": "Chapter",
+          "name": "Epilogue: The Road Home",
+          "position": 6
+}
+        ]
     }
   ]
 }
+    
 </script>
 
 </head>
@@ -2016,8 +2049,6 @@ two men met me with two M16
 </div>
 </section>
 
-<p style="text-align: center;"><small>© Tuan Tran. All rights reserved.</small></p>
-
 <nav class="page-nav" aria-label="Page navigation">
   <a href="teaching.html">&larr; Previous: Teaching in Vietnam</a>
   <a href="songbirds.html" class="next">Next: Songbirds &rarr;</a>
@@ -2028,12 +2059,17 @@ two men met me with two M16
 
 <footer>
   <p>
-    &copy; <span id="yr"></span> Tuan Tran &mdash; 
+    &copy; <span id="yr"></span> Tuan Tran &mdash;
     Vietnamese-American poet and former monk. Boat refugee, 1975.
     &mdash; <a href="sitemap.html">Site Map</a>
   </p>
   <p style="font-size: 0.75rem; margin-top: 0.5rem; opacity: 0.8;">
-    Archived by Texas Tech's Vietnam Center and linked from the Library of Congress Vietnam War research guide as a primary source. Note: tuantran.net is a different website by a different author.
+    Preserved as the
+    <a href="https://vva.vietnam.ttu.edu/repositories/2/resources/3141">Tuan Tran Collection (3684)</a>
+    at the Vietnam Center &amp; Sam Johnson Vietnam Archive, Texas Tech University,
+    and cited in the
+    <a href="https://guides.loc.gov/vietnam-war">Library of Congress Vietnam War Research Guide</a>.
+    Note: tuantran.net is a different website by a different author.
   </p>
 </footer>
 
