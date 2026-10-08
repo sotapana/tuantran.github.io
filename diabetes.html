@@ -125,6 +125,51 @@ PER-PAGE META DATA
   p, .prose p, .prose li { color: #000 !important; }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://tuantran.org/#person",
+      "name": "Tuan Tran",
+      "givenName": "Tuan",
+      "familyName": "Tran",
+      "url": "https://tuantran.org/",
+      "description": "Vietnamese-American poet, boat refugee, and former Buddhist novice monk. Author of 'The Collected Haiku' and 'The Road Home', a memoir in haibun.",
+      "knowsLanguage": ["en", "vi"],
+      "nationality": { "@type": "Country", "name": "United States" },
+      "sameAs": [
+        "https://vva.vietnam.ttu.edu/repositories/2/resources/3141"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://tuantran.org/#website",
+      "url": "https://tuantran.org/",
+      "name": "Tuan Tran's Journal",
+      "alternateName": "A Vietnamese-American Experience",
+      "description": "Personal journal of Tuan Tran: Vietnamese-American poet, boat refugee, and former monk. Haiku archive, memoir, and reflections on meditation.",
+      "publisher": { "@id": "https://tuantran.org/#person" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Article",
+      "@id": "https://tuantran.org/diabetes.html#article",
+      "headline": "Safe Diabetes Management: A Warning Against GLP-1 Risks",
+      "description": "A personal account of surviving a life-threatening liver clot caused by GLP-1 therapy. A Vietnamese-American refugee shares a safer alternative strategy for Type 2 diabetes using insulin, metformin, and diet.",
+      "keywords": "GLP-1 side effects, Ozempic liver clot, diabetes management, Toujeo insulin, metformin, famine metabolism, refugee diet, Type 2 diabetes",
+      "author": { "@id": "https://tuantran.org/#person" },
+      "publisher": { "@id": "https://tuantran.org/#person" },
+      "datePublished": "2026-10-08",
+      "dateModified": "2026-10-08",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://tuantran.org/#website" },
+      "mainEntityOfPage": { "@id": "https://tuantran.org/diabetes.html" }
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
@@ -162,7 +207,7 @@ PER-PAGE META DATA
 </div>
 </nav>
 
-<img src="banner.jpg" alt="Vietnamese terraced rice fields" class="banner" width="1200" height="280" loading="lazy" />
+<img src="banner.jpg" alt="Vietnamese terraced rice fields" class="banner" width="1200" height="280" loading="eager" />
 
 <main id="main">
 
