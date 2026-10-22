@@ -30,11 +30,6 @@
 
 <style>
 /* ── PAGE-SPECIFIC: Page Heading (sitemap.html) ────────────── */
-/* This page doesn't use the .page-title-block wrapper the other
-   pages use — it has its own eyebrow/title/intro pattern directly
-   in <main>. NOTE: .page-title is also a class name in site.css
-   (for the .page-title-block pattern); this override intentionally
-   replaces it for this page's different layout. */
 .page-eyebrow {
   font-family: var(--font-display);
   font-size: clamp(0.6rem, 1.2vw, 0.7rem);
@@ -166,8 +161,6 @@
 }
 
 /* ── PAGE-SPECIFIC: Animation ──────────────────────────────── */
-/* This page also fades in the header (site.css's default only
-   animates main). */
 @media (prefers-reduced-motion: no-preference) {
   header { animation: fadeUp 0.6s ease both; }
 }
@@ -324,30 +317,54 @@
           </a>
         </li>
         <li>
-          <a href="songbirds.html">
-            <span class="sitemap-link-title">Songbirds Still Sing</span>
-            <span class="sitemap-link-desc">Haiku by Tuan Tran</span>
-            <span class="sitemap-arrow">→</span>
-          </a>
-        </li>
-        <li>
-          <a href="poetry.html">
-            <span class="sitemap-link-title">Poetry Archive</span>
-            <span class="sitemap-link-desc">The Collected Haiku by Tuan Tran</span>
-            <span class="sitemap-arrow">→</span>
-          </a>
-        </li>
-        <li>
-        <a href="themes.html">
-          <span class="sitemap-link-title">Poetry by Theme</span>
-          <span class="sitemap-link-desc">The collected haiku arranged in ten themes</span>
-          <span class="sitemap-arrow">→</span>
-        </a>
-        </li>
-        <li>
           <a href="road-home.html">
             <span class="sitemap-link-title">The Road Home</span>
             <span class="sitemap-link-desc">A memoir in haibun by Tuan Tran</span>
+            <span class="sitemap-arrow">→</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Poetry -->
+    <div class="divider" aria-hidden="true">
+      <span class="divider-text">Poetry</span>
+    </div>
+
+    <section class="sitemap-section" aria-label="Poetry pages">
+      <ul class="sitemap-list">
+        <li>
+          <a href="poetry.html">
+            <span class="sitemap-link-title">Collected Poems</span>
+            <span class="sitemap-link-desc">The complete haiku archive, 216 poems</span>
+            <span class="sitemap-arrow">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="themes.html">
+            <span class="sitemap-link-title">Poetry by Theme</span>
+            <span class="sitemap-link-desc">The collected haiku arranged in ten themes</span>
+            <span class="sitemap-arrow">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="selected.html">
+            <span class="sitemap-link-title">Selected Poems</span>
+            <span class="sitemap-link-desc">A guided path through the collection, with the Addendum</span>
+            <span class="sitemap-arrow">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="chapbook.html">
+            <span class="sitemap-link-title">The Breath Continues</span>
+            <span class="sitemap-link-desc">A chapbook — 26 Addendum haiku with sumi-e illustrations</span>
+            <span class="sitemap-arrow">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="songbirds.html">
+            <span class="sitemap-link-title">Songbirds Still Sing</span>
+            <span class="sitemap-link-desc">40 haiku by Tuan Tran</span>
             <span class="sitemap-arrow">→</span>
           </a>
         </li>
@@ -439,18 +456,11 @@
             <span class="sitemap-link-desc">Responses from readers around the world</span>
             <span class="sitemap-arrow">→</span>
           </a>
-         </li>
-         <li>
+        </li>
+        <li>
           <a href="archive.html">
             <span class="sitemap-link-title">Internet Archive</span>
             <span class="sitemap-link-desc">Original 21 poems in 2001 on Archive.org</span>
-            <span class="sitemap-arrow">→</span>
-          </a>
-        </li>
-        <li>
-          <a href="selected.html">
-            <span class="sitemap-link-title">Selected Poems</span>
-            <span class="sitemap-link-desc">20 Selected Poems from the collection</span>
             <span class="sitemap-arrow">→</span>
           </a>
         </li>
