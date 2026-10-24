@@ -127,9 +127,25 @@
     color: var(--ink-faint);
   }
 
+  /* Return links */
+  .return-links {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e0dccf;
+    font-size: 0.95rem;
+    color: var(--ink-faint);
+  }
+  .return-links a {
+    color: var(--red);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--red);
+  }
+
   @media print {
     body { padding: 0; max-width: none; }
     @page { margin: 1.1in; }
+    .return-links { display: none; }
   }
 </style>
 </head>
@@ -382,6 +398,14 @@
   Texas Tech University.</p>
   <p>&copy; 2026 Tuan Tran</p>
 </div>
+
+<nav class="return-links" aria-label="Return navigation">
+  <a href="selected.html">&larr; Selected Haiku</a>
+  &nbsp;&middot;&nbsp;
+  <a href="poetry.html">The Collected Haiku</a>
+  &nbsp;&middot;&nbsp;
+  <a href="index.html">Home</a>
+</nav>
 
 </body>
 </html>
