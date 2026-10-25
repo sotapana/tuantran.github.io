@@ -29,8 +29,8 @@
 /* Adds to site.css's shared :root — this page needs one extra
    pair of color variables not used anywhere else on the site. */
 :root {
-  --citation-bg: #f8d7da;
-  --citation-border: #dc3545;
+  --citation-bg: #fff3cd;      /* same as diabetes.html warning box */
+  --citation-border: #ffc107;
 }
 
 /* ── PAGE-SPECIFIC: h3 sub-heading ─────────────────────────── */
@@ -62,7 +62,10 @@
   border-radius: 4px;
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #721c24;
+}
+
+.citation-box strong {
+  color: #856404;
 }
 
 /* ── PAGE-SPECIFIC: Print Styles ───────────────────────────── */
