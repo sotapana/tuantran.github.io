@@ -298,9 +298,9 @@ main {
 }
 
 .poem-text.vi {
-  font-family: var(--font-vietnamese);
+  font-family: var(--font-body);   /* Crimson Pro, regular weight — same as the chapbook */
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   font-size: clamp(0.95rem, 1.4vw, 1.1rem);
   line-height: 2;
   color: var(--ink-soft);
