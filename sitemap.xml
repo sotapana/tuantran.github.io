@@ -3,7 +3,7 @@
 <!-- Homepage -->
 <url>
 <loc>https://tuantran.org/</loc>
-<lastmod>2026-06-08</lastmod>
+<lastmod>2026-10-29</lastmod>
 <changefreq>weekly</changefreq>
 <priority>1.0</priority>
 </url>
@@ -59,7 +59,7 @@
 </url>
 <url>
 <loc>https://tuantran.org/poetry.html</loc>
-<lastmod>2026-06-08</lastmod>
+<lastmod>2026-10-29</lastmod>
 <changefreq>daily</changefreq>
 <priority>1.0</priority>
 </url>
@@ -68,6 +68,24 @@
 <lastmod>2026-06-08</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.9</priority>
+</url>
+<url>
+<loc>https://tuantran.org/themes.html</loc>
+<lastmod>2026-10-29</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://tuantran.org/selected.html</loc>
+<lastmod>2026-10-29</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://tuantran.org/chapbook.html</loc>
+<lastmod>2026-10-29</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
 </url>
 <!-- Practice & Other Pages -->
 <url>
@@ -96,7 +114,7 @@
 </url>
 <url>
 <loc>https://tuantran.org/sitemap.html</loc>
-<lastmod>2026-06-08</lastmod>
+<lastmod>2026-10-29</lastmod>
 <changefreq>yearly</changefreq>
 <priority>0.3</priority>
 </url>
