@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Road Home: A Memoir in Haibun by Tuan Tran</title>
-    <meta name="description" content="A memoir in haibun by Tuan Tran, a Vietnamese boat refugee and former monk. The story of a journey from war to silence, featuring haiku drawn from a collection of poems.">
-    <meta name="keywords" content="Tuan Tran, The Road Home, Vietnamese refugee memoir, Buddhist monk, haibun, haiku poetry, boat refugee, meditation, Vietnam War, spiritual memoir">
+    <meta name="description" content="A memoir in haibun by Tuan Tran, a Vietnamese boat refugee and former monk. The story of a journey from war to silence, featuring haiku drawn from a collection of poems." />
+    <meta name="keywords" content="Tuan Tran, The Road Home, Vietnamese refugee memoir, Buddhist monk, haibun, haiku poetry, boat refugee, meditation, Vietnam War, spiritual memoir" />
     <meta name="author" content="Tuan Tran">
     <meta property="og:title" content="The Road Home: A Memoir in Haibun">
     <meta property="og:description" content="From the boat to the monastery: A Vietnamese refugee's journey to finding his voice. By Tuan Tran.">
@@ -108,7 +108,7 @@
   font-size: clamp(1rem, 2vw, 1.2rem);
   line-height: 2;
   color: var(--paper-warm);
-  white-space: pre-line;
+  white-space: normal; /* site.css uses pre-line; poems here break with <br> */
 }
 
 /* ── PAGE-SPECIFIC: Section Divider ────────────────────────── */
@@ -194,7 +194,7 @@
     color: #000 !important;
   }
 
-  p, .chapter-section, .poem-block {
+  p, .poem-block {
     page-break-inside: avoid;
   }
 }
@@ -257,7 +257,6 @@
   }
   .process-note summary {
     color: #000 !important;
-    /* Force visible in print even when collapsed */
     list-style: none;
   }
   .process-note-body p { color: #000 !important; }
@@ -300,7 +299,7 @@
       "author": { "@id": "https://tuantran.org/#person" },
       "publisher": { "@id": "https://tuantran.org/#person" },
       "datePublished": "2026-06-07",
-      "dateModified": "2026-10-13",
+      "dateModified": "2026-11-02",
       "inLanguage": "en",
       "mainEntityOfPage": {
         "@id": "https://tuantran.org/road-home.html"
@@ -314,17 +313,20 @@
       "name": "The Road Home: A Memoir in Haibun",
       "author": { "@id": "https://tuantran.org/#person" },
       "genre": "Memoir / Poetry",
-            "workExample": [
+            "hasPart": [
 { "@type": "Chapter", "name": "Prologue: The Convergence", "position": 0 },
-{ "@type": "Chapter", "name": "The Boy Who Sat Still", "position": 1 },
-{ "@type": "Chapter", "name": "The Boat", "position": 2 },
-{ "@type": "Chapter", "name": "The Lost Years", "position": 3 },
-{ "@type": "Chapter", "name": "The Awakening", "position": 4 },
-{ "@type": "Chapter", "name": "The First Retreat", "position": 5 },
-{ "@type": "Chapter", "name": "The Forest Monastery", "position": 6 },
-{ "@type": "Chapter", "name": "Epilogue: The Road Home", "position": 7 },
-{ "@type": "Chapter", "name": "Postscript: The Doctor on the Screen", "position": 8 },
-{ "@type": "Chapter", "name": "Postscript: The Shadow of the Moon", "position": 9 }
+{ "@type": "Chapter", "name": "Chapter 1: The Boy Who Sat Still", "position": 1 },
+{ "@type": "Chapter", "name": "Chapter 2: The Boat", "position": 2 },
+{ "@type": "Chapter", "name": "Chapter 3: The Lost Years", "position": 3 },
+{ "@type": "Chapter", "name": "Chapter 4: The First Retreat", "position": 4 },
+{ "@type": "Chapter", "name": "Chapter 5: The Teacher", "position": 5 },
+{ "@type": "Chapter", "name": "Chapter 6: The Awakening", "position": 6 },
+{ "@type": "Chapter", "name": "Chapter 7: The Return", "position": 7 },
+{ "@type": "Chapter", "name": "Chapter 8: The Forest Monastery", "position": 8 },
+{ "@type": "Chapter", "name": "Chapter 9: The Road Home (Again)", "position": 9 },
+{ "@type": "Chapter", "name": "Epilogue: The Road Home", "position": 10 },
+{ "@type": "Chapter", "name": "Coda I: The Shadow of the Moon", "position": 11 },
+{ "@type": "Chapter", "name": "Coda II: The Doctor on the Screen", "position": 12 }
         ]
     }
   ]
@@ -339,7 +341,7 @@
 
 <header>
 <p class="site-eyebrow">A personal journal</p>
-<h1 class="site-title"><a href="index.html">Tuan Tran's Journal</a></h1>
+<p class="site-title"><a href="index.html">Tuan Tran's Journal</a></p>
 <p class="site-subtitle">A Vietnamese-American Experience</p>
 </header>
 
@@ -402,12 +404,15 @@ loading="eager"
   <li><a href="#ch1">CHAPTER 1: THE BOY WHO SAT STILL</a></li>
   <li><a href="#ch2">CHAPTER 2: THE BOAT</a></li>
   <li><a href="#ch3">CHAPTER 3: THE LOST YEARS</a></li>
-  <li><a href="#ch4">CHAPTER 4: THE AWAKENING</a></li>
-  <li><a href="#ch5">CHAPTER 5: THE FIRST RETREAT</a></li>
-  <li><a href="#ch6">CHAPTER 6: THE FOREST MONASTERY</a></li>
+  <li><a href="#ch4">CHAPTER 4: THE FIRST RETREAT</a></li>
+  <li><a href="#ch5">CHAPTER 5: THE TEACHER</a></li>
+  <li><a href="#ch6">CHAPTER 6: THE AWAKENING</a></li>
+  <li><a href="#ch7">CHAPTER 7: THE RETURN</a></li>
+  <li><a href="#ch8">CHAPTER 8: THE FOREST MONASTERY</a></li>
+  <li><a href="#ch9">CHAPTER 9: THE ROAD HOME (AGAIN)</a></li>
   <li><a href="#epilogue">EPILOGUE: THE ROAD HOME</a></li>
-  <li><a href="#coda">POSTSCRIPT: THE DOCTOR ON THE SCREEN</a></li>
-  <li><a href="#eclipse">POSTSCRIPT: THE SHADOW OF THE MOON</a></li>
+  <li><a href="#coda1">CODA I: THE SHADOW OF THE MOON</a></li>
+  <li><a href="#coda2">CODA II: THE DOCTOR ON THE SCREEN</a></li>
 </ul>    
 
 <div style="text-align: center; margin: 2rem 0;">
@@ -431,9 +436,9 @@ loading="eager"
 
 <p>I had never studied haiku, or any other form of poetry. I never took a creative writing class, attended a workshop, joined a writers' group, or submitted a poem to a journal.</p>
 
-<p>I was a schoolteacher, a father, a refugee, and a former monk. I had been meditating for forty years and writing for none of them.</p>
+<p>I was a schoolteacher, a father, a refugee, and a former monk. I had been meditating for more than fifty years and had barely written since 2001.</p>
 
-<p>The poems began in 2001. I posted them on my website, tuantran.org, in a section I called "Writings." I didn't call them haiku. I didn't call them anything. They were just observations, moments of attention captured in a few lines.</p>
+<p>The poems had begun in 2001. I posted them on my website, tuantran.org, on a page named poetry.html. I didn't call them haiku. I didn't call them anything. They were just observations, moments of attention captured in a few lines.</p>
 
 <p>I didn't think of them as art. I thought of them as evidence that I was paying attention, and that the watcher was still there, still noticing the world. I posted them and forgot about them. The years passed, and nobody visited the website.</p>
 
@@ -446,11 +451,11 @@ a graveyard of mosquitoes
 </div>
 </div>
 
-<p>Twenty-five years passed.</p>
+<p>Nearly twenty-five years passed.</p>
 
-<p>I taught school. I raised my son and my daughter. I meditated every day. I lived in the world the way the abbot had told me to, not seeking the silence of the forest but finding the silence within the noise. I didn't write. The silence was enough. The poems on the website were left over from a brief period when I wrote, and I thought that period was over.</p>
+<p>I taught school. I raised my son and my daughter. I meditated every day. I lived in the world, not seeking the silence of the forest but finding the silence within the noise. I didn't write. The silence was enough. The poems on the website were left over from a brief period when I wrote, and I thought that period was over.</p>
 
-<p>Then a friend read my poems. I showed her the website, and she encouraged me to write again after twenty-five years. I wrote her a poem right away.</p>
+<p>Then a friend read my poems. I showed her the website, and she encouraged me to write again after twenty-four years. I wrote her a poem right away.</p>
 
 <div class="poem-block">
   <span class="poem-label">Poem</span>
@@ -468,7 +473,7 @@ a graveyard of mosquitoes
 <p>About a year later, I typed the same poem and asked an AI:</p>
 
 <div class="poem-block">
-  <span class="poem-label">Poem</span>
+  <span class="poem-label">Prompt</span>
   <div class="poem-text">
 "Temple bell ringing<br>
 I think<br>
@@ -479,7 +484,7 @@ Analyze this poem."
 
 <p>It responded:</p>
 
-<p>"This is a haiku by Matsuo Bashō... The temple bell is doing profound work here... In just eleven words, Bashō captures the melancholy of friendship across distance, the way the world constantly reminds us of the people we love and miss."</p>
+<p>"This is a haiku by Matsuo Bashō... The temple bell is doing profound work here... In just eleven words, Bashō captures the melancholy of friendship across distance, the way the world constantly reminds us of the people we love and miss." (The poem has eight words. The AI miscounted.)</p>
 
 <p>After that response, I could no longer ignore the idea of writing again.</p>
 
@@ -509,7 +514,7 @@ listens
 </div>
 </div>
 
-<p>I began to write again. It wasn't the long, rambling prose of my journal or the angry, confused poetry of my youth. It was haiku, three short lines capturing a moment of stillness.</p>
+<p>I began to write again. It wasn't the long, rambling prose of my journal. It was haiku, three short lines capturing a moment of stillness.</p>
 
 <p>The poems didn't come from ambition. They came from overflow. Within two weeks, I wrote twenty-four haiku, one after another. They completed the forty-poem collection, Songbirds Still Sing.</p>
 
@@ -565,7 +570,7 @@ of 1968
 
 <p>My elementary school years were unremarkable. When I was twelve years old, my parents sent me to live with my grandmother. I think my parents weren't able to care for all of us. I suppose a policeman's salary in Saigon was grossly inadequate.</p>
 
-<p>My grandmother's house was huge. There were actually two houses within one compound. My grandmother lived in one house, and my uncle's family lived in another. My uncle was a high-ranking military officer, I think one step below a one-star general, and he was also a military judge. They enrolled me in the sixth grade at a school for children of military officers. There was no tuition, and the school was located inside a military base. Most of the teachers were civilians. I studied at this school until the seventh grade, when I left Vietnam at the end of the war.</p>
+<p>My grandmother's house was huge. There were actually two houses within one compound. My grandmother lived in one house, and my uncle's family lived in another. My uncle was a high-ranking military officer, I think one step below a one-star general, and he was also a military judge. They enrolled me in the sixth grade at a school for children of military officers. There was no tuition, and the school was located inside a military base. Most of the teachers were civilians. The war and my move to my grandmother's house interrupted my education. I studied at this school until the seventh grade, when I left Vietnam at the end of the war.</p>
 
 <div class="poem-block">
   <span class="poem-label">Poem</span>
@@ -589,7 +594,7 @@ soaring in the wind
 </div>
 </div>
 
-<p>Since I lived in Saigon, the capital city of South Vietnam, I didn't see the destruction that was happening all around us. We were kept in the dark about the atrocities of the war. The school I went to didn't teach us about the war at the time, and the media was controlled by the South Vietnamese government.</p>
+<p>Since I lived in Saigon, the capital city of South Vietnam, I didn't see most of the destruction happening all around us. We were kept in the dark about the atrocities of the war. The school I went to didn't teach us about the war at the time, and the media was controlled by the South Vietnamese government.</p>
 
 <div class="poem-block">
   <span class="poem-label">Poem</span>
@@ -634,18 +639,6 @@ spitting fire
 </div>
 
 <p>I watched the shadows get longer. I watched the other students walk by, some staring and some looking away. Underneath the pain and the humiliation, the watcher was there. It was the same watcher that would be with me later on the ship and in the monastery. It noticed the heat and the shame, and it noticed that neither of them was permanent.</p>
-
-<div class="poem-block">
-  <span class="poem-label">Poem</span>
-  <div class="poem-text">
-     Ego<br>
-     my own ego<br>
-     big as a mountain<br>
-     chip at it<br>
-     a little<br>
-     each day
-</div>
-</div>
 
 <p>One day, a student told the teacher that someone had stolen his book. The teacher couldn't find out who the thief was, so he got the principal to come to our classroom. The principal said he would punish the whole class unless the one who stole the book would stand up and identify himself. After what seemed like a very long five minutes of silence, the person who stole the book wouldn't identify himself. I knew the principal would punish everyone, and I just couldn't let him do it. I stood up and said I stole the book. He looked at me, then asked where I kept the book. I couldn't say where the book was, because I didn't have it. He didn't say anything and then walked away. After that incident, he never picked on me again. I think he knew I had the respect of my peers.</p>
 
@@ -706,7 +699,7 @@ began
 <p>On the morning of April 30, 1975, people were running around aimlessly in Saigon. The people were afraid. They could anticipate that the end of the war was near, and they were trying to find a way to get out. During the war, there were countless propaganda shows on television about the Communists committing massacres in the cities they had captured, and how they would also bury people alive in common graves. There was also one particular television drama showing how the Communists would torture these people by pulling out their fingernails with pliers. Even though I had never met any Communist, I was afraid from the stories I had seen on television. I think my parents were also afraid that the Communists would take revenge against them for moving South in 1955.</p>
 
 <div class="poem-block">
-  <span class="poem-label">Poem</span>
+  <span class="poem-label">Note</span>
   <div class="poem-text">
 Submitted for publication. The poem will return here after the journal's decision.
 </div>
@@ -802,16 +795,7 @@ of the boats at sea
 
 <p>One night I couldn't sleep, so I walked to the courtyard. Out of the darkness, I heard a grown man sobbing. It was the saddest sound I've heard in my life.</p>
 
-<div class="poem-block">
-  <span class="poem-label">Poem</span>
-  <div class="poem-text">
-Dark clouds<br>
-approaching<br>
-songbirds still sing
-</div>
-</div>
-
-<p>One day I heard my name on the list of people chosen for the United States on the loudspeaker. I didn't feel anything. Perhaps I was too numb to feel anything. But several men approached me that day and congratulated me for being taken in by the United States. We were trucked to the airport and boarded a DC-10 for a refugee camp in Pennsylvania.</p>
+<p>One day I heard my name on the list of people chosen for the United States on the loudspeaker. I didn't feel anything. Perhaps I was too numb to feel anything. But several men approached me that day and congratulated me for being taken in by the United States. We were trucked to the airport and boarded a DC-10 for a refugee camp at Indiantown Gap, Pennsylvania.</p>
 
 <div class="poem-block">
   <span class="poem-label">Poem</span>
@@ -838,7 +822,7 @@ the real practice begins
 
 <p>The snow was falling, light and flaky. It must have been winter, but I didn't know what month it was. Pennsylvania was flat and desolate. I was walking along a main street of the camp, looking at the falling snowflakes, and watching my breath. I didn't know how long I had been walking. With no particular place to go, it seemed time was not relevant.</p>
 
-<p>There was a Buddhist temple by the side of the road. There was no one inside. As I stood there gazing at Buddha, a monk came out to greet me.</p>
+<p>There was a Buddhist temple by the side of the road. There was no one inside. As I stood there gazing at Buddha, a monk, the abbot of the camp temple, came out to greet me.</p>
 
 <p>"Thầy có bao giờ buồn không?"</p>
 
@@ -964,7 +948,7 @@ the moment I let go
 <p>The humiliation was not that she left. It was that I didn't know how long she had been looking elsewhere, while we sat across from each other at dinner, while she answered yes or no when I asked if we should try counseling, and while I went to work at a store where I cleaned up spills and counted coins and pretended I was building something.</p>
 
 <div class="poem-block">
-  <span class="poem-label">Poem</span>
+  <span class="poem-label">Note</span>
   <div class="poem-text">
 Accepted for publication in <em>Modern Haiku</em>. The poem will appear here after it is published in the journal.
   </div>
@@ -974,9 +958,9 @@ Accepted for publication in <em>Modern Haiku</em>. The poem will appear here aft
 
 <p>I had never been accused of anything, but I had punished myself anyway.</p>
 
-<p>Heartbroken and depressed, I decided to change my career. I went back to school to study education because I wanted to help children.</p>
+<p>In the months after she left, heartbroken and depressed, I decided to change my career. I went back to school to study education because I wanted to help children.</p>
 
-<p>I think I wanted to help the child I had been, the boy on the ship, the boy in the foster home, the boy who was punched in the face for being Vietnamese. I couldn't help that boy anymore. But maybe I could help other children, if I learned how.</p>
+<p>I think I wanted to help the child I had been, the boy on the ship and the boy in the foster home. I couldn't help that boy anymore. But maybe I could help other children, if I learned how.</p>
 
 <div class="poem-block">
   <span class="poem-label">Poem</span>
@@ -986,20 +970,150 @@ melting<br>
 the river flows
   </div>
 </div>
+</section>
 
-<div class="divider" style="margin: 3rem 0;"></div>
+<!-- CHAPTER 4: THE FIRST RETREAT -->
+<section id="ch4" class="chapter-section">
+<h2>CHAPTER 4: THE FIRST RETREAT</h2>
 
-<p>I got accepted into a two-year program in Teacher Education. It was a very challenging program. A lot of my classmates had graduated from Ivy League colleges, so I was in a program with some very bright people. I also had an excellent teacher. He was a product of an Ivy League education, but he wanted to create a program that would produce independent and critical thinkers, educators that would reform the public school system. I admired him very much. He was the best teacher I've had.</p>
+<p>The year was 1986. I was twenty-six. I had been meditating for fourteen years, not formally and not with a teacher or a technique. I just sat, closed my eyes, and watched my breath, the way I had done since I was twelve in Saigon and on the ship.</p>
 
-<p>My teacher, Don Finkel, had written a book called <i>Teaching With Your Mouth Shut</i>, and he designed the program around the idea that understanding cannot be told, only discovered. I had finished my first ten-day retreat over Christmas break, and the meditation was what allowed me to see what the self-reflective group was showing us: the group behaved the way Freud described the individual mind behaving. He died in 1999. The group dynamics portion of the program was removed a few years after I graduated.</p>
+<p>But my practice was still my own secret. No one had ever taught or corrected me. I knew that self-taught meditators can develop blind spots, such as habits that feel like insight but are really just comfort, or silences that feel like depth but are really avoidance. I needed something more rigorous, something that would test the silence I had been cultivating for fourteen years and tell me whether it was real.</p>
 
-<p>I loved the learning environment at Evergreen. We didn't compete against each other for grades, but worked collaboratively in the search for knowledge. I became one of the best students in the program. Evergreen was a place of progressive white liberals who believed in cultural diversity, or so I thought.</p>
+<p>I heard about a ten-day silent retreat taught by S.N. Goenka in the Vipassana tradition. I didn't know what "Vipassana" meant, and I didn't know who Goenka was. I only knew that it was silent. That was enough, so I signed up.</p>
 
-<p>During my second year, I moved into a house off campus. There were three other Evergreen students living in the house, but one student was in Alaska fishing for the summer, so I didn't have a chance to talk with him before I moved in. I didn't know he didn't like Vietnamese people. One day when I was sitting on the floor eating and watching television, he called me a "Gook" and sucker-punched me when I wasn't looking. One other housemate broke up the fight. It wasn't much of a fight since I didn't have a chance to defend myself. I called the City of Olympia 911 number and filed a police report. The other housemate also gave a witness statement of the assault. The one who assaulted me didn't get arrested. He didn't get jail time. He didn't get a fine. He didn't even get a record. And I still thought I was white.</p>
+<p>The center was in a quiet place, a park rented from the city. I arrived on a Sunday and was given a bed number and a schedule. I was also given the rules: no talking, no eye contact, no gestures, no writing, no reading, no phones, and no music. For ten days, there would be only silence.</p>
 
-<p>I got offers to teach at the San Diego School District and at Portland School District. Both of these districts were actively trying to recruit minority teachers. I also had excellent recommendations.</p>
+<p>There was no guru. There was only an assistant teacher, a man who had completed the course himself. His job was to operate the audio equipment and conduct brief interviews to ask whether we were experiencing sensations. He didn't give advice, offer comfort, or interpret our experiences.</p>
 
-<p>I taught for the San Diego School District during my first year of teaching. I was trained as an educator who was on a mission to reform the public school system, one who was dedicated to creating a democratic classroom, in the tradition of the educational philosopher John Dewey. I wanted my students to be able to think critically and to question authority. I wanted them to become empowered. I failed miserably.</p>
+<p>The instruction came from a tape recorder. Every day from morning until evening, we gathered in the meditation hall and sat in rows. The assistant pressed play, and Goenka's voice filled the room, calm, steady, and impersonal.</p>
+
+<p>"Observe the breath," the voice said. "Observe the sensation at the nostrils. Do not control the breath. Just observe."</p>
+
+<p>The voice didn't know me. It didn't know I was a refugee, or that I had survived a ship or knelt at a flagpole. It knew only the technique, and it spoke to all of us the same way.</p>
+
+<p><b>Day One to Day Three: Breath Awareness.</b></p>
+
+<p>For the first three days, the instruction was simple. Observe the breath at the nostrils where the air is entering and leaving. Pay attention to the sensation at the nostrils or the upper lip. If there is no sensation then go back to observing the breath at the nostrils or upper lip. Do not control the breath. Just observe.</p>
+
+<p>I sat on the cushion, closed my eyes, and focused on the breath. And I could do it, right away, from the first sitting. I could stay focused on the breath for the full hour. My awareness naturally rested on the touching point of each in breath and out breath. It was like a sailor holding a compass in rough water. The needle swings, but it always returns to north. It felt familiar, as though I had done it before. There were painful sensations and pleasant ones, but my focus on the breath didn't waver.</p>
+
+<p>I think fourteen years of practice had given me this. The boy who sat still in Saigon had become a man who could sit still anywhere. The technique was new, but the ability was old. Later I saw that many people couldn't focus on the breath for even ten minutes, but it came naturally to me. I wasn't better than anyone. I was just ready.</p>
+
+<p>The assistant teacher interviewed me. He asked, "Are you experiencing any sensation?"</p>
+
+<p>"Yes," I said. "Pain."</p>
+
+<p>"Observe the pain," he said. "Do not react."</p>
+
+<div class="poem-block">
+  <span class="poem-label">Poem</span>
+  <div class="poem-text">
+    In breath<br>
+    out breath<br>
+    at touching point
+  </div>
+</div>
+
+<p>I went back to the cushion and continued to observe the breath in spite of the pain.</p>
+
+<p><b>Day Four: Vipassana.</b></p>
+
+<p>I observed my breath the way I had watched the artillery shells in Saigon, from a distance, with a steadiness that was not courage but something deeper. The watcher noticed the pain, the desire to move, and the resistance to that desire. I held all of it without flinching.</p>
+
+<p>Then the Vipassana instruction started in the afternoon. The pain became excruciating. I was observing it, but I was still inside it. I was still the one who was hurting, and it was unbearable.</p>
+
+<p><b>The Log.</b></p>
+
+<p>During the 5 pm break, I walked outside. The center was near the water, and there was a beach with a log. I sat on the log and looked at the ocean.</p>
+
+<p>Suddenly an insight came to me. It didn't come from the tape or the assistant or the technique. It came from the ocean, the log, and the silence that had been building inside me for four days and fourteen years.</p>
+
+<p>I could see the pain objectively. It wasn't my pain. It was just pain, a phenomenon that moves through the body the way weather moves through the sky, arriving, intensifying, fading, and leaving. It didn't belong to me or to anyone.</p>
+
+<p>And in that moment, I saw something else that broke me open. There is so much pain in the world. It wasn't just my pain, the pain of the ship, the flagpole, or the divorce. It was everywhere, in every body and every mind, in every creature that has ever lived and suffered and died.</p>
+
+<p>I thought of the mother who chopped off her son's finger, the neighbor who hid in the attic, the men in the refugee camp, the man sobbing in the courtyard, the veteran in the bar, and the ex-wife who left without explanation. All of them were in pain.</p>
+
+<p>I was overcome with a sense of profound compassion. It wasn't pity or sympathy or sadness. It was compassion in the literal sense of the word, to suffer with. I felt the pain of the world as a direct reality and not an abstraction. I held the suffering of others in the same space where I held my own, and I saw that my pain and their pain were the same pain, with the same impermanence and the same arising and passing away.</p>
+
+<p>I sat on that log and wept, not for myself but for the world.</p>
+
+<p><b>Days Four, Five, Six.</b></p>
+
+<p>The technique had shifted. From the afternoon of the fourth day onward, I observed the sensations throughout the entire body, moving my attention systematically from the top of the head to the tips of the toes.</p>
+
+<p>I closed my eyes and started at the top of my head. I felt the scalp, the forehead, the eyes, the cheeks, the jaw, the neck, the shoulders, the arms, the hands, the chest, the stomach, the back, the hips, the legs, the feet, and the toes. I felt heat, cold, tingling, numbness, pain, pleasure, vibration, and energy. I didn't react.</p>
+
+<p>After the insight on the log, the pain was no longer mine. It was just sensation, vibration, and impermanence. I understood impermanence within myself, not as a concept or a doctrine but as a direct experience. The body was impermanent. The pain was impermanent. The self was impermanent.</p>
+
+<p>The pain lost its grip. It didn't disappear, but it was no longer mine, and pain that isn't mine can't control me. It can only pass through.</p>
+
+<p>The practice deepened. The sittings grew longer, the silence deeper, and the body stiller. I wasn't comfortable, peaceful, or enlightened. I was just sitting, breathing, and watching. But the watching had changed. It was no longer the watching of a boy trying to survive. It was the watching of a man who had seen the pain of the world and held it without breaking.</p>
+
+<p>Underneath it, I felt a pressure building, a sense that something was about to break, like the surface of a pond before the rain. I didn't know what was coming. I only knew I had to keep sitting.</p>
+
+<p>The sixth day ended and I went to bed. I lay in the dark and listened to the silence. It was no longer heavy. It was light, almost buoyant.</p>
+
+<p><b>Day Seven.</b></p>
+
+<p>I was sitting in the meditation hall. The sun was shining outside the windows and dust motes were dancing in the light. The silence was absolute, the breath was steady, and the body was still.</p>
+
+<div class="poem-block">
+  <span class="poem-label">Poem</span>
+  <div class="poem-text">
+The moon<br>
+of yesterday<br>
+is the moon of yesterday
+  </div>
+</div>
+
+<p>Then, gradually, it began. It was the bhanga state, the dissolution of the body. It wasn't a thought, a vision, or a dream. It was a direct experience.</p>
+
+<p>The body disappeared. I could still feel it, but it was no longer solid. It was not a boundary or a limit. It was a collection of sensations, vibrations, and energy. My legs, arms, head, heart, and breath were all just sensations. Everything was vibration and everything was impermanent.</p>
+
+<p>I wasn't the body, the mind, the thoughts, or the sensations. I was the observer, the watcher, the silence. I wasn't afraid or excited, happy or sad. I was just aware and present.</p>
+
+<p>The world seemed like a construct, a projection, a dream. I wasn't in the story. I was outside it, the space in which the story was happening.</p>
+
+<p>I sat in that state for hours. I don't know how long. Time had lost its meaning. The meals were served and the talks were given, but I wasn't there. I was in the dissolution, in the void. And in the void, there was peace.</p>
+
+<div class="poem-block">
+  <span class="poem-label">Poem</span>
+  <div class="poem-text">
+A moon<br>
+reflected<br>
+in still water
+  </div>
+</div>
+
+<p><b>Days Eight, Nine, Ten.</b></p>
+
+<p>I wasn't the same person who had arrived on the first day. I was something older and timeless. I was the watcher, the silence, the space. I knew I would never be the same again.</p>
+
+<p>The retreat ended on the tenth day. We were given a talk and a blessing. We were told to practice every day, to meditate for an hour in the morning and an hour in the evening, and to observe the breath, the sensations, the mind, and the world. We were told that the practice wasn't only for the retreat. It was for life. We were told that the silence wasn't the end but the beginning. The silence was the road home.</p>
+
+<p>I left the center, got in my car, and drove home. The world was the same, but I was different.</p>
+
+<div class="poem-block">
+  <span class="poem-label">Poem</span>
+  <div class="poem-text">
+Each breath<br>
+a death<br>
+renewal
+  </div>
+</div>
+</section>
+
+<!-- CHAPTER 5: THE TEACHER -->
+<section id="ch5" class="chapter-section">
+<h2>CHAPTER 5: THE TEACHER</h2>
+
+<p>While I was in the Teacher Education Program at Evergreen, I moved into a shared house. One of the housemates, another student at the college, was working in Alaska for the summer. He was a racist. After he came back, I was sitting on the floor one day, eating and watching TV. He called me a "gook" and attacked me. He punched me in the face. I called 911, and another housemate witnessed what happened. But nothing happened to him.</p>
+
+<p>In June 1988, I completed the Teacher Education Program at Evergreen. I got offers to teach at the San Diego School District and at Portland School District. Both of these districts were actively trying to recruit minority teachers. I also had excellent recommendations.</p>
+
+<p>I chose San Diego for the weather. I moved there in August and taught for the San Diego School District during my first year of teaching. I was trained as an educator who was on a mission to reform the public school system, one who was dedicated to creating a democratic classroom, in the tradition of the educational philosopher John Dewey. I wanted my students to be able to think critically and to question authority. I wanted them to become empowered. I failed miserably.</p>
 
 <p>I quit my teaching job halfway through the school year, just before Christmas break, and traveled to India. I wanted to focus on meditation, a fascination I have had ever since I was a child. I also traveled to Nepal and trekked in the Himalayas. I traveled and meditated for about six months.</p>
 
@@ -1007,9 +1121,13 @@ the river flows
 
 <p>I decided to move back to Seattle when the school year ended. Portland School District wanted me to continue teaching there, but I wanted to move back to Seattle. I think I wanted to return to Seattle because I still had not gotten over my ex-wife.</p>
 
+<p>During the Christmas break of 1990, while I was teaching for the Kent School District, I went back to Vietnam for a visit. While I was there, my mother arranged for me to marry a Vietnamese woman about my age. She was beautiful and came from a very educated family. I changed my mind. At the time, I thought I was white, and I was only attracted to white women.</p>
+
 <p>For three years, I kept applying for a teaching position with the Seattle School District. I had a good placement file and great recommendations, but I couldn't get a job interview with the Seattle School District. I couldn't even get on the substitute teachers list.</p>
 
 <p>There were a lot of Vietnamese students in the school district, and I was one of the few certificated bilingual teachers who spoke Vietnamese, but I couldn't get a teaching job. There were Japanese-Americans on both the school board and in the school district administrative office.</p>
+
+<p>I kept moving from state to state. I taught in California, Hawaii, Oregon, and Washington. I was trying to find a place where I could fit in.</p>
 
 <p>In 1997, I decided to move back to Olympia, to be near the school I loved and a teacher I admired.</p>
 
@@ -1031,12 +1149,6 @@ the bomb exploded
 <p>It became clear to me the relationship between colonialism and racial discrimination, and I finally understood the nature of racism in the United States.</p>
 
 <p>I felt angry and I needed to talk with someone, so I went to the Evergreen State College's counseling office. I spoke with a counselor for about half an hour. I didn't get another appointment or a referral to another counselor. A counselor there recommended a book, <em>A Different Mirror: A History of Multicultural America</em> by Ronald Takaki. I went to the library right after speaking with the counselor to check out the book, but it wasn't available, so I placed a "hold" on the book then went home.</p>
-
-</section>
-
-<!-- CHAPTER 4: THE AWAKENING -->
-<section id="ch4" class="chapter-section">
-<h2>CHAPTER 4: THE AWAKENING</h2>
 
 <p>About one week after I placed the hold on the book, four policemen and a community mental health counselor showed up at my apartment. They said the counselor at Evergreen told them I made a threat to shoot school children. They delivered a "No Trespassing" order and told me I was banned from the Evergreen State College, the Olympia School District, and all of the surrounding school districts as well.</p>
 
@@ -1065,20 +1177,25 @@ the sound<br>
 of home
   </div>
 </div>
+</section>
 
-<p>I moved to Hawaii shortly after. I hadn't planned it. I just needed to leave Olympia and go somewhere where the air didn't carry the newspaper article, the school letters, and the faces of four policemen standing in my doorway.</p>
+<!-- CHAPTER 6: THE AWAKENING -->
+<section id="ch6" class="chapter-section">
+<h2>CHAPTER 6: THE AWAKENING</h2>
+
+<p>I moved back to Hawaii shortly after. I hadn't planned it. I just needed to leave Olympia and go somewhere where the air didn't carry the newspaper article, the school letters, and the faces of four policemen standing in my doorway.</p>
 
 <p>I think I chose Hawaii for a reason I didn't understand at the time. In Hawaii, people looked like me. I wasn't the foreigner or the refugee, or the man whose face had been printed in a letter and sent to every school in the district. On the streets of Honolulu, I was just a man with brown skin and black hair. People took me for a local and spoke to me in Pidgin English. They didn't ask me where I was from, and they didn't flinch when I answered.</p>
 
-<p>For the first time since arriving in America at fourteen, I was invisible in the way I had always wanted to be. It wasn't because I had erased myself but because I was surrounded by faces that didn't see mine as different.</p>
+<p>This time, I was invisible in the way I had always wanted to be. It wasn't because I had erased myself but because I was surrounded by faces that didn't see mine as different.</p>
 
 <p>I taught school. The classroom was familiar, the students were children, and the work was the same. For a while, the relief was enough.</p>
 
-<p>But I still thought I was white.</p>
+<p>The first time I taught in Hawaii, I still thought I was white.</p>
 
-<p>I know how that sounds now. I had been punched in the face for being Vietnamese. I had been threatened in a bar for being Vietnamese. I had been called a threat to schoolchildren for being Vietnamese. And still, somewhere underneath, I believed that if I worked hard enough and spoke well enough, I would blend in. It wasn't the invisibility of Hawaii, where I blended in because I matched. It was the invisibility I had been chasing since high school, the invisibility of becoming white.</p>
+<p>I know how that sounds now. I had been punched in the face for being Vietnamese. I had been threatened in a bar for being Vietnamese. And still, somewhere underneath, I believed that if I worked hard enough and spoke well enough, I would blend in. It wasn't the invisibility of Hawaii, where I blended in because I matched. It was the invisibility I had been chasing since high school, the invisibility of becoming white.</p>
 
-<p>So I moved back to the mainland.</p>
+<p>So that first time, I moved back to the mainland. This time, I had a purpose.</p>
 
 <p>I moved back to Seattle and dedicated myself to applying my knowledge toward becoming a community activist. I joined all of the major Asian-American organizations and an African-American organization in Seattle. I wanted to empower the Vietnamese people in Seattle, but there wasn't any Vietnamese organization doing the work that was needed to get the Vietnamese people involved in the political process. Most of the Vietnamese organizations were still about teaching English as a Second Language, or helping Vietnamese people pass the United States Citizenship Test.</p>
 
@@ -1174,8 +1291,11 @@ carrying two loads<br>
 Saigon remembers me
   </div>
 </div>
+</section>
 
-<div class="divider" style="margin: 3rem 0;"></div>
+<!-- CHAPTER 7: THE RETURN -->
+<section id="ch7" class="chapter-section">
+<h2>CHAPTER 7: THE RETURN</h2>
 
 <p>I went back to Vietnam in 2001 when I was 41 years old. At the time, I decided to return to Vietnam permanently.</p>
 
@@ -1183,7 +1303,7 @@ Saigon remembers me
 
 <p>The airport was very modern, not much different from other airports of developed countries. I felt joy seeing that Vietnam is not as impoverished or backward as I thought. There was order in going through customs. People waited in lines, not fighting to get to the front of the line, like the Vietnam I remembered in my childhood.</p>
 
-<p>I felt a little trepidation as I approached the customs official wearing a police uniform. He didn't say much as he inspected my U.S. passport and entry visa. I could read the expression of disdain on his face as he took some time inspecting my documents. I could tell he was thinking of me as a typical Viet Kieu (Overseas Vietnamese) who left Vietnam for a better life. So I said, "I left Vietnam in 1975, before the liberation of Saigon, and I am glad to see the airport is so modern." He curtly replied in the form of a question, "If not better, then what?" That was the extent of our conversation. I thanked him then proceeded to the baggage claims area.</p>
+<p>I felt a little trepidation as I approached the customs official wearing a police uniform. He didn't say much as he inspected my U.S. passport and entry visa. I could read the expression of disdain on his face as he took some time inspecting my documents. I could tell he was thinking of me as a typical Viet Kieu (Overseas Vietnamese) who left Vietnam for a better life. So I said, "I left Vietnam in 1975, before the liberation of Saigon, and I am glad to see the airport is so modern." He curtly replied in the form of a question, "If not better, then what?" That was the extent of my conversation. I thanked him then proceeded to the baggage claims area.</p>
 
 <div class="poem-block"> 
 <span class="poem-label">Poem</span> 
@@ -1201,19 +1321,19 @@ the shape of home </div>
 
 <p>And I was home.</p>
 
-<p>It wasn't the America I had worked to join. It wasn't the Pennsylvania snow, the Hawaiian beaches, or the VW Bug behind a dumpster in Bellevue. It was home, the place where my face didn't need explanation and my name wasn't foreign. The Vietnamese language I had tried to abandon came back to me after twenty-six years.</p>
+<p>It wasn't the America I had worked to join. It wasn't the Pennsylvania snow, the Hawaiian beaches, or the VW Bug behind a dumpster in Bellevue. It was home, the place where my face didn't need explanation and my name wasn't foreign. The Vietnamese language I had tried to abandon came back to me after all those years.</p>
 
-<p>I had about three weeks with my mother before she suddenly passed away. It wasn't long enough for me to know her. But I am comforted by the knowledge that she did love me. You see, she was looking intently at the two pictures of my childhood which I had posted online, and unbeknownst to her, I was watching her facial expression as she was looking at my pictures and describing me as a child.</p>
+<p>After I arrived in 2001, I had about three weeks with my mother before she suddenly passed away. It wasn't long enough for me to know her. But I am comforted by the knowledge that she did love me. You see, she was looking intently at the two pictures of my childhood which I had posted online, and unbeknownst to her, I was watching her facial expression as she was looking at my pictures and describing me as a child.</p>
 
-<p>I don't have many memories of my childhood. The longer I am staying in Vietnam, though, the more I remember of my childhood. One day I was looking at the ceiling and I saw a gecko eating mosquitoes, and I remembered I used to watch geckos capturing and eating mosquitoes with their very quick movements. I also remember I used to look at the clouds in the sky, the deep blue sky and the swirls of the white clouds that would resemble whatever my imagination would conjure up at the time.</p>
+<div class="divider" style="margin: 4rem 0;"></div>
 
-<p>I am very happy being in Vietnam. I find myself smiling again, and I notice that people here don't treat me like an outsider. I don't detect any of the discrimination I experienced in the United States.</p>
+<p>I don't have many memories of my childhood. The longer I stayed in Vietnam, though, the more I remembered of my childhood. One day I was looking at the ceiling and I saw a gecko eating mosquitoes, and I remembered I used to watch geckos capturing and eating mosquitoes with their very quick movements. I also remember I used to look at the clouds in the sky, the deep blue sky and the swirls of the white clouds that would resemble whatever my imagination would conjure up at the time.</p>
 
-<p>I stayed. I taught. I married a Vietnamese woman. We had a son and then a daughter. For fifteen years, Vietnam was my home. It wasn't a home of refuge or escape. It was a home I returned to when I stopped running.</p>
+<p>I was very happy being in Vietnam. I found myself smiling again, and I noticed that people there didn't treat me like an outsider. I didn't detect any of the discrimination I had experienced in the United States.</p>
 
 <p>When I first returned to Vietnam in 2001, I applied for a teaching job at English language centers. Most of them told me they don't hire "Viet Kieu," or Overseas Vietnamese, even after I presented my resume, college degrees, and teaching credential. They said they only hire white teachers. In fact, they also hire local Vietnamese teachers, to teach mostly English grammar, who would teach for one-fifth of the pay of a white teacher.</p>
 
-<p>I found a job teaching American Literature to Vietnamese students at a high school. Most of these students have studied at English language centers with white teachers before. However, their command of the English language is very limited. Furthermore, their knowledge of the American culture and literature is practically zero. What they know about America is from watching MTV or Hollywood movies. They think America is a rich country with no poor people, and that almost everyone there is young, slim, white, and beautiful. I realized then my job is not only to teach them American Literature, but also to teach them about the real America.</p>
+<p>I found a job teaching American Literature to Vietnamese students at a high school. Most of these students had studied at English language centers with white teachers before. However, their command of the English language was very limited. Furthermore, their knowledge of the American culture and literature was practically zero. What they knew about America came from watching MTV or Hollywood movies. They thought America was a rich country with no poor people, and that almost everyone there was young, slim, white, and beautiful. I realized then my job was not only to teach them American Literature, but also to teach them about the real America.</p>
 
 <p>For years I had thought I was white and rejected Vietnamese women. I thought only white women were beautiful. That was the price of trying to fit in. Now I watched the women walk in their áo dài, the silk catching the light and the dress moving with the body, and I saw the beauty that had been there all along. I had just stopped pretending not to see it.</p>
 
@@ -1226,173 +1346,22 @@ of Viet Nam
   </div>
 </div>
 
-<div class="divider" style="margin: 3rem 0;"></div>
+<div class="divider" style="margin: 4rem 0;"></div>
 
-<p>But the world keeps moving.</p>
-
-<p>My wife wanted our children to have an American education. She believed in the opportunities, the universities, the schools, and the future that America promised and sometimes delivered. I knew what was waiting there for a man with my face and my history, and I knew the cost. But my son needed a father who showed up, and my daughter needed a world of possibility. The compassion I had learned on the log, the compassion that had pulled me out of the monastery, is not a feeling. It is an action.</p>
-
-<p>Compassion is packing your bag when you want to stay. It is boarding a plane when you want to remain. It is returning to the country that punched you, banned you, and made you homeless, because your children deserve the chance to become something you couldn't.</p>
-
-<p>In 2016, I returned to America. I didn't return as a refugee, or as an immigrant trying to disappear, or as a man who thought he was white. I returned as a father, a teacher, a watcher, and a former monk who had learned that the road home is not a destination but a practice.</p>
-
-<p>Years ago, I had projected my sadness onto a monk. "Are you ever sad?" I asked, not knowing I was asking about myself. I thought the question belonged to him, but it belonged to me.</p>
-
-<p>On the night before our departure, I watched my children sleep, and something loosened. The sadness was still there, but it no longer owned me. Like the Buddha beneath the orchid and the sunflowers listening to the bell, I could witness the ache without becoming it. Back then I thought peace meant being free of sorrow. Now I knew that peace meant bearing sorrow without breaking. The answer hadn't changed. Only I had.</p>
-
+<p>I stayed. I taught. I married a Vietnamese woman. We had a son and then a daughter. For fifteen years, Vietnam was my home. It wasn't a home of refuge or escape. It was a home I returned to when I stopped running.</p>
 </section>
 
-<section id="ch5" class="chapter-section">
-<h2>CHAPTER 5: THE FIRST RETREAT</h2>
-
-<p>The year was 1986. I was twenty-six. I had been meditating for fourteen years, not formally and not with a teacher or a technique. I just sat, closed my eyes, and watched my breath, the way I had done since I was twelve in Saigon and on the ship.</p>
-
-<p>But my practice was still my own secret. No one had ever taught or corrected me. I knew that self-taught meditators can develop blind spots, such as habits that feel like insight but are really just comfort, or silences that feel like depth but are really avoidance. I needed something more rigorous, something that would test the silence I had been cultivating for fourteen years and tell me whether it was real.</p>
-
-<p>I heard about a ten-day silent retreat taught by S.N. Goenka in the Vipassana tradition. I didn't know what "Vipassana" meant, and I didn't know who Goenka was. I only knew that it was silent. That was enough, so I signed up.</p>
-
-<p>The center was in a quiet place, a park rented from the city. I arrived on a Sunday and was given a bed number and a schedule. I was also given the rules: no talking, no eye contact, no gestures, no writing, no reading, no phones, and no music. For ten days, there would be only silence.</p>
-
-<p>There was no guru. There was only an assistant teacher, a man who had completed the course himself. His job was to operate the audio equipment and conduct brief interviews to ask whether we were experiencing sensations. He didn't give advice, offer comfort, or interpret our experiences.</p>
-
-<p>The instruction came from a tape recorder. Every day from morning until evening, we gathered in the meditation hall and sat in rows. The assistant pressed play, and Goenka's voice filled the room, calm, steady, and impersonal.</p>
-
-<p>"Observe the breath," the voice said. "Observe the sensation at the nostrils. Do not control the breath. Just observe."</p>
-
-<p>The voice didn't know me. It didn't know I was a refugee, or that I had survived a ship, knelt at a flagpole, been punched in the face, or slept in a car. It knew only the technique, and it spoke to all of us the same way.</p>
-
-<p><b>Day One to Day Three: Breath Awareness.</b></p>
-
-<p>For the first three days, the instruction was simple. Observe the breath at the nostrils where the air is entering and leaving. Pay attention to the sensation at the nostrils or the upper lip. If there is no sensation then go back to observing the breath at the nostrils or upper lip. Do not control the breath. Just observe.</p>
-
-<p>I sat on the cushion, closed my eyes, and focused on the breath. And I could do it, right away, from the first sitting. I could stay focused on the breath for the full hour. My awareness naturally rested on the touching point of each in breath and out breath. It was like a sailor holding a compass in rough water. The needle swings, but it always returns to north. It felt familiar, as though I had done it before. There were painful sensations and pleasant ones, but my focus on the breath didn't waver.</p>
-
-<p>I think fourteen years of practice had given me this. The boy who sat still in Saigon had become a man who could sit still anywhere. The technique was new, but the ability was old. Later I saw that many people couldn't focus on the breath for even ten minutes, but it came naturally to me. I wasn't better than anyone. I was just ready.</p>
-
-<p>The assistant teacher interviewed me. He asked, "Are you experiencing any sensation?"</p>
-
-<p>"Yes," I said. "Pain."</p>
-
-<p>"Observe the pain," he said. "Do not react."</p>
-
-<div class="poem-block">
-  <span class="poem-label">Poem</span>
-  <div class="poem-text">
-    In breath<br>
-    out breath<br>
-    at touching point
-  </div>
-</div>
-
-<p>I went back to the cushion and continued to observe the breath in spite of the pain.</p>
-
-<p><b>Day Four: Vipassana.</b></p>
-
-<p>I observed my breath the way I had watched the artillery shells in Saigon, from a distance, with a steadiness that was not courage but something deeper. The watcher noticed the pain, the desire to move, and the resistance to that desire. I held all of it without flinching.</p>
-
-<p>Then the Vipassana instruction started in the afternoon. The pain became excruciating. I was observing it, but I was still inside it. I was still the one who was hurting, and it was unbearable.</p>
-
-<p><b>The Log.</b></p>
-
-<p>During the 5 pm break, I walked outside. The center was near the water, and there was a beach with a log. I sat on the log and looked at the ocean.</p>
-
-<p>Suddenly an insight came to me. It didn't come from the tape or the assistant or the technique. It came from the ocean, the log, and the silence that had been building inside me for four days and fourteen years.</p>
-
-<p>I could see the pain objectively. It wasn't my pain. It was just pain, a phenomenon that moves through the body the way weather moves through the sky, arriving, intensifying, fading, and leaving. It didn't belong to me or to anyone.</p>
-
-<p>And in that moment, I saw something else that broke me open. There is so much pain in the world. It wasn't just my pain, the pain of the ship, the flagpole, the punch, the divorce, or the homelessness. It was everywhere, in every body and every mind, in every creature that has ever lived and suffered and died.</p>
-
-<p>I thought of the mother who chopped off her son's finger, the neighbor who hid in the attic, the men in the refugee camp, the man sobbing in the courtyard, the veteran in the bar, the housemate who called me "gook," the ex-wife who left without explanation, and the parents who demanded my arrest. All of them were in pain.</p>
-
-<p>I was overcome with a sense of profound compassion. It wasn't pity or sympathy or sadness. It was compassion in the literal sense of the word, to suffer with. I felt the pain of the world as a direct reality and not an abstraction. I held the suffering of others in the same space where I held my own, and I saw that my pain and their pain were the same pain, with the same impermanence and the same arising and passing away.</p>
-
-<p>I sat on that log and wept, not for myself but for the world.</p>
-
-<p><b>Days Four, Five, Six.</b></p>
-
-<p>The technique had shifted. From the afternoon of the fourth day onward, I observed the sensations throughout the entire body, moving my attention systematically from the top of the head to the tips of the toes.</p>
-
-<p>I closed my eyes and started at the top of my head. I felt the scalp, the forehead, the eyes, the cheeks, the jaw, the neck, the shoulders, the arms, the hands, the chest, the stomach, the back, the hips, the legs, the feet, and the toes. I felt heat, cold, tingling, numbness, pain, pleasure, vibration, and energy. I didn't react.</p>
-
-<p>After the insight on the log, the pain was no longer mine. It was just sensation, vibration, and impermanence. I understood impermanence within myself, not as a concept or a doctrine but as a direct experience. The body was impermanent. The pain was impermanent. The self was impermanent.</p>
-
-<p>The pain lost its grip. It didn't disappear, but it was no longer mine, and pain that isn't mine can't control me. It can only pass through.</p>
-
-<p>The practice deepened. The sittings grew longer, the silence deeper, and the body stiller. I wasn't comfortable, peaceful, or enlightened. I was just sitting, breathing, and watching. But the watching had changed. It was no longer the watching of a boy trying to survive. It was the watching of a man who had seen the pain of the world and held it without breaking.</p>
-
-<p>Underneath it, I felt a pressure building, a sense that something was about to break, like the surface of a pond before the rain. I didn't know what was coming. I only knew I had to keep sitting.</p>
-
-<p>The sixth day ended and I went to bed. I lay in the dark and listened to the silence. It was no longer heavy. It was light, almost buoyant.</p>
-
-<p><b>Day Seven.</b></p>
-
-<p>I was sitting in the meditation hall. The sun was shining outside the windows and dust motes were dancing in the light. The silence was absolute, the breath was steady, and the body was still.</p>
-
-<div class="poem-block">
-  <span class="poem-label">Poem</span>
-  <div class="poem-text">
-The moon<br>
-of yesterday<br>
-is the moon of yesterday
-  </div>
-</div>
-
-<p>Then, gradually, it began. It was the bhanga state, the dissolution of the body. It wasn't a thought, a vision, or a dream. It was a direct experience.</p>
-
-<p>The body disappeared. I could still feel it, but it was no longer solid. It was not a boundary or a limit. It was a collection of sensations, vibrations, and energy. My legs, arms, head, heart, and breath were all just sensations. Everything was vibration and everything was impermanent.</p>
-
-<p>I wasn't the body, the mind, the thoughts, or the sensations. I was the observer, the watcher, the silence. I wasn't afraid or excited, happy or sad. I was just aware and present.</p>
-
-<p>The world seemed like a construct, a projection, a dream. I wasn't in the story. I was outside it, the space in which the story was happening.</p>
-
-<p>I sat in that state for hours. I don't know how long. Time had lost its meaning. The meals were served and the talks were given, but I wasn't there. I was in the dissolution, in the void. And in the void, there was peace.</p>
-
-<div class="poem-block">
-  <span class="poem-label">Poem</span>
-  <div class="poem-text">
-A moon<br>
-reflected<br>
-in still water
-  </div>
-</div>
-
-<p><b>Days Eight, Nine, Ten.</b></p>
-
-<p>I wasn't the same person who had arrived on the first day. I wasn't the same person who had survived the ship, knelt at the flagpole, been punched in the face, or slept in the car. I was something older and timeless. I was the watcher, the silence, the space. I knew I would never be the same again.</p>
-
-<p>The retreat ended on the tenth day. We were given a talk and a blessing. We were told to practice every day, to meditate for an hour in the morning and an hour in the evening, and to observe the breath, the sensations, the mind, and the world. We were told that the practice wasn't only for the retreat. It was for life. It was for the ship, the flagpole, the punch, the car, and the world. We were told that the silence wasn't the end but the beginning. The silence was the road home.</p>
-
-<p>I left the center, got in my car, and drove home. The world was the same, but I was different.</p>
-
-<div class="poem-block">
-  <span class="poem-label">Poem</span>
-  <div class="poem-text">
-Each breath<br>
-a death<br>
-renewal
-  </div>
-</div>
-</section>
-
-<section id="ch6" class="chapter-section">
-<h2>CHAPTER 6: THE FOREST MONASTERY</h2>
+<!-- CHAPTER 8: THE FOREST MONASTERY -->
+<section id="ch8" class="chapter-section">
+<h2>CHAPTER 8: THE FOREST MONASTERY</h2>
 
 <p>The year was 2010. I was fifty. Twenty-four years had passed since the first retreat, and I had practiced every day. The bhanga state had come and gone like a tide, leaving the shore changed but not permanently.</p>
 
-<p>The practice was solid. The watcher was steady. The compassion was real. But something was pulling me. It was a thread I had been following since I was twelve, when I first sat down and closed my eyes in Saigon. It had led through the ship, the flagpole, the punch, the car, the retreat, and years of silent sitting in apartments and houses that were never quite home. Now the thread was leading me to the forest.</p>
+<p>The practice was solid. The watcher was steady. The compassion was real. But something was pulling me. It was a thread I had been following since I was twelve, when I first sat down and closed my eyes in Saigon. It had led through years of silent sitting in apartments and houses that were never quite home. Now the thread was leading me to the forest.</p>
 
 <p>I didn't decide to become a monk. The decision made itself. It came the way the insight came on the log, not as a thought but as a knowing. I was certain that the next step wasn't more sitting in my living room but something total, something that would strip away everything that wasn't essential and leave only the practice.</p>
 
 <p>I packed a bag, bought a ticket, and flew to Myanmar.</p>
-
-<div class="poem-block">
-  <span class="poem-label">Poem</span>
-  <div class="poem-text">
-Guru<br>
-where are you<br>
-but in my heart
-  </div>
-</div>
 
 <div class="divider" style="margin: 3rem 0;"></div>
 
@@ -1417,13 +1386,13 @@ be still
 
 <div class="divider" style="margin: 3rem 0;"></div>
 
-<p>The routine began the next morning. I woke at 3:00 a.m. to meditate. At 5:00 there was group meditation in the hall, and at 6:00 the meal.</p>
+<p>The routine began the next morning. I woke at 3:00 a.m. to meditate. At 5:00 there was group meditation in the hall, and at 6:00 breakfast.</p>
+
+<p>The kitchen staff prepared porridge for breakfast. We ate our main meal at 11:00 and finished before noon, and after that we had nothing until the next morning.</p>
 
 <p>The villagers came to us. They brought rice, vegetables, fruit, and sometimes a curry or a sweet to the monastery. We lined up holding our bowls and walked past them as they placed food in the bowls. We didn't choose and we didn't refuse. We received what was given. The villagers were devout and had been feeding monks for generations. It was their practice of dana, or generosity, and we were the recipients. In return we gave them the dharma, or rather the silence the dharma lives in.</p>
 
-<p>The kitchen staff prepared porridge for breakfast. We ate our main meal before noon, and after that we had nothing until the next morning.</p>
-
-<p>At 7:00 a.m. we swept the grounds and cleaned the kuti. At 8:00 we meditated. At 10:00 we walked slowly and mindfully in the forest. We meditated again at 11:00, 1:00, and 3:00. At 5:00 there was group meditation in the hall, at 7:00 evening chanting, at 8:00 meditation, and at 9:00 we went to sleep.</p>
+<p>At 7:00 a.m. we swept the grounds and cleaned the kuti. At 8:00 we meditated. At 10:00 we walked slowly and mindfully in the forest. We meditated again at noon, 1:00, and 3:00. At 5:00 there was group meditation in the hall, at 7:00 evening chanting, at 8:00 meditation, and at 9:00 we went to sleep.</p>
 
 <p>It came to fourteen hours of meditation a day, with no talking except what was necessary, no entertainment, and no comfort. This was what I had come for.</p>
 
@@ -1454,7 +1423,7 @@ the sunflowers listen
 
 <div class="divider" style="margin: 3rem 0;"></div>
 
-<p>It wasn't all peace. There were days when the mind wouldn't settle and desire arose and wouldn't leave. I wondered if I was wasting my time sitting in a hut on the other side of the world from everyone I loved. There were days when I felt I didn't deserve the robes I wore. But even the struggle was practice, and even the doubt was something to observe. I watched the doubt the way I watched the breath, without judgment or reaction. Slowly it would pass, the way everything passes, and I would return to the breath, and the breath would be enough.</p>
+<p>It wasn't all peace. There were days when the mind wouldn't settle and desire arose and wouldn't leave. I wondered if I was wasting my time sitting in a hut far from everyone I loved. There were days when I felt I didn't deserve the robes I wore. But even the struggle was practice, and even the doubt was something to observe. I watched the doubt the way I watched the breath, without judgment or reaction. Slowly it would pass, the way everything passes, and I would return to the breath, and the breath would be enough.</p>
 
 <p>I wanted to stay there for the rest of my life.</p>
 
@@ -1482,7 +1451,7 @@ no shadow in the forest
 <p>I packed my bag, took off the robes, and put on my civilian clothes. I had considered full ordination, taking the vows of a bhikkhu and committing to the monastery for life. But my son needed me, and sometimes compassion is taking off the robes and going home.</p>
 
 <div class="poem-block">
-  <span class="poem-label">Poem</span>
+  <span class="poem-label">Note</span>
   <div class="poem-text">
 Submitted for publication. The poem will return here after the journal's decision.
   </div>
@@ -1504,6 +1473,19 @@ why think of summer
 </div>
 </section>
 
+<!-- CHAPTER 9: THE ROAD HOME (AGAIN) -->
+<section id="ch9" class="chapter-section">
+<h2>CHAPTER 9: THE ROAD HOME (AGAIN)</h2>
+
+<p>Compassion is packing your bag when you want to stay. It is boarding a plane when you want to remain. It is returning to the country that punched you, banned you, and made you homeless, because your children deserve the chance to become something you couldn't.</p>
+
+<p>In 2016, I returned to America. I didn't return as a refugee, or as an immigrant trying to disappear, or as a man who thought he was white. I returned as a father, a teacher, a watcher, and a former monk who had learned that the road home is not a destination but a practice.</p>
+
+<p>Years ago, I had projected my sadness onto a monk. "Are you ever sad?" I asked, not knowing I was asking about myself. I thought the question belonged to him, but it belonged to me.</p>
+
+<p>On the night before our departure, I watched my children sleep, and something loosened. The sadness was still there, but it no longer owned me. Like the Buddha beneath the orchid and the sunflowers listening to the bell, I could witness the ache without becoming it. Back then I thought peace meant being free of sorrow. Now I knew that peace meant bearing sorrow without breaking. The answer hadn't changed. Only I had.</p>
+</section>
+
 <!-- EPILOGUE -->
 <section id="epilogue" class="chapter-section">
 <h2>EPILOGUE: THE ROAD HOME</h2>
@@ -1523,7 +1505,7 @@ of my friend
 </div>
 </div>
 
-<p>For twenty-five years, I wrote nothing except one poem about a temple bell for a friend. I lived, worked, taught, loved, lost, grieved, celebrated, and aged. I watched the birds, the flowers, the snow, and the people. I didn't write because the words weren't needed. The silence was enough. But the poems were accumulating, not on paper or on a screen but in the body, in the breath, and in the spaces between thoughts. They were waiting.</p>
+<p>For nearly twenty-five years, I wrote nothing, until one poem about a temple bell for a friend. I lived, worked, taught, loved, lost, grieved, celebrated, and aged. I watched the birds, the flowers, the snow, and the people. I didn't write because the words weren't needed. The silence was enough. But the poems were accumulating, not on paper or on a screen but in the body, in the breath, and in the spaces between thoughts. They were waiting.</p>
 
 <div class="poem-block">
   <span class="poem-label">Poem</span>
@@ -1536,7 +1518,7 @@ winter is over
 
 <p>Then the convergence happened. A friend read my haiku and compared my voice to Bashō. I knew Bashō was a master of the form but had never read his work. The comparison was made independently by my friend and by an AI, and I couldn't ignore it. It brought me back to writing after twenty-five years.</p>
 
-<p>The poems didn't come from ambition but from overflow. I began to write again, not the long, rambling prose of my journal or the angry, confused poetry of my youth, but haiku, the three-line breath. I wrote haiku after the earthworm, after the spiderweb, after the bombs, and after the poem about my mother. I wrote about the road home.</p>
+<p>The poems didn't come from ambition but from overflow. I began to write again, not the long, rambling prose of my journal, but haiku, the three-line breath. I wrote haiku after the earthworm, after the spiderweb, after the bombs, and after the poem about my mother. I wrote about the road home.</p>
 
 <p>I realized that the road home wasn't a place. It was a practice, the act of paying attention and seeing the world as it is, without the filter of fear, anger, or the past.</p>
 
@@ -1583,18 +1565,61 @@ the road home
 
 <div class="divider" style="margin: 3rem 0;"></div>
 
-<section id="coda" class="chapter-section">
-<h2>POSTSCRIPT: THE DOCTOR ON THE SCREEN</h2>
+<!-- CODA I: THE SHADOW OF THE MOON (ECLIPSE) -->
+<section id="coda1" class="chapter-section">
+<h2>CODA I: THE SHADOW OF THE MOON</h2>
+
+<p>August 21, 2017, was the day the world stopped to watch the sky go dark.</p>
+
+<p>I was driving through Oregon with my two children toward a viewing site. We had planned this trip for months, to witness the total solar eclipse. I wanted my children to see it. I wanted them to understand that the world is vast and that there are wonders that have nothing to do with borders or wars.</p>
+
+<p>We made it to the viewing site. The air cooled and the light took on a strange, metallic quality. The birds fell silent. The sky went black, the stars came out, and the temperature dropped. It was beautiful and it was terrifying.</p>
+
+<p>Then the light came back, and we started home. There was a lot of traffic. We were on a rural road with trees along both sides.</p>
+
+<p>Then I made a mistake. I took a wrong turn. I tried to turn around, but another car was coming, so I pulled into a driveway that wasn't ours to avoid a head-on collision.</p>
+
+<p>Before I could correct it, two white men stepped out of the house holding M16s. The sky above had returned to blue, and on the ground two men were pointing weapons at my car.</p>
+
+<p>My heart didn't race. It stopped. For a split second, I wasn't in Oregon. I wasn't a father in a car. I was fourteen again on a ship in the South China Sea, and I was twelve, kneeling in the sun. I was a boy who had learned that the wrong turn could mean death.</p>
+
+<p>Instinct took over before thought did. I rolled down the window. My voice came out shaky and desperate.</p>
+
+<p>"I turned into your driveway," I said. "I was trying to avoid a head-on collision. I'm sorry. I'm so sorry."</p>
+
+<p>I kept saying sorry over and over.</p>
+
+<p>The men looked at me, at the car, and at the sky. They lowered their weapons. One of them said, "Just turn around."</p>
+
+<p>I turned around and drove back onto the road. My hands were shaking on the steering wheel. My children were quiet in the back seat, watching me.</p>
+
+<p>We made it home. But as I remembered the moon covering the sun, I realized that the darkness wasn't just in the sky. It was in the road, the driveway, and the M16s.</p>
+
+<p>The war hadn't ended. I think it had been waiting for the right moment to show up again, for a wrong turn or a moment of vulnerability or a darkened sky. And I had brought my children into it.</p>
+
+<div class="poem-block"> 
+<span class="poem-label">Poem</span> 
+<div class="poem-text"> 
+A wrong turn<br> 
+on solar eclipse<br> 
+two men met me with two M16 
+</div> 
+</div>
+</section>
+
+<!-- CODA II: THE DOCTOR ON THE SCREEN -->
+<section id="coda2" class="chapter-section">
+<h2>CODA II: THE DOCTOR ON THE SCREEN</h2>
 
 <p>I was sitting in my living room when I saw it. A Vietnamese doctor, an elderly man, was being dragged off an airplane by police officers. His mouth was bloodied, his glasses were askew, and his shirt had ridden up, exposing his stomach. He was sixty-nine years old and a physician with patients waiting for him the next morning. He was a paying passenger sitting in a seat he had purchased.</p>
 
-<p>The year was 2017. I was fifty-six.</p>
+<p>It was April 2017, four months before the eclipse. I was fifty-six.</p>
 
 <p>The camera shook because the person filming was shaking. A woman nearby screamed. The other passengers sat frozen, some filming and some looking away. The officers pulled him by his arms and dragged him up the aisle. His head struck the armrest, and he went limp. They kept pulling.</p>
 
 <p>I watched the way I have always watched, quietly and from a distance. But this time the face on the screen looked like mine. He wasn't the same man and it wasn't the same story, but it was the same face, the same dark hair, brown skin, and shape of the eyes that America has never quite known what to do with.</p>
 
-<p>It reminded me of something I learned watching Rodney King in 1991. I saw African American men and women crying as they watched footage of their brother being beaten by police officers who faced no consequences. I understood it then, not intellectually but in my gut. When violence against a person who looks like you is broadcast to the nation, it happens to everyone who shares their face. The pain multiplies. Twenty-six years later, I felt it again.</p>
+<p>It reminded me of watching Rodney King in 1991. I saw African American men and women crying as they watched footage of their brother being beaten by police officers who faced no consequences. Twenty-six years later, I understood them, not intellectually but in my gut. When violence against a person who looks like you is broadcast to the nation, it happens to everyone who shares their face. The pain multiplies.</p>
 
 <p>I had been punched in the face by a housemate who called me "gook." I had been threatened in a bar by a veteran who hated the country I was born in. I had been reported as a threat to schoolchildren after I went to a counseling office to talk about the war. In every case, the system looked at my face and decided I was less than a person, someone who could be hit, silenced, or removed.</p>
 
@@ -1649,46 +1674,6 @@ spider stands still
 <p>I wrote this memoir because the road home is not a straight line. It is a circle. You leave, you return, and you leave again. Along the way, you watch the boat, the snow, the fist, the forest, and the screen. You breathe, you notice, and you write it down, not because writing changes the world but because the watcher changes. The watcher is all we have.</p>
 
 <p>The road home does not end. It deepens.</p>
-
-</section>
-
-<section id="eclipse" class="chapter-section">
-<h2>POSTSCRIPT: THE SHADOW OF THE MOON</h2>
-
-<p>August 21, 2017, was the day the world stopped to watch the sky go dark.</p>
-
-<p>I was driving through Oregon with my two children toward a viewing site. We had planned this trip for months, to witness the total solar eclipse. I wanted my children to see it. I wanted them to understand that the world is vast and that there are wonders that have nothing to do with borders or wars.</p>
-
-<p>We were on a rural road with trees along both sides. The air was already cooling and the light had a strange, metallic quality. The birds were falling silent.</p>
-
-<p>Then I made a mistake. I took a wrong turn, a slight deviation from the route, and suddenly I was turning into a driveway that wasn't ours.</p>
-
-<p>Before I could correct it, two white men stepped out of the house holding M16s. The sky above was turning black as the sun was swallowed, and on the ground two men were pointing weapons at my car.</p>
-
-<p>My heart didn't race. It stopped. For a split second, I wasn't in Oregon. I wasn't a father in a car. I was fourteen again on a ship in the South China Sea, and I was twelve, kneeling in the sun. I was a boy who had learned that the wrong turn could mean death.</p>
-
-<p>Instinct took over before thought did. I rolled down the window. My voice came out shaky and desperate.</p>
-
-<p>"I turned into your driveway," I said. "I was trying to avoid a head-on collision. I'm sorry. I'm so sorry."</p>
-
-<p>I kept saying sorry over and over.</p>
-
-<p>The men looked at me, at the car, and at the sky, which was now almost entirely dark. They lowered their weapons. One of them said, "Just turn around."</p>
-
-<p>I turned around and drove back onto the road. My hands were shaking on the steering wheel. My children were quiet in the back seat, watching me.</p>
-
-<p>We made it to the viewing site and watched the eclipse. The sky went black, the stars came out, and the temperature dropped. It was beautiful and it was terrifying. But as I sat there watching the moon cover the sun, I realized that the darkness wasn't just in the sky. It was in the road, the driveway, and the M16s.</p>
-
-<p>The war hadn't ended. I think it had been waiting for the right moment to show up again, for a wrong turn or a moment of vulnerability or a darkened sky. And I had brought my children into it.</p>
-
-<div class="poem-block"> 
-<span class="poem-label">Poem</span> 
-<div class="poem-text"> 
-A wrong turn<br> 
-on solar eclipse<br> 
-two men met me with two M16 
-</div> 
-</div>
 </section>
 
 <!-- ── PROCESS NOTE ─────────────────────────────────────────── -->
@@ -1704,7 +1689,7 @@ two men met me with two M16
     <a href="https://web.archive.org/">Wayback Machine</a> and by the
     <a href="https://vva.vietnam.ttu.edu/repositories/2/resources/3141">Tuan Tran Collection</a>
     at the Vietnam Center &amp; Sam Johnson Vietnam Archive, Texas Tech University.
-    All of the haiku appeared first on this website.</p>
+    I wrote most of the haiku, poems 17 to 219 in my collected poems, while writing and revising this memoir.</p>
 
     <p>I used an AI tool for proofreading, as authors have long used editors.
     The words, the memories, and the mistakes are mine.</p>
@@ -1777,4 +1762,3 @@ if (processNote) {
 
 </body>
 </html>
-
